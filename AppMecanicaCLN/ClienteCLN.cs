@@ -1,4 +1,5 @@
 ﻿using AppMecanicaCAD;
+using AppMecanicaEntidades;
 
 namespace AppMecanicaCLN
 {

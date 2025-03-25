@@ -127,6 +127,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(342, 240);
             dataGridView1.TabIndex = 35;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // btnHistorial
             // 
@@ -137,6 +138,7 @@
             btnHistorial.TabIndex = 34;
             btnHistorial.Text = "Historial";
             btnHistorial.UseVisualStyleBackColor = true;
+            btnHistorial.Click += btnHistorial_Click;
             // 
             // btnNuevo
             // 

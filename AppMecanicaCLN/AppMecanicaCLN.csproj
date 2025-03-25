@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AppMecanicaCAD\AppMecanicaCAD.csproj" />
+    <ProjectReference Include="..\AppMecanicaEntidades\AppMecanicaEntidades.csproj" />
   </ItemGroup>
 
 </Project>

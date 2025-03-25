@@ -14,9 +14,7 @@ namespace AppMecanicaCAD
         static Coneccion()
         {
             // Ruta relativa al ejecutable
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "database.sqlite");
-
-
+            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Data", "database.sqlite");
 
 
             // Crear la carpeta si no existe
@@ -32,7 +30,17 @@ namespace AppMecanicaCAD
 
         public static SQLiteConnection CreateConnection()
         {
-            return new SQLiteConnection(connectionString);
+            try
+            {
+                var connection = new SQLiteConnection(connectionString);
+                Console.WriteLine("Conexión creada correctamente.");
+                return connection;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al conectar a la base de datos: " + ex.Message);
+                throw;
+            }
         }
     }
 }

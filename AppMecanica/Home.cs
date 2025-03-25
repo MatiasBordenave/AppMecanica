@@ -15,10 +15,13 @@ namespace AppMecanica
 
         private void Home_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clienteCLN.ObtenerClientes();
+            LoadData();
         }
 
-
+        private void LoadData()
+        {
+            dataGridView1.DataSource = clienteCLN.ObtenerClientes();
+        }
 
 
         //desde aqui 
@@ -87,6 +90,16 @@ namespace AppMecanica
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
             hidePanel();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }

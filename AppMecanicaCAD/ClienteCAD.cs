@@ -1,4 +1,5 @@
 ﻿using System.Data.SQLite;
+using AppMecanicaEntidades;
 
 namespace AppMecanicaCAD
 {
@@ -6,8 +7,10 @@ namespace AppMecanicaCAD
     {
         public List<Cliente> ObtenerCliente()
         {
+
+            
             List<Cliente> clientes = new List<Cliente>();
-            string query = "SELECT * FROM clientes";
+            string query = "select * from clientes;";
 
             try
             {
@@ -22,10 +25,10 @@ namespace AppMecanicaCAD
                             {
                                 clientes.Add(new Cliente
                                 {
-                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Id = Convert.ToInt32(reader["id_cliente"]),
                                     nombreYApellido = reader["nombreYApellido"].ToString(),
-                                    Telefono = reader["Telefono"].ToString(),
-                                    Domicilio = reader["Domicilio"].ToString()
+                                    Telefono = reader["telefono"].ToString(),
+                                    Domicilio = reader["domicilio"].ToString()
                                 });
                             }
                         }
@@ -37,17 +40,11 @@ namespace AppMecanicaCAD
                 Console.WriteLine("Error en ObtenerCliente: " + ex.Message);
             }
 
-            return clientes; // Corrige el nombre de la variable retornada
+            return clientes;
         }
     }
 
-    public class Cliente
-    {
-        public int Id { get; set; }
-        public string nombreYApellido { get; set; }
-        public string Telefono { get; set; }
-        public string Domicilio { get; set; }
-    }
+   
 
 }
 
