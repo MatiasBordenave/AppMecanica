@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             panelPresupuesto = new Panel();
-            dataGridView1 = new DataGridView();
             btnHistorial = new Button();
             btnNuevo = new Button();
             btnGuardar = new Button();
@@ -65,21 +64,23 @@
             lblDatos = new Label();
             btnVolverPresupuesto = new Button();
             label1 = new Label();
+            dataGridView1 = new DataGridView();
             panelRegistro = new Panel();
             btnVolverRegistro = new Button();
             label2 = new Label();
             btnRegistro = new Button();
             btnPresupuesto = new Button();
             pictureBox1 = new PictureBox();
+            panelHome = new Panel();
             panelPresupuesto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panelRegistro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panelHome.SuspendLayout();
             SuspendLayout();
             // 
             // panelPresupuesto
             // 
-            panelPresupuesto.Controls.Add(dataGridView1);
             panelPresupuesto.Controls.Add(btnHistorial);
             panelPresupuesto.Controls.Add(btnNuevo);
             panelPresupuesto.Controls.Add(btnGuardar);
@@ -114,20 +115,11 @@
             panelPresupuesto.Controls.Add(lblDatos);
             panelPresupuesto.Controls.Add(btnVolverPresupuesto);
             panelPresupuesto.Controls.Add(label1);
-            panelPresupuesto.Location = new Point(1, 3);
+            panelPresupuesto.Location = new Point(967, 84);
             panelPresupuesto.Margin = new Padding(4);
             panelPresupuesto.Name = "panelPresupuesto";
-            panelPresupuesto.Size = new Size(1089, 647);
+            panelPresupuesto.Size = new Size(1210, 647);
             panelPresupuesto.TabIndex = 4;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(840, 193);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(342, 240);
-            dataGridView1.TabIndex = 35;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // btnHistorial
             // 
@@ -447,15 +439,25 @@
             label1.TabIndex = 0;
             label1.Text = "PANEL PRESUPUESTO";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(310, 102);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(342, 240);
+            dataGridView1.TabIndex = 35;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
             // panelRegistro
             // 
             panelRegistro.BackColor = SystemColors.Control;
+            panelRegistro.Controls.Add(dataGridView1);
             panelRegistro.Controls.Add(btnVolverRegistro);
             panelRegistro.Controls.Add(label2);
-            panelRegistro.Location = new Point(1, 3);
+            panelRegistro.Location = new Point(13, 43);
             panelRegistro.Margin = new Padding(4);
             panelRegistro.Name = "panelRegistro";
-            panelRegistro.Size = new Size(1210, 666);
+            panelRegistro.Size = new Size(361, 519);
             panelRegistro.TabIndex = 5;
             // 
             // btnVolverRegistro
@@ -482,7 +484,7 @@
             // btnRegistro
             // 
             btnRegistro.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistro.Location = new Point(778, 497);
+            btnRegistro.Location = new Point(349, 461);
             btnRegistro.Margin = new Padding(4);
             btnRegistro.Name = "btnRegistro";
             btnRegistro.Size = new Size(130, 50);
@@ -494,7 +496,7 @@
             // btnPresupuesto
             // 
             btnPresupuesto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPresupuesto.Location = new Point(339, 497);
+            btnPresupuesto.Location = new Point(28, 461);
             btnPresupuesto.Margin = new Padding(4);
             btnPresupuesto.Name = "btnPresupuesto";
             btnPresupuesto.Size = new Size(130, 50);
@@ -507,7 +509,7 @@
             // 
             pictureBox1.BackColor = SystemColors.ButtonHighlight;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(440, 52);
+            pictureBox1.Location = new Point(76, 4);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(367, 306);
@@ -515,15 +517,23 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
+            // panelHome
+            // 
+            panelHome.Controls.Add(pictureBox1);
+            panelHome.Controls.Add(btnRegistro);
+            panelHome.Controls.Add(btnPresupuesto);
+            panelHome.Location = new Point(406, 25);
+            panelHome.Name = "panelHome";
+            panelHome.Size = new Size(493, 530);
+            panelHome.TabIndex = 9;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1210, 666);
-            Controls.Add(btnRegistro);
+            Controls.Add(panelHome);
             Controls.Add(panelPresupuesto);
-            Controls.Add(btnPresupuesto);
-            Controls.Add(pictureBox1);
             Controls.Add(panelRegistro);
             Name = "Home";
             Text = "Ocaranza Mecanica";
@@ -534,6 +544,7 @@
             panelRegistro.ResumeLayout(false);
             panelRegistro.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panelHome.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -581,5 +592,6 @@
         private Button btnPresupuesto;
         private PictureBox pictureBox1;
         private DataGridView dataGridView1;
+        private Panel panelHome;
     }
 }

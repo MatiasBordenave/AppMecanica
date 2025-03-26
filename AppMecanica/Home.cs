@@ -16,6 +16,8 @@ namespace AppMecanica
         private void Home_Load(object sender, EventArgs e)
         {
             LoadData();
+            panelPresupuesto.Dock = DockStyle.Fill;
+            panelRegistro.Dock = DockStyle.Fill;
         }
 
         private void LoadData()
@@ -30,6 +32,7 @@ namespace AppMecanica
         {
             panelPresupuesto.Visible = false;
             panelRegistro.Visible = false;
+            panelHome.Visible = !panelHome.Visible;
         }
 
         //metodo para los paneles

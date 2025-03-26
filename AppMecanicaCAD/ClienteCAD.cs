@@ -14,7 +14,7 @@ namespace AppMecanicaCAD
 
             try
             {
-                using (SQLiteConnection connection = Coneccion.CreateConnection()) // Usa el helper correcto
+                using (SQLiteConnection connection = Coneccion.CreateConnection()) 
                 {
                     connection.Open();
                     using (SQLiteCommand command = new SQLiteCommand(query, connection))
@@ -43,8 +43,5 @@ namespace AppMecanicaCAD
             return clientes;
         }
     }
-
-   
-
 }
 
