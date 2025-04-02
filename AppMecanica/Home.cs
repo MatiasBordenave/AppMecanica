@@ -77,12 +77,32 @@ namespace AppMecanica
 
         private void btnRegistro_Click_1(object sender, EventArgs e)
         {
-            showPaneles(panelRegistro);
+            // Crear instancia del formulario Registro
+            Registros registroForm = new Registros();
+
+            // Ocultar el formulario actual (Home)
+            this.Hide();
+
+            // Mostrar el formulario Registro
+            registroForm.ShowDialog();
+
+            // Una vez que se cierre el formulario Registro, volver a mostrar el Home
+            this.Show();
         }
 
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
-            showPaneles(panelPresupuesto);
+            // Crear instancia del formulario Registro
+            Presupuesto presupuestoForm = new Presupuesto();
+
+            // Ocultar el formulario actual (Home)
+            this.Hide();
+
+            // Mostrar el formulario Registro
+            presupuestoForm.ShowDialog();
+
+            // Una vez que se cierre el formulario Registro, volver a mostrar el Home
+            this.Show();
         }
 
         private void btnVolverRegistro_Click_1(object sender, EventArgs e)
