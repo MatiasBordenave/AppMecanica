@@ -116,7 +116,7 @@
             panelPresupuesto.Controls.Add(btnVolverPresupuesto);
             panelPresupuesto.Controls.Add(label1);
             panelPresupuesto.Location = new Point(1105, 112);
-            panelPresupuesto.Margin = new Padding(5, 5, 5, 5);
+            panelPresupuesto.Margin = new Padding(5);
             panelPresupuesto.Name = "panelPresupuesto";
             panelPresupuesto.Size = new Size(1383, 863);
             panelPresupuesto.TabIndex = 4;
@@ -437,7 +437,7 @@
             // 
             btnVolverPresupuesto.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnVolverPresupuesto.Location = new Point(1051, 728);
-            btnVolverPresupuesto.Margin = new Padding(5, 5, 5, 5);
+            btnVolverPresupuesto.Margin = new Padding(5);
             btnVolverPresupuesto.Name = "btnVolverPresupuesto";
             btnVolverPresupuesto.Size = new Size(123, 57);
             btnVolverPresupuesto.TabIndex = 2;
@@ -474,7 +474,7 @@
             panelRegistro.Controls.Add(btnVolverRegistro);
             panelRegistro.Controls.Add(label2);
             panelRegistro.Location = new Point(15, 57);
-            panelRegistro.Margin = new Padding(5, 5, 5, 5);
+            panelRegistro.Margin = new Padding(5);
             panelRegistro.Name = "panelRegistro";
             panelRegistro.Size = new Size(413, 692);
             panelRegistro.TabIndex = 5;
@@ -482,7 +482,7 @@
             // btnVolverRegistro
             // 
             btnVolverRegistro.Location = new Point(976, 727);
-            btnVolverRegistro.Margin = new Padding(5, 5, 5, 5);
+            btnVolverRegistro.Margin = new Padding(5);
             btnVolverRegistro.Name = "btnVolverRegistro";
             btnVolverRegistro.Size = new Size(101, 35);
             btnVolverRegistro.TabIndex = 1;
@@ -504,7 +504,7 @@
             // 
             btnRegistro.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistro.Location = new Point(399, 615);
-            btnRegistro.Margin = new Padding(5, 5, 5, 5);
+            btnRegistro.Margin = new Padding(5);
             btnRegistro.Name = "btnRegistro";
             btnRegistro.Size = new Size(149, 67);
             btnRegistro.TabIndex = 8;
@@ -516,7 +516,7 @@
             // 
             btnPresupuesto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPresupuesto.Location = new Point(32, 615);
-            btnPresupuesto.Margin = new Padding(5, 5, 5, 5);
+            btnPresupuesto.Margin = new Padding(5);
             btnPresupuesto.Name = "btnPresupuesto";
             btnPresupuesto.Size = new Size(149, 67);
             btnPresupuesto.TabIndex = 7;
@@ -529,7 +529,7 @@
             pictureBox1.BackColor = SystemColors.ButtonHighlight;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(87, 5);
-            pictureBox1.Margin = new Padding(5, 5, 5, 5);
+            pictureBox1.Margin = new Padding(5);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(419, 408);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -541,7 +541,7 @@
             panelHome.Controls.Add(pictureBox1);
             panelHome.Controls.Add(btnRegistro);
             panelHome.Controls.Add(btnPresupuesto);
-            panelHome.Location = new Point(464, 33);
+            panelHome.Location = new Point(316, 13);
             panelHome.Margin = new Padding(3, 4, 3, 4);
             panelHome.Name = "panelHome";
             panelHome.Size = new Size(563, 707);
@@ -551,12 +551,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1383, 888);
+            ClientSize = new Size(1219, 747);
             Controls.Add(panelHome);
             Controls.Add(panelPresupuesto);
             Controls.Add(panelRegistro);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
             Name = "Home";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica";
             Load += Home_Load;
             panelPresupuesto.ResumeLayout(false);
