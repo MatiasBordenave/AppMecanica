@@ -81,19 +81,22 @@
             // btnImprimir
             // 
             btnImprimir.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnImprimir.Location = new Point(1063, 155);
+            btnImprimir.Location = new Point(930, 116);
+            btnImprimir.Margin = new Padding(3, 2, 3, 2);
             btnImprimir.Name = "btnImprimir";
-            btnImprimir.Size = new Size(119, 50);
+            btnImprimir.Size = new Size(104, 38);
             btnImprimir.TabIndex = 0;
             btnImprimir.Text = "Imprimir";
             btnImprimir.UseVisualStyleBackColor = true;
+            btnImprimir.Click += btnImprimir_Click;
             // 
             // btnLimpiar
             // 
             btnLimpiar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiar.Location = new Point(1063, 315);
+            btnLimpiar.Location = new Point(930, 236);
+            btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(119, 50);
+            btnLimpiar.Size = new Size(104, 38);
             btnLimpiar.TabIndex = 1;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = true;
@@ -101,9 +104,10 @@
             // btnVolverPresu
             // 
             btnVolverPresu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverPresu.Location = new Point(1063, 676);
+            btnVolverPresu.Location = new Point(930, 507);
+            btnVolverPresu.Margin = new Padding(3, 2, 3, 2);
             btnVolverPresu.Name = "btnVolverPresu";
-            btnVolverPresu.Size = new Size(119, 50);
+            btnVolverPresu.Size = new Size(104, 38);
             btnVolverPresu.TabIndex = 2;
             btnVolverPresu.Text = "Volver";
             btnVolverPresu.UseVisualStyleBackColor = true;
@@ -112,27 +116,29 @@
             // btnGuardar
             // 
             btnGuardar.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.Location = new Point(1063, 231);
+            btnGuardar.Location = new Point(930, 173);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(119, 50);
+            btnGuardar.Size = new Size(104, 38);
             btnGuardar.TabIndex = 3;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             // 
             // txtTitular
             // 
-            txtTitular.Location = new Point(99, 42);
+            txtTitular.Location = new Point(87, 32);
+            txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
-            txtTitular.Size = new Size(174, 31);
+            txtTitular.Size = new Size(153, 27);
             txtTitular.TabIndex = 4;
             // 
             // lblPatente
             // 
             lblPatente.AutoSize = true;
             lblPatente.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblPatente.Location = new Point(9, 133);
+            lblPatente.Location = new Point(8, 100);
             lblPatente.Name = "lblPatente";
-            lblPatente.Size = new Size(76, 25);
+            lblPatente.Size = new Size(61, 20);
             lblPatente.TabIndex = 5;
             lblPatente.Text = "Patente";
             // 
@@ -140,9 +146,9 @@
             // 
             lblVehiculo.AutoSize = true;
             lblVehiculo.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblVehiculo.Location = new Point(9, 87);
+            lblVehiculo.Location = new Point(8, 65);
             lblVehiculo.Name = "lblVehiculo";
-            lblVehiculo.Size = new Size(83, 25);
+            lblVehiculo.Size = new Size(68, 20);
             lblVehiculo.TabIndex = 6;
             lblVehiculo.Text = "Vehiculo";
             // 
@@ -150,9 +156,9 @@
             // 
             lblTitular.AutoSize = true;
             lblTitular.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblTitular.Location = new Point(9, 42);
+            lblTitular.Location = new Point(8, 32);
             lblTitular.Name = "lblTitular";
-            lblTitular.Size = new Size(66, 25);
+            lblTitular.Size = new Size(53, 20);
             lblTitular.TabIndex = 7;
             lblTitular.Text = "Titular";
             // 
@@ -160,40 +166,43 @@
             // 
             lblMarca.AutoSize = true;
             lblMarca.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblMarca.Location = new Point(9, 180);
+            lblMarca.Location = new Point(8, 135);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(62, 25);
+            lblMarca.Size = new Size(52, 20);
             lblMarca.TabIndex = 8;
             lblMarca.Text = "Marca";
             // 
             // txtVehiculo
             // 
-            txtVehiculo.Location = new Point(99, 87);
+            txtVehiculo.Location = new Point(87, 65);
+            txtVehiculo.Margin = new Padding(3, 2, 3, 2);
             txtVehiculo.Name = "txtVehiculo";
-            txtVehiculo.Size = new Size(174, 31);
+            txtVehiculo.Size = new Size(153, 27);
             txtVehiculo.TabIndex = 9;
             // 
             // txtPatente
             // 
-            txtPatente.Location = new Point(99, 133);
+            txtPatente.Location = new Point(87, 100);
+            txtPatente.Margin = new Padding(3, 2, 3, 2);
             txtPatente.Name = "txtPatente";
-            txtPatente.Size = new Size(174, 31);
+            txtPatente.Size = new Size(153, 27);
             txtPatente.TabIndex = 10;
             // 
             // txtMarca
             // 
-            txtMarca.Location = new Point(99, 180);
+            txtMarca.Location = new Point(87, 135);
+            txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(174, 31);
+            txtMarca.Size = new Size(153, 27);
             txtMarca.TabIndex = 11;
             // 
             // lblModelo
             // 
             lblModelo.AutoSize = true;
             lblModelo.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblModelo.Location = new Point(342, 44);
+            lblModelo.Location = new Point(299, 33);
             lblModelo.Name = "lblModelo";
-            lblModelo.Size = new Size(82, 25);
+            lblModelo.Size = new Size(66, 20);
             lblModelo.TabIndex = 12;
             lblModelo.Text = "Modelo ";
             // 
@@ -201,24 +210,26 @@
             // 
             lblAño.AutoSize = true;
             lblAño.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblAño.Location = new Point(342, 95);
+            lblAño.Location = new Point(299, 71);
             lblAño.Name = "lblAño";
-            lblAño.Size = new Size(46, 25);
+            lblAño.Size = new Size(37, 20);
             lblAño.TabIndex = 13;
             lblAño.Text = "Año";
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(438, 44);
+            txtModelo.Location = new Point(383, 33);
+            txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(174, 31);
+            txtModelo.Size = new Size(153, 27);
             txtModelo.TabIndex = 14;
             // 
             // txtAño
             // 
-            txtAño.Location = new Point(438, 92);
+            txtAño.Location = new Point(383, 69);
+            txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
-            txtAño.Size = new Size(174, 31);
+            txtAño.Size = new Size(153, 27);
             txtAño.TabIndex = 15;
             // 
             // label7
@@ -226,9 +237,9 @@
             label7.AutoSize = true;
             label7.BackColor = Color.LightSkyBlue;
             label7.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(32, 497);
+            label7.Location = new Point(28, 373);
             label7.Name = "label7";
-            label7.Size = new Size(79, 25);
+            label7.Size = new Size(63, 20);
             label7.TabIndex = 17;
             label7.Text = "Detalles";
             // 
@@ -237,9 +248,9 @@
             lblCantidadHoras.AutoSize = true;
             lblCantidadHoras.BackColor = Color.LightSkyBlue;
             lblCantidadHoras.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblCantidadHoras.Location = new Point(9, 123);
+            lblCantidadHoras.Location = new Point(8, 92);
             lblCantidadHoras.Name = "lblCantidadHoras";
-            lblCantidadHoras.Size = new Size(139, 25);
+            lblCantidadHoras.Size = new Size(114, 20);
             lblCantidadHoras.TabIndex = 18;
             lblCantidadHoras.Text = "Cantidad Horas";
             // 
@@ -248,34 +259,37 @@
             lblPrecioHora.AutoSize = true;
             lblPrecioHora.BackColor = Color.LightSkyBlue;
             lblPrecioHora.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblPrecioHora.Location = new Point(231, 123);
+            lblPrecioHora.Location = new Point(202, 92);
             lblPrecioHora.Name = "lblPrecioHora";
-            lblPrecioHora.Size = new Size(109, 25);
+            lblPrecioHora.Size = new Size(90, 20);
             lblPrecioHora.TabIndex = 19;
             lblPrecioHora.Text = "Precio Hora";
             // 
             // txtCantidadHoras
             // 
-            txtCantidadHoras.Location = new Point(9, 162);
+            txtCantidadHoras.Location = new Point(8, 122);
+            txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
-            txtCantidadHoras.Size = new Size(78, 27);
+            txtCantidadHoras.Size = new Size(69, 23);
             txtCantidadHoras.TabIndex = 20;
             // 
             // txtPrecioHora
             // 
-            txtPrecioHora.Location = new Point(231, 163);
+            txtPrecioHora.Location = new Point(202, 122);
+            txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
-            txtPrecioHora.Size = new Size(78, 27);
+            txtPrecioHora.Size = new Size(69, 23);
             txtPrecioHora.TabIndex = 21;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRespuesto, Cantidad, Precio, Horas, PrecioxHora, Total });
-            dataGridView1.Location = new Point(32, 525);
+            dataGridView1.Location = new Point(28, 394);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(757, 210);
+            dataGridView1.Size = new Size(662, 158);
             dataGridView1.TabIndex = 26;
             // 
             // NombreRespuesto
@@ -326,24 +340,26 @@
             lblNombreRepo.AutoSize = true;
             lblNombreRepo.BackColor = Color.LightSkyBlue;
             lblNombreRepo.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblNombreRepo.Location = new Point(9, 32);
+            lblNombreRepo.Location = new Point(8, 24);
             lblNombreRepo.Name = "lblNombreRepo";
-            lblNombreRepo.Size = new Size(196, 25);
+            lblNombreRepo.Size = new Size(158, 20);
             lblNombreRepo.TabIndex = 27;
             lblNombreRepo.Text = "Nombre del Repuesto";
             // 
             // txtNombreRepo
             // 
-            txtNombreRepo.Location = new Point(9, 72);
+            txtNombreRepo.Location = new Point(8, 54);
+            txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
-            txtNombreRepo.Size = new Size(174, 27);
+            txtNombreRepo.Size = new Size(153, 23);
             txtNombreRepo.TabIndex = 28;
             // 
             // nupCantidad
             // 
-            nupCantidad.Location = new Point(231, 72);
+            nupCantidad.Location = new Point(202, 54);
+            nupCantidad.Margin = new Padding(3, 2, 3, 2);
             nupCantidad.Name = "nupCantidad";
-            nupCantidad.Size = new Size(86, 27);
+            nupCantidad.Size = new Size(75, 23);
             nupCantidad.TabIndex = 29;
             // 
             // lblCantidad
@@ -351,18 +367,19 @@
             lblCantidad.AutoSize = true;
             lblCantidad.BackColor = Color.LightSkyBlue;
             lblCantidad.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblCantidad.Location = new Point(231, 32);
+            lblCantidad.Location = new Point(202, 24);
             lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(86, 25);
+            lblCantidad.Size = new Size(70, 20);
             lblCantidad.TabIndex = 30;
             lblCantidad.Text = "Cantidad";
             // 
             // txtPrecioUni
             // 
-            txtPrecioUni.Location = new Point(382, 72);
+            txtPrecioUni.Location = new Point(334, 54);
+            txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
             txtPrecioUni.Multiline = true;
             txtPrecioUni.Name = "txtPrecioUni";
-            txtPrecioUni.Size = new Size(76, 30);
+            txtPrecioUni.Size = new Size(67, 24);
             txtPrecioUni.TabIndex = 31;
             // 
             // lblPrecioUni
@@ -370,9 +387,9 @@
             lblPrecioUni.AutoSize = true;
             lblPrecioUni.BackColor = Color.LightSkyBlue;
             lblPrecioUni.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblPrecioUni.Location = new Point(382, 32);
+            lblPrecioUni.Location = new Point(334, 24);
             lblPrecioUni.Name = "lblPrecioUni";
-            lblPrecioUni.Size = new Size(137, 25);
+            lblPrecioUni.Size = new Size(112, 20);
             lblPrecioUni.TabIndex = 32;
             lblPrecioUni.Text = "Precio Unitario";
             // 
@@ -381,9 +398,10 @@
             btnAgregarPresu.BackColor = Color.FromArgb(128, 255, 128);
             btnAgregarPresu.FlatStyle = FlatStyle.Popup;
             btnAgregarPresu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregarPresu.Location = new Point(459, 141);
+            btnAgregarPresu.Location = new Point(402, 106);
+            btnAgregarPresu.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPresu.Name = "btnAgregarPresu";
-            btnAgregarPresu.Size = new Size(90, 41);
+            btnAgregarPresu.Size = new Size(79, 31);
             btnAgregarPresu.TabIndex = 33;
             btnAgregarPresu.Text = "Agregar";
             btnAgregarPresu.UseVisualStyleBackColor = false;
@@ -393,9 +411,10 @@
             btnEliminarPresu.BackColor = Color.FromArgb(255, 128, 128);
             btnEliminarPresu.FlatStyle = FlatStyle.Popup;
             btnEliminarPresu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarPresu.Location = new Point(590, 141);
+            btnEliminarPresu.Location = new Point(516, 106);
+            btnEliminarPresu.Margin = new Padding(3, 2, 3, 2);
             btnEliminarPresu.Name = "btnEliminarPresu";
-            btnEliminarPresu.Size = new Size(90, 41);
+            btnEliminarPresu.Size = new Size(79, 31);
             btnEliminarPresu.TabIndex = 34;
             btnEliminarPresu.Text = "Eliminar";
             btnEliminarPresu.UseVisualStyleBackColor = false;
@@ -420,34 +439,38 @@
             groupBox1.Controls.Add(txtModelo);
             groupBox1.Controls.Add(txtAño);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(32, 33);
+            groupBox1.Location = new Point(28, 25);
+            groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(757, 238);
+            groupBox1.Padding = new Padding(3, 2, 3, 2);
+            groupBox1.Size = new Size(662, 178);
             groupBox1.TabIndex = 35;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Titular";
             // 
             // txtDomicilio
             // 
-            txtDomicilio.Location = new Point(438, 190);
+            txtDomicilio.Location = new Point(383, 142);
+            txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
-            txtDomicilio.Size = new Size(174, 31);
+            txtDomicilio.Size = new Size(153, 27);
             txtDomicilio.TabIndex = 19;
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(438, 143);
+            txtTelefono.Location = new Point(383, 107);
+            txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(174, 31);
+            txtTelefono.Size = new Size(153, 27);
             txtTelefono.TabIndex = 18;
             // 
             // lblDomicilio
             // 
             lblDomicilio.AutoSize = true;
             lblDomicilio.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblDomicilio.Location = new Point(342, 190);
+            lblDomicilio.Location = new Point(299, 142);
             lblDomicilio.Name = "lblDomicilio";
-            lblDomicilio.Size = new Size(91, 25);
+            lblDomicilio.Size = new Size(74, 20);
             lblDomicilio.TabIndex = 17;
             lblDomicilio.Text = "Domicilio";
             // 
@@ -455,18 +478,19 @@
             // 
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblTelefono.Location = new Point(342, 146);
+            lblTelefono.Location = new Point(299, 110);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(84, 25);
+            lblTelefono.Size = new Size(68, 20);
             lblTelefono.TabIndex = 16;
             lblTelefono.Text = "Telefono";
             // 
             // btnNuevoPresupuesto
             // 
             btnNuevoPresupuesto.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNuevoPresupuesto.Location = new Point(1063, 33);
+            btnNuevoPresupuesto.Location = new Point(930, 25);
+            btnNuevoPresupuesto.Margin = new Padding(3, 2, 3, 2);
             btnNuevoPresupuesto.Name = "btnNuevoPresupuesto";
-            btnNuevoPresupuesto.Size = new Size(119, 88);
+            btnNuevoPresupuesto.Size = new Size(104, 66);
             btnNuevoPresupuesto.TabIndex = 36;
             btnNuevoPresupuesto.Text = "Nuevo Presupuesto";
             btnNuevoPresupuesto.UseVisualStyleBackColor = true;
@@ -486,21 +510,23 @@
             groupBox2.Controls.Add(lblPrecioUni);
             groupBox2.Controls.Add(txtPrecioHora);
             groupBox2.Controls.Add(txtCantidadHoras);
-            groupBox2.Location = new Point(32, 286);
+            groupBox2.Location = new Point(28, 214);
+            groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(757, 199);
+            groupBox2.Padding = new Padding(3, 2, 3, 2);
+            groupBox2.Size = new Size(662, 149);
             groupBox2.TabIndex = 37;
             groupBox2.TabStop = false;
             groupBox2.Text = "Repuestos";
             // 
             // Presupuesto
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1219, 747);
+            ClientSize = new Size(1067, 560);
             Controls.Add(groupBox2);
             Controls.Add(btnNuevoPresupuesto);
             Controls.Add(groupBox1);
@@ -511,6 +537,7 @@
             Controls.Add(btnLimpiar);
             Controls.Add(btnImprimir);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Presupuesto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Presupuesto";
