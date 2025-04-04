@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppMecanicaCLN;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,9 @@ namespace AppMecanica
 {
     public partial class Registros : Form
     {
+
+        private ClienteCLN clienteCLN = new ClienteCLN();
+
         public Registros()
         {
             InitializeComponent();
@@ -29,6 +33,16 @@ namespace AppMecanica
 
             // Cerrar el formulario actual (Registro)
             this.Close();
+        }
+
+        private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void Registros_Load(object sender, EventArgs e)
+        {
+            dgvRegistros.DataSource = clienteCLN.ObtenerClientes();
         }
     }
 }

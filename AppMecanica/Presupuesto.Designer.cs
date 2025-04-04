@@ -123,6 +123,7 @@
             btnGuardar.TabIndex = 3;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
             // 
             // txtTitular
             // 

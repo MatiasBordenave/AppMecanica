@@ -13,17 +13,27 @@ namespace AppMecanicaCAD
 
         static Coneccion()
         {
-            // Ruta relativa al ejecutable
-            string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Data", "database.sqlite");
+
+            // Ruta MAtias
+
+            string rutaBaseDatos = @"C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\Data\database.sqlite";
+
+            connectionString = $"Data Source={rutaBaseDatos}";
 
 
-            // Crear la carpeta si no existe
-            if (!Directory.Exists(Path.GetDirectoryName(dbPath)))
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
-            }
 
-            connectionString = $"Data Source={dbPath};Version=3;";
+            //// Ruta relativa al ejecutable
+            //string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "database.sqlite");
+
+
+
+            //// Crear la carpeta si no existe
+            //if (!Directory.Exists(Path.GetDirectoryName(dbPath)))
+            //{
+            //    Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
+            //}
+
+            //connectionString = $"Data Source={dbPath};Version=3;";
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppMecanicaCLN;
+using System;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
@@ -8,6 +9,8 @@ namespace AppMecanica
     {
 
         private Bitmap bitmap;
+        private ClienteCLN clienteCLN = new ClienteCLN();
+
         public Presupuesto()
         {
             InitializeComponent();
@@ -73,6 +76,24 @@ namespace AppMecanica
             Size s = Size;
             bitmap = new Bitmap(s.Width, s.Height, g);
             DrawToBitmap(bitmap, new Rectangle(0, 0, s.Width, s.Height));
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string nombreYApellido = txtTitular.Text;
+            string telefono = txtTelefono.Text;
+            string domicilio = txtDomicilio.Text;
+
+            try
+            {
+                clienteCLN.AgregarCliente(nombreYApellido, telefono, domicilio);
+                MessageBox.Show("Usuario agregado correctamente.");
+                //reset_Txt();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

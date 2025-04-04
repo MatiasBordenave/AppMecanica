@@ -50,3 +50,21 @@ C:\Users\byfre\Source\Repos\AppMecanica\AppMecanicaCAD\obj\Debug\net8.0\refint\A
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.pdb
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.genruntimeconfig.cache
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanicaCAD\obj\Debug\net8.0\ref\AppMecanicaCAD.dll
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\bin\Debug\net8.0\AppMecanicaCAD.deps.json
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\bin\Debug\net8.0\AppMecanicaCAD.runtimeconfig.json
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\bin\Debug\net8.0\AppMecanicaCAD.dll
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\bin\Debug\net8.0\AppMecanicaCAD.pdb
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\bin\Debug\net8.0\AppMecanicaEntidades.dll
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\bin\Debug\net8.0\AppMecanicaEntidades.pdb
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.csproj.AssemblyReference.cache
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.AssemblyInfoInputs.cache
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.AssemblyInfo.cs
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.csproj.CoreCompileInputs.cache
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.sourcelink.json
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecan.00BE3504.Up2Date
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.dll
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\refint\AppMecanicaCAD.dll
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.pdb
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\AppMecanicaCAD.genruntimeconfig.cache
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanicaCAD\obj\Debug\net8.0\ref\AppMecanicaCAD.dll
