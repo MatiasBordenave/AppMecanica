@@ -30,70 +30,65 @@ namespace AppMecanica
             this.Close();
         }
 
-        private void btnImprimir_Click(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            CaptureForm();
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.PrintPage += PrintDocument_PrintPage;
-            PrintDialog printDialog = new PrintDialog
-            {
-                Document = printDocument
-            };
+            // Limpiar TextBox individuales
+            txtCantidadHoras.Clear();
+            txtPrecioHora.Clear();
 
-            if (printDialog.ShowDialog() == DialogResult.OK)
-            {
-                printDocument.Print();
-            }
+            txtNombreRepo.Clear();
+            txtPrecioUni.Clear();
+
+            txtTitular.Clear();
+            txtTelefono.Clear();
+            txtDomicilio.Clear();
+            txtVehiculo.Clear();
+            txtModelo.Clear();
+            txtMarca.Clear();
+            txtPatente.Clear();
+            txtAño.Clear();
+
+            // Reiniciar NumericUpDown
+            nupCantidad.Value = nupCantidad.Minimum;
+
+            // Limpiar el DataGridView
+            dataGridView1.Rows.Clear();
         }
 
-        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
+        private void btnGenerar_Click(object sender, EventArgs e)
         {
-            if (bitmap != null)
-            {
-                e.Graphics.DrawImage(bitmap, 0, 0);
-            }
+
         }
 
-        //private void btnGuardarImagen_Click(object sender, EventArgs e)
-        //{
-        //    CaptureForm();
-        //    SaveFileDialog saveFileDialog = new SaveFileDialog
-        //    {
-        //        Filter = "PNG Image|*.png",
-        //        Title = "Guardar imagen del presupuesto"
-        //    };
-
-        //    if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //    {
-        //        bitmap.Save(saveFileDialog.FileName, System.Drawing.Imaging.ImageFormat.Png);
-        //        MessageBox.Show("Imagen guardada exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
-        private void CaptureForm()
+        private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
-            Graphics g = CreateGraphics();
-            Size s = Size;
-            bitmap = new Bitmap(s.Width, s.Height, g);
-            DrawToBitmap(bitmap, new Rectangle(0, 0, s.Width, s.Height));
+            // Validación simple (opcional pero recomendado)
+            if (string.IsNullOrWhiteSpace(txtNombreRepo.Text) ||
+                string.IsNullOrWhiteSpace(txtPrecioUni.Text))
+            {
+                MessageBox.Show("Por favor, complete todos los campos del repuesto.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Convertir precio a decimal y cantidad a int
+            if (!decimal.TryParse(txtPrecioUni.Text, out decimal precio) || precio < 0)
+            {
+                MessageBox.Show("Ingrese un precio válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int cantidad = (int)nupCantidad.Value;
+
+            // Agregar al DataGridView
+            dataGridView1.Rows.Add(txtNombreRepo.Text, cantidad, precio);
+
+            // Limpiar los campos del groupBox2 luego de agregar
+            txtNombreRepo.Clear();
+            txtPrecioUni.Clear();
+            nupCantidad.Value = nupCantidad.Minimum;
+
+            txtNombreRepo.Focus();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            string nombreYApellido = txtTitular.Text;
-            string telefono = txtTelefono.Text;
-            string domicilio = txtDomicilio.Text;
-
-            try
-            {
-                clienteCLN.AgregarCliente(nombreYApellido, telefono, domicilio);
-                MessageBox.Show("Usuario agregado correctamente.");
-                //reset_Txt();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
     }
 }

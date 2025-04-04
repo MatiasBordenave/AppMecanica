@@ -82,7 +82,6 @@ C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-Front\AppMecanica\obj\
 C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-Front\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.genruntimeconfig.cache
 C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-Front\AppMecanica\obj\Debug\net8.0-windows\ref\AppMecanica.dll
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.exe
-C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Data\database.sqlite
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.deps.json
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.runtimeconfig.json
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.dll
@@ -166,3 +165,4 @@ C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\r
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.pdb
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.genruntimeconfig.cache
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\ref\AppMecanica.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.PresupuestoGenerado.resources
