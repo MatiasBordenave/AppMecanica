@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Presupuesto));
-            btnVolverPresu = new Button();
+            btnVolverHome = new Button();
             btnGuardar = new Button();
             txtTitular = new TextBox();
             lblPatente = new Label();
@@ -60,6 +59,8 @@
             btnAgregarPresu = new Button();
             btnEliminarPresu = new Button();
             groupBox1 = new GroupBox();
+            txtKm = new TextBox();
+            lblKm = new Label();
             txtDomicilio = new TextBox();
             txtTelefono = new TextBox();
             lblDomicilio = new Label();
@@ -67,23 +68,25 @@
             groupBox2 = new GroupBox();
             btnLimpiar = new Button();
             btnGenerar = new Button();
+            labelDesc = new Label();
+            textBoxDesc = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
-            // btnVolverPresu
+            // btnVolverHome
             // 
-            btnVolverPresu.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverPresu.Location = new Point(930, 507);
-            btnVolverPresu.Margin = new Padding(3, 2, 3, 2);
-            btnVolverPresu.Name = "btnVolverPresu";
-            btnVolverPresu.Size = new Size(116, 38);
-            btnVolverPresu.TabIndex = 2;
-            btnVolverPresu.Text = "Volver";
-            btnVolverPresu.UseVisualStyleBackColor = true;
-            btnVolverPresu.Click += button3_Click;
+            btnVolverHome.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolverHome.Location = new Point(930, 507);
+            btnVolverHome.Margin = new Padding(3, 2, 3, 2);
+            btnVolverHome.Name = "btnVolverHome";
+            btnVolverHome.Size = new Size(116, 38);
+            btnVolverHome.TabIndex = 2;
+            btnVolverHome.Text = "Volver";
+            btnVolverHome.UseVisualStyleBackColor = true;
+            btnVolverHome.Click += btnVolverHome_Click;
             // 
             // btnGuardar
             // 
@@ -100,7 +103,7 @@
             // 
             // txtTitular
             // 
-            txtTitular.Location = new Point(87, 25);
+            txtTitular.Location = new Point(78, 25);
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
             txtTitular.Size = new Size(153, 25);
@@ -110,7 +113,7 @@
             // 
             lblPatente.AutoSize = true;
             lblPatente.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblPatente.Location = new Point(304, 99);
+            lblPatente.Location = new Point(250, 99);
             lblPatente.Name = "lblPatente";
             lblPatente.Size = new Size(61, 20);
             lblPatente.TabIndex = 5;
@@ -120,7 +123,7 @@
             // 
             lblVehiculo.AutoSize = true;
             lblVehiculo.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblVehiculo.Location = new Point(13, 137);
+            lblVehiculo.Location = new Point(6, 134);
             lblVehiculo.Name = "lblVehiculo";
             lblVehiculo.Size = new Size(68, 20);
             lblVehiculo.TabIndex = 6;
@@ -130,7 +133,7 @@
             // 
             lblTitular.AutoSize = true;
             lblTitular.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblTitular.Location = new Point(28, 30);
+            lblTitular.Location = new Point(6, 30);
             lblTitular.Name = "lblTitular";
             lblTitular.Size = new Size(53, 20);
             lblTitular.TabIndex = 7;
@@ -140,7 +143,7 @@
             // 
             lblMarca.AutoSize = true;
             lblMarca.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblMarca.Location = new Point(313, 63);
+            lblMarca.Location = new Point(250, 66);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(52, 20);
             lblMarca.TabIndex = 8;
@@ -148,7 +151,7 @@
             // 
             // txtVehiculo
             // 
-            txtVehiculo.Location = new Point(87, 132);
+            txtVehiculo.Location = new Point(78, 129);
             txtVehiculo.Margin = new Padding(3, 2, 3, 2);
             txtVehiculo.Name = "txtVehiculo";
             txtVehiculo.Size = new Size(153, 25);
@@ -156,7 +159,7 @@
             // 
             // txtPatente
             // 
-            txtPatente.Location = new Point(383, 94);
+            txtPatente.Location = new Point(317, 94);
             txtPatente.Margin = new Padding(3, 2, 3, 2);
             txtPatente.Name = "txtPatente";
             txtPatente.Size = new Size(153, 25);
@@ -164,7 +167,7 @@
             // 
             // txtMarca
             // 
-            txtMarca.Location = new Point(383, 61);
+            txtMarca.Location = new Point(317, 61);
             txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(153, 25);
@@ -174,7 +177,7 @@
             // 
             lblModelo.AutoSize = true;
             lblModelo.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblModelo.Location = new Point(304, 27);
+            lblModelo.Location = new Point(250, 30);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(66, 20);
             lblModelo.TabIndex = 12;
@@ -184,7 +187,7 @@
             // 
             lblAño.AutoSize = true;
             lblAño.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblAño.Location = new Point(328, 137);
+            lblAño.Location = new Point(250, 134);
             lblAño.Name = "lblAño";
             lblAño.Size = new Size(37, 20);
             lblAño.TabIndex = 13;
@@ -192,7 +195,7 @@
             // 
             // txtModelo
             // 
-            txtModelo.Location = new Point(383, 22);
+            txtModelo.Location = new Point(317, 22);
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(153, 25);
@@ -200,7 +203,7 @@
             // 
             // txtAño
             // 
-            txtAño.Location = new Point(383, 129);
+            txtAño.Location = new Point(317, 129);
             txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
             txtAño.Size = new Size(153, 25);
@@ -222,7 +225,7 @@
             lblPrecioHora.AutoSize = true;
             lblPrecioHora.BackColor = Color.LightSkyBlue;
             lblPrecioHora.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblPrecioHora.Location = new Point(28, 507);
+            lblPrecioHora.Location = new Point(28, 525);
             lblPrecioHora.Name = "lblPrecioHora";
             lblPrecioHora.Size = new Size(117, 20);
             lblPrecioHora.TabIndex = 19;
@@ -238,7 +241,7 @@
             // 
             // txtPrecioHora
             // 
-            txtPrecioHora.Location = new Point(165, 504);
+            txtPrecioHora.Location = new Point(165, 522);
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
             txtPrecioHora.Size = new Size(69, 23);
@@ -246,11 +249,16 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRespuesto, CantidadRepuesto, PrecioRepuesto });
             dataGridView1.Location = new Point(28, 287);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(662, 158);
             dataGridView1.TabIndex = 26;
@@ -261,6 +269,7 @@
             NombreRespuesto.HeaderText = "Nombre Repuesto";
             NombreRespuesto.MinimumWidth = 6;
             NombreRespuesto.Name = "NombreRespuesto";
+            NombreRespuesto.ReadOnly = true;
             NombreRespuesto.Width = 350;
             // 
             // CantidadRepuesto
@@ -268,14 +277,14 @@
             CantidadRepuesto.HeaderText = "Cantidad";
             CantidadRepuesto.MinimumWidth = 6;
             CantidadRepuesto.Name = "CantidadRepuesto";
-            CantidadRepuesto.Width = 125;
+            CantidadRepuesto.ReadOnly = true;
             // 
             // PrecioRepuesto
             // 
             PrecioRepuesto.HeaderText = "Precio";
             PrecioRepuesto.MinimumWidth = 6;
             PrecioRepuesto.Name = "PrecioRepuesto";
-            PrecioRepuesto.Width = 130;
+            PrecioRepuesto.ReadOnly = true;
             // 
             // lblNombreRepo
             // 
@@ -317,7 +326,7 @@
             // 
             // txtPrecioUni
             // 
-            txtPrecioUni.Location = new Point(334, 54);
+            txtPrecioUni.Location = new Point(317, 57);
             txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
             txtPrecioUni.Multiline = true;
             txtPrecioUni.Name = "txtPrecioUni";
@@ -329,7 +338,7 @@
             lblPrecioUni.AutoSize = true;
             lblPrecioUni.BackColor = Color.LightSkyBlue;
             lblPrecioUni.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblPrecioUni.Location = new Point(334, 24);
+            lblPrecioUni.Location = new Point(317, 24);
             lblPrecioUni.Name = "lblPrecioUni";
             lblPrecioUni.Size = new Size(52, 20);
             lblPrecioUni.TabIndex = 32;
@@ -340,7 +349,7 @@
             btnAgregarPresu.BackColor = Color.FromArgb(128, 255, 128);
             btnAgregarPresu.FlatStyle = FlatStyle.Popup;
             btnAgregarPresu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAgregarPresu.Location = new Point(444, 46);
+            btnAgregarPresu.Location = new Point(413, 50);
             btnAgregarPresu.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPresu.Name = "btnAgregarPresu";
             btnAgregarPresu.Size = new Size(79, 31);
@@ -354,17 +363,20 @@
             btnEliminarPresu.BackColor = Color.FromArgb(255, 128, 128);
             btnEliminarPresu.FlatStyle = FlatStyle.Popup;
             btnEliminarPresu.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarPresu.Location = new Point(548, 46);
+            btnEliminarPresu.Location = new Point(524, 50);
             btnEliminarPresu.Margin = new Padding(3, 2, 3, 2);
             btnEliminarPresu.Name = "btnEliminarPresu";
             btnEliminarPresu.Size = new Size(79, 31);
             btnEliminarPresu.TabIndex = 34;
             btnEliminarPresu.Text = "Eliminar";
             btnEliminarPresu.UseVisualStyleBackColor = false;
+            btnEliminarPresu.Click += btnEliminarPresu_Click;
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.SteelBlue;
+            groupBox1.Controls.Add(txtKm);
+            groupBox1.Controls.Add(lblKm);
             groupBox1.Controls.Add(txtDomicilio);
             groupBox1.Controls.Add(txtTelefono);
             groupBox1.Controls.Add(lblDomicilio);
@@ -386,14 +398,32 @@
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(662, 178);
+            groupBox1.Size = new Size(736, 178);
             groupBox1.TabIndex = 35;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Titular";
             // 
+            // txtKm
+            // 
+            txtKm.Location = new Point(573, 22);
+            txtKm.Margin = new Padding(3, 2, 3, 2);
+            txtKm.Name = "txtKm";
+            txtKm.Size = new Size(153, 25);
+            txtKm.TabIndex = 21;
+            // 
+            // lblKm
+            // 
+            lblKm.AutoSize = true;
+            lblKm.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            lblKm.Location = new Point(485, 27);
+            lblKm.Name = "lblKm";
+            lblKm.Size = new Size(82, 20);
+            lblKm.TabIndex = 20;
+            lblKm.Text = "Kilometros";
+            // 
             // txtDomicilio
             // 
-            txtDomicilio.Location = new Point(87, 94);
+            txtDomicilio.Location = new Point(78, 94);
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(153, 25);
@@ -401,7 +431,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(87, 61);
+            txtTelefono.Location = new Point(78, 61);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(153, 25);
@@ -411,7 +441,7 @@
             // 
             lblDomicilio.AutoSize = true;
             lblDomicilio.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblDomicilio.Location = new Point(8, 99);
+            lblDomicilio.Location = new Point(6, 99);
             lblDomicilio.Name = "lblDomicilio";
             lblDomicilio.Size = new Size(74, 20);
             lblDomicilio.TabIndex = 17;
@@ -421,7 +451,7 @@
             // 
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
-            lblTelefono.Location = new Point(14, 66);
+            lblTelefono.Location = new Point(6, 66);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(68, 20);
             lblTelefono.TabIndex = 16;
@@ -476,14 +506,34 @@
             btnGenerar.UseVisualStyleBackColor = false;
             btnGenerar.Click += btnGenerar_Click;
             // 
+            // labelDesc
+            // 
+            labelDesc.AutoSize = true;
+            labelDesc.BackColor = Color.LightSkyBlue;
+            labelDesc.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            labelDesc.Location = new Point(325, 525);
+            labelDesc.Name = "labelDesc";
+            labelDesc.Size = new Size(173, 20);
+            labelDesc.TabIndex = 40;
+            labelDesc.Text = "Descripcion del Trabajo:";
+            // 
+            // textBoxDesc
+            // 
+            textBoxDesc.Location = new Point(513, 456);
+            textBoxDesc.Multiline = true;
+            textBoxDesc.Name = "textBoxDesc";
+            textBoxDesc.Size = new Size(263, 89);
+            textBoxDesc.TabIndex = 41;
+            // 
             // Presupuesto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackColor = Color.SlateGray;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1067, 560);
+            Controls.Add(textBoxDesc);
+            Controls.Add(labelDesc);
             Controls.Add(btnGenerar);
             Controls.Add(btnLimpiar);
             Controls.Add(groupBox2);
@@ -492,7 +542,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(lblPrecioHora);
             Controls.Add(btnGuardar);
-            Controls.Add(btnVolverPresu);
+            Controls.Add(btnVolverHome);
             Controls.Add(txtPrecioHora);
             Controls.Add(txtCantidadHoras);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -511,7 +561,7 @@
         }
 
         #endregion
-        private Button btnVolverPresu;
+        private Button btnVolverHome;
         private Button btnGuardar;
         private TextBox txtTitular;
         private Label lblPatente;
@@ -549,5 +599,9 @@
         private DataGridViewTextBoxColumn NombreRespuesto;
         private DataGridViewTextBoxColumn CantidadRepuesto;
         private DataGridViewTextBoxColumn PrecioRepuesto;
+        private Label labelDesc;
+        private TextBox textBoxDesc;
+        private TextBox txtKm;
+        private Label lblKm;
     }
 }

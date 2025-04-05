@@ -14,9 +14,10 @@ namespace AppMecanica
         public Presupuesto()
         {
             InitializeComponent();
+
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnVolverHome_Click(object sender, EventArgs e)
         {
             // Obtener la instancia del formulario Home que estaba oculto
             Form homeForm = Application.OpenForms["HomeForm"];
@@ -47,12 +48,16 @@ namespace AppMecanica
             txtMarca.Clear();
             txtPatente.Clear();
             txtAño.Clear();
+            txtKm.Clear();
 
             // Reiniciar NumericUpDown
             nupCantidad.Value = nupCantidad.Minimum;
 
             // Limpiar el DataGridView
             dataGridView1.Rows.Clear();
+
+            //Limpiar el TextBox de descripción
+            textBoxDesc.Clear();
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -90,5 +95,25 @@ namespace AppMecanica
             txtNombreRepo.Focus();
         }
 
+        private void btnEliminarPresu_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Confirmación opcional
+                var confirmar = MessageBox.Show("¿Seguro que querés eliminar el repuesto seleccionado?",
+                                                "Eliminar",
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Question);
+
+                if (confirmar == DialogResult.Yes)
+                {
+                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccioná una fila para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

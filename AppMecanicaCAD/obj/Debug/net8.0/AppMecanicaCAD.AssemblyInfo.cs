@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppMecanicaCAD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+baf3e011af7088fe1665be1c79a4ca73265770ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+629d20c1b03b1d79b2aa86942c1a55d7d6e1aac1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppMecanicaCAD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppMecanicaCAD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
