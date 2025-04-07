@@ -6,11 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>LogoOcaranza Icono.ico</ApplicationIcon>
+    <ApplicationIcon>Icono.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="LogoOcaranza Icono.ico" />
+    <None Remove="Icono.ico" />
+    <None Remove="LogoOcaranza Icono.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Icono.ico" />
   </ItemGroup>
 
   <ItemGroup>

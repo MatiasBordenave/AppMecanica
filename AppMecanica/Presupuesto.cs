@@ -11,6 +11,31 @@ namespace AppMecanica
         private Bitmap bitmap;
         private ClienteCLN clienteCLN = new ClienteCLN();
 
+        public static class Validaciones
+        {
+            public static bool HayCamposVacios(Control parent, out string nombreCampo)
+            {
+                foreach (Control control in parent.Controls)
+                {
+                    if (control is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
+                    {
+                        nombreCampo = txt.Name;
+                        return true;
+                    }
+                    if (control is ComboBox cmb && cmb.SelectedIndex == -1)
+                    {
+                        nombreCampo = cmb.Name;
+                        return true;
+                    }
+                    // Podés agregar más tipos si necesitás (DateTimePicker, CheckBox, etc.)
+                }
+
+                nombreCampo = string.Empty;
+                return false;
+            }
+        }
+
+
         public Presupuesto()
         {
             InitializeComponent();
@@ -60,10 +85,6 @@ namespace AppMecanica
             textBoxDesc.Clear();
         }
 
-        private void btnGenerar_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
@@ -115,5 +136,20 @@ namespace AppMecanica
                 MessageBox.Show("Seleccioná una fila para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (Validaciones.HayCamposVacios(this, out string campo))
+            {
+                MessageBox.Show($"El campo '{campo}' está vacío. Por favor, completalo.",
+                                "Validación de campos",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Continúa con el guardado del presupuesto
+        }
+
     }
 }

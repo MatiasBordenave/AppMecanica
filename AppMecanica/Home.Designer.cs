@@ -29,79 +29,74 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            btnRegistro = new Button();
             btnPresupuesto = new Button();
+            btnRegistro = new Button();
             pictureBox1 = new PictureBox();
-            panelHome = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panelHome.SuspendLayout();
             SuspendLayout();
-            // 
-            // btnRegistro
-            // 
-            btnRegistro.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegistro.Location = new Point(472, 461);
-            btnRegistro.Margin = new Padding(4);
-            btnRegistro.Name = "btnRegistro";
-            btnRegistro.Size = new Size(130, 50);
-            btnRegistro.TabIndex = 8;
-            btnRegistro.Text = "Regitro";
-            btnRegistro.UseVisualStyleBackColor = true;
-            btnRegistro.Click += btnRegistro_Click_1;
             // 
             // btnPresupuesto
             // 
+            btnPresupuesto.BackColor = SystemColors.ActiveCaption;
             btnPresupuesto.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPresupuesto.Location = new Point(28, 461);
+            btnPresupuesto.Location = new Point(302, 523);
             btnPresupuesto.Margin = new Padding(4);
             btnPresupuesto.Name = "btnPresupuesto";
             btnPresupuesto.Size = new Size(130, 50);
             btnPresupuesto.TabIndex = 7;
             btnPresupuesto.Text = "Crear Un Presupuesto";
-            btnPresupuesto.UseVisualStyleBackColor = true;
+            btnPresupuesto.UseVisualStyleBackColor = false;
             btnPresupuesto.Click += btnPresupuesto_Click;
+            // 
+            // btnRegistro
+            // 
+            btnRegistro.BackColor = SystemColors.ActiveCaption;
+            btnRegistro.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistro.Location = new Point(643, 523);
+            btnRegistro.Margin = new Padding(4);
+            btnRegistro.Name = "btnRegistro";
+            btnRegistro.Size = new Size(130, 50);
+            btnRegistro.TabIndex = 8;
+            btnRegistro.Text = "Regitro";
+            btnRegistro.UseVisualStyleBackColor = false;
+            btnRegistro.Click += btnRegistro_Click_1;
             // 
             // pictureBox1
             // 
             pictureBox1.BackColor = SystemColors.ButtonHighlight;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(170, 25);
+            pictureBox1.Location = new Point(375, 97);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(301, 299);
+            pictureBox1.Size = new Size(334, 330);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
-            // 
-            // panelHome
-            // 
-            panelHome.Controls.Add(pictureBox1);
-            panelHome.Controls.Add(btnRegistro);
-            panelHome.Controls.Add(btnPresupuesto);
-            panelHome.Location = new Point(193, 10);
-            panelHome.Name = "panelHome";
-            panelHome.Size = new Size(644, 530);
-            panelHome.TabIndex = 9;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1067, 560);
-            Controls.Add(panelHome);
+            AutoScroll = true;
+            BackColor = Color.WhiteSmoke;
+            ClientSize = new Size(1084, 661);
+            Controls.Add(btnPresupuesto);
+            Controls.Add(btnRegistro);
+            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimumSize = new Size(800, 600);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panelHome.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-        private Button btnRegistro;
+
         private Button btnPresupuesto;
+        private Button btnRegistro;
         private PictureBox pictureBox1;
-        private Panel panelHome;
     }
 }

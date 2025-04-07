@@ -10,7 +10,7 @@ namespace AppMecanica
         public Home()
         {
             InitializeComponent();
-            hidePanel();
+           
         }
 
        
@@ -19,18 +19,14 @@ namespace AppMecanica
 
         //desde aqui 
 
-        private void hidePanel()
-        {
-             panelHome.Visible = !panelHome.Visible;
-        }
-
+      
         //metodo para los paneles
 
         private void showPaneles(Panel Paneles)
         {
             if (Paneles.Visible == false)
             {
-                hidePanel();
+                
                 Paneles.Visible = true;
             }
             else
