@@ -30,8 +30,8 @@
         {
             btnImprimir = new Button();
             btnImg = new Button();
-            btnVolver = new Button();
-            label1 = new Label();
+            btnVolverGenerado = new Button();
+            lblTitulo = new Label();
             SuspendLayout();
             // 
             // btnImprimir
@@ -39,7 +39,7 @@
             btnImprimir.BackColor = Color.MediumTurquoise;
             btnImprimir.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImprimir.ForeColor = Color.White;
-            btnImprimir.Location = new Point(677, 600);
+            btnImprimir.Location = new Point(660, 586);
             btnImprimir.Margin = new Padding(3, 2, 3, 2);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(116, 50);
@@ -53,7 +53,7 @@
             btnImg.BackColor = Color.LimeGreen;
             btnImg.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImg.ForeColor = Color.White;
-            btnImg.Location = new Point(818, 600);
+            btnImg.Location = new Point(801, 586);
             btnImg.Margin = new Padding(3, 2, 3, 2);
             btnImg.Name = "btnImg";
             btnImg.Size = new Size(116, 50);
@@ -62,29 +62,29 @@
             btnImg.UseVisualStyleBackColor = false;
             btnImg.Click += btnImg_Click;
             // 
-            // btnVolver
+            // btnVolverGenerado
             // 
-            btnVolver.BackColor = Color.Ivory;
-            btnVolver.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolver.ForeColor = Color.Black;
-            btnVolver.Location = new Point(956, 600);
-            btnVolver.Margin = new Padding(3, 2, 3, 2);
-            btnVolver.Name = "btnVolver";
-            btnVolver.Size = new Size(116, 50);
-            btnVolver.TabIndex = 41;
-            btnVolver.Text = "Volver";
-            btnVolver.UseVisualStyleBackColor = false;
-            btnVolver.Click += btnVolver_Click_1;
+            btnVolverGenerado.BackColor = Color.Ivory;
+            btnVolverGenerado.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolverGenerado.ForeColor = Color.Black;
+            btnVolverGenerado.Location = new Point(939, 586);
+            btnVolverGenerado.Margin = new Padding(3, 2, 3, 2);
+            btnVolverGenerado.Name = "btnVolverGenerado";
+            btnVolverGenerado.Size = new Size(116, 50);
+            btnVolverGenerado.TabIndex = 41;
+            btnVolverGenerado.Text = "Volver";
+            btnVolverGenerado.UseVisualStyleBackColor = false;
+            btnVolverGenerado.Click += btnVolverGenerado_Click;
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(398, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(212, 30);
-            label1.TabIndex = 42;
-            label1.Text = "Presupuesto (Fecha)";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(398, 19);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(140, 30);
+            lblTitulo.TabIndex = 42;
+            lblTitulo.Text = "Presupuesto ";
             // 
             // PresupuestoGenerado
             // 
@@ -92,8 +92,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1084, 661);
-            Controls.Add(label1);
-            Controls.Add(btnVolver);
+            Controls.Add(lblTitulo);
+            Controls.Add(btnVolverGenerado);
             Controls.Add(btnImg);
             Controls.Add(btnImprimir);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -109,7 +109,7 @@
 
         private Button btnImprimir;
         private Button btnImg;
-        private Button btnVolver;
-        private Label label1;
+        private Button btnVolverGenerado;
+        private Label lblTitulo;
     }
 }

@@ -30,7 +30,7 @@
         {
             dgvRegistros = new DataGridView();
             txtBuscar = new TextBox();
-            btnVolverHome = new Button();
+            btnVolverRegistro = new Button();
             btnDetalles = new Button();
             btnBuscar = new Button();
             btnClientes = new Button();
@@ -61,17 +61,17 @@
             txtBuscar.Size = new Size(197, 29);
             txtBuscar.TabIndex = 2;
             // 
-            // btnVolverHome
+            // btnVolverRegistro
             // 
-            btnVolverHome.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverHome.Location = new Point(963, 601);
-            btnVolverHome.Margin = new Padding(3, 2, 3, 2);
-            btnVolverHome.Name = "btnVolverHome";
-            btnVolverHome.Size = new Size(109, 40);
-            btnVolverHome.TabIndex = 7;
-            btnVolverHome.Text = "Volver";
-            btnVolverHome.UseVisualStyleBackColor = true;
-            btnVolverHome.Click += btnVolverReg_Click;
+            btnVolverRegistro.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolverRegistro.Location = new Point(963, 601);
+            btnVolverRegistro.Margin = new Padding(3, 2, 3, 2);
+            btnVolverRegistro.Name = "btnVolverRegistro";
+            btnVolverRegistro.Size = new Size(109, 40);
+            btnVolverRegistro.TabIndex = 7;
+            btnVolverRegistro.Text = "Volver";
+            btnVolverRegistro.UseVisualStyleBackColor = true;
+            btnVolverRegistro.Click += btnVolverRegistro_Click;
             // 
             // btnDetalles
             // 
@@ -89,7 +89,7 @@
             // 
             btnBuscar.BackColor = SystemColors.ActiveCaption;
             btnBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBuscar.Location = new Point(244, 59);
+            btnBuscar.Location = new Point(227, 59);
             btnBuscar.Margin = new Padding(3, 2, 3, 2);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(109, 40);
@@ -150,7 +150,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = SystemColors.Control;
+            BackColor = Color.SteelBlue;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
             Controls.Add(lblFormRegistros);
@@ -159,7 +159,7 @@
             Controls.Add(btnClientes);
             Controls.Add(btnBuscar);
             Controls.Add(btnDetalles);
-            Controls.Add(btnVolverHome);
+            Controls.Add(btnVolverRegistro);
             Controls.Add(txtBuscar);
             Controls.Add(dgvRegistros);
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -179,7 +179,7 @@
 
         private DataGridView dgvRegistros;
         private TextBox txtBuscar;
-        private Button btnVolverHome;
+        private Button btnVolverRegistro;
         private Button btnDetalles;
         private Button btnBuscar;
         private Button btnClientes;

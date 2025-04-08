@@ -19,23 +19,18 @@ namespace AppMecanica
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
 
-        public Registros()
+        private Form formHome;
+
+        public Registros(Form Home)
         {
             InitializeComponent();
+            formHome = Home;
         }
 
-        private void btnVolverReg_Click(object sender, EventArgs e)
+        private void btnVolverRegistro_Click(object sender, EventArgs e)
         {
-            // Obtener la instancia del formulario Home que estaba oculto
-            Form homeForm = Application.OpenForms["HomeForm"];
-
-            if (homeForm != null)
-            {
-                homeForm.Show(); // Mostrar HomeForm si está oculto
-            }
-
-            // Cerrar el formulario actual (Registro)
-            this.Close();
+            formHome.Show();
+            this.Close();        
         }
 
         private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -34,25 +34,19 @@ namespace AppMecanica
             }
         }
 
+        private Form homeForm;
 
-        public Presupuesto()
+        public Presupuesto(Form home)
         {
             InitializeComponent();
-
+            homeForm = home;
+            
         }
 
-        private void btnVolverHome_Click(object sender, EventArgs e)
+        private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
-            // Obtener la instancia del formulario Home que estaba oculto
-            Form homeForm = Application.OpenForms["HomeForm"];
-
-            if (homeForm != null)
-            {
-                homeForm.Show(); // Mostrar HomeForm si está oculto
-            }
-
-            // Cerrar el formulario actual (Registro)
-            this.Close();
+            homeForm.Show(); // Mostrar el Home que estaba oculto
+            this.Close();    // Cerrar el Presupuesto
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -179,16 +173,9 @@ namespace AppMecanica
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            PresupuestoGenerado formPresupuestoGenerado = new PresupuestoGenerado();
-
-            // Oculta el formulario actual (Presupuesto)
+            PresupuestoGenerado generadoForm = new PresupuestoGenerado(this);
             this.Hide();
-
-            // Al cerrar el formulario generado, cerramos también el actual
-            formPresupuestoGenerado.FormClosed += (s, args) => this.Close();
-
-            // Mostramos el formulario generado
-            formPresupuestoGenerado.Show();
+            generadoForm.Show();
         }
 
     }

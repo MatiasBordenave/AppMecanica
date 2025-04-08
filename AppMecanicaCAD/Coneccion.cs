@@ -11,7 +11,7 @@ namespace AppMecanicaCAD
 
             // Ruta MAtias
 
-            string rutaBaseDatos = @"C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\Data\database.sqlite";
+            string rutaBaseDatos = @"C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\Data\database.sqlite";
 
             connectionString = $"Data Source={rutaBaseDatos}";
  

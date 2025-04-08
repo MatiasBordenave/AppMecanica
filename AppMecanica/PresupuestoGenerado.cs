@@ -13,9 +13,12 @@ namespace AppMecanica
 {
     public partial class PresupuestoGenerado : Form
     {
-        public PresupuestoGenerado()
+        private Form formPresupuesto;
+        public PresupuestoGenerado(Form Presupuesto)
         {
             InitializeComponent();
+            lblTitulo.Text = $"Presupuesto - {DateTime.Now.ToString("dd/MM/yyyy")}";
+            formPresupuesto = Presupuesto;
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
@@ -64,16 +67,12 @@ namespace AppMecanica
             }
         }
 
-        private void btnVolver_Click_1(object sender, EventArgs e)
+        private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
-            Presupuesto formPresupuesto = new Presupuesto();
-            this.Hide();
-
-            
-            formPresupuesto.FormClosed += (s, args) => this.Close();
-
-            // Mostramos el formulario generado
-            formPresupuesto.Show();
+            formPresupuesto.Show(); // Muestra el formulario anterior
+            this.Close();
         }
+
+        
     }
 }
