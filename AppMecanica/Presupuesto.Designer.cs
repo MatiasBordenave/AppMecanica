@@ -505,6 +505,7 @@
             btnGenerar.TabIndex = 39;
             btnGenerar.Text = "Generar Presupuesto";
             btnGenerar.UseVisualStyleBackColor = false;
+            btnGenerar.Click += btnGenerar_Click;
             // 
             // labelDesc
             // 

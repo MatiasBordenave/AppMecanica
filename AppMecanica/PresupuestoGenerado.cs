@@ -64,5 +64,16 @@ namespace AppMecanica
             }
         }
 
+        private void btnVolver_Click_1(object sender, EventArgs e)
+        {
+            Presupuesto formPresupuesto = new Presupuesto();
+            this.Hide();
+
+            
+            formPresupuesto.FormClosed += (s, args) => this.Close();
+
+            // Mostramos el formulario generado
+            formPresupuesto.Show();
+        }
     }
 }

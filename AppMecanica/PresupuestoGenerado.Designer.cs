@@ -39,7 +39,7 @@
             btnImprimir.BackColor = Color.MediumTurquoise;
             btnImprimir.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImprimir.ForeColor = Color.White;
-            btnImprimir.Location = new Point(660, 499);
+            btnImprimir.Location = new Point(677, 600);
             btnImprimir.Margin = new Padding(3, 2, 3, 2);
             btnImprimir.Name = "btnImprimir";
             btnImprimir.Size = new Size(116, 50);
@@ -53,7 +53,7 @@
             btnImg.BackColor = Color.LimeGreen;
             btnImg.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnImg.ForeColor = Color.White;
-            btnImg.Location = new Point(801, 499);
+            btnImg.Location = new Point(818, 600);
             btnImg.Margin = new Padding(3, 2, 3, 2);
             btnImg.Name = "btnImg";
             btnImg.Size = new Size(116, 50);
@@ -67,13 +67,14 @@
             btnVolver.BackColor = Color.Ivory;
             btnVolver.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnVolver.ForeColor = Color.Black;
-            btnVolver.Location = new Point(939, 499);
+            btnVolver.Location = new Point(956, 600);
             btnVolver.Margin = new Padding(3, 2, 3, 2);
             btnVolver.Name = "btnVolver";
             btnVolver.Size = new Size(116, 50);
             btnVolver.TabIndex = 41;
             btnVolver.Text = "Volver";
             btnVolver.UseVisualStyleBackColor = false;
+            btnVolver.Click += btnVolver_Click_1;
             // 
             // label1
             // 
@@ -89,12 +90,16 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1067, 560);
+            AutoScroll = true;
+            ClientSize = new Size(1084, 661);
             Controls.Add(label1);
             Controls.Add(btnVolver);
             Controls.Add(btnImg);
             Controls.Add(btnImprimir);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             Name = "PresupuestoGenerado";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PresupuestoGenerado";
             ResumeLayout(false);
             PerformLayout();

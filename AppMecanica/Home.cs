@@ -59,14 +59,8 @@ namespace AppMecanica
             // Mostrar el formulario Registro
             presupuestoForm.ShowDialog();
 
-            // Una vez que se cierre el formulario Registro, volver a mostrar el Home
-            this.Show();
+            
         }
 
-        
-
-        
-
-        
     }
 }

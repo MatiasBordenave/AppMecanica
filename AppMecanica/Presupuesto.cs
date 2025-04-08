@@ -1,8 +1,4 @@
 ﻿using AppMecanicaCLN;
-using System;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Windows.Forms;
 namespace AppMecanica
 {
     public partial class Presupuesto : Form
@@ -149,6 +145,22 @@ namespace AppMecanica
             }
 
             // Continúa con el guardado del presupuesto
+        }
+
+
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            PresupuestoGenerado formPresupuestoGenerado = new PresupuestoGenerado();
+
+            // Oculta el formulario actual (Presupuesto)
+            this.Hide();
+
+            // Al cerrar el formulario generado, cerramos también el actual
+            formPresupuestoGenerado.FormClosed += (s, args) => this.Close();
+
+            // Mostramos el formulario generado
+            formPresupuestoGenerado.Show();
         }
 
     }
