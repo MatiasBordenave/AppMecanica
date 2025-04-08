@@ -1,4 +1,5 @@
-﻿using AppMecanicaCLN;
+﻿using AppMecanicaCAD;
+using AppMecanicaCLN;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,8 @@ namespace AppMecanica
     {
 
         private ClienteCLN clienteCLN = new ClienteCLN();
+        private RegistroCLN registroCLN = new RegistroCLN();
+        private VehiculoCLN vehiculoCLN = new VehiculoCLN();
 
         public Registros()
         {
@@ -37,12 +40,32 @@ namespace AppMecanica
 
         private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void Registros_Load(object sender, EventArgs e)
         {
+            lblFormRegistros.Text = "";
+        }
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "Clientes";
             dgvRegistros.DataSource = clienteCLN.ObtenerClientes();
+            dgvRegistros.Columns["nombreYApellido"].HeaderText = "Titular";
+        }
+
+        private void btnVehiculos_Click(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "Vehiculos"; 
+            dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
+
+        }
+
+        private void btnRegistros_Click(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "Registros";
+            dgvRegistros.DataSource = registroCLN.ObtenerRegistros();
         }
     }
 }

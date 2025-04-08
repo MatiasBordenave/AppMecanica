@@ -1,4 +1,5 @@
-﻿using AppMecanicaCLN;
+﻿using AppMecanicaCAD;
+using AppMecanicaCLN;
 namespace AppMecanica
 {
     public partial class Presupuesto : Form
@@ -6,6 +7,8 @@ namespace AppMecanica
 
         private Bitmap bitmap;
         private ClienteCLN clienteCLN = new ClienteCLN();
+        private RegistroCLN registroCLN = new RegistroCLN();
+        private VehiculoCLN vehiculoCLN = new VehiculoCLN();
 
         public static class Validaciones
         {
@@ -135,6 +138,27 @@ namespace AppMecanica
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            
+
+            string nombreYApellido = txtTitular.Text;
+            string telefono = txtTelefono.Text;
+            string domicilio = txtDomicilio.Text;
+
+            string vehiculo = txtVehiculo.Text;
+            string modelo = txtModelo.Text;
+            string marca = txtMarca.Text;
+            string patente = txtPatente.Text;
+            string año = txtAño.Text;
+            string kilometraje = txtKm.Text;
+
+            txtNombreRepo.Clear();
+            txtPrecioUni.Clear();
+
+            txtCantidadHoras.Clear();
+            txtPrecioHora.Clear();
+
+
+
             if (Validaciones.HayCamposVacios(this, out string campo))
             {
                 MessageBox.Show($"El campo '{campo}' está vacío. Por favor, completalo.",
@@ -145,6 +169,10 @@ namespace AppMecanica
             }
 
             // Continúa con el guardado del presupuesto
+            //clienteCLN.AgregarCliente(nombreYApellido, telefono, domicilio);
+            //vehiculoCLN.AgregarVehiculoYCliente(nombreYApellido, telefono, domicilio, );
+            //vehiculoCLN.AgregarVehiculo();
+            //registroCLN.AgregarRegistro();
         }
 
 
