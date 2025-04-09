@@ -12,26 +12,28 @@ namespace AppMecanica
 
         public static class Validaciones
         {
-            public static bool HayCamposVacios(Control parent, out string nombreCampo)
-            {
-                foreach (Control control in parent.Controls)
-                {
-                    if (control is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
-                    {
-                        nombreCampo = txt.Name;
-                        return true;
-                    }
-                    if (control is ComboBox cmb && cmb.SelectedIndex == -1)
-                    {
-                        nombreCampo = cmb.Name;
-                        return true;
-                    }
-                    // Podés agregar más tipos si necesitás (DateTimePicker, CheckBox, etc.)
-                }
+            //VARIABLE GLOBAL POR SI HAY CAMPOS VACIOS POR RELLENAR (TODAVIA ESTA EN PRUEBA) 
 
-                nombreCampo = string.Empty;
-                return false;
-            }
+            //public static bool HayCamposVacios(Control parent, out string nombreCampo)
+            //{
+            //    foreach (Control control in parent.Controls)
+            //    {
+            //        if (control is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
+            //        {
+            //            nombreCampo = txt.Name;
+            //            return true;
+            //        }
+            //        if (control is ComboBox cmb && cmb.SelectedIndex == -1)
+            //        {
+            //            nombreCampo = cmb.Name;
+            //            return true;
+            //        }
+            //        // Podés agregar más tipos si necesitás (DateTimePicker, CheckBox, etc.)
+            //    }
+
+            //    nombreCampo = string.Empty;
+            //    return false;
+            //}
         }
 
         private Form homeForm;
