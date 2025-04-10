@@ -547,10 +547,8 @@
         private Button btnGuardar;
         private TextBox txtTitular;
         private Label lblPatente;
-        private Label lblVehiculo;
         private Label lblTitular;
         private Label lblMarca;
-        private TextBox txtVehiculo;
         private TextBox txtPatente;
         private TextBox txtMarca;
         private Label lblModelo;

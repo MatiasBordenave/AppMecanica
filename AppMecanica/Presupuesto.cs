@@ -63,7 +63,6 @@ namespace AppMecanica
             txtTitular.Clear();
             txtTelefono.Clear();
             txtDomicilio.Clear();
-            txtVehiculo.Clear();
             txtModelo.Clear();
             txtMarca.Clear();
             txtPatente.Clear();
@@ -139,8 +138,6 @@ namespace AppMecanica
             string nombreYApellido = txtTitular.Text;
             string telefono = txtTelefono.Text;
             string domicilio = txtDomicilio.Text;
-
-            string vehiculo = txtVehiculo.Text;
             string modelo = txtModelo.Text;
             string marca = txtMarca.Text;
             string patente = txtPatente.Text;
@@ -154,21 +151,18 @@ namespace AppMecanica
             txtPrecioHora.Clear();
 
 
+            //Validacion global arriba de los campos
 
-            if (Validaciones.HayCamposVacios(this, out string campo))
-            {
-                MessageBox.Show($"El campo '{campo}' está vacío. Por favor, completalo.",
-                                "Validación de campos",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
-            }
+            //if (Validaciones.HayCamposVacios(this, out string campo))
+            //{
+            //    MessageBox.Show($"El campo '{campo}' está vacío. Por favor, completalo.",
+            //                    "Validación de campos",
+            //                    MessageBoxButtons.OK,
+            //                    MessageBoxIcon.Warning);
+            //    return;
+            //}
 
-            // Continúa con el guardado del presupuesto
-            //clienteCLN.AgregarCliente(nombreYApellido, telefono, domicilio);
-            //vehiculoCLN.AgregarVehiculoYCliente(nombreYApellido, telefono, domicilio, );
-            //vehiculoCLN.AgregarVehiculo();
-            //registroCLN.AgregarRegistro();
+
         }
 
 
@@ -176,8 +170,14 @@ namespace AppMecanica
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             PresupuestoGenerado generadoForm = new PresupuestoGenerado(this);
+
+            generadoForm.Titular = txtTitular.Text;
+            // generadoForm.DNI = txtDNI.Text;
+            // ...
+
             this.Hide();
             generadoForm.Show();
+
         }
 
     }

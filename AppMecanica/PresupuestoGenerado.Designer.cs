@@ -32,6 +32,7 @@
             btnImg = new Button();
             btnVolverGenerado = new Button();
             lblTitulo = new Label();
+            lblTitular = new Label();
             SuspendLayout();
             // 
             // btnImprimir
@@ -86,12 +87,23 @@
             lblTitulo.TabIndex = 42;
             lblTitulo.Text = "Presupuesto ";
             // 
+            // lblTitular
+            // 
+            lblTitular.AutoSize = true;
+            lblTitular.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitular.Location = new Point(82, 93);
+            lblTitular.Name = "lblTitular";
+            lblTitular.Size = new Size(82, 20);
+            lblTitular.TabIndex = 43;
+            lblTitular.Text = "Ver Titular";
+            // 
             // PresupuestoGenerado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1084, 661);
+            Controls.Add(lblTitular);
             Controls.Add(lblTitulo);
             Controls.Add(btnVolverGenerado);
             Controls.Add(btnImg);
@@ -111,5 +123,6 @@
         private Button btnImg;
         private Button btnVolverGenerado;
         private Label lblTitulo;
+        private Label lblTitular;
     }
 }

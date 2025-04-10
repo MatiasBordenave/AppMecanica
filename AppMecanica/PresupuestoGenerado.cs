@@ -1,39 +1,52 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Drawing.Printing;
+
 
 namespace AppMecanica
 {
     public partial class PresupuestoGenerado : Form
     {
+        public string Titular { get; set; }
+        //public string DNI { get; set; }
+        //public string Telefono { get; set; }
+        //public string Email { get; set; }
+        //public string Patente { get; set; }
+        //public string Marca { get; set; }
+        //public string Modelo { get; set; }
+        //public string Año { get; set; }
+        //public string Problema { get; set; }
+        //public string Servicios { get; set; }
+        //public string Precio { get; set; }
+        //public string FechaIngreso { get; set; }
+        //public string FechaEntrega { get; set; }
+        //public string Observaciones { get; set; }
+
         private Form formPresupuesto;
         public PresupuestoGenerado(Form Presupuesto)
         {
             InitializeComponent();
             lblTitulo.Text = $"Presupuesto - {DateTime.Now.ToString("dd/MM/yyyy")}";
             formPresupuesto = Presupuesto;
-        }
+            this.Load += PresupuestoGenerado_Load;
 
-        private void btnVolver_Click(object sender, EventArgs e)
+        }
+        private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
-            //// Obtener la instancia del formulario Home que estaba oculto
-            //Form homeForm = Application.OpenForms["HomeForm"];
-
-            //if (homeForm != null)
-            //{
-            //    homeForm.Show(); // Mostrar HomeForm si está oculto
-            //}
-
-            //// Cerrar el formulario actual (Registro)
-            //this.Close();
+            lblTitular.Text = Titular;
+            //lblDNI.Text = DNI;
+            //lblTelefono.Text = Telefono;
+            //lblEmail.Text = Email;
+            //lblPatente.Text = Patente;
+            //lblMarca.Text = Marca;
+            //lblModelo.Text = Modelo;
+            //lblAño.Text = Año;
+            //lblProblema.Text = Problema;
+            //lblServicios.Text = Servicios;
+            //lblPrecio.Text = Precio;
+            //lblFechaIngreso.Text = FechaIngreso;
+            //lblFechaEntrega.Text = FechaEntrega;
+            //lblObservaciones.Text = Observaciones;
         }
+
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
@@ -69,7 +82,7 @@ namespace AppMecanica
 
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
-            formPresupuesto.Show(); // Muestra el formulario anterior
+            formPresupuesto.Show();
             this.Close();
         }
 
