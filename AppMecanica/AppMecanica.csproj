@@ -44,7 +44,7 @@
 
   <ItemGroup>
     <None Update="Data\database.sqlite">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

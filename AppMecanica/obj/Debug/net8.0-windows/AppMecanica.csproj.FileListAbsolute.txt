@@ -167,5 +167,4 @@ C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\A
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\ref\AppMecanica.dll
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.PresupuestoGenerado.resources
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.PresupuestoGenerado.resources
-C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\bin\Debug\net8.0-windows\Data\database.sqlite
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Data\database.sqlite

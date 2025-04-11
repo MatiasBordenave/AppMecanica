@@ -37,6 +37,7 @@
             btnVehiculos = new Button();
             btnRegistros = new Button();
             lblFormRegistros = new Label();
+            btnResetDgv = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
@@ -96,6 +97,7 @@
             btnBuscar.TabIndex = 9;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // btnClientes
             // 
@@ -145,6 +147,19 @@
             lblFormRegistros.TabIndex = 13;
             lblFormRegistros.Text = "Label";
             // 
+            // btnResetDgv
+            // 
+            btnResetDgv.BackColor = Color.Silver;
+            btnResetDgv.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResetDgv.Location = new Point(963, 123);
+            btnResetDgv.Margin = new Padding(3, 2, 3, 2);
+            btnResetDgv.Name = "btnResetDgv";
+            btnResetDgv.Size = new Size(109, 40);
+            btnResetDgv.TabIndex = 14;
+            btnResetDgv.Text = "Reset DGV";
+            btnResetDgv.UseVisualStyleBackColor = false;
+            btnResetDgv.Click += btnResetDgv_Click;
+            // 
             // Registros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -153,6 +168,7 @@
             BackColor = Color.SteelBlue;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
+            Controls.Add(btnResetDgv);
             Controls.Add(lblFormRegistros);
             Controls.Add(btnRegistros);
             Controls.Add(btnVehiculos);
@@ -186,5 +202,6 @@
         private Button btnVehiculos;
         private Button btnRegistros;
         private Label lblFormRegistros;
+        private Button btnResetDgv;
     }
 }

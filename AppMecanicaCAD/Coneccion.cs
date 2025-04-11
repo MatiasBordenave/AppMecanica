@@ -1,4 +1,6 @@
-﻿using System.Data.SQLite;
+﻿using System.Data.Entity;
+using System.Data.SQLite;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AppMecanicaCAD
 {
@@ -11,9 +13,14 @@ namespace AppMecanicaCAD
 
             // Ruta MAtias
 
+
+            string rutaMatias = @"C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\Data\database.sqlite";
+
+        
+
             string rutaBaseDatos = @"C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\Data\database.sqlite";
 
-            connectionString = $"Data Source={rutaBaseDatos}";
+            connectionString = $"Data Source={rutaMatias}";
  
         }
 
