@@ -18,9 +18,9 @@ namespace AppMecanicaCAD
 
         
 
-            string rutaBaseDatos = @"C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\Data\database.sqlite";
+            string rutaJoaquin = @"C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\Data\database.sqlite";
 
-            connectionString = $"Data Source={rutaMatias}";
+            connectionString = $"Data Source={rutaJoaquin}";
  
         }
 

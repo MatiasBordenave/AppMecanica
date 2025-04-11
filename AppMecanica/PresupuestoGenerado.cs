@@ -6,8 +6,10 @@ namespace AppMecanica
     public partial class PresupuestoGenerado : Form
     {
         public string Titular { get; set; }
-        //public string DNI { get; set; }
-        //public string Telefono { get; set; }
+        public string Telefono { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
+        public string Año { get; set; }
         //public string Email { get; set; }
         //public string Patente { get; set; }
         //public string Marca { get; set; }
@@ -24,16 +26,20 @@ namespace AppMecanica
         public PresupuestoGenerado(Form Presupuesto)
         {
             InitializeComponent();
-            lblTitulo.Text = $"Presupuesto - {DateTime.Now.ToString("dd/MM/yyyy")}";
+            lblTitulo.Text = $"Presupuesto - Nro {"01"}";
+            lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
             formPresupuesto = Presupuesto;
             this.Load += PresupuestoGenerado_Load;
 
         }
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
-            lblTitular.Text = Titular;
-            //lblDNI.Text = DNI;
-            //lblTelefono.Text = Telefono;
+            lblDatosCliente.Text = $"Cliente: {Titular}";
+
+            lblDatosTelefono.Text = $"Telefono: {Telefono}" ;
+
+            lblDatosVehiculo.Text = $"Vehiculo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
+
             //lblEmail.Text = Email;
             //lblPatente.Text = Patente;
             //lblMarca.Text = Marca;

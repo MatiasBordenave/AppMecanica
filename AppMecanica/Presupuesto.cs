@@ -172,8 +172,10 @@ namespace AppMecanica
             PresupuestoGenerado generadoForm = new PresupuestoGenerado(this);
 
             generadoForm.Titular = txtTitular.Text;
-            // generadoForm.DNI = txtDNI.Text;
-            // ...
+            generadoForm.Telefono = txtTelefono.Text;
+            generadoForm.Marca = txtMarca.Text;
+            generadoForm.Modelo = txtModelo.Text;
+            generadoForm.Año = txtAño.Text;
 
             this.Hide();
             generadoForm.Show();
