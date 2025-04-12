@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AppMecanicaCAD;
+using AppMecanicaCLN;
+using AppMecanicaEntidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,23 +15,144 @@ namespace AppMecanica
 {
     public partial class Registros : Form
     {
-        public Registros()
+
+        private ClienteCLN clienteCLN = new ClienteCLN();
+        private RegistroCLN registroCLN = new RegistroCLN();
+        private VehiculoCLN vehiculoCLN = new VehiculoCLN();
+        private ClienteVehiculoCLN clienteVehiculoCLN = new ClienteVehiculoCLN();
+        private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
+
+
+        private Form formHome;
+
+        public Registros(Form Home)
         {
             InitializeComponent();
+            formHome = Home;
         }
 
-        private void btnVolverReg_Click(object sender, EventArgs e)
+        private void btnVolverRegistro_Click(object sender, EventArgs e)
         {
-            // Obtener la instancia del formulario Home que estaba oculto
-            Form homeForm = Application.OpenForms["HomeForm"];
+            formHome.Show();
+            this.Close();
+        }
 
-            if (homeForm != null)
+        private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && dgvRegistros.Columns[e.ColumnIndex].Name == "btnVerMas")
             {
-                homeForm.Show(); // Mostrar HomeForm si está oculto
+                int idVehiculo = Convert.ToInt32(dgvRegistros.Rows[e.RowIndex].Cells["IdVehiculo"].Value);
+
+                limpiarDataGridView();
+
+                VehiculoDetalleDTO detalle = vehiculoDetalleCLN.ObtenerDetalleVehiculo(idVehiculo);
+
+                // MOSTRAMOS SOLO LOS REGISTROS del vehículo
+                dgvRegistros.DataSource = detalle.Registros;
+
+                if (dgvRegistros.Columns.Contains("Id"))
+                    dgvRegistros.Columns["Id"].Visible = false;
+                if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                    dgvRegistros.Columns["IdVehiculo"].Visible = false;
             }
 
-            // Cerrar el formulario actual (Registro)
-            this.Close();
+        }
+
+        private void Registros_Load(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "";
+            CargarDataGridView();
+        }
+
+        private void CargarDataGridView()
+        {
+            limpiarDataGridView();
+            var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos();
+            dgvRegistros.DataSource = lista;
+
+            if (dgvRegistros.Columns.Contains("IdCliente"))
+                dgvRegistros.Columns["IdCliente"].Visible = false;
+            if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                dgvRegistros.Columns["IdVehiculo"].Visible = false;
+
+            if (dgvRegistros.Columns.Contains("btnVerMas"))
+            {
+                dgvRegistros.Columns.Remove("btnVerMas");
+            }
+
+            // Podés agregar una columna de botón aquí
+            if (!dgvRegistros.Columns.Contains("btnVerMas"))
+            {
+                DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
+                btnCol.HeaderText = "Acciones";
+                btnCol.Text = "Ver más";
+                btnCol.UseColumnTextForButtonValue = true;
+                btnCol.Name = "btnVerMas";
+                dgvRegistros.Columns.Add(btnCol);
+            }
+        }
+
+        private void limpiarDataGridView()
+        {
+            dgvRegistros.DataSource = null;
+            dgvRegistros.Rows.Clear();
+            dgvRegistros.Columns.Clear();
+        }
+
+
+
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "Clientes";
+            limpiarDataGridView();
+            dgvRegistros.DataSource = clienteCLN.ObtenerClientes();
+            dgvRegistros.Columns["nombreYApellido"].HeaderText = "Titular";
+        }
+
+        private void btnVehiculos_Click(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "Vehiculos";
+            limpiarDataGridView();
+            dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
+
+        }
+
+        private void btnRegistros_Click(object sender, EventArgs e)
+        {
+            lblFormRegistros.Text = "Registros";
+            limpiarDataGridView();
+            dgvRegistros.DataSource = registroCLN.ObtenerRegistros();
+        }
+
+        private void btnResetDgv_Click(object sender, EventArgs e)
+        {
+            CargarDataGridView();
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            string nombreCliente = txtBuscar.Text.Trim();
+
+
+            if (!string.IsNullOrEmpty(nombreCliente))
+            {
+                var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente);
+                dgvRegistros.DataSource = resultado;
+
+                // (Opcional) volvés a agregar el botón Ver Más
+                if (!dgvRegistros.Columns.Contains("btnVerMas"))
+                {
+                    DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
+                    btnCol.HeaderText = "Acciones";
+                    btnCol.Text = "Ver más";
+                    btnCol.UseColumnTextForButtonValue = true;
+                    btnCol.Name = "btnVerMas";
+                    dgvRegistros.Columns.Add(btnCol);
+                }
+            }
+
         }
     }
 }
+

@@ -28,111 +28,164 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registros));
             dgvRegistros = new DataGridView();
-            btnBuscar = new Button();
             txtBuscar = new TextBox();
-            lblPatenteRegis = new Label();
-            btnAbrir = new Button();
-            btnEliminarReg = new Button();
-            btnVolverReg = new Button();
+            btnVolverRegistro = new Button();
+            btnDetalles = new Button();
+            btnBuscar = new Button();
+            btnClientes = new Button();
+            btnVehiculos = new Button();
+            btnRegistros = new Button();
+            lblFormRegistros = new Label();
+            btnResetDgv = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
             // dgvRegistros
             // 
             dgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvRegistros.Location = new Point(27, 164);
+            dgvRegistros.Location = new Point(24, 123);
+            dgvRegistros.Margin = new Padding(3, 2, 3, 2);
             dgvRegistros.Name = "dgvRegistros";
             dgvRegistros.RowHeadersWidth = 51;
-            dgvRegistros.Size = new Size(1007, 502);
+            dgvRegistros.Size = new Size(916, 518);
             dgvRegistros.TabIndex = 0;
-            // 
-            // btnBuscar
-            // 
-            btnBuscar.BackColor = Color.FromArgb(128, 128, 255);
-            btnBuscar.FlatStyle = FlatStyle.Popup;
-            btnBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBuscar.Location = new Point(387, 112);
-            btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(109, 35);
-            btnBuscar.TabIndex = 1;
-            btnBuscar.Text = "Buscar";
-            btnBuscar.UseVisualStyleBackColor = false;
+            dgvRegistros.CellContentClick += dgvRegistros_CellContentClick;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(140, 112);
+            txtBuscar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtBuscar.Location = new Point(24, 70);
+            txtBuscar.Margin = new Padding(3, 2, 3, 2);
             txtBuscar.Multiline = true;
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(225, 33);
+            txtBuscar.Size = new Size(197, 29);
             txtBuscar.TabIndex = 2;
             // 
-            // lblPatenteRegis
+            // btnVolverRegistro
             // 
-            lblPatenteRegis.AutoSize = true;
-            lblPatenteRegis.BackColor = Color.FromArgb(128, 128, 255);
-            lblPatenteRegis.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPatenteRegis.Location = new Point(27, 112);
-            lblPatenteRegis.Name = "lblPatenteRegis";
-            lblPatenteRegis.Size = new Size(95, 31);
-            lblPatenteRegis.TabIndex = 3;
-            lblPatenteRegis.Text = "Patente";
+            btnVolverRegistro.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolverRegistro.Location = new Point(963, 601);
+            btnVolverRegistro.Margin = new Padding(3, 2, 3, 2);
+            btnVolverRegistro.Name = "btnVolverRegistro";
+            btnVolverRegistro.Size = new Size(109, 40);
+            btnVolverRegistro.TabIndex = 7;
+            btnVolverRegistro.Text = "Volver";
+            btnVolverRegistro.UseVisualStyleBackColor = true;
+            btnVolverRegistro.Click += btnVolverRegistro_Click;
             // 
-            // btnAbrir
+            // btnDetalles
             // 
-            btnAbrir.BackColor = Color.FromArgb(128, 255, 128);
-            btnAbrir.FlatStyle = FlatStyle.Popup;
-            btnAbrir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAbrir.Location = new Point(1061, 164);
-            btnAbrir.Name = "btnAbrir";
-            btnAbrir.Size = new Size(125, 54);
-            btnAbrir.TabIndex = 4;
-            btnAbrir.Text = "Abrir";
-            btnAbrir.UseVisualStyleBackColor = false;
+            btnDetalles.BackColor = Color.LightGreen;
+            btnDetalles.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDetalles.Location = new Point(963, 547);
+            btnDetalles.Margin = new Padding(3, 2, 3, 2);
+            btnDetalles.Name = "btnDetalles";
+            btnDetalles.Size = new Size(109, 40);
+            btnDetalles.TabIndex = 8;
+            btnDetalles.Text = "Ver Detalles";
+            btnDetalles.UseVisualStyleBackColor = false;
             // 
-            // btnEliminarReg
+            // btnBuscar
             // 
-            btnEliminarReg.BackColor = Color.FromArgb(255, 128, 128);
-            btnEliminarReg.FlatStyle = FlatStyle.Popup;
-            btnEliminarReg.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminarReg.Location = new Point(1061, 267);
-            btnEliminarReg.Name = "btnEliminarReg";
-            btnEliminarReg.Size = new Size(125, 54);
-            btnEliminarReg.TabIndex = 6;
-            btnEliminarReg.Text = "Eliminar";
-            btnEliminarReg.UseVisualStyleBackColor = false;
+            btnBuscar.BackColor = SystemColors.ActiveCaption;
+            btnBuscar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuscar.Location = new Point(227, 59);
+            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(109, 40);
+            btnBuscar.TabIndex = 9;
+            btnBuscar.Text = "Buscar";
+            btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
-            // btnVolverReg
+            // btnClientes
             // 
-            btnVolverReg.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnVolverReg.Location = new Point(1061, 612);
-            btnVolverReg.Name = "btnVolverReg";
-            btnVolverReg.Size = new Size(125, 54);
-            btnVolverReg.TabIndex = 7;
-            btnVolverReg.Text = "Volver";
-            btnVolverReg.UseVisualStyleBackColor = true;
-            btnVolverReg.Click += btnVolverReg_Click;
+            btnClientes.BackColor = Color.Silver;
+            btnClientes.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnClientes.Location = new Point(963, 320);
+            btnClientes.Margin = new Padding(3, 2, 3, 2);
+            btnClientes.Name = "btnClientes";
+            btnClientes.Size = new Size(109, 40);
+            btnClientes.TabIndex = 10;
+            btnClientes.Text = "Clientes";
+            btnClientes.UseVisualStyleBackColor = false;
+            btnClientes.Click += btnClientes_Click;
+            // 
+            // btnVehiculos
+            // 
+            btnVehiculos.BackColor = Color.Silver;
+            btnVehiculos.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVehiculos.Location = new Point(963, 364);
+            btnVehiculos.Margin = new Padding(3, 2, 3, 2);
+            btnVehiculos.Name = "btnVehiculos";
+            btnVehiculos.Size = new Size(109, 40);
+            btnVehiculos.TabIndex = 11;
+            btnVehiculos.Text = "Vehiculos";
+            btnVehiculos.UseVisualStyleBackColor = false;
+            btnVehiculos.Click += btnVehiculos_Click;
+            // 
+            // btnRegistros
+            // 
+            btnRegistros.BackColor = Color.Silver;
+            btnRegistros.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRegistros.Location = new Point(963, 408);
+            btnRegistros.Margin = new Padding(3, 2, 3, 2);
+            btnRegistros.Name = "btnRegistros";
+            btnRegistros.Size = new Size(109, 40);
+            btnRegistros.TabIndex = 12;
+            btnRegistros.Text = "Registros";
+            btnRegistros.UseVisualStyleBackColor = false;
+            btnRegistros.Click += btnRegistros_Click;
+            // 
+            // lblFormRegistros
+            // 
+            lblFormRegistros.AutoSize = true;
+            lblFormRegistros.Location = new Point(635, 70);
+            lblFormRegistros.Name = "lblFormRegistros";
+            lblFormRegistros.Size = new Size(35, 15);
+            lblFormRegistros.TabIndex = 13;
+            lblFormRegistros.Text = "Label";
+            // 
+            // btnResetDgv
+            // 
+            btnResetDgv.BackColor = Color.Silver;
+            btnResetDgv.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnResetDgv.Location = new Point(963, 123);
+            btnResetDgv.Margin = new Padding(3, 2, 3, 2);
+            btnResetDgv.Name = "btnResetDgv";
+            btnResetDgv.Size = new Size(109, 40);
+            btnResetDgv.TabIndex = 14;
+            btnResetDgv.Text = "Reset DGV";
+            btnResetDgv.UseVisualStyleBackColor = false;
+            btnResetDgv.Click += btnResetDgv_Click;
             // 
             // Registros
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            AutoScroll = true;
+            BackColor = Color.SteelBlue;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1219, 747);
-            Controls.Add(btnVolverReg);
-            Controls.Add(btnEliminarReg);
-            Controls.Add(btnAbrir);
-            Controls.Add(lblPatenteRegis);
-            Controls.Add(txtBuscar);
+            ClientSize = new Size(1084, 661);
+            Controls.Add(btnResetDgv);
+            Controls.Add(lblFormRegistros);
+            Controls.Add(btnRegistros);
+            Controls.Add(btnVehiculos);
+            Controls.Add(btnClientes);
             Controls.Add(btnBuscar);
+            Controls.Add(btnDetalles);
+            Controls.Add(btnVolverRegistro);
+            Controls.Add(txtBuscar);
             Controls.Add(dgvRegistros);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MinimumSize = new Size(800, 600);
             Name = "Registros";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Registros";
+            Load += Registros_Load;
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -141,11 +194,14 @@
         #endregion
 
         private DataGridView dgvRegistros;
-        private Button btnBuscar;
         private TextBox txtBuscar;
-        private Label lblPatenteRegis;
-        private Button btnAbrir;
-        private Button btnEliminarReg;
-        private Button btnVolverReg;
+        private Button btnVolverRegistro;
+        private Button btnDetalles;
+        private Button btnBuscar;
+        private Button btnClientes;
+        private Button btnVehiculos;
+        private Button btnRegistros;
+        private Label lblFormRegistros;
+        private Button btnResetDgv;
     }
 }

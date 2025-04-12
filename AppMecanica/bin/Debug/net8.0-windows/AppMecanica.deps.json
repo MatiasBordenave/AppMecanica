@@ -201,7 +201,7 @@
         },
         "runtime": {
           "AppMecanicaCAD.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -214,7 +214,7 @@
         },
         "runtime": {
           "AppMecanicaCLN.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -222,7 +222,7 @@
       "AppMecanicaEntidades/1.0.0": {
         "runtime": {
           "AppMecanicaEntidades.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

@@ -8,6 +8,9 @@
     <Compile Update="Presupuesto.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PresupuestoGenerado.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Registros.cs">
       <SubType>Form</SubType>
     </Compile>
