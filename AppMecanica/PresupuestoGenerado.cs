@@ -10,52 +10,35 @@ namespace AppMecanica
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public string Año { get; set; }
-        //public string Email { get; set; }
-        //public string Patente { get; set; }
-        //public string Marca { get; set; }
-        //public string Modelo { get; set; }
-        //public string Año { get; set; }
-        //public string Problema { get; set; }
-        //public string Servicios { get; set; }
-        //public string Precio { get; set; }
-        //public string FechaIngreso { get; set; }
-        //public string FechaEntrega { get; set; }
-        //public string Observaciones { get; set; }
+
 
         private Form formPresupuesto;
         public PresupuestoGenerado(Form Presupuesto)
+
         {
             InitializeComponent();
             lblTitulo.Text = $"Presupuesto - Nro {"01"}";
             lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
             formPresupuesto = Presupuesto;
             this.Load += PresupuestoGenerado_Load;
-
         }
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
             lblDatosCliente.Text = $"Cliente: {Titular}";
-
             lblDatosTelefono.Text = $"Telefono: {Telefono}" ;
-
             lblDatosVehiculo.Text = $"Vehiculo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
-
-            //lblEmail.Text = Email;
-            //lblPatente.Text = Patente;
-            //lblMarca.Text = Marca;
-            //lblModelo.Text = Modelo;
-            //lblAño.Text = Año;
-            //lblProblema.Text = Problema;
-            //lblServicios.Text = Servicios;
-            //lblPrecio.Text = Precio;
-            //lblFechaIngreso.Text = FechaIngreso;
-            //lblFechaEntrega.Text = FechaEntrega;
-            //lblObservaciones.Text = Observaciones;
         }
 
-
+        //FALTA DEFINIR EL AREA DE IMPRESION
         private void btnImprimir_Click(object sender, EventArgs e)
         {
+            btnImg.Visible = false;
+            btnImprimir.Visible = false;
+            btnVolverGenerado.Visible = false;
+
+            this.Refresh();
+            Application.DoEvents();
+
             PrintDocument pd = new PrintDocument();
             pd.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
             PrintPreviewDialog printPreview = new PrintPreviewDialog
@@ -63,27 +46,59 @@ namespace AppMecanica
                 Document = pd
             };
             printPreview.ShowDialog();
+
+            btnImg.Visible = true;
+            btnImprimir.Visible = true;
+            btnVolverGenerado.Visible = true;
         }
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            Bitmap bmp = new Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
+            //area sin bordes 
+            Rectangle bounds = this.RectangleToScreen(this.ClientRectangle);
+            Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
+
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
+            }
             e.Graphics.DrawImage(bmp, 0, 0);
         }
+
+
         private void btnImg_Click(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(bmp, new Rectangle(0, 0, this.Width, this.Height));
-            SaveFileDialog sfd = new SaveFileDialog
+            btnImg.Visible = false;
+            btnImprimir.Visible = false;
+            btnVolverGenerado.Visible = false;
+
+
+            this.Refresh();
+            Application.DoEvents();
+
+            //area sin bordes 
+            Rectangle bounds = this.RectangleToScreen(this.ClientRectangle);
+            Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
+
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                Filter = "PNG Image|*.png"
-            };
+                g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
+            }
+
+            //guardar 
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "PNG Image|*.png";
+
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 bmp.Save(sfd.FileName);
                 MessageBox.Show("Imagen guardada exitosamente.");
             }
+
+
+            btnImg.Visible = true;
+            btnImprimir.Visible = true;
+            btnVolverGenerado.Visible = true;
         }
 
         private void btnVolverGenerado_Click(object sender, EventArgs e)
