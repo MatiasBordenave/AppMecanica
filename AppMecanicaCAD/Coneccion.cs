@@ -10,20 +10,13 @@ namespace AppMecanicaCAD
 
         static Coneccion()
         {
+            string envPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", ".env");
+            var env = EnvLoader.Load(envPath);
 
-            // Ruta MAtias
+            string dbPath = env["DB_PATH"];
 
-
-            string rutaMatias = @"C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\Data\database.sqlite";
-
-        
-
-            string rutaJoaquin = @"C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\Data\database.sqlite";
-
-            connectionString = $"Data Source={rutaJoaquin}";
- 
+            connectionString = $"Data Source={dbPath};Version=3;";
         }
-
 
 
         public static SQLiteConnection CreateConnection()
