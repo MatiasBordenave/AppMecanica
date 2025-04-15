@@ -4,8 +4,6 @@ namespace AppMecanica
 {
     public partial class Presupuesto : Form
     {
-
-        private Bitmap bitmap;
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
@@ -50,7 +48,6 @@ namespace AppMecanica
             homeForm.Show(); // Mostrar el Home que estaba oculto
             this.Close();    // Cerrar el Presupuesto
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             // Limpiar TextBox individuales
@@ -78,7 +75,6 @@ namespace AppMecanica
             //Limpiar el TextBox de descripción
             textBoxDesc.Clear();
         }
-
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
@@ -130,10 +126,8 @@ namespace AppMecanica
                 MessageBox.Show("Seleccioná una fila para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
 
             string nombreYApellido = txtTitular.Text;
             string telefono = txtTelefono.Text;
@@ -149,7 +143,6 @@ namespace AppMecanica
             txtCantidadHoras.Clear();
             txtPrecioHora.Clear();
 
-
             //Validacion global arriba de los campos
 
             //if (Validaciones.HayCamposVacios(this, out string campo))
@@ -161,10 +154,7 @@ namespace AppMecanica
             //    return;
             //}
 
-
         }
-
-
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
@@ -181,6 +171,6 @@ namespace AppMecanica
 
         }
 
-       
+
     }
 }

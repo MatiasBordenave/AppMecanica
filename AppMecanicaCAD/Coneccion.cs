@@ -7,7 +7,6 @@ namespace AppMecanicaCAD
     public class Coneccion
     {
         private static string connectionString;
-
         static Coneccion()
         {
             string envPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", ".env");
@@ -17,8 +16,6 @@ namespace AppMecanicaCAD
 
             connectionString = $"Data Source={dbPath};Version=3;";
         }
-
-
         public static SQLiteConnection CreateConnection()
         {
             try

@@ -16,13 +16,11 @@ namespace AppMecanica
             this.Hide();
             registroForm.Show();
         }
-
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
             Presupuesto presupuestoForm = new Presupuesto(this);
             this.Hide();
             presupuestoForm.Show();
         }
-
     }
 }

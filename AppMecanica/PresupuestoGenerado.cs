@@ -51,7 +51,6 @@ namespace AppMecanica
             btnImprimir.Visible = true;
             btnVolverGenerado.Visible = true;
         }
-
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             //area sin bordes 
@@ -64,14 +63,11 @@ namespace AppMecanica
             }
             e.Graphics.DrawImage(bmp, 0, 0);
         }
-
-
         private void btnImg_Click(object sender, EventArgs e)
         {
             btnImg.Visible = false;
             btnImprimir.Visible = false;
             btnVolverGenerado.Visible = false;
-
 
             this.Refresh();
             Application.DoEvents();
@@ -95,18 +91,14 @@ namespace AppMecanica
                 MessageBox.Show("Imagen guardada exitosamente.");
             }
 
-
             btnImg.Visible = true;
             btnImprimir.Visible = true;
             btnVolverGenerado.Visible = true;
         }
-
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
             formPresupuesto.Show();
             this.Close();
-        }
-
-        
+        }        
     }
 }

@@ -15,14 +15,11 @@ namespace AppMecanica
 {
     public partial class Registros : Form
     {
-
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
         private ClienteVehiculoCLN clienteVehiculoCLN = new ClienteVehiculoCLN();
         private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
-
-
         private Form formHome;
 
         public Registros(Form Home)
@@ -30,7 +27,6 @@ namespace AppMecanica
             InitializeComponent();
             formHome = Home;
         }
-
         private void btnVolverRegistro_Click(object sender, EventArgs e)
         {
             formHome.Show();
@@ -98,9 +94,6 @@ namespace AppMecanica
             dgvRegistros.Rows.Clear();
             dgvRegistros.Columns.Clear();
         }
-
-
-
         private void btnClientes_Click(object sender, EventArgs e)
         {
             lblFormRegistros.Text = "Clientes";
@@ -114,7 +107,6 @@ namespace AppMecanica
             lblFormRegistros.Text = "Vehiculos";
             limpiarDataGridView();
             dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
-
         }
 
         private void btnRegistros_Click(object sender, EventArgs e)
