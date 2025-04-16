@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {}
+    "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {}
   },
   "projects": {
-    "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {
+    "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
+        "projectUniqueName": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
         "projectName": "AppMecanicaCAD",
-        "projectPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
+        "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
         "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCAD\\obj\\",
+        "outputPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\byfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
-                "projectPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
+              "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+                "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
               }
             }
           }
@@ -74,12 +74,12 @@
         }
       }
     },
-    "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+    "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+        "projectUniqueName": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
         "projectName": "AppMecanicaEntidades",
-        "projectPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+        "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
         "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\obj\\",
         "projectStyle": "PackageReference",

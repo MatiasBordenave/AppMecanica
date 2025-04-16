@@ -1,5 +1,7 @@
-﻿using AppMecanicaCAD;
+﻿using AppMecanica;
+using AppMecanicaCAD;
 using AppMecanicaCLN;
+
 namespace AppMecanica
 {
     public partial class Presupuesto : Form
@@ -169,16 +171,32 @@ namespace AppMecanica
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            PresupuestoGenerado generadoForm = new PresupuestoGenerado(this);
+            List<Repuesto> listaRepuestos = new List<Repuesto>();
 
-            generadoForm.Titular = txtTitular.Text;
-            generadoForm.Telefono = txtTelefono.Text;
-            generadoForm.Marca = txtMarca.Text;
-            generadoForm.Modelo = txtModelo.Text;
-            generadoForm.Año = txtAño.Text;
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (fila.Cells[0].Value != null && fila.Cells[1].Value != null && fila.Cells[2].Value != null)
+                {
+                    listaRepuestos.Add(new Repuesto
+                    {
+                        Nombre = fila.Cells[0].Value.ToString(),
+                        Cantidad = Convert.ToInt32(fila.Cells[1].Value),
+                        Precio = Convert.ToDecimal(fila.Cells[2].Value)
+                    });
+                }
+            }
+
+            PresupuestoGenerado generado = new PresupuestoGenerado(this, listaRepuestos)
+            {
+                Titular = txtTitular.Text,
+                Telefono = txtTelefono.Text,
+                Marca = txtMarca.Text,
+                Modelo = txtModelo.Text,
+                Año = txtAño.Text
+            };
 
             this.Hide();
-            generadoForm.Show();
+            generado.Show();
 
         }
 

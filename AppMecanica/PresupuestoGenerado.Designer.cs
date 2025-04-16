@@ -50,12 +50,12 @@
             lblDatosTelefono = new Label();
             lblTituloDatos = new Label();
             lblDatosTrabajo = new Label();
-            lblDatosRepuesto = new Label();
             lblTituloValor = new Label();
             lblLinea3 = new Label();
             lblTituloRepuesto = new Label();
             lblTituloMDO = new Label();
             label1 = new Label();
+            flowPanelRepuestos = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
@@ -267,16 +267,6 @@
             lblDatosTrabajo.TabIndex = 57;
             lblDatosTrabajo.Text = "Trabajos A Realizar:";
             // 
-            // lblDatosRepuesto
-            // 
-            lblDatosRepuesto.AutoSize = true;
-            lblDatosRepuesto.Font = new Font("Arial Rounded MT Bold", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDatosRepuesto.Location = new Point(17, 340);
-            lblDatosRepuesto.Name = "lblDatosRepuesto";
-            lblDatosRepuesto.Size = new Size(115, 17);
-            lblDatosRepuesto.TabIndex = 58;
-            lblDatosRepuesto.Text = "Ver Repuestos";
-            // 
             // lblTituloValor
             // 
             lblTituloValor.AutoSize = true;
@@ -326,18 +316,26 @@
             label1.TabIndex = 63;
             label1.Text = "Total Mano de Obra + Repuestos:";
             // 
+            // flowPanelRepuestos
+            // 
+            flowPanelRepuestos.AutoScroll = true;
+            flowPanelRepuestos.Location = new Point(17, 326);
+            flowPanelRepuestos.Name = "flowPanelRepuestos";
+            flowPanelRepuestos.Size = new Size(1034, 205);
+            flowPanelRepuestos.TabIndex = 64;
+            // 
             // PresupuestoGenerado
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1084, 661);
+            Controls.Add(flowPanelRepuestos);
             Controls.Add(label1);
             Controls.Add(lblTituloMDO);
             Controls.Add(lblTituloRepuesto);
             Controls.Add(lblTituloValor);
             Controls.Add(lblLinea3);
-            Controls.Add(lblDatosRepuesto);
             Controls.Add(lblDatosTrabajo);
             Controls.Add(lblTituloDatos);
             Controls.Add(lblDatosTelefono);
@@ -389,11 +387,11 @@
         private Label lblDatosTelefono;
         private Label lblTituloDatos;
         private Label lblDatosTrabajo;
-        private Label lblDatosRepuesto;
         private Label lblTituloValor;
         private Label lblLinea3;
         private Label lblTituloRepuesto;
         private Label lblTituloMDO;
         private Label label1;
+        private FlowLayoutPanel flowPanelRepuestos;
     }
 }

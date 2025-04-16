@@ -5,6 +5,9 @@ namespace AppMecanica
 {
     public partial class PresupuestoGenerado : Form
     {
+        private List<Repuesto> repuestos;
+        public List<Repuesto> Repuestos { get; set; } = new List<Repuesto>();
+        
         public string Titular { get; set; }
         public string Telefono { get; set; }
         public string Marca { get; set; }
@@ -13,20 +16,32 @@ namespace AppMecanica
 
 
         private Form formPresupuesto;
-        public PresupuestoGenerado(Form Presupuesto)
-
+        public PresupuestoGenerado(Form presupuesto, List<Repuesto> repuestos)
         {
             InitializeComponent();
             lblTitulo.Text = $"Presupuesto - Nro {"01"}";
             lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
-            formPresupuesto = Presupuesto;
+            formPresupuesto = presupuesto;
+            this.repuestos = repuestos;
+
             this.Load += PresupuestoGenerado_Load;
         }
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
             lblDatosCliente.Text = $"Cliente: {Titular}";
-            lblDatosTelefono.Text = $"Telefono: {Telefono}" ;
-            lblDatosVehiculo.Text = $"Vehiculo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
+            lblDatosTelefono.Text = $"Teléfono: {Telefono}";
+            lblDatosVehiculo.Text = $"Vehículo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
+
+            // Mostrar repuestos
+            foreach (var rep in repuestos)
+            {
+                var lbl = new Label();
+                lbl.AutoSize = true;
+                lbl.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                lbl.Margin = new Padding(10);
+                lbl.Text = $"- {rep.Nombre} | Cantidad: {rep.Cantidad} | Precio: ${rep.Precio}";
+                flowPanelRepuestos.Controls.Add(lbl);
+            }
         }
 
         //FALTA DEFINIR EL AREA DE IMPRESION
