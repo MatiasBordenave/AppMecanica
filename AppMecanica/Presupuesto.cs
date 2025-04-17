@@ -212,20 +212,6 @@ namespace AppMecanica
 
         }
 
-        private void txtModelo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-        }
-
         private void txtPrecioUni_KeyPress(object sender, KeyPressEventArgs e)
         {
             TextBox txt = sender as TextBox;
@@ -267,5 +253,7 @@ namespace AppMecanica
                 e.Handled = true;
             }
         }
+
+       
     }
 }

@@ -38,7 +38,6 @@
             txtMarca = new TextBox();
             lblModelo = new Label();
             lblAño = new Label();
-            txtModelo = new TextBox();
             txtAño = new TextBox();
             lblCantidadHoras = new Label();
             lblPrecioHora = new Label();
@@ -68,6 +67,7 @@
             btnGenerar = new Button();
             labelDesc = new Label();
             textBoxDesc = new TextBox();
+            txtModelo = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).BeginInit();
             groupBox1.SuspendLayout();
@@ -168,14 +168,6 @@
             lblAño.Size = new Size(50, 25);
             lblAño.TabIndex = 13;
             lblAño.Text = "Año:";
-            // 
-            // txtModelo
-            // 
-            txtModelo.Location = new Point(176, 178);
-            txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(174, 29);
-            txtModelo.TabIndex = 14;
-            txtModelo.KeyPress += txtModelo_KeyPress;
             // 
             // txtAño
             // 
@@ -348,6 +340,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(0, 192, 192);
+            groupBox1.Controls.Add(txtModelo);
             groupBox1.Controls.Add(txtKm);
             groupBox1.Controls.Add(lblKm);
             groupBox1.Controls.Add(txtDomicilio);
@@ -363,7 +356,6 @@
             groupBox1.Controls.Add(lblAño);
             groupBox1.Controls.Add(lblModelo);
             groupBox1.Controls.Add(txtMarca);
-            groupBox1.Controls.Add(txtModelo);
             groupBox1.Font = new Font("Arial", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.Black;
             groupBox1.Location = new Point(119, 41);
@@ -491,6 +483,13 @@
             textBoxDesc.Size = new Size(422, 117);
             textBoxDesc.TabIndex = 41;
             // 
+            // txtModelo
+            // 
+            txtModelo.Location = new Point(177, 179);
+            txtModelo.Name = "txtModelo";
+            txtModelo.Size = new Size(174, 29);
+            txtModelo.TabIndex = 22;
+            // 
             // Presupuesto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -540,7 +539,6 @@
         private TextBox txtMarca;
         private Label lblModelo;
         private Label lblAño;
-        private TextBox txtModelo;
         private TextBox txtAño;
         private Label lblCantidadHoras;
         private Label lblPrecioHora;
@@ -570,5 +568,6 @@
         private TextBox textBoxDesc;
         private TextBox txtKm;
         private Label lblKm;
+        private TextBox txtModelo;
     }
 }

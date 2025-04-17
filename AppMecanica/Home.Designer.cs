@@ -40,10 +40,10 @@
             btnPresupuesto.BackColor = Color.FromArgb(255, 128, 0);
             btnPresupuesto.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnPresupuesto.ForeColor = SystemColors.ButtonHighlight;
-            btnPresupuesto.Location = new Point(229, 523);
-            btnPresupuesto.Margin = new Padding(4);
+            btnPresupuesto.Location = new Point(262, 697);
+            btnPresupuesto.Margin = new Padding(5, 5, 5, 5);
             btnPresupuesto.Name = "btnPresupuesto";
-            btnPresupuesto.Size = new Size(139, 60);
+            btnPresupuesto.Size = new Size(159, 80);
             btnPresupuesto.TabIndex = 7;
             btnPresupuesto.Text = "Crear Un Presupuesto";
             btnPresupuesto.UseVisualStyleBackColor = false;
@@ -54,10 +54,10 @@
             btnRegistro.BackColor = Color.FromArgb(255, 128, 0);
             btnRegistro.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnRegistro.ForeColor = SystemColors.ButtonHighlight;
-            btnRegistro.Location = new Point(708, 523);
-            btnRegistro.Margin = new Padding(4);
+            btnRegistro.Location = new Point(809, 697);
+            btnRegistro.Margin = new Padding(5, 5, 5, 5);
             btnRegistro.Name = "btnRegistro";
-            btnRegistro.Size = new Size(134, 60);
+            btnRegistro.Size = new Size(153, 80);
             btnRegistro.TabIndex = 8;
             btnRegistro.Text = "Regitro";
             btnRegistro.UseVisualStyleBackColor = false;
@@ -67,28 +67,31 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(330, 64);
-            pictureBox1.Margin = new Padding(4);
+            pictureBox1.Location = new Point(377, 85);
+            pictureBox1.Margin = new Padding(5, 5, 5, 5);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(410, 395);
+            pictureBox1.Size = new Size(469, 527);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.WhiteSmoke;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1084, 661);
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1239, 881);
             Controls.Add(btnPresupuesto);
             Controls.Add(btnRegistro);
             Controls.Add(pictureBox1);
+            DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MinimumSize = new Size(800, 600);
+            MinimumSize = new Size(912, 784);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica";
