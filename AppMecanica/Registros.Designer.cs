@@ -85,6 +85,7 @@
             btnDetalles.TabIndex = 8;
             btnDetalles.Text = "Ver Detalles";
             btnDetalles.UseVisualStyleBackColor = false;
+            btnDetalles.Click += btnDetalles_Click;
             // 
             // btnBuscar
             // 

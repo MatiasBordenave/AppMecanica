@@ -329,6 +329,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1084, 661);
             Controls.Add(flowPanelRepuestos);
             Controls.Add(label1);
