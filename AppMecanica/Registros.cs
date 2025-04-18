@@ -64,38 +64,43 @@ namespace AppMecanica
 
         }
 
-        private void Registros_Load(object sender, EventArgs e)
+        private async void Registros_Load(object sender, EventArgs e)
         {
             lblFormRegistros.Text = "";
-            CargarDataGridView();
+            await Task.Run(() => CargarDataGridView());
         }
 
         private void CargarDataGridView()
         {
-            limpiarDataGridView();
-            var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos();
-            dgvRegistros.DataSource = lista;
-
-            if (dgvRegistros.Columns.Contains("IdCliente"))
-                dgvRegistros.Columns["IdCliente"].Visible = false;
-            if (dgvRegistros.Columns.Contains("IdVehiculo"))
-                dgvRegistros.Columns["IdVehiculo"].Visible = false;
-
-            if (dgvRegistros.Columns.Contains("btnVerMas"))
+            Task.Run(() =>
             {
-                dgvRegistros.Columns.Remove("btnVerMas");
-            }
+                var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos();
 
-            // Podés agregar una columna de botón aquí
-            if (!dgvRegistros.Columns.Contains("btnVerMas"))
-            {
-                DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
-                btnCol.HeaderText = "Acciones";
-                btnCol.Text = "Ver más";
-                btnCol.UseColumnTextForButtonValue = true;
-                btnCol.Name = "btnVerMas";
-                dgvRegistros.Columns.Add(btnCol);
-            }
+                // Actualizá el DataGridView en el hilo de la UI
+                dgvRegistros.Invoke(() =>
+                {
+                    limpiarDataGridView();
+                    dgvRegistros.DataSource = lista;
+
+                    if (dgvRegistros.Columns.Contains("IdCliente"))
+                        dgvRegistros.Columns["IdCliente"].Visible = false;
+                    if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                        dgvRegistros.Columns["IdVehiculo"].Visible = false;
+
+                    if (dgvRegistros.Columns.Contains("btnVerMas"))
+                        dgvRegistros.Columns.Remove("btnVerMas");
+
+                    if (!dgvRegistros.Columns.Contains("btnVerMas"))
+                    {
+                        DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
+                        btnCol.HeaderText = "Acciones";
+                        btnCol.Text = "Ver más";
+                        btnCol.UseColumnTextForButtonValue = true;
+                        btnCol.Name = "btnVerMas";
+                        dgvRegistros.Columns.Add(btnCol);
+                    }
+                });
+            });
         }
 
         private void limpiarDataGridView()

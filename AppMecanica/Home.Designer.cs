@@ -92,6 +92,7 @@
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica";
+            Load += Home_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

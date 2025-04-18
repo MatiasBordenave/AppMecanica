@@ -15,10 +15,16 @@ namespace AppMecanicaCLN
         
             private ClienteVehiculoCAD accesoDatos = new ClienteVehiculoCAD();
 
-            public List<ClienteVehiculo> ObtenerClientesConVehiculos()
+        public List<ClienteVehiculo> ObtenerClientesConVehiculos()
+        {
+            var lista = accesoDatos.ObtenerClientesConVehiculos();
+            if (lista == null)
             {
-                return accesoDatos.ObtenerClientesConVehiculos();
+                return new List<ClienteVehiculo>();
             }
+
+            return lista;
+        }
 
         public List<ClienteVehiculo> BuscarVehiculosPorCliente(string nombreCliente)
         {

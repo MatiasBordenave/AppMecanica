@@ -8,7 +8,7 @@ namespace AppMecanica
         private ClienteCLN clienteCLN = new ClienteCLN();
         public Home()
         {
-            InitializeComponent();          
+            InitializeComponent();
         }
         private void btnRegistro_Click(object sender, EventArgs e)
         {
@@ -24,5 +24,9 @@ namespace AppMecanica
             presupuestoForm.Show();
         }
 
+        private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
