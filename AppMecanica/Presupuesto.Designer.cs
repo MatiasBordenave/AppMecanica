@@ -578,12 +578,13 @@
             Controls.Add(txtCantidadHoras);
             ForeColor = Color.Gray;
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimumSize = new Size(800, 598);
             Name = "Presupuesto";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Presupuesto";
+            Text = "Ocaranza Mecanica Software";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).EndInit();
             groupBox1.ResumeLayout(false);

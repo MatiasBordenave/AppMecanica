@@ -167,7 +167,11 @@ namespace AppMecanica
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
+            DetalleRegistro detalleRegistro = new DetalleRegistro(this);
 
+            detalleRegistro.Show();
+            this.Hide();
+           
         }
     }
 }

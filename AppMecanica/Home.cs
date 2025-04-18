@@ -13,15 +13,19 @@ namespace AppMecanica
         private void btnRegistro_Click(object sender, EventArgs e)
         {
             Registros registroForm = new Registros(this);
-            this.Hide();
+
             registroForm.Show();
+            this.Hide();
+            
         }
 
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
             Presupuesto presupuestoForm = new Presupuesto(this);
-            this.Hide();
+
             presupuestoForm.Show();
+            this.Hide();
+            
         }
 
     }

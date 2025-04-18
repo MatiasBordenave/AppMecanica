@@ -56,9 +56,9 @@
             // btnRegistro
             // 
             btnRegistro.BackColor = Color.FromArgb(251, 176, 48);
-            btnRegistro.FlatAppearance.BorderColor = Color.White;
-            btnRegistro.FlatAppearance.MouseDownBackColor = Color.White;
-            btnRegistro.FlatAppearance.MouseOverBackColor = Color.White;
+            btnRegistro.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnRegistro.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnRegistro.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
             btnRegistro.FlatStyle = FlatStyle.Popup;
             btnRegistro.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRegistro.ForeColor = Color.FromArgb(51, 51, 51);
@@ -75,7 +75,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(649, 31);
+            pictureBox1.Location = new Point(649, 24);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(410, 395);
@@ -95,10 +95,12 @@
             Controls.Add(btnRegistro);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimumSize = new Size(800, 600);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Ocaranza Mecanica Software";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }

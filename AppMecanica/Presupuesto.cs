@@ -44,7 +44,6 @@ namespace AppMecanica
         {
             InitializeComponent();
             homeForm = home;
-
         }
 
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
@@ -135,8 +134,6 @@ namespace AppMecanica
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
-
             string nombreYApellido = txtTitular.Text;
             string telefono = txtTelefono.Text;
             string domicilio = txtDomicilio.Text;
@@ -195,8 +192,8 @@ namespace AppMecanica
                 Año = txtAño.Text
             };
 
-            this.Hide();
             generado.Show();
+            this.Hide();
 
         }
 
@@ -284,6 +281,6 @@ namespace AppMecanica
             {
                 e.Handled = true;
             }
-        }
+        }   
     }
 }

@@ -28,9 +28,11 @@ namespace AppMecanica
         }
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
-            lblDatosCliente.Text = $"Cliente: {Titular}";
-            lblDatosTelefono.Text = $"Teléfono: {Telefono}";
-            lblDatosVehiculo.Text = $"Vehículo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
+            
+            lblDatosCliente.Text = $"Cliente: {Titular}          Teléfono: {Telefono}          Vehículo: Marca:  {Marca} Modelo:  {Modelo}  Año: {Año}";
+            //lblDatosCliente.Text = $"Cliente: {Titular}";
+            //lblDatosTelefono.Text = $"Teléfono: {Telefono}";
+            //lblDatosVehiculo.Text = $"Vehículo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
 
             // Mostrar repuestos
             foreach (var rep in repuestos)
@@ -120,8 +122,6 @@ namespace AppMecanica
         {
             formPresupuesto.Show();
             this.Close();
-        }
-
-        
+        }   
     }
 }
