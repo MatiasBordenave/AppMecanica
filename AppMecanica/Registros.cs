@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace AppMecanica
     public partial class Registros : Form
     {
 
-
+        private int paginaActual = 1;
+        private int totalPaginas = 1;
+        private int pageSize = 20;
 
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
@@ -33,6 +36,7 @@ namespace AppMecanica
         {
             InitializeComponent();
             formHome = Home;
+            txtBuscar.KeyDown += txtBuscar_KeyDown;
 
         }
 
@@ -64,38 +68,52 @@ namespace AppMecanica
 
         }
 
-        private void Registros_Load(object sender, EventArgs e)
+        private async void Registros_Load(object sender, EventArgs e)
         {
+
             lblFormRegistros.Text = "";
-            CargarDataGridView();
+            await Task.Run(() => CargarDataGridView(1));
+
         }
 
-        private void CargarDataGridView()
+        private void CargarDataGridView(int paginaActual)
         {
-            limpiarDataGridView();
-            var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos();
-            dgvRegistros.DataSource = lista;
+            int offset = (paginaActual - 1) * pageSize;
 
-            if (dgvRegistros.Columns.Contains("IdCliente"))
-                dgvRegistros.Columns["IdCliente"].Visible = false;
-            if (dgvRegistros.Columns.Contains("IdVehiculo"))
-                dgvRegistros.Columns["IdVehiculo"].Visible = false;
+            totalPaginas = registroCLN.ObtenerTotalPaginas(pageSize);
+            ObtenerCantidadPaginas();
 
-            if (dgvRegistros.Columns.Contains("btnVerMas"))
+
+            Task.Run(() =>
             {
-                dgvRegistros.Columns.Remove("btnVerMas");
-            }
+                var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
 
-            // Podés agregar una columna de botón aquí
-            if (!dgvRegistros.Columns.Contains("btnVerMas"))
-            {
-                DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
-                btnCol.HeaderText = "Acciones";
-                btnCol.Text = "Ver más";
-                btnCol.UseColumnTextForButtonValue = true;
-                btnCol.Name = "btnVerMas";
-                dgvRegistros.Columns.Add(btnCol);
-            }
+                // Actualizá el DataGridView en el hilo de la UI
+                dgvRegistros.Invoke(() =>
+                {
+                    limpiarDataGridView();
+                    dgvRegistros.DataSource = lista;
+
+                    if (dgvRegistros.Columns.Contains("IdCliente"))
+                        dgvRegistros.Columns["IdCliente"].Visible = false;
+                    if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                        dgvRegistros.Columns["IdVehiculo"].Visible = false;
+
+                    if (dgvRegistros.Columns.Contains("btnVerMas"))
+                        dgvRegistros.Columns.Remove("btnVerMas");
+
+                    if (!dgvRegistros.Columns.Contains("btnVerMas"))
+                    {
+                        DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
+                        btnCol.HeaderText = "Acciones";
+                        btnCol.Text = "Ver más";
+                        btnCol.UseColumnTextForButtonValue = true;
+                        btnCol.Name = "btnVerMas";
+                        dgvRegistros.Columns.Add(btnCol);
+                    }
+                });
+                Invoke(() => GenerarBotonesPaginacion());
+            });
         }
 
         private void limpiarDataGridView()
@@ -137,21 +155,26 @@ namespace AppMecanica
 
         private void btnResetDgv_Click(object sender, EventArgs e)
         {
-            CargarDataGridView();
+            CargarDataGridView(1);
+            GenerarBotonesPaginacion();
+            txtBuscar.Text = "";
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
             string nombreCliente = txtBuscar.Text.Trim();
+            if (string.IsNullOrEmpty(nombreCliente))
+                nombreCliente = null;
 
+            paginaActual = 1;
+            var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente, paginaActual, pageSize);
 
-            if (!string.IsNullOrEmpty(nombreCliente))
+            dgvRegistros.Invoke(() =>
             {
-                var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente);
+                limpiarDataGridView();
                 dgvRegistros.DataSource = resultado;
 
-                // (Opcional) volvés a agregar el botón Ver Más
                 if (!dgvRegistros.Columns.Contains("btnVerMas"))
                 {
                     DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
@@ -161,9 +184,26 @@ namespace AppMecanica
                     btnCol.Name = "btnVerMas";
                     dgvRegistros.Columns.Add(btnCol);
                 }
-            }
 
+                txtBuscar.Focus();
+                txtBuscar.SelectionStart = txtBuscar.Text.Length;
+
+                totalPaginas = ObtenerCantidadPaginas(nombreCliente);
+                GenerarBotonesPaginacion();
+            });
         }
+
+        private async void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true; // 👈 esto evita que el Enter "limpie" o haga algo raro
+                btnBuscar.PerformClick();
+            }
+        }
+
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
@@ -171,7 +211,67 @@ namespace AppMecanica
 
             detalleRegistro.Show();
             this.Hide();
-           
+
+        }
+
+
+        private int ObtenerCantidadPaginas(string nombreCliente = null)
+        {
+            int totalRegistros;
+
+            if (string.IsNullOrEmpty(nombreCliente))
+                totalRegistros = clienteVehiculoCLN.ObtenerCantidadTotalRegistros();
+            else
+                totalRegistros = clienteVehiculoCLN.ObtenerCantidadRegistrosPorCliente(nombreCliente);
+
+            return (int)Math.Ceiling((double)totalRegistros / pageSize);
+        }
+
+        private void GenerarBotonesPaginacion()
+        {
+            flpPaginas.Controls.Clear();
+
+            for (int i = 1; i <= totalPaginas; i++)
+            {
+                Button btn = new Button();
+                btn.Text = i.ToString();
+                btn.Width = 40;
+                btn.Height = 30;
+                btn.Tag = i;
+
+                if (i == paginaActual)
+                    btn.BackColor = Color.LightBlue;
+
+                btn.Click += (s, e) =>
+                {
+                    paginaActual = (int)((Button)s).Tag;
+                    CargarDataGridView(paginaActual);
+
+                };
+
+                flpPaginas.Controls.Add(btn);
+            }
+
+            btnAnteriorDGV.Enabled = paginaActual > 1;
+            btnSiguienteDGV.Enabled = paginaActual < totalPaginas;
+        }
+
+        private void btnSiguienteDGV_Click(object sender, EventArgs e)
+        {
+            if (paginaActual < totalPaginas)
+            {
+                paginaActual++;
+                CargarDataGridView(paginaActual);
+            }
+        }
+
+        private void btnAnteriorDGV_Click(object sender, EventArgs e)
+        {
+            if (paginaActual > 1)
+            {
+                paginaActual--;
+                CargarDataGridView(paginaActual);
+            }
         }
     }
 }

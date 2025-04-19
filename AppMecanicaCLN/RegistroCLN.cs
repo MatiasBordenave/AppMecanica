@@ -66,5 +66,11 @@ namespace AppMecanicaCAD
             }
         }
 
+        public int ObtenerTotalPaginas(int pageSize)
+        {
+            int totalRegistros = registroCAD.ObtenerTotalClientesConVehiculos();
+            return (int)Math.Ceiling((double)totalRegistros / pageSize);
+        }
+
     }
 }

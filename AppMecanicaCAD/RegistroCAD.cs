@@ -90,5 +90,27 @@ namespace AppMecanicaCAD
                 Console.WriteLine("Error en AgregarRegistro: " + ex.Message);
             }
         }
+
+
+        public int ObtenerTotalClientesConVehiculos()
+        {
+            int total = 0;
+
+            using (var connection = Coneccion.CreateConnection())
+            {
+                connection.Open();
+
+                string query = @"SELECT COUNT(*) FROM clientes c
+                         INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                         WHERE c.activo = 1 AND v.activo = 1";
+
+                using (var cmd = new SQLiteCommand(query, connection))
+                {
+                    total = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+            }
+
+            return total;
+        }
     }
 }

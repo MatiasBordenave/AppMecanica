@@ -12,7 +12,7 @@ namespace AppMecanicaCAD
             string envPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", ".env");
             var env = EnvLoader.Load(envPath);
 
-            string dbPath = env["DB_PATH"];
+            string dbPath = "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanica\\Data\\database.sqlite";
 
             connectionString = $"Data Source={dbPath};Version=3;";
         }
