@@ -171,7 +171,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.bg_forms;
             ClientSize = new Size(1084, 661);
             Controls.Add(TelefonoMecanico);
             Controls.Add(direccionMecanico);

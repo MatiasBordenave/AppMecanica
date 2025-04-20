@@ -6,8 +6,6 @@ namespace AppMecanica
 {
     public partial class Presupuesto : Form
     {
-
-        private Bitmap bitmap;
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
@@ -163,9 +161,6 @@ namespace AppMecanica
 
 
         }
-
-
-
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             List<Repuesto> listaRepuestos = new List<Repuesto>();

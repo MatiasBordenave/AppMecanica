@@ -70,10 +70,7 @@ namespace AppMecanica
 
         private async void Registros_Load(object sender, EventArgs e)
         {
-
-            lblFormRegistros.Text = "";
             await Task.Run(() => CargarDataGridView(1));
-
         }
 
         private void CargarDataGridView(int paginaActual)
@@ -130,7 +127,6 @@ namespace AppMecanica
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            lblFormRegistros.Text = "Clientes";
             limpiarDataGridView();
             dgvRegistros.DataSource = clienteCLN.ObtenerClientes();
             dgvRegistros.Columns["nombreYApellido"].HeaderText = "Titular";
@@ -138,7 +134,6 @@ namespace AppMecanica
 
         private void btnVehiculos_Click(object sender, EventArgs e)
         {
-            lblFormRegistros.Text = "Vehiculos";
             limpiarDataGridView();
             dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
 
@@ -148,7 +143,6 @@ namespace AppMecanica
 
         private void btnRegistros_Click(object sender, EventArgs e)
         {
-            lblFormRegistros.Text = "Registros";
             limpiarDataGridView();
             dgvRegistros.DataSource = registroCLN.ObtenerRegistros();
         }

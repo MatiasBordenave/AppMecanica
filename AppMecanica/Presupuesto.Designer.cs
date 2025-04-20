@@ -560,7 +560,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(0, 64, 64);
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.bg_forms;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
             Controls.Add(textBoxDesc);
