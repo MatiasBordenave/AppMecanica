@@ -1,5 +1,7 @@
-﻿using AppMecanicaCAD;
+﻿using AppMecanica;
+using AppMecanicaCAD;
 using AppMecanicaCLN;
+
 namespace AppMecanica
 {
     public partial class Presupuesto : Form
@@ -42,7 +44,6 @@ namespace AppMecanica
         {
             InitializeComponent();
             homeForm = home;
-
         }
 
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
@@ -78,6 +79,8 @@ namespace AppMecanica
             //Limpiar el TextBox de descripción
             textBoxDesc.Clear();
         }
+
+        
 
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
@@ -135,6 +138,9 @@ namespace AppMecanica
         {
 
 
+            if (!ValidarCampos())
+                return;
+
             string nombreYApellido = txtTitular.Text;
             string telefono = txtTelefono.Text;
             string domicilio = txtDomicilio.Text;
@@ -169,16 +175,35 @@ namespace AppMecanica
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            PresupuestoGenerado generadoForm = new PresupuestoGenerado(this);
+            if (!ValidarCampos())
+                return;
 
-            generadoForm.Titular = txtTitular.Text;
-            generadoForm.Telefono = txtTelefono.Text;
-            generadoForm.Marca = txtMarca.Text;
-            generadoForm.Modelo = txtModelo.Text;
-            generadoForm.Año = txtAño.Text;
+            List<Repuesto> listaRepuestos = new List<Repuesto>();
 
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                if (fila.Cells[0].Value != null && fila.Cells[1].Value != null && fila.Cells[2].Value != null)
+                {
+                    listaRepuestos.Add(new Repuesto
+                    {
+                        Nombre = fila.Cells[0].Value.ToString(),
+                        Cantidad = Convert.ToInt32(fila.Cells[1].Value),
+                        Precio = Convert.ToDecimal(fila.Cells[2].Value)
+                    });
+                }
+            }
+
+            PresupuestoGenerado generado = new PresupuestoGenerado(this, listaRepuestos)
+            {
+                Titular = txtTitular.Text,
+                Telefono = txtTelefono.Text,
+                Marca = txtMarca.Text,
+                Modelo = txtModelo.Text,
+                Año = txtAño.Text
+            };
+
+            generado.Show();
             this.Hide();
-            generadoForm.Show();
 
         }
 
@@ -211,6 +236,20 @@ namespace AppMecanica
             }
 
         }
+
+        private void txtModelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox txt = sender as TextBox;
+
+            // Permite letras, números y teclas de control
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsLetterOrDigit(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar)) // Opcional: permite espacios
+            {
+                e.Handled = true;
+            }
+        }
+
 
         private void txtPrecioUni_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -254,6 +293,32 @@ namespace AppMecanica
             }
         }
 
-       
+        private bool ValidarCampos()
+        {
+            // Lista de todos los TextBox a validar
+            TextBox[] campos = {
+        txtTitular,
+        txtTelefono,
+        txtDomicilio,
+        txtModelo,
+        txtMarca,
+        txtPatente,
+        txtAño,
+        txtKm
+    };
+
+            foreach (TextBox txt in campos)
+            {
+                if (string.IsNullOrWhiteSpace(txt.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt.Focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
     }
 }

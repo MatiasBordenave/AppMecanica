@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanica\\AppMecanica.csproj": {}
+    "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanica\\AppMecanica.csproj": {}
   },
   "projects": {
-    "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {
+    "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
+        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
         "projectName": "AppMecanicaCAD",
-        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
+        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
         "packagesPath": "C:\\Users\\facum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCAD\\obj\\",
+        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCAD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
-                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
+              "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
               }
             }
           }
@@ -79,14 +79,14 @@
         }
       }
     },
-    "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCLN\\AppMecanicaCLN.csproj": {
+    "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCLN\\AppMecanicaCLN.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCLN\\AppMecanicaCLN.csproj",
+        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCLN\\AppMecanicaCLN.csproj",
         "projectName": "AppMecanicaCLN",
-        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCLN\\AppMecanicaCLN.csproj",
+        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCLN\\AppMecanicaCLN.csproj",
         "packagesPath": "C:\\Users\\facum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCLN\\obj\\",
+        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCLN\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -107,11 +107,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {
-                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCAD\\AppMecanicaCAD.csproj"
+              "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCAD\\AppMecanicaCAD.csproj": {
+                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCAD\\AppMecanicaCAD.csproj"
               },
-              "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
-                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
+              "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
               }
             }
           }
@@ -157,14 +157,14 @@
         }
       }
     },
-    "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+    "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
         "projectName": "AppMecanicaEntidades",
-        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
         "packagesPath": "C:\\Users\\facum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\obj\\",
+        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -222,14 +222,14 @@
         }
       }
     },
-    "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanica\\AppMecanica.csproj": {
+    "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanica\\AppMecanica.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanica\\AppMecanica.csproj",
+        "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanica\\AppMecanica.csproj",
         "projectName": "AppMecanica",
-        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanica\\AppMecanica.csproj",
+        "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanica\\AppMecanica.csproj",
         "packagesPath": "C:\\Users\\facum\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanica\\obj\\",
+        "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanica\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -250,11 +250,11 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCLN\\AppMecanicaCLN.csproj": {
-                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaCLN\\AppMecanicaCLN.csproj"
+              "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCLN\\AppMecanicaCLN.csproj": {
+                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaCLN\\AppMecanicaCLN.csproj"
               },
-              "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
-                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
+              "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+                "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
               }
             }
           }

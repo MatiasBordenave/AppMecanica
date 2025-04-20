@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5VWzLzk5WY4=",
+  "dgSpecHash": "ov9NNaeOjOo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\facum\\OneDrive\\Escritorio\\IMPORTANTE\\AppMecanica-master\\AppMecanica\\AppMecanica.csproj",
+  "projectFilePath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica-pruebas\\AppMecanica\\AppMecanica.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\facum\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\facum\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
