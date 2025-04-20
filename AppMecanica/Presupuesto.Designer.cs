@@ -237,10 +237,11 @@
             // 
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
+            txtCantidadHoras.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             txtCantidadHoras.Location = new Point(345, 502);
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
-            txtCantidadHoras.Size = new Size(64, 23);
+            txtCantidadHoras.Size = new Size(64, 24);
             txtCantidadHoras.TabIndex = 20;
             txtCantidadHoras.KeyPress += txtCantidadHoras_KeyPress;
             // 
@@ -248,10 +249,11 @@
             // 
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
+            txtPrecioHora.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             txtPrecioHora.Location = new Point(558, 502);
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
-            txtPrecioHora.Size = new Size(69, 23);
+            txtPrecioHora.Size = new Size(69, 24);
             txtPrecioHora.TabIndex = 21;
             txtPrecioHora.KeyPress += txtPrecioHora_KeyPress;
             // 
@@ -310,10 +312,11 @@
             // 
             txtNombreRepo.BackColor = Color.FromArgb(224, 224, 224);
             txtNombreRepo.BorderStyle = BorderStyle.FixedSingle;
+            txtNombreRepo.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             txtNombreRepo.Location = new Point(8, 54);
             txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
-            txtNombreRepo.Size = new Size(153, 27);
+            txtNombreRepo.Size = new Size(153, 24);
             txtNombreRepo.TabIndex = 28;
             // 
             // nupCantidad
@@ -340,6 +343,7 @@
             // 
             txtPrecioUni.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioUni.BorderStyle = BorderStyle.FixedSingle;
+            txtPrecioUni.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             txtPrecioUni.Location = new Point(317, 57);
             txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
             txtPrecioUni.Multiline = true;
@@ -548,6 +552,7 @@
             // 
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
+            textBoxDesc.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             textBoxDesc.Location = new Point(310, 545);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
@@ -576,6 +581,7 @@
             Controls.Add(btnVolverPresupuesto);
             Controls.Add(txtPrecioHora);
             Controls.Add(txtCantidadHoras);
+            DoubleBuffered = true;
             ForeColor = Color.Gray;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");

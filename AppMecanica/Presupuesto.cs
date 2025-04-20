@@ -6,35 +6,11 @@ namespace AppMecanica
 {
     public partial class Presupuesto : Form
     {
+
+        private Bitmap bitmap;
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
-
-        public static class Validaciones
-        {
-            //VARIABLE GLOBAL POR SI HAY CAMPOS VACIOS POR RELLENAR (TODAVIA ESTA EN PRUEBA) 
-
-            //public static bool HayCamposVacios(Control parent, out string nombreCampo)
-            //{
-            //    foreach (Control control in parent.Controls)
-            //    {
-            //        if (control is TextBox txt && string.IsNullOrWhiteSpace(txt.Text))
-            //        {
-            //            nombreCampo = txt.Name;
-            //            return true;
-            //        }
-            //        if (control is ComboBox cmb && cmb.SelectedIndex == -1)
-            //        {
-            //            nombreCampo = cmb.Name;
-            //            return true;
-            //        }
-            //        // Podés agregar más tipos si necesitás (DateTimePicker, CheckBox, etc.)
-            //    }
-
-            //    nombreCampo = string.Empty;
-            //    return false;
-            //}
-        }
 
         private Form homeForm;
 
@@ -77,6 +53,8 @@ namespace AppMecanica
             //Limpiar el TextBox de descripción
             textBoxDesc.Clear();
         }
+
+
 
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
@@ -132,6 +110,11 @@ namespace AppMecanica
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+
+
+            if (!ValidarCampos())
+                return;
+
             string nombreYApellido = txtTitular.Text;
             string telefono = txtTelefono.Text;
             string domicilio = txtDomicilio.Text;
@@ -161,8 +144,14 @@ namespace AppMecanica
 
 
         }
+
+
+
         private void btnGenerar_Click(object sender, EventArgs e)
         {
+            if (!ValidarCampos())
+                return;
+
             List<Repuesto> listaRepuestos = new List<Repuesto>();
 
             foreach (DataGridViewRow fila in dataGridView1.Rows)
@@ -226,15 +215,15 @@ namespace AppMecanica
         {
             TextBox txt = sender as TextBox;
 
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
+            // Permite letras, números y teclas de control
             if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
+                !char.IsLetterOrDigit(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar)) // Opcional: permite espacios
             {
                 e.Handled = true;
             }
         }
+
 
         private void txtPrecioUni_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -276,6 +265,34 @@ namespace AppMecanica
             {
                 e.Handled = true;
             }
-        }   
+        }
+
+        private bool ValidarCampos()
+        {
+            // Lista de todos los TextBox a validar
+            TextBox[] campos = {
+        txtTitular,
+        txtTelefono,
+        txtDomicilio,
+        txtModelo,
+        txtMarca,
+        txtPatente,
+        txtAño,
+        txtKm
+    };
+
+            foreach (TextBox txt in campos)
+            {
+                if (string.IsNullOrWhiteSpace(txt.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txt.Focus();
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
     }
 }
