@@ -10,8 +10,10 @@ namespace AppMecanicaEntidades
     {
  
             public string Titular { get; set; }
+            public string TelefonoCliente { get; set; }
+            public string DomicilioCliente { get; set; }
 
-            // Datos del vehículo
+        // Datos del vehículo
             public int IdVehiculo { get; set; }
             public string Marca { get; set; }
             public string Modelo { get; set; }

@@ -20,6 +20,7 @@ namespace AppMecanica
         private int paginaActual = 1;
         private int totalPaginas = 1;
         private int pageSize = 20;
+        private bool enDetalle = false;
 
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
@@ -48,68 +49,89 @@ namespace AppMecanica
 
         private void dgvRegistros_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //    if (e.RowIndex >= 0 && dgvRegistros.Columns[e.ColumnIndex].Name == "btnVerMas")
+            //    {
+            //        int idVehiculo = Convert.ToInt32(dgvRegistros.Rows[e.RowIndex].Cells["IdVehiculo"].Value);
 
-            if (e.RowIndex >= 0 && dgvRegistros.Columns[e.ColumnIndex].Name == "btnVerMas")
-            {
-                int idVehiculo = Convert.ToInt32(dgvRegistros.Rows[e.RowIndex].Cells["IdVehiculo"].Value);
+            //        limpiarDataGridView(); // Limpiar los datos anteriores
 
-                limpiarDataGridView();
+            //        VehiculoDetalleDTO detalle = vehiculoDetalleCLN.ObtenerDetalleVehiculo(idVehiculo);
 
-                VehiculoDetalleDTO detalle = vehiculoDetalleCLN.ObtenerDetalleVehiculo(idVehiculo);
+            //        // Mostramos solo los registros del vehículo
+            //        dgvRegistros.DataSource = detalle.Registros;
 
-                // MOSTRAMOS SOLO LOS REGISTROS del vehículo
-                dgvRegistros.DataSource = detalle.Registros;
+            //        // Escondemos columnas innecesarias
+            //        if (dgvRegistros.Columns.Contains("Id"))
+            //            dgvRegistros.Columns["Id"].Visible = false;
+            //        if (dgvRegistros.Columns.Contains("IdVehiculo"))
+            //            dgvRegistros.Columns["IdVehiculo"].Visible = false;
 
-                if (dgvRegistros.Columns.Contains("Id"))
-                    dgvRegistros.Columns["Id"].Visible = false;
-                if (dgvRegistros.Columns.Contains("IdVehiculo"))
-                    dgvRegistros.Columns["IdVehiculo"].Visible = false;
-            }
+            //        // Limpiamos los botones de paginación para evitar confusión al ver detalles
+            //        flpPaginas.Controls.Clear();
 
+            //        // Desactivamos los botones de paginación en la vista detalle
+            //        btnSiguienteDGV.Enabled = false;
+            //        btnAnteriorDGV.Enabled = false;
+
+            //        enDetalle = true; // Indicamos que estamos en el modo detalle
+            //    }
         }
+
+
 
         private async void Registros_Load(object sender, EventArgs e)
         {
             await Task.Run(() => CargarDataGridView(1));
         }
 
-        private void CargarDataGridView(int paginaActual)
+        private void CargarDataGridView(int pagina)
         {
-            int offset = (paginaActual - 1) * pageSize;
-
-            totalPaginas = registroCLN.ObtenerTotalPaginas(pageSize);
-            ObtenerCantidadPaginas();
-
+            int offset = (pagina - 1) * pageSize;
 
             Task.Run(() =>
             {
+                // Obtener la lista de vehículos con clientes
                 var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
 
-                // Actualizá el DataGridView en el hilo de la UI
+                // Contar el total de registros para calcular el número total de páginas
+                int totalRegistros = clienteVehiculoCLN.ObtenerCantidadTotalRegistros();
+                totalPaginas = (int)Math.Ceiling((double)totalRegistros / pageSize);
+
+                // Actualizar la interfaz de usuario en el hilo principal
                 dgvRegistros.Invoke(() =>
                 {
                     limpiarDataGridView();
                     dgvRegistros.DataSource = lista;
 
+                    // Escondemos las columnas innecesarias
                     if (dgvRegistros.Columns.Contains("IdCliente"))
                         dgvRegistros.Columns["IdCliente"].Visible = false;
                     if (dgvRegistros.Columns.Contains("IdVehiculo"))
                         dgvRegistros.Columns["IdVehiculo"].Visible = false;
 
-                    if (dgvRegistros.Columns.Contains("btnVerMas"))
-                        dgvRegistros.Columns.Remove("btnVerMas");
 
-                    if (!dgvRegistros.Columns.Contains("btnVerMas"))
+                    // Actualizar los botones de paginación
+                    GenerarPaginacion(pagina, null); // Carga sin filtro
+
+                    // Habilitar o deshabilitar los botones de paginación
+                    if (paginaActual >= totalPaginas)
                     {
-                        DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
-                        btnCol.HeaderText = "Acciones";
-                        btnCol.Text = "Ver más";
-                        btnCol.UseColumnTextForButtonValue = true;
-                        btnCol.Name = "btnVerMas";
-                        dgvRegistros.Columns.Add(btnCol);
+                        btnSiguienteDGV.Enabled = false;  // Desactivar el botón "Siguiente"
+                    }
+                    else
+                    {
+                        btnSiguienteDGV.Enabled = true;   // Activar el botón "Siguiente"
+                    }
+
+                    if (paginaActual <= 1)
+                    {
+                        btnAnteriorDGV.Enabled = false;   // Desactivar el botón "Anterior"
+                    }
+                    else
+                    {
+                        btnAnteriorDGV.Enabled = true;    // Activar el botón "Anterior"
                     }
                 });
-                Invoke(() => GenerarBotonesPaginacion());
             });
         }
 
@@ -120,71 +142,28 @@ namespace AppMecanica
             dgvRegistros.Columns.Clear();
         }
 
-
-
-
-
-
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            limpiarDataGridView();
-            dgvRegistros.DataSource = clienteCLN.ObtenerClientes();
-            dgvRegistros.Columns["nombreYApellido"].HeaderText = "Titular";
-        }
-
-        private void btnVehiculos_Click(object sender, EventArgs e)
-        {
-            limpiarDataGridView();
-            dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
-
-
-
-        }
-
-        private void btnRegistros_Click(object sender, EventArgs e)
-        {
-            limpiarDataGridView();
-            dgvRegistros.DataSource = registroCLN.ObtenerRegistros();
-        }
-
         private void btnResetDgv_Click(object sender, EventArgs e)
         {
-            CargarDataGridView(1);
-            GenerarBotonesPaginacion();
+            paginaActual = 1;
             txtBuscar.Text = "";
+
+            limpiarDataGridView(); // Solo si notás comportamientos extraños
+
+            CargarDataGridView(paginaActual);
+            GenerarPaginacion(1);
         }
+
+
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
             string nombreCliente = txtBuscar.Text.Trim();
             if (string.IsNullOrEmpty(nombreCliente))
                 nombreCliente = null;
 
             paginaActual = 1;
-            var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente, paginaActual, pageSize);
 
-            dgvRegistros.Invoke(() =>
-            {
-                limpiarDataGridView();
-                dgvRegistros.DataSource = resultado;
-
-                if (!dgvRegistros.Columns.Contains("btnVerMas"))
-                {
-                    DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
-                    btnCol.HeaderText = "Acciones";
-                    btnCol.Text = "Ver más";
-                    btnCol.UseColumnTextForButtonValue = true;
-                    btnCol.Name = "btnVerMas";
-                    dgvRegistros.Columns.Add(btnCol);
-                }
-
-                txtBuscar.Focus();
-                txtBuscar.SelectionStart = txtBuscar.Text.Length;
-
-                totalPaginas = ObtenerCantidadPaginas(nombreCliente);
-                GenerarBotonesPaginacion();
-            });
+            BuscarPorCliente(nombreCliente, paginaActual);
         }
 
         private async void txtBuscar_KeyDown(object sender, KeyEventArgs e)
@@ -201,29 +180,47 @@ namespace AppMecanica
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            DetalleRegistro detalleRegistro = new DetalleRegistro(this);
 
-            detalleRegistro.Show();
-            this.Hide();
+            if (dgvRegistros.CurrentRow != null)
+            {
+                // Obtener el ID del vehículo seleccionado
+                int idVehiculo = Convert.ToInt32(dgvRegistros.CurrentRow.Cells["IdVehiculo"].Value);
 
-        }
+                // Obtener los datos del vehículo y sus registros
+                VehiculoDetalleDTO detalle = vehiculoDetalleCLN.ObtenerDetalleVehiculo(idVehiculo);
 
+                // Abrir el nuevo formulario con los registros
+                DetalleRegistro detalleRegistro = new DetalleRegistro(this, detalle);
 
-        private int ObtenerCantidadPaginas(string nombreCliente = null)
-        {
-            int totalRegistros;
-
-            if (string.IsNullOrEmpty(nombreCliente))
-                totalRegistros = clienteVehiculoCLN.ObtenerCantidadTotalRegistros();
+                detalleRegistro.Show();
+                this.Hide();
+            }
             else
-                totalRegistros = clienteVehiculoCLN.ObtenerCantidadRegistrosPorCliente(nombreCliente);
+            {
+                MessageBox.Show("Por favor, seleccioná un vehículo primero.");
+            }
 
-            return (int)Math.Ceiling((double)totalRegistros / pageSize);
         }
 
-        private void GenerarBotonesPaginacion()
+
+        private void GenerarPaginacion(int paginaActual, string nombreCliente = null)
         {
-            flpPaginas.Controls.Clear();
+            flpPaginas.Controls.Clear(); // Limpiar los botones previos
+
+            // Obtener la cantidad de registros dependiendo si hay filtro o no
+            int totalRegistros = string.IsNullOrEmpty(nombreCliente)
+                ? clienteVehiculoCLN.ObtenerCantidadTotalRegistros()
+                : clienteVehiculoCLN.ObtenerCantidadRegistrosPorCliente(nombreCliente);
+
+            totalPaginas = (int)Math.Ceiling((double)totalRegistros / pageSize);
+
+            // Si hay solo una página, no mostrar botones
+            if (totalPaginas <= 1)
+            {
+                btnAnteriorDGV.Enabled = false;
+                btnSiguienteDGV.Enabled = false;
+                return;
+            }
 
             for (int i = 1; i <= totalPaginas; i++)
             {
@@ -238,9 +235,13 @@ namespace AppMecanica
 
                 btn.Click += (s, e) =>
                 {
-                    paginaActual = (int)((Button)s).Tag;
-                    CargarDataGridView(paginaActual);
+                    this.paginaActual = (int)((Button)s).Tag;
 
+                    // Detectar si es búsqueda o carga completa
+                    if (string.IsNullOrEmpty(nombreCliente))
+                        CargarDataGridView(this.paginaActual);
+                    else
+                        BuscarPorCliente(nombreCliente, this.paginaActual);
                 };
 
                 flpPaginas.Controls.Add(btn);
@@ -248,6 +249,27 @@ namespace AppMecanica
 
             btnAnteriorDGV.Enabled = paginaActual > 1;
             btnSiguienteDGV.Enabled = paginaActual < totalPaginas;
+        }
+
+
+        private void BuscarPorCliente(string nombreCliente, int pagina)
+        {
+            var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente, pagina, pageSize);
+
+            dgvRegistros.Invoke(() =>
+            {
+                limpiarDataGridView();
+                dgvRegistros.DataSource = resultado;
+
+                // Ocultar columnas innecesarias después de asignar DataSource
+                if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                    dgvRegistros.Columns["IdVehiculo"].Visible = false;
+
+                if (dgvRegistros.Columns.Contains("IdCliente"))
+                    dgvRegistros.Columns["IdCliente"].Visible = false;
+
+                GenerarPaginacion(pagina, nombreCliente);
+            });
         }
 
         private void btnSiguienteDGV_Click(object sender, EventArgs e)
@@ -267,6 +289,7 @@ namespace AppMecanica
                 CargarDataGridView(paginaActual);
             }
         }
+
     }
 }
 

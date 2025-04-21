@@ -18,26 +18,38 @@ namespace AppMecanicaCAD
                 {
                     connection.Open();
 
-                    // Obtener datos del vehículo
-                    string queryVehiculo = "SELECT * FROM vehiculos WHERE id_vehiculo = @idVehiculo";
-                    using (SQLiteCommand command = new SQLiteCommand(queryVehiculo, connection))
+                /// Obtener datos del vehículo y cliente
+                string queryVehiculo = @"SELECT v.id_vehiculo, v.marca, v.modelo, v.patente, v.año, v.kilometrajeInicial,
+                                               c.nombreYApellido, c.telefono, c.domicilio
+                                        FROM vehiculos v
+                                        INNER JOIN clientes c ON v.id_cliente = c.id_cliente
+                                        WHERE v.id_vehiculo = @idVehiculo";
+
+                using (SQLiteCommand command = new SQLiteCommand(queryVehiculo, connection))
+                {
+                    command.Parameters.AddWithValue("@idVehiculo", idVehiculo);
+                    using (SQLiteDataReader reader = command.ExecuteReader())
                     {
-                        command.Parameters.AddWithValue("@idVehiculo", idVehiculo);
-                        using (SQLiteDataReader reader = command.ExecuteReader())
+                        if (reader.Read())
                         {
-                            if (reader.Read())
-                            {
-                                detalle.IdVehiculo = Convert.ToInt32(reader["id_vehiculo"]);
-                                detalle.Marca = reader["marca"].ToString();
-                                detalle.Modelo = reader["modelo"].ToString();
-                                detalle.Patente = reader["patente"].ToString();
-                                detalle.Año = Convert.ToInt32(reader["año"]);
-                            }
+                            // Datos del vehículo
+                            detalle.IdVehiculo = Convert.ToInt32(reader["id_vehiculo"]);
+                            detalle.Marca = reader["marca"].ToString();
+                            detalle.Modelo = reader["modelo"].ToString();
+                            detalle.Patente = reader["patente"].ToString();
+                            detalle.Año = Convert.ToInt32(reader["año"]);
+                            detalle.KilometrajeInicial = Convert.ToInt32(reader["kilometrajeInicial"]);
+
+                            // Datos del cliente
+                            detalle.Titular = reader["nombreYApellido"].ToString();
+                            detalle.TelefonoCliente = reader["telefono"].ToString();
+                            detalle.DomicilioCliente = reader["domicilio"].ToString();
                         }
                     }
+                }
 
-                    // Obtener los registros del vehículo
-                    detalle.Registros = new List<Registro>();
+                // Obtener los registros del vehículo
+                detalle.Registros = new List<Registro>();
                     string queryRegistros = "SELECT * FROM registros WHERE id_vehiculo = @idVehiculo";
                     using (SQLiteCommand command = new SQLiteCommand(queryRegistros, connection))
                     {

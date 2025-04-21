@@ -18,17 +18,19 @@ namespace AppMecanicaCAD
             {
                 connection.Open();
 
-                string query = @"SELECT 
-                            c.id_cliente,
-                            v.id_vehiculo,
-                            v.marca,
-                            v.modelo,
-                            c.nombreYApellido,
-                            v.patente
-                        FROM clientes c
-                        INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
-                        WHERE c.activo = 1 AND v.activo = 1
-                        LIMIT @limit OFFSET @offset";
+                string query = @"SELECT c.id_cliente,
+                                        v.id_vehiculo,
+                                        v.marca,
+                                        v.modelo,
+                                        c.nombreYApellido,
+                                        v.patente,
+                                        COUNT(r.id_registro) AS cantidad_registros
+                                    FROM clientes c
+                                    INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                                    INNER JOIN registros r ON v.id_vehiculo = r.id_vehiculo
+                                    WHERE c.activo = 1 AND v.activo = 1
+                                    GROUP BY v.id_vehiculo
+                                    LIMIT @limit OFFSET @offset";
 
                 using (var cmd = new SQLiteCommand(query, connection))
                 {
@@ -60,22 +62,24 @@ namespace AppMecanicaCAD
 
         public List<ClienteVehiculo> BuscarVehiculosPorCliente(string nombreCliente, int pagina, int pageSize)
         {
-            string query = @"SELECT  c.id_cliente,
-                                     v.id_vehiculo,
-                                     v.marca,
-                                     v.modelo,
-                                     c.nombreYApellido,
-                                     v.patente
-                                 FROM clientes c
-                                 INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
-                                 WHERE 
-                                     (@nombreCliente IS NULL OR
-                                     LOWER(
-                                         REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreYApellido, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')
-                                     ) LIKE LOWER(
-                                         REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(@nombreCliente, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')
-                                     ))
-                                 LIMIT @pageSize OFFSET @offset;";
+            string query = @"SELECT c.id_cliente,
+                                    c.nombreYApellido,
+                                    v.id_vehiculo,
+                                    v.marca,
+                                    v.modelo,
+                                    v.patente
+                                FROM clientes c
+                                INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                                INNER JOIN registros r ON v.id_vehiculo = r.id_vehiculo
+                                WHERE 
+                                    c.activo = 1 
+                                    AND v.activo = 1
+                                    AND (
+                                        @nombreCliente IS NULL OR
+                                        LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreYApellido, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u'))
+                                        LIKE LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(@nombreCliente, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u'))
+                                    )
+                                GROUP BY v.id_vehiculo;";
 
             List<ClienteVehiculo> lista = new List<ClienteVehiculo>();
 
