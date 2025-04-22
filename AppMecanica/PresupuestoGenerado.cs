@@ -1,52 +1,51 @@
-﻿using System.Drawing.Printing;
-
+﻿using AppMecanica.Models;
+using System.Drawing.Printing;
+using AppMecanica.Models;
 
 namespace AppMecanica
 {
     public partial class PresupuestoGenerado : Form
     {
-        private List<Repuesto> repuestos;
-        public List<Repuesto> Repuestos { get; set; } = new List<Repuesto>();
-        
-        public string Titular { get; set; }
-        public string Telefono { get; set; }
-        public string Marca { get; set; }
-        public string Modelo { get; set; }
-        public string Año { get; set; }
-
-
         private Form formPresupuesto;
-        public PresupuestoGenerado(Form presupuesto, List<Repuesto> repuestos)
+        private PresupuestoData data;
+
+        public PresupuestoGenerado(Form presupuesto, PresupuestoData data)
         {
             InitializeComponent();
             lblTitulo.Text = $"Presupuesto - Nro {"01"}";
-            lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
+            lblFecha.Text = $"Fecha: {DateTime.Now:dd/MM/yyyy}";
             formPresupuesto = presupuesto;
-            this.repuestos = repuestos;
+            this.data = data;
 
             this.Load += PresupuestoGenerado_Load;
         }
+
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
-            
-            lblDatosCliente.Text = $"Cliente: {Titular}          Teléfono: {Telefono}          Vehículo: Marca:  {Marca} Modelo:  {Modelo}  Año: {Año}";
-            //lblDatosCliente.Text = $"Cliente: {Titular}";
-            //lblDatosTelefono.Text = $"Teléfono: {Telefono}";
-            //lblDatosVehiculo.Text = $"Vehículo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
+            lblDatosCliente.Text = $"Cliente: {data.Titular}";
+            lblDatosTelefono.Text = $"Teléfono: {data.Telefono}";
+            lblMarcaPresu.Text = $"Marca: {data.Marca}";
+            lblModeloPresu.Text = $"Modelo: {data.Modelo}";
+            lblAnoPresu.Text = $"Año: {data.Año}";
 
-            // Mostrar repuestos
-            foreach (var rep in repuestos)
+            lblDescPresupuesto.Text = $"\"{data.Desc}\"";
+            lblTituloRepuesto.Text = $"Repuesto: ${data.TotalRepuestos}";
+            lblTituloMDO.Text = $"Mano de obra: ${data.TotalManoObra}";
+            lblMDOyR.Text = $"Total: ${data.TotalGeneral}";
+
+            foreach (var rep in data.Repuestos)
             {
                 var lbl = new Label();
                 lbl.AutoSize = true;
-                lbl.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                lbl.Font = new Font("HomepageBaukasten 249998pt", 11, FontStyle.Bold);
                 lbl.Margin = new Padding(10);
-                lbl.Text = $"- {rep.Nombre} | Cantidad: {rep.Cantidad} | Precio: ${rep.Precio}";
+                lbl.Text = $"{rep.Nombre.ToUpper()} | Cantidad x{rep.Cantidad} | Precio: ${rep.Precio}";
                 flowPanelRepuestos.Controls.Add(lbl);
             }
         }
 
         //FALTA DEFINIR EL AREA DE IMPRESION
+
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             btnImg.Visible = false;
@@ -71,16 +70,26 @@ namespace AppMecanica
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            //area sin bordes 
-            Rectangle bounds = this.RectangleToScreen(this.ClientRectangle);
-            Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
+            Bitmap bmp = new Bitmap(panelContenido.Width, panelContenido.Height);
+            panelContenido.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
 
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
-            }
-            e.Graphics.DrawImage(bmp, 0, 0);
+            // Usamos toda la hoja (sin márgenes)
+            Rectangle printArea = e.PageBounds;
+
+            // Calcular escalado para llenar toda la hoja
+            float ratioX = (float)printArea.Width / bmp.Width;
+            float ratioY = (float)printArea.Height / bmp.Height;
+            float ratio = Math.Min(ratioX, ratioY);
+
+            int newWidth = (int)(bmp.Width * ratio);
+            int newHeight = (int)(bmp.Height * ratio);
+
+            int posX = printArea.X + (printArea.Width - newWidth) / 2;
+            int posY = printArea.Y + (printArea.Height - newHeight) / 2;
+
+            e.Graphics.DrawImage(bmp, posX, posY, newWidth, newHeight);
         }
+
 
 
         private void btnImg_Click(object sender, EventArgs e)
@@ -89,11 +98,10 @@ namespace AppMecanica
             btnImprimir.Visible = false;
             btnVolverGenerado.Visible = false;
 
-
             this.Refresh();
             Application.DoEvents();
 
-            //area sin bordes 
+            // Capturar sin bordes
             Rectangle bounds = this.RectangleToScreen(this.ClientRectangle);
             Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
 
@@ -101,27 +109,27 @@ namespace AppMecanica
             {
                 g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
             }
-
-            //guardar 
+            // nombre
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "PNG Image|*.png";
+            sfd.FileName = $"Presupuesto_{DateTime.Now:dd-MM-yyyy}.png";
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 bmp.Save(sfd.FileName);
                 MessageBox.Show("Imagen guardada exitosamente.");
             }
-
-
             btnImg.Visible = true;
             btnImprimir.Visible = true;
             btnVolverGenerado.Visible = true;
         }
 
+
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
             formPresupuesto.Show();
             this.Close();
-        }   
+        }
+
     }
 }

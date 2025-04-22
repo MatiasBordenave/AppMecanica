@@ -69,6 +69,11 @@
             btnGenerar = new Button();
             labelDesc = new Label();
             textBoxDesc = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).BeginInit();
             groupBox1.SuspendLayout();
@@ -230,9 +235,10 @@
             // 
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
+            txtCantidadHoras.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             txtCantidadHoras.Location = new Point(394, 669);
             txtCantidadHoras.Name = "txtCantidadHoras";
-            txtCantidadHoras.Size = new Size(73, 27);
+            txtCantidadHoras.Size = new Size(73, 29);
             txtCantidadHoras.TabIndex = 20;
             txtCantidadHoras.KeyPress += txtCantidadHoras_KeyPress;
             // 
@@ -240,9 +246,10 @@
             // 
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
+            txtPrecioHora.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             txtPrecioHora.Location = new Point(638, 669);
             txtPrecioHora.Name = "txtPrecioHora";
-            txtPrecioHora.Size = new Size(79, 27);
+            txtPrecioHora.Size = new Size(79, 29);
             txtPrecioHora.TabIndex = 21;
             txtPrecioHora.KeyPress += txtPrecioHora_KeyPress;
             // 
@@ -255,9 +262,9 @@
             dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRespuesto, CantidadRepuesto, PrecioRepuesto });
+            dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
             dataGridView1.Location = new Point(119, 456);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(757, 185);
             dataGridView1.TabIndex = 26;
@@ -268,7 +275,6 @@
             NombreRespuesto.HeaderText = "Nombre Repuesto";
             NombreRespuesto.MinimumWidth = 6;
             NombreRespuesto.Name = "NombreRespuesto";
-            NombreRespuesto.ReadOnly = true;
             NombreRespuesto.Width = 350;
             // 
             // CantidadRepuesto
@@ -276,14 +282,12 @@
             CantidadRepuesto.HeaderText = "Cantidad";
             CantidadRepuesto.MinimumWidth = 6;
             CantidadRepuesto.Name = "CantidadRepuesto";
-            CantidadRepuesto.ReadOnly = true;
             // 
             // PrecioRepuesto
             // 
             PrecioRepuesto.HeaderText = "Precio";
             PrecioRepuesto.MinimumWidth = 6;
             PrecioRepuesto.Name = "PrecioRepuesto";
-            PrecioRepuesto.ReadOnly = true;
             // 
             // lblNombreRepo
             // 
@@ -300,14 +304,16 @@
             // 
             txtNombreRepo.BackColor = Color.FromArgb(224, 224, 224);
             txtNombreRepo.BorderStyle = BorderStyle.FixedSingle;
+            txtNombreRepo.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             txtNombreRepo.Location = new Point(9, 72);
             txtNombreRepo.Name = "txtNombreRepo";
-            txtNombreRepo.Size = new Size(175, 32);
+            txtNombreRepo.Size = new Size(175, 29);
             txtNombreRepo.TabIndex = 28;
             // 
             // nupCantidad
             // 
             nupCantidad.BackColor = Color.FromArgb(224, 224, 224);
+            nupCantidad.BorderStyle = BorderStyle.FixedSingle;
             nupCantidad.Location = new Point(238, 72);
             nupCantidad.Name = "nupCantidad";
             nupCantidad.Size = new Size(86, 32);
@@ -328,6 +334,7 @@
             // 
             txtPrecioUni.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioUni.BorderStyle = BorderStyle.FixedSingle;
+            txtPrecioUni.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             txtPrecioUni.Location = new Point(362, 76);
             txtPrecioUni.Multiline = true;
             txtPrecioUni.Name = "txtPrecioUni";
@@ -375,6 +382,11 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.Transparent;
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(txtKm);
             groupBox1.Controls.Add(lblKm);
             groupBox1.Controls.Add(txtDomicilio);
@@ -408,6 +420,7 @@
             txtKm.Name = "txtKm";
             txtKm.Size = new Size(175, 29);
             txtKm.TabIndex = 21;
+            txtKm.KeyPress += txtKm_KeyPress;
             // 
             // lblKm
             // 
@@ -524,6 +537,7 @@
             // 
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
+            textBoxDesc.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             textBoxDesc.Location = new Point(354, 727);
             textBoxDesc.Margin = new Padding(3, 4, 3, 4);
             textBoxDesc.Multiline = true;
@@ -531,13 +545,73 @@
             textBoxDesc.Size = new Size(423, 118);
             textBoxDesc.TabIndex = 41;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(429, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(21, 25);
+            label1.TabIndex = 42;
+            label1.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(429, 84);
+            label2.Name = "label2";
+            label2.Size = new Size(21, 25);
+            label2.TabIndex = 43;
+            label2.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(428, 179);
+            label3.Name = "label3";
+            label3.Size = new Size(21, 25);
+            label3.TabIndex = 44;
+            label3.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(735, 39);
+            label4.Name = "label4";
+            label4.Size = new Size(21, 25);
+            label4.TabIndex = 45;
+            label4.Text = "*";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI Black", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(735, 175);
+            label5.Name = "label5";
+            label5.Size = new Size(21, 25);
+            label5.TabIndex = 43;
+            label5.Text = "*";
+            // 
             // Presupuesto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(0, 64, 64);
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.bg_forms;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1239, 881);
             Controls.Add(textBoxDesc);
@@ -553,6 +627,7 @@
             Controls.Add(btnVolverPresupuesto);
             Controls.Add(txtPrecioHora);
             Controls.Add(txtCantidadHoras);
+            DoubleBuffered = true;
             ForeColor = Color.Gray;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -561,6 +636,7 @@
             Name = "Presupuesto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica Software";
+            Load += Presupuesto_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).EndInit();
             groupBox1.ResumeLayout(false);
@@ -612,5 +688,10 @@
         private TextBox textBoxDesc;
         private TextBox txtKm;
         private Label lblKm;
+        private Label label1;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
     }
 }

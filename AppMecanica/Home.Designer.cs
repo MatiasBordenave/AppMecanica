@@ -89,7 +89,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(51, 51, 51);
-            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImage = Properties.Resources.bg_home;
             ClientSize = new Size(1084, 661);
             Controls.Add(btnPresupuesto);
             Controls.Add(btnRegistro);
