@@ -3,6 +3,7 @@ using AppMecanica.Services;
 using AppMecanicaCAD;
 using AppMecanicaCLN;
 using AppMecanica.Models;
+using AppMecanicaEntidades;
 
 
 namespace AppMecanica
@@ -22,13 +23,13 @@ namespace AppMecanica
             _mapper = mapper;
             _calculator = calculator;
         }
-    
 
 
-    private void btnVolverPresupuesto_Click(object sender, EventArgs e)
+
+        private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
             _homeForm.Show();
-            this.Close();    
+            this.Close();
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace AppMecanica
                 return;
             }
 
-            int cantidad = (int)nupCantidad.Value; 
+            int cantidad = (int)nupCantidad.Value;
             dataGridView1.Rows.Add(txtNombreRepo.Text, cantidad, precio);
 
             txtNombreRepo.Clear();
@@ -96,23 +97,67 @@ namespace AppMecanica
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-
             if (!ValidarCampos())
                 return;
 
-            string nombreYApellido = txtTitular.Text;
-            string telefono = txtTelefono.Text;
-            string domicilio = txtDomicilio.Text;
-            string modelo = txtModelo.Text;
-            string marca = txtMarca.Text;
-            string patente = txtPatente.Text;
-            string año = txtAño.Text;
-            string kilometraje = txtKm.Text;
+            // Datos Titular
+            string nombreYApellido = txtTitular.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string domicilio = txtDomicilio.Text.Trim();
 
-            txtNombreRepo.Clear();
-            txtPrecioUni.Clear();
-            txtCantidadHoras.Clear();
-            txtPrecioHora.Clear();
+            // Datos Vehículo
+            string modelo = txtModelo.Text.Trim();
+            string marca = txtMarca.Text.Trim();
+            string patente = txtPatente.Text.Trim();
+            int año = Convert.ToInt32(txtAño.Text);
+            int kilometraje = Convert.ToInt32(txtKm.Text);
+
+            // Datos del registro de mantenimiento
+            string descripcion = textBoxDesc.Text.Trim();
+            double totalRepuestos = Convert.ToDouble(txtPrecioUni.Text);
+            int cantidadHoras = Convert.ToInt32(txtCantidadHoras.Text);
+            double precioPorHora = Convert.ToDouble(txtPrecioHora.Text);
+            double precioTotalHoras = cantidadHoras * precioPorHora;
+            double totalFinal = totalRepuestos + precioTotalHoras;
+            int kilometrajeRegistro = kilometraje;
+            DateTime fecha = DateTime.Now; // O podés usar un DateTimePicker si tenés uno
+
+            // Construir el objeto Registro
+            Registro registro = new Registro
+            {
+                Fecha = fecha,
+                Descripcion = descripcion,
+                TotalRepuestos = totalRepuestos,
+                CantidadHoras = cantidadHoras,
+                PrecioPorHora = precioPorHora,
+                PrecioTotalHoras = precioTotalHoras,
+                PrecioTotal = totalFinal,
+                KilometrajeRegistro = kilometrajeRegistro
+            };
+
+            try
+            {
+                // Llamada a la lógica de negocio (Capa Lógica de Negocio)
+                RegistroCLN.AgregarRegistro(
+                    nombreYApellido,
+                    telefono,
+                    domicilio,
+                    marca,
+                    modelo,
+                    patente,
+                    año,
+                    kilometraje,
+                    registro
+                );
+
+                MessageBox.Show("Registro guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el registro: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
@@ -265,5 +310,9 @@ namespace AppMecanica
             return true;
         }
 
+        private void Presupuesto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

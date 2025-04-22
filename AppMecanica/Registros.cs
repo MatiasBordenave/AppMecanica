@@ -201,10 +201,25 @@ namespace AppMecanica
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            DetalleRegistro detalleRegistro = new DetalleRegistro(this);
 
-            detalleRegistro.Show();
-            this.Hide();
+            if (dgvRegistros.CurrentRow != null)
+            {
+                // Obtener el ID del vehículo seleccionado
+                int idVehiculo = Convert.ToInt32(dgvRegistros.CurrentRow.Cells["IdVehiculo"].Value);
+
+                // Obtener los datos del vehículo y sus registros
+                VehiculoDetalleDTO detalle = vehiculoDetalleCLN.ObtenerDetalleVehiculo(idVehiculo);
+
+                // Abrir el nuevo formulario con los registros
+                DetalleRegistro detalleRegistro = new DetalleRegistro(this, detalle);
+
+                detalleRegistro.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccioná un vehículo primero.");
+            }
 
         }
 

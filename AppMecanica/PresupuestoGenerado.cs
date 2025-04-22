@@ -1,6 +1,7 @@
 ﻿using AppMecanica.Models;
 using System.Drawing.Printing;
 using AppMecanica.Models;
+using AppMecanicaCLN;
 
 namespace AppMecanica
 {
@@ -8,6 +9,8 @@ namespace AppMecanica
     {
         private Form formPresupuesto;
         private PresupuestoData data;
+        PresupuestoCLN presupuestoCLN = new PresupuestoCLN();
+
 
         public PresupuestoGenerado(Form presupuesto, PresupuestoData data)
         {
@@ -131,5 +134,10 @@ namespace AppMecanica
             this.Close();
         }
 
+        private void PresupuestoGenerado_Load_1(object sender, EventArgs e)
+        {
+            int nuevoIdPresupuesto = presupuestoCLN.CrearNuevoPresupuesto();
+            lblTitulo.Text = $"Presupuesto  - Nro 0{nuevoIdPresupuesto}";
+        }
     }
 }
