@@ -266,10 +266,10 @@
             dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRespuesto, CantidadRepuesto, PrecioRepuesto });
+            dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
             dataGridView1.Location = new Point(104, 342);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(662, 139);
             dataGridView1.TabIndex = 26;
@@ -280,7 +280,6 @@
             NombreRespuesto.HeaderText = "Nombre Repuesto";
             NombreRespuesto.MinimumWidth = 6;
             NombreRespuesto.Name = "NombreRespuesto";
-            NombreRespuesto.ReadOnly = true;
             NombreRespuesto.Width = 350;
             // 
             // CantidadRepuesto
@@ -288,14 +287,12 @@
             CantidadRepuesto.HeaderText = "Cantidad";
             CantidadRepuesto.MinimumWidth = 6;
             CantidadRepuesto.Name = "CantidadRepuesto";
-            CantidadRepuesto.ReadOnly = true;
             // 
             // PrecioRepuesto
             // 
             PrecioRepuesto.HeaderText = "Precio";
             PrecioRepuesto.MinimumWidth = 6;
             PrecioRepuesto.Name = "PrecioRepuesto";
-            PrecioRepuesto.ReadOnly = true;
             // 
             // lblNombreRepo
             // 
@@ -322,6 +319,7 @@
             // nupCantidad
             // 
             nupCantidad.BackColor = Color.FromArgb(224, 224, 224);
+            nupCantidad.BorderStyle = BorderStyle.FixedSingle;
             nupCantidad.Location = new Point(208, 54);
             nupCantidad.Margin = new Padding(3, 2, 3, 2);
             nupCantidad.Name = "nupCantidad";

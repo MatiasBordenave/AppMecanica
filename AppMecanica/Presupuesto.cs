@@ -1,40 +1,42 @@
 ﻿using AppMecanica;
+using AppMecanica.Services;
 using AppMecanicaCAD;
 using AppMecanicaCLN;
+using AppMecanica.Models;
+
 
 namespace AppMecanica
 {
     public partial class Presupuesto : Form
     {
+        private readonly IRepuestoMapper _mapper;
+        private readonly ITotalCalculator _calculator;
+        private readonly Form _homeForm;
 
-        private Bitmap bitmap;
-        private ClienteCLN clienteCLN = new ClienteCLN();
-        private RegistroCLN registroCLN = new RegistroCLN();
-        private VehiculoCLN vehiculoCLN = new VehiculoCLN();
-
-        private Form homeForm;
-
-        public Presupuesto(Form home)
+        public Presupuesto(Form homeForm,
+                           IRepuestoMapper mapper,
+                           ITotalCalculator calculator)
         {
             InitializeComponent();
-            homeForm = home;
+            _homeForm = homeForm;
+            _mapper = mapper;
+            _calculator = calculator;
         }
+    
 
-        private void btnVolverPresupuesto_Click(object sender, EventArgs e)
+
+    private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
-            homeForm.Show(); // Mostrar el Home que estaba oculto
-            this.Close();    // Cerrar el Presupuesto
+            _homeForm.Show();
+            this.Close();    
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            // Limpiar TextBox individuales
             txtCantidadHoras.Clear();
             txtPrecioHora.Clear();
-
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
-
             txtTitular.Clear();
             txtTelefono.Clear();
             txtDomicilio.Clear();
@@ -43,47 +45,32 @@ namespace AppMecanica
             txtPatente.Clear();
             txtAño.Clear();
             txtKm.Clear();
-
-            // Reiniciar NumericUpDown
             nupCantidad.Value = nupCantidad.Minimum;
-
-            // Limpiar el DataGridView
             dataGridView1.Rows.Clear();
-
-            //Limpiar el TextBox de descripción
             textBoxDesc.Clear();
         }
 
 
-
-
         private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
-            // Validación simple (opcional pero recomendado)
             if (string.IsNullOrWhiteSpace(txtNombreRepo.Text) ||
                 string.IsNullOrWhiteSpace(txtPrecioUni.Text))
             {
                 MessageBox.Show("Por favor, complete todos los campos del repuesto.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Convertir precio a decimal y cantidad a int
             if (!decimal.TryParse(txtPrecioUni.Text, out decimal precio) || precio < 0)
             {
                 MessageBox.Show("Ingrese un precio válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            int cantidad = (int)nupCantidad.Value;
-
-            // Agregar al DataGridView
+            int cantidad = (int)nupCantidad.Value; 
             dataGridView1.Rows.Add(txtNombreRepo.Text, cantidad, precio);
 
-            // Limpiar los campos del groupBox2 luego de agregar
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
             nupCantidad.Value = nupCantidad.Minimum;
-
             txtNombreRepo.Focus();
         }
 
@@ -91,7 +78,6 @@ namespace AppMecanica
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Confirmación opcional
                 var confirmar = MessageBox.Show("¿Seguro que querés eliminar el repuesto seleccionado?",
                                                 "Eliminar",
                                                 MessageBoxButtons.YesNo,
@@ -111,7 +97,6 @@ namespace AppMecanica
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-
             if (!ValidarCampos())
                 return;
 
@@ -126,60 +111,46 @@ namespace AppMecanica
 
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
-
             txtCantidadHoras.Clear();
             txtPrecioHora.Clear();
-
-
-            //Validacion global arriba de los campos
-
-            //if (Validaciones.HayCamposVacios(this, out string campo))
-            //{
-            //    MessageBox.Show($"El campo '{campo}' está vacío. Por favor, completalo.",
-            //                    "Validación de campos",
-            //                    MessageBoxButtons.OK,
-            //                    MessageBoxIcon.Warning);
-            //    return;
-            //}
-
-
         }
-
-
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
                 return;
 
-            List<Repuesto> listaRepuestos = new List<Repuesto>();
+            var listaRepuestos = _mapper.Map(dataGridView1);
+            var totalRepuestos = _calculator.CalculateTotalRepuestos(listaRepuestos);
 
-            foreach (DataGridViewRow fila in dataGridView1.Rows)
-            {
-                if (fila.Cells[0].Value != null && fila.Cells[1].Value != null && fila.Cells[2].Value != null)
-                {
-                    listaRepuestos.Add(new Repuesto
-                    {
-                        Nombre = fila.Cells[0].Value.ToString(),
-                        Cantidad = Convert.ToInt32(fila.Cells[1].Value),
-                        Precio = Convert.ToDecimal(fila.Cells[2].Value)
-                    });
-                }
-            }
+            decimal horas = 0, precioHora = 0;
+            decimal.TryParse(txtCantidadHoras.Text, out horas);
+            decimal.TryParse(txtPrecioHora.Text, out precioHora);
 
-            PresupuestoGenerado generado = new PresupuestoGenerado(this, listaRepuestos)
+            var totalManoObra = _calculator.CalculateLaborCost(horas, precioHora);
+            var totalGeneral = _calculator.CalculateTotalGeneral(listaRepuestos, horas, precioHora);
+
+            var data = new PresupuestoData
             {
+                Repuestos = listaRepuestos,
+                TotalRepuestos = totalRepuestos,
+                CantidadHoras = horas,
+                PrecioHora = precioHora,
+                TotalManoObra = totalManoObra,
+                TotalGeneral = totalGeneral,
                 Titular = txtTitular.Text,
                 Telefono = txtTelefono.Text,
                 Marca = txtMarca.Text,
                 Modelo = txtModelo.Text,
-                Año = txtAño.Text
+                Año = txtAño.Text,
+                Desc = textBoxDesc.Text
             };
 
+            var generado = new PresupuestoGenerado(this, data);
             generado.Show();
             this.Hide();
-
         }
+
 
         private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
