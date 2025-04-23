@@ -45,6 +45,7 @@
             // 
             // dgvRegistros
             // 
+            dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRegistros.BackgroundColor = Color.FromArgb(224, 224, 224);
             dgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvRegistros.Location = new Point(24, 90);

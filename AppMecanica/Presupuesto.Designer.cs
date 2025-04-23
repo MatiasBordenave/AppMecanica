@@ -80,7 +80,7 @@
             btnVolverPresupuesto.BackColor = Color.FromArgb(251, 176, 48);
             btnVolverPresupuesto.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnVolverPresupuesto.FlatStyle = FlatStyle.Flat;
-            btnVolverPresupuesto.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnVolverPresupuesto.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnVolverPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
             btnVolverPresupuesto.Location = new Point(909, 595);
             btnVolverPresupuesto.Margin = new Padding(3, 2, 3, 2);
@@ -96,7 +96,7 @@
             btnGuardar.BackColor = Color.FromArgb(251, 176, 48);
             btnGuardar.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnGuardar.FlatStyle = FlatStyle.Flat;
-            btnGuardar.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGuardar.Font = new Font("Microsoft Sans Serif", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = Color.FromArgb(51, 51, 51);
             btnGuardar.Location = new Point(909, 31);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
@@ -121,30 +121,30 @@
             // lblPatente
             // 
             lblPatente.AutoSize = true;
-            lblPatente.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblPatente.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblPatente.Location = new Point(411, 60);
             lblPatente.Name = "lblPatente";
-            lblPatente.Size = new Size(70, 17);
+            lblPatente.Size = new Size(62, 18);
             lblPatente.TabIndex = 5;
             lblPatente.Text = "Patente:";
             // 
             // lblTitular
             // 
             lblTitular.AutoSize = true;
-            lblTitular.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblTitular.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblTitular.Location = new Point(144, 30);
             lblTitular.Name = "lblTitular";
-            lblTitular.Size = new Size(62, 17);
+            lblTitular.Size = new Size(52, 18);
             lblTitular.TabIndex = 7;
             lblTitular.Text = "Titular:";
             // 
             // lblMarca
             // 
             lblMarca.AutoSize = true;
-            lblMarca.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblMarca.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblMarca.Location = new Point(422, 27);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(58, 17);
+            lblMarca.Size = new Size(54, 18);
             lblMarca.TabIndex = 8;
             lblMarca.Text = "Marca:";
             // 
@@ -173,20 +173,20 @@
             // lblModelo
             // 
             lblModelo.AutoSize = true;
-            lblModelo.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblModelo.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblModelo.Location = new Point(68, 132);
             lblModelo.Name = "lblModelo";
-            lblModelo.Size = new Size(138, 17);
+            lblModelo.Size = new Size(119, 18);
             lblModelo.TabIndex = 12;
             lblModelo.Text = "Modelo del Auto:";
             // 
             // lblAño
             // 
             lblAño.AutoSize = true;
-            lblAño.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblAño.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblAño.Location = new Point(437, 132);
             lblAño.Name = "lblAño";
-            lblAño.Size = new Size(43, 17);
+            lblAño.Size = new Size(38, 18);
             lblAño.TabIndex = 13;
             lblAño.Text = "Año:";
             // 
@@ -218,11 +218,11 @@
             // 
             lblCantidadHoras.AutoSize = true;
             lblCantidadHoras.BackColor = Color.Transparent;
-            lblCantidadHoras.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblCantidadHoras.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblCantidadHoras.ForeColor = Color.FromArgb(51, 51, 51);
             lblCantidadHoras.Location = new Point(104, 502);
             lblCantidadHoras.Name = "lblCantidadHoras";
-            lblCantidadHoras.Size = new Size(235, 17);
+            lblCantidadHoras.Size = new Size(209, 18);
             lblCantidadHoras.TabIndex = 18;
             lblCantidadHoras.Text = "Cantidad de Horas Estimadas:";
             // 
@@ -230,11 +230,11 @@
             // 
             lblPrecioHora.AutoSize = true;
             lblPrecioHora.BackColor = Color.Transparent;
-            lblPrecioHora.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblPrecioHora.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblPrecioHora.ForeColor = Color.FromArgb(51, 51, 51);
             lblPrecioHora.Location = new Point(421, 502);
             lblPrecioHora.Name = "lblPrecioHora";
-            lblPrecioHora.Size = new Size(131, 17);
+            lblPrecioHora.Size = new Size(120, 18);
             lblPrecioHora.TabIndex = 19;
             lblPrecioHora.Text = "Precio Por Hora:";
             // 
@@ -303,10 +303,10 @@
             // 
             lblNombreRepo.AutoSize = true;
             lblNombreRepo.BackColor = Color.Transparent;
-            lblNombreRepo.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblNombreRepo.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblNombreRepo.Location = new Point(8, 35);
             lblNombreRepo.Name = "lblNombreRepo";
-            lblNombreRepo.Size = new Size(177, 17);
+            lblNombreRepo.Size = new Size(157, 18);
             lblNombreRepo.TabIndex = 27;
             lblNombreRepo.Text = "Nombre del Repuesto:";
             // 
@@ -340,7 +340,7 @@
             lblCantidad.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             lblCantidad.Location = new Point(205, 34);
             lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(81, 17);
+            lblCantidad.Size = new Size(70, 18);
             lblCantidad.TabIndex = 30;
             lblCantidad.Text = "Cantidad:";
             // 
@@ -361,10 +361,10 @@
             // 
             lblPrecioUni.AutoSize = true;
             lblPrecioUni.BackColor = Color.Transparent;
-            lblPrecioUni.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblPrecioUni.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblPrecioUni.Location = new Point(317, 35);
             lblPrecioUni.Name = "lblPrecioUni";
-            lblPrecioUni.Size = new Size(61, 17);
+            lblPrecioUni.Size = new Size(55, 18);
             lblPrecioUni.TabIndex = 32;
             lblPrecioUni.Text = "Precio:";
             // 
@@ -445,10 +445,10 @@
             // lblKm
             // 
             lblKm.AutoSize = true;
-            lblKm.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblKm.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblKm.Location = new Point(385, 95);
             lblKm.Name = "lblKm";
-            lblKm.Size = new Size(96, 17);
+            lblKm.Size = new Size(84, 18);
             lblKm.TabIndex = 20;
             lblKm.Text = "Kilometros:";
             // 
@@ -478,20 +478,20 @@
             // lblDomicilio
             // 
             lblDomicilio.AutoSize = true;
-            lblDomicilio.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblDomicilio.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblDomicilio.Location = new Point(119, 95);
             lblDomicilio.Name = "lblDomicilio";
-            lblDomicilio.Size = new Size(87, 17);
+            lblDomicilio.Size = new Size(74, 18);
             lblDomicilio.TabIndex = 17;
             lblDomicilio.Text = "Domicilio:";
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblTelefono.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             lblTelefono.Location = new Point(130, 63);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(80, 17);
+            lblTelefono.Size = new Size(70, 18);
             lblTelefono.TabIndex = 16;
             lblTelefono.Text = "Telefono:";
             // 
@@ -522,7 +522,7 @@
             btnLimpiar.BackColor = Color.FromArgb(251, 176, 48);
             btnLimpiar.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnLimpiar.FlatStyle = FlatStyle.Flat;
-            btnLimpiar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnLimpiar.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnLimpiar.ForeColor = Color.FromArgb(51, 51, 51);
             btnLimpiar.Location = new Point(909, 529);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
@@ -538,7 +538,7 @@
             btnGenerar.BackColor = Color.FromArgb(251, 176, 48);
             btnGenerar.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnGenerar.FlatStyle = FlatStyle.Flat;
-            btnGenerar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnGenerar.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnGenerar.ForeColor = Color.FromArgb(51, 51, 51);
             btnGenerar.Location = new Point(909, 87);
             btnGenerar.Margin = new Padding(3, 2, 3, 2);
@@ -553,11 +553,11 @@
             // 
             labelDesc.AutoSize = true;
             labelDesc.BackColor = Color.Transparent;
-            labelDesc.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            labelDesc.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             labelDesc.ForeColor = Color.FromArgb(51, 51, 51);
             labelDesc.Location = new Point(104, 545);
             labelDesc.Name = "labelDesc";
-            labelDesc.Size = new Size(195, 17);
+            labelDesc.Size = new Size(168, 18);
             labelDesc.TabIndex = 40;
             labelDesc.Text = "Descripcion del Trabajo:";
             // 
