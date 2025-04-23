@@ -201,7 +201,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            BackgroundImage = Properties.Resources.bg_forms;
+            BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
             Controls.Add(flpPaginas);

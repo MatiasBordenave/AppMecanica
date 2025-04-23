@@ -22,7 +22,7 @@ namespace AppMecanica
             _mapper = mapper;
             _calculator = calculator;
         }
-    
+
 
 
     private void btnVolverPresupuesto_Click(object sender, EventArgs e)
@@ -49,6 +49,25 @@ namespace AppMecanica
             dataGridView1.Rows.Clear();
             textBoxDesc.Clear();
         }
+
+
+        private void BloquearCopiarPegar(params TextBox[] textBoxes)
+        {
+            foreach (var textBox in textBoxes)
+            {
+                textBox.ContextMenuStrip = new ContextMenuStrip(); // ✅ Esto es correcto y moderno
+
+                textBox.KeyDown += (s, e) =>
+                {
+                    if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
+                    {
+                        e.SuppressKeyPress = true;
+                        e.Handled = true;
+                    }
+                };
+            }
+        }
+
 
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
@@ -223,6 +242,24 @@ namespace AppMecanica
                 e.Handled = true;
             }
         }
+        public static void SoloNumerosDecimales(TextBox textBox, KeyPressEventArgs e)
+        {
+            // Permite control, dígitos, coma y punto
+            if (!char.IsControl(e.KeyChar) &&
+                !char.IsDigit(e.KeyChar) &&
+                e.KeyChar != ',' && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+
+            // Solo permitir una coma o un punto
+            if ((e.KeyChar == ',' || e.KeyChar == '.') &&
+                (textBox.Text.Contains(",") || textBox.Text.Contains(".")))
+            {
+                e.Handled = true;
+            }
+        }
+
 
         private void txtPrecioHora_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -240,24 +277,21 @@ namespace AppMecanica
 
         private bool ValidarCampos()
         {
-            // Lista de todos los TextBox a validar
-            TextBox[] campos = {
+            // Solo los campos obligatorios (con asterisco)
+            TextBox[] camposObligatorios = {
         txtTitular,
         txtTelefono,
-        txtDomicilio,
-        txtModelo,
         txtMarca,
-        txtPatente,
-        txtAño,
-        txtKm
-    };
+        txtModelo,
+        txtAño
+            };
 
-            foreach (TextBox txt in campos)
+            foreach (TextBox campo in camposObligatorios)
             {
-                if (string.IsNullOrWhiteSpace(txt.Text))
+                if (string.IsNullOrWhiteSpace(campo.Text))
                 {
-                    MessageBox.Show("Por favor, complete todos los campos.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txt.Focus();
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios (*).", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    campo.Focus();
                     return false;
                 }
             }
@@ -265,5 +299,30 @@ namespace AppMecanica
             return true;
         }
 
+        //private void CalcularTotalPresupuesto(object sender, EventArgs e)
+        //{
+        //    if (decimal.TryParse(txtCantidadHoras.Text, out decimal cantidadHoras) &&
+        //        decimal.TryParse(txtPrecioHora.Text, out decimal precioHora))
+        //    {
+        //        decimal total = cantidadHoras * precioHora;
+        //        txtTotalPresupuestado.Text = total.ToString("0.00");
+        //    }
+        //    else
+        //    {
+        //        txtTotalPresupuestado.Text = "";
+        //    }
+        //}
+
+
+        private void txtKm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            SoloNumerosDecimales((TextBox)sender, e);
+        }
+
+        private void Presupuesto_Load(object sender, EventArgs e)
+        {
+            BloquearCopiarPegar(txtTitular,txtTelefono,txtDomicilio,txtModelo,txtMarca,txtPatente,txtAño,txtKm);
+            
+        }
     }
 }

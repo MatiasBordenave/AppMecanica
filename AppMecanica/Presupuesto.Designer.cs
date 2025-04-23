@@ -111,10 +111,11 @@
             // 
             txtTitular.BackColor = Color.FromArgb(224, 224, 224);
             txtTitular.BorderStyle = BorderStyle.FixedSingle;
+            txtTitular.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtTitular.Location = new Point(217, 29);
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
-            txtTitular.Size = new Size(153, 24);
+            txtTitular.Size = new Size(153, 23);
             txtTitular.TabIndex = 4;
             // 
             // lblPatente
@@ -151,20 +152,22 @@
             // 
             txtPatente.BackColor = Color.FromArgb(224, 224, 224);
             txtPatente.BorderStyle = BorderStyle.FixedSingle;
+            txtPatente.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtPatente.Location = new Point(485, 60);
             txtPatente.Margin = new Padding(3, 2, 3, 2);
             txtPatente.Name = "txtPatente";
-            txtPatente.Size = new Size(153, 24);
+            txtPatente.Size = new Size(153, 23);
             txtPatente.TabIndex = 10;
             // 
             // txtMarca
             // 
             txtMarca.BackColor = Color.FromArgb(224, 224, 224);
             txtMarca.BorderStyle = BorderStyle.FixedSingle;
+            txtMarca.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtMarca.Location = new Point(485, 29);
             txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
-            txtMarca.Size = new Size(153, 24);
+            txtMarca.Size = new Size(153, 23);
             txtMarca.TabIndex = 11;
             // 
             // lblModelo
@@ -191,10 +194,11 @@
             // 
             txtModelo.BackColor = Color.FromArgb(224, 224, 224);
             txtModelo.BorderStyle = BorderStyle.FixedSingle;
+            txtModelo.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtModelo.Location = new Point(216, 134);
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
-            txtModelo.Size = new Size(153, 24);
+            txtModelo.Size = new Size(153, 23);
             txtModelo.TabIndex = 14;
             txtModelo.KeyPress += txtModelo_KeyPress;
             // 
@@ -202,10 +206,11 @@
             // 
             txtAño.BackColor = Color.FromArgb(224, 224, 224);
             txtAño.BorderStyle = BorderStyle.FixedSingle;
+            txtAño.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtAño.Location = new Point(485, 131);
             txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
-            txtAño.Size = new Size(153, 24);
+            txtAño.Size = new Size(153, 23);
             txtAño.TabIndex = 15;
             txtAño.KeyPress += txtAño_KeyPress;
             // 
@@ -237,11 +242,11 @@
             // 
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
-            txtCantidadHoras.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            txtCantidadHoras.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtCantidadHoras.Location = new Point(345, 502);
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
-            txtCantidadHoras.Size = new Size(64, 24);
+            txtCantidadHoras.Size = new Size(64, 23);
             txtCantidadHoras.TabIndex = 20;
             txtCantidadHoras.KeyPress += txtCantidadHoras_KeyPress;
             // 
@@ -249,11 +254,11 @@
             // 
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
-            txtPrecioHora.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            txtPrecioHora.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtPrecioHora.Location = new Point(558, 502);
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
-            txtPrecioHora.Size = new Size(69, 24);
+            txtPrecioHora.Size = new Size(69, 23);
             txtPrecioHora.TabIndex = 21;
             txtPrecioHora.KeyPress += txtPrecioHora_KeyPress;
             // 
@@ -309,29 +314,31 @@
             // 
             txtNombreRepo.BackColor = Color.FromArgb(224, 224, 224);
             txtNombreRepo.BorderStyle = BorderStyle.FixedSingle;
-            txtNombreRepo.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            txtNombreRepo.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtNombreRepo.Location = new Point(8, 54);
             txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
-            txtNombreRepo.Size = new Size(153, 24);
+            txtNombreRepo.Size = new Size(153, 23);
             txtNombreRepo.TabIndex = 28;
             // 
             // nupCantidad
             // 
             nupCantidad.BackColor = Color.FromArgb(224, 224, 224);
             nupCantidad.BorderStyle = BorderStyle.FixedSingle;
+            nupCantidad.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             nupCantidad.Location = new Point(208, 54);
             nupCantidad.Margin = new Padding(3, 2, 3, 2);
             nupCantidad.Name = "nupCantidad";
-            nupCantidad.Size = new Size(75, 27);
+            nupCantidad.Size = new Size(55, 23);
             nupCantidad.TabIndex = 29;
+            nupCantidad.TextAlign = HorizontalAlignment.Center;
             // 
             // lblCantidad
             // 
             lblCantidad.AutoSize = true;
             lblCantidad.BackColor = Color.Transparent;
             lblCantidad.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblCantidad.Location = new Point(206, 35);
+            lblCantidad.Location = new Point(205, 34);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(81, 17);
             lblCantidad.TabIndex = 30;
@@ -341,7 +348,7 @@
             // 
             txtPrecioUni.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioUni.BorderStyle = BorderStyle.FixedSingle;
-            txtPrecioUni.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            txtPrecioUni.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtPrecioUni.Location = new Point(317, 57);
             txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
             txtPrecioUni.Multiline = true;
@@ -363,9 +370,11 @@
             // 
             // btnAgregarPresu
             // 
-            btnAgregarPresu.BackColor = Color.FromArgb(192, 255, 192);
+            btnAgregarPresu.BackColor = Color.FromArgb(51, 51, 51);
+            btnAgregarPresu.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btnAgregarPresu.FlatStyle = FlatStyle.Popup;
             btnAgregarPresu.Font = new Font("HomepageBaukasten Bold", 9.75F);
+            btnAgregarPresu.ForeColor = Color.White;
             btnAgregarPresu.Location = new Point(465, 50);
             btnAgregarPresu.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPresu.Name = "btnAgregarPresu";
@@ -377,9 +386,11 @@
             // 
             // btnEliminarPresu
             // 
-            btnEliminarPresu.BackColor = Color.FromArgb(255, 128, 128);
+            btnEliminarPresu.BackColor = Color.FromArgb(51, 51, 51);
+            btnEliminarPresu.FlatAppearance.BorderColor = Color.FromArgb(224, 224, 224);
             btnEliminarPresu.FlatStyle = FlatStyle.Popup;
             btnEliminarPresu.Font = new Font("HomepageBaukasten Bold", 9.75F);
+            btnEliminarPresu.ForeColor = Color.White;
             btnEliminarPresu.Location = new Point(559, 50);
             btnEliminarPresu.Margin = new Padding(3, 2, 3, 2);
             btnEliminarPresu.Name = "btnEliminarPresu";
@@ -408,7 +419,7 @@
             groupBox1.Controls.Add(lblModelo);
             groupBox1.Controls.Add(txtMarca);
             groupBox1.Controls.Add(txtModelo);
-            groupBox1.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.FromArgb(51, 51, 51);
             groupBox1.Location = new Point(104, 31);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
@@ -423,11 +434,13 @@
             // 
             txtKm.BackColor = Color.FromArgb(224, 224, 224);
             txtKm.BorderStyle = BorderStyle.FixedSingle;
+            txtKm.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtKm.Location = new Point(485, 92);
             txtKm.Margin = new Padding(3, 2, 3, 2);
             txtKm.Name = "txtKm";
-            txtKm.Size = new Size(153, 24);
+            txtKm.Size = new Size(153, 23);
             txtKm.TabIndex = 21;
+            txtKm.KeyPress += txtKm_KeyPress;
             // 
             // lblKm
             // 
@@ -443,20 +456,22 @@
             // 
             txtDomicilio.BackColor = Color.FromArgb(224, 224, 224);
             txtDomicilio.BorderStyle = BorderStyle.FixedSingle;
+            txtDomicilio.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtDomicilio.Location = new Point(216, 95);
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
-            txtDomicilio.Size = new Size(153, 24);
+            txtDomicilio.Size = new Size(153, 23);
             txtDomicilio.TabIndex = 19;
             // 
             // txtTelefono
             // 
             txtTelefono.BackColor = Color.FromArgb(224, 224, 224);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
+            txtTelefono.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             txtTelefono.Location = new Point(217, 62);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(153, 24);
+            txtTelefono.Size = new Size(153, 23);
             txtTelefono.TabIndex = 18;
             txtTelefono.KeyPress += txtTelefono_KeyPress;
             // 
@@ -491,7 +506,7 @@
             groupBox2.Controls.Add(txtPrecioUni);
             groupBox2.Controls.Add(txtNombreRepo);
             groupBox2.Controls.Add(lblPrecioUni);
-            groupBox2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox2.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.FromArgb(51, 51, 51);
             groupBox2.Location = new Point(104, 230);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
@@ -550,7 +565,7 @@
             // 
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
-            textBoxDesc.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            textBoxDesc.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             textBoxDesc.Location = new Point(310, 545);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
@@ -563,7 +578,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(0, 64, 64);
-            BackgroundImage = Properties.Resources.bg_forms;
+            BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
             Controls.Add(textBoxDesc);
@@ -589,6 +604,7 @@
             Name = "Presupuesto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica Software";
+            Load += Presupuesto_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).EndInit();
             groupBox1.ResumeLayout(false);
@@ -640,5 +656,9 @@
         private TextBox textBoxDesc;
         private TextBox txtKm;
         private Label lblKm;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
     }
 }

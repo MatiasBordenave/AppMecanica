@@ -487,6 +487,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
+            BackgroundImage = Properties.Resources.bg2;
             ClientSize = new Size(1184, 861);
             Controls.Add(panelContenido);
             Controls.Add(btnVolverGenerado);
