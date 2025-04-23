@@ -1,6 +1,10 @@
-using AppMecanicaCLN;
-using System.Windows.Forms;
+using AppMecanica;
 using AppMecanica.Services;
+using AppMecanicaCAD;
+using AppMecanicaCLN;
+using AppMecanica.Models;
+using AppMecanicaEntidades;
+using AppMecanica.Services.Interfaces;
 
 namespace AppMecanica
 {
@@ -24,8 +28,23 @@ namespace AppMecanica
         {
             IRepuestoMapper mapper = new RepuestoMapper();
             ITotalCalculator calculator = new TotalCalculator();
+            IFormCleaner cleaner = new FormCleaner();
+            IInputValidator validator = new InputValidator();
+            IRegistroFactory regFactory = new RegistroFactory();
+            IRegistroService regService = new RegistroService();
+            IMessageService msgService = new MessageService();
 
-            Presupuesto presupuestoForm = new Presupuesto(this, mapper, calculator);
+            var presupuestoForm = new Presupuesto(
+                this,
+                mapper,
+                calculator,
+                cleaner,
+                validator,
+                regFactory,
+                regService,
+                msgService
+            );
+
             presupuestoForm.Show();
             this.Hide();
         }

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Forms;
-using AppMecanicaCAD; 
+using AppMecanicaCAD;
 
-namespace AppMecanica.Services
+namespace AppMecanica.Services.Interfaces
 {
     public interface IRepuestoMapper
     {

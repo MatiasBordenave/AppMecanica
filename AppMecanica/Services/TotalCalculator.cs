@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 using AppMecanicaCAD;
+using AppMecanica.Services.Interfaces;
 
 namespace AppMecanica.Services
 {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using AppMecanicaCAD;
 
-namespace AppMecanica.Services
+namespace AppMecanica.Services.Interfaces
 {
     public interface ITotalCalculator
     {

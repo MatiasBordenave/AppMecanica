@@ -72,7 +72,7 @@
             // 
             btnVolverRegistro.BackColor = Color.FromArgb(251, 176, 48);
             btnVolverRegistro.FlatStyle = FlatStyle.Flat;
-            btnVolverRegistro.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnVolverRegistro.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnVolverRegistro.Location = new Point(963, 600);
             btnVolverRegistro.Margin = new Padding(3, 2, 3, 2);
             btnVolverRegistro.Name = "btnVolverRegistro";
@@ -86,7 +86,7 @@
             // 
             btnDetalles.BackColor = Color.FromArgb(251, 176, 48);
             btnDetalles.FlatStyle = FlatStyle.Flat;
-            btnDetalles.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDetalles.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnDetalles.Location = new Point(963, 529);
             btnDetalles.Margin = new Padding(3, 2, 3, 2);
             btnDetalles.Name = "btnDetalles";

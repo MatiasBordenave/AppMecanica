@@ -1,30 +1,56 @@
-﻿using AppMecanica;
-using AppMecanica.Services;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using AppMecanicaCAD;
 using AppMecanicaCLN;
 using AppMecanica.Models;
 using AppMecanicaEntidades;
-
+using AppMecanica.Services.Interfaces;
 
 namespace AppMecanica
 {
     public partial class Presupuesto : Form
     {
+        private readonly IFormCleaner _cleaner;
+        private readonly IInputValidator _validator;
+        private readonly IRegistroFactory _registroFactory;
+        private readonly IRegistroService _registroService;
+        private readonly IMessageService _msg;
         private readonly IRepuestoMapper _mapper;
         private readonly ITotalCalculator _calculator;
         private readonly Form _homeForm;
 
-        public Presupuesto(Form homeForm,
-                           IRepuestoMapper mapper,
-                           ITotalCalculator calculator)
+        public Presupuesto(
+            Form homeForm,
+            IRepuestoMapper mapper,
+            ITotalCalculator calculator,
+            IFormCleaner cleaner,
+            IInputValidator validator,
+            IRegistroFactory registroFactory,
+            IRegistroService registroService,
+            IMessageService messageService)
         {
             InitializeComponent();
             _homeForm = homeForm;
             _mapper = mapper;
             _calculator = calculator;
+            _cleaner = cleaner;
+            _validator = validator;
+            _registroFactory = registroFactory;
+            _registroService = registroService;
+            _msg = messageService;
         }
 
-
+        private void Presupuesto_Load(object sender, EventArgs e)
+        {
+            AttachDecimalOnly(
+                txtTelefono, txtAño, txtPrecioUni,
+                txtCantidadHoras, txtPrecioHora, txtKm);
+            BloquearCopiarPegar(
+                txtTitular, txtTelefono, txtDomicilio,
+                txtModelo, txtMarca, txtPatente, txtAño, txtKm);
+        }
 
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
@@ -34,59 +60,25 @@ namespace AppMecanica
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtCantidadHoras.Clear();
-            txtPrecioHora.Clear();
-            txtNombreRepo.Clear();
-            txtPrecioUni.Clear();
-            txtTitular.Clear();
-            txtTelefono.Clear();
-            txtDomicilio.Clear();
-            txtModelo.Clear();
-            txtMarca.Clear();
-            txtPatente.Clear();
-            txtAño.Clear();
-            txtKm.Clear();
-            nupCantidad.Value = nupCantidad.Minimum;
-            dataGridView1.Rows.Clear();
-            textBoxDesc.Clear();
-        }
-
-
-        private void BloquearCopiarPegar(params TextBox[] textBoxes)
-        {
-            foreach (var textBox in textBoxes)
+            var controles = new Control[]
             {
-                textBox.ContextMenuStrip = new ContextMenuStrip(); // ✅ Esto es correcto y moderno
-
-                textBox.KeyDown += (s, e) =>
-                {
-                    if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.V || e.KeyCode == Keys.X))
-                    {
-                        e.SuppressKeyPress = true;
-                        e.Handled = true;
-                    }
-                };
-            }
+                txtCantidadHoras, txtPrecioHora, txtNombreRepo, txtPrecioUni,
+                txtTitular, txtTelefono, txtDomicilio, txtModelo,
+                txtMarca, txtPatente, txtAño, txtKm, textBoxDesc,
+                dataGridView1, nupCantidad
+            };
+            _cleaner.ClearControls(controles);
         }
-
-
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombreRepo.Text) ||
-                string.IsNullOrWhiteSpace(txtPrecioUni.Text))
+            if (!_validator.TryParseDecimal(txtPrecioUni, out var precio))
             {
-                MessageBox.Show("Por favor, complete todos los campos del repuesto.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                _msg.ShowError("Ingrese un precio de repuesto válido.", "Error");
                 return;
             }
-            if (!decimal.TryParse(txtPrecioUni.Text, out decimal precio) || precio < 0)
-            {
-                MessageBox.Show("Ingrese un precio válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            int cantidad = (int)nupCantidad.Value;
-            dataGridView1.Rows.Add(txtNombreRepo.Text, cantidad, precio);
+            var cantidad = (int)nupCantidad.Value;
+            dataGridView1.Rows.Add(txtNombreRepo.Text.Trim(), cantidad, precio);
 
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
@@ -96,100 +88,81 @@ namespace AppMecanica
 
         private void btnEliminarPresu_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            if (dataGridView1.SelectedRows.Count == 0)
             {
-                var confirmar = MessageBox.Show("¿Seguro que querés eliminar el repuesto seleccionado?",
-                                                "Eliminar",
-                                                MessageBoxButtons.YesNo,
-                                                MessageBoxIcon.Question);
-
-                if (confirmar == DialogResult.Yes)
-                {
-                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                }
+                _msg.ShowWarning("Seleccioná una fila para eliminar.", "Atención");
+                return;
             }
-            else
+            if (_msg.ShowConfirmation(
+                "¿Seguro que querés eliminar el repuesto seleccionado?", "Eliminar"))
             {
-                MessageBox.Show("Seleccioná una fila para eliminar.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dataGridView1.Rows.RemoveAt(
+                    dataGridView1.SelectedRows[0].Index);
             }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!ValidarCampos())
-                return;
-
-            // Datos Titular
-            string nombreYApellido = txtTitular.Text.Trim();
-            string telefono = txtTelefono.Text.Trim();
-            string domicilio = txtDomicilio.Text.Trim();
-
-            // Datos Vehículo
-            string modelo = txtModelo.Text.Trim();
-            string marca = txtMarca.Text.Trim();
-            string patente = txtPatente.Text.Trim();
-            int año = Convert.ToInt32(txtAño.Text);
-            int kilometraje = Convert.ToInt32(txtKm.Text);
-
-            // Datos del registro de mantenimiento
-            string descripcion = textBoxDesc.Text.Trim();
-            double totalRepuestos = Convert.ToDouble(txtPrecioUni.Text);
-            int cantidadHoras = Convert.ToInt32(txtCantidadHoras.Text);
-            double precioPorHora = Convert.ToDouble(txtPrecioHora.Text);
-            double precioTotalHoras = cantidadHoras * precioPorHora;
-            double totalFinal = totalRepuestos + precioTotalHoras;
-            int kilometrajeRegistro = kilometraje;
-            DateTime fecha = DateTime.Now; // O podés usar un DateTimePicker si tenés uno
-
-            // Construir el objeto Registro
-            Registro registro = new Registro
+            var obligatorios = new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño };
+            if (!_validator.AreRequiredFieldsFilled(obligatorios))
             {
-                Fecha = fecha,
-                Descripcion = descripcion,
-                TotalRepuestos = totalRepuestos,
-                CantidadHoras = cantidadHoras,
-                PrecioPorHora = precioPorHora,
-                PrecioTotalHoras = precioTotalHoras,
-                PrecioTotal = totalFinal,
-                KilometrajeRegistro = kilometrajeRegistro
-            };
+                _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
+                return;
+            }
+
+            if (!_validator.TryParseDecimal(txtCantidadHoras, out var horas) ||
+                !_validator.TryParseDecimal(txtPrecioHora, out var precioHora) ||
+                !int.TryParse(txtKm.Text.Trim(), out var kilometraje))
+            {
+                _msg.ShowError("Datos numéricos inválidos.", "Error");
+                return;
+            }
+
+            var listaRepuestos = _mapper.Map(dataGridView1);
+            var totalRepuestos = (decimal)_calculator.CalculateTotalRepuestos(listaRepuestos);
 
             try
             {
-                // Llamada a la lógica de negocio (Capa Lógica de Negocio)
-                RegistroCLN.AgregarRegistro(
-                    nombreYApellido,
-                    telefono,
-                    domicilio,
-                    marca,
-                    modelo,
-                    patente,
-                    año,
+                var registro = _registroFactory.CreateRegistro(
+                    textBoxDesc.Text.Trim(),
+                    totalRepuestos,
+                    (int)horas,
+                    precioHora,
+                    kilometraje);
+
+                _registroService.SaveRegistro(
+                    txtTitular.Text.Trim(),
+                    txtTelefono.Text.Trim(),
+                    txtDomicilio.Text.Trim(),
+                    txtMarca.Text.Trim(),
+                    txtModelo.Text.Trim(),
+                    txtPatente.Text.Trim(),
+                    int.Parse(txtAño.Text.Trim()),
                     kilometraje,
-                    registro
-                );
+                    registro);
 
-                MessageBox.Show("Registro guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+                _msg.ShowInfo("Registro guardado correctamente.", "Éxito");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el registro: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _msg.ShowError("Error al guardar: " + ex.Message, "Error");
             }
         }
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            if (!ValidarCampos())
+            if (!_validator.AreRequiredFieldsFilled(
+                new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño }))
+            {
+                _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
                 return;
+            }
 
             var listaRepuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(listaRepuestos);
 
-            decimal horas = 0, precioHora = 0;
-            decimal.TryParse(txtCantidadHoras.Text, out horas);
-            decimal.TryParse(txtPrecioHora.Text, out precioHora);
+            decimal.TryParse(txtCantidadHoras.Text.Trim(), out var horas);
+            decimal.TryParse(txtPrecioHora.Text.Trim(), out var precioHora);
 
             var totalManoObra = _calculator.CalculateLaborCost(horas, precioHora);
             var totalGeneral = _calculator.CalculateTotalGeneral(listaRepuestos, horas, precioHora);
@@ -202,172 +175,60 @@ namespace AppMecanica
                 PrecioHora = precioHora,
                 TotalManoObra = totalManoObra,
                 TotalGeneral = totalGeneral,
-                Titular = txtTitular.Text,
-                Telefono = txtTelefono.Text,
-                Marca = txtMarca.Text,
-                Modelo = txtModelo.Text,
-                Año = txtAño.Text,
-                Desc = textBoxDesc.Text
+                Titular = txtTitular.Text.Trim(),
+                Telefono = txtTelefono.Text.Trim(),
+                Marca = txtMarca.Text.Trim(),
+                Modelo = txtModelo.Text.Trim(),
+                Año = txtAño.Text.Trim(),
+                Desc = textBoxDesc.Text.Trim()
             };
 
-            var generado = new PresupuestoGenerado(this, data);
+            IPrintService printService = new PrintService();
+            IExportService exportService = new ExportService();
+
+            var generado = new PresupuestoGenerado(this, data, printService, exportService);
             generado.Show();
             this.Hide();
         }
 
-
-        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        private void AttachDecimalOnly(params TextBox[] textBoxes)
         {
-            TextBox txt = sender as TextBox;
-
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
+            foreach (var txt in textBoxes)
             {
-                e.Handled = true;
-            }
-
-        }
-
-        private void txtAño_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-
-        }
-
-        private void txtModelo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-
-            // Permite letras, números y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsLetterOrDigit(e.KeyChar) &&
-                !char.IsWhiteSpace(e.KeyChar)) // Opcional: permite espacios
-            {
-                e.Handled = true;
-            }
-        }
-
-
-        private void txtPrecioUni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtCantidadHoras_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-        }
-        public static void SoloNumerosDecimales(TextBox textBox, KeyPressEventArgs e)
-        {
-            // Permite control, dígitos, coma y punto
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != ',' && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-
-            // Solo permitir una coma o un punto
-            if ((e.KeyChar == ',' || e.KeyChar == '.') &&
-                (textBox.Text.Contains(",") || textBox.Text.Contains(".")))
-            {
-                e.Handled = true;
-            }
-        }
-
-
-        private void txtPrecioHora_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-
-            // Permite dígitos, punto o coma (solo uno) y teclas de control
-            if (!char.IsControl(e.KeyChar) &&
-                !char.IsDigit(e.KeyChar) &&
-                e.KeyChar != '.' &&
-                e.KeyChar != ',')
-            {
-                e.Handled = true;
-            }
-        }
-
-        private bool ValidarCampos()
-        {
-            // Solo los campos obligatorios (con asterisco)
-            TextBox[] camposObligatorios = {
-        txtTitular,
-        txtTelefono,
-        txtMarca,
-        txtModelo,
-        txtAño
-            };
-
-            foreach (TextBox campo in camposObligatorios)
-            {
-                if (string.IsNullOrWhiteSpace(campo.Text))
+                txt.KeyPress += (s, e) =>
                 {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios (*).", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    campo.Focus();
-                    return false;
-                }
+                    if (!char.IsControl(e.KeyChar)
+                        && !char.IsDigit(e.KeyChar)
+                        && e.KeyChar != ','
+                        && e.KeyChar != '.')
+                    {
+                        e.Handled = true;
+                    }
+                    if ((e.KeyChar == ',' || e.KeyChar == '.')
+                        && (txt.Text.Contains(",") || txt.Text.Contains(".")))
+                    {
+                        e.Handled = true;
+                    }
+                };
             }
-
-            return true;
         }
 
-        //private void CalcularTotalPresupuesto(object sender, EventArgs e)
-        //{
-        //    if (decimal.TryParse(txtCantidadHoras.Text, out decimal cantidadHoras) &&
-        //        decimal.TryParse(txtPrecioHora.Text, out decimal precioHora))
-        //    {
-        //        decimal total = cantidadHoras * precioHora;
-        //        txtTotalPresupuestado.Text = total.ToString("0.00");
-        //    }
-        //    else
-        //    {
-        //        txtTotalPresupuestado.Text = "";
-        //    }
-        //}
-
-
-        private void txtKm_KeyPress(object sender, KeyPressEventArgs e)
+        private void BloquearCopiarPegar(params TextBox[] textBoxes)
         {
-            SoloNumerosDecimales((TextBox)sender, e);
-        }
-
-        private void Presupuesto_Load(object sender, EventArgs e)
-        {
-            BloquearCopiarPegar(txtTitular,txtTelefono,txtDomicilio,txtModelo,txtMarca,txtPatente,txtAño,txtKm);
-            
+            foreach (var textBox in textBoxes)
+            {
+                textBox.ContextMenuStrip = new ContextMenuStrip();
+                textBox.KeyDown += (s, e) =>
+                {
+                    if (e.Control && (e.KeyCode == Keys.C
+                                      || e.KeyCode == Keys.V
+                                      || e.KeyCode == Keys.X))
+                    {
+                        e.SuppressKeyPress = true;
+                        e.Handled = true;
+                    }
+                };
+            }
         }
     }
 }

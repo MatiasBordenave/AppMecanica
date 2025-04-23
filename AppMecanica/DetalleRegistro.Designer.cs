@@ -49,7 +49,7 @@
             btnVolverDetalle.BackColor = Color.FromArgb(251, 176, 48);
             btnVolverDetalle.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnVolverDetalle.FlatStyle = FlatStyle.Flat;
-            btnVolverDetalle.Font = new Font("Microsoft Sans Serif", 11.2499981F);
+            btnVolverDetalle.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnVolverDetalle.ForeColor = Color.FromArgb(51, 51, 51);
             btnVolverDetalle.Location = new Point(956, 605);
             btnVolverDetalle.Margin = new Padding(3, 2, 3, 2);
@@ -65,7 +65,7 @@
             btnGenerarPDF.BackColor = Color.FromArgb(251, 176, 48);
             btnGenerarPDF.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnGenerarPDF.FlatStyle = FlatStyle.Flat;
-            btnGenerarPDF.Font = new Font("Microsoft Sans Serif", 11.2499981F);
+            btnGenerarPDF.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnGenerarPDF.ForeColor = Color.FromArgb(51, 51, 51);
             btnGenerarPDF.Location = new Point(804, 605);
             btnGenerarPDF.Margin = new Padding(3, 2, 3, 2);
@@ -74,6 +74,7 @@
             btnGenerarPDF.TabIndex = 4;
             btnGenerarPDF.Text = "Generar PDF";
             btnGenerarPDF.UseVisualStyleBackColor = false;
+            btnGenerarPDF.Click += btnGenerarPDF_Click;
             // 
             // lblLinea
             // 
@@ -88,11 +89,11 @@
             // 
             TelefonoMecanico.AutoSize = true;
             TelefonoMecanico.BackColor = Color.Transparent;
-            TelefonoMecanico.Font = new Font("Microsoft Sans Serif", 11.2499981F, FontStyle.Italic);
+            TelefonoMecanico.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             TelefonoMecanico.ForeColor = Color.FromArgb(51, 51, 51);
             TelefonoMecanico.Location = new Point(895, 83);
             TelefonoMecanico.Name = "TelefonoMecanico";
-            TelefonoMecanico.Size = new Size(117, 18);
+            TelefonoMecanico.Size = new Size(101, 16);
             TelefonoMecanico.TabIndex = 60;
             TelefonoMecanico.Text = "+54 3816405637";
             // 
@@ -100,11 +101,11 @@
             // 
             direccionMecanico.AutoSize = true;
             direccionMecanico.BackColor = Color.Transparent;
-            direccionMecanico.Font = new Font("Microsoft Sans Serif", 11.2499981F, FontStyle.Italic);
+            direccionMecanico.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             direccionMecanico.ForeColor = Color.FromArgb(51, 51, 51);
             direccionMecanico.Location = new Point(895, 48);
             direccionMecanico.Name = "direccionMecanico";
-            direccionMecanico.Size = new Size(158, 18);
+            direccionMecanico.Size = new Size(145, 16);
             direccionMecanico.TabIndex = 59;
             direccionMecanico.Text = "Av. Independencia 411 ";
             // 
@@ -112,11 +113,11 @@
             // 
             nombreMecanico.AutoSize = true;
             nombreMecanico.BackColor = Color.Transparent;
-            nombreMecanico.Font = new Font("Microsoft Sans Serif", 11.2499981F, FontStyle.Italic);
+            nombreMecanico.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             nombreMecanico.ForeColor = Color.FromArgb(51, 51, 51);
             nombreMecanico.Location = new Point(893, 13);
             nombreMecanico.Name = "nombreMecanico";
-            nombreMecanico.Size = new Size(130, 18);
+            nombreMecanico.Size = new Size(115, 16);
             nombreMecanico.TabIndex = 58;
             nombreMecanico.Text = "Ocaranza Rodolfo";
             // 
@@ -124,11 +125,11 @@
             // 
             datosMecanico3.AutoSize = true;
             datosMecanico3.BackColor = Color.Transparent;
-            datosMecanico3.Font = new Font("Microsoft Sans Serif", 11.2499981F);
+            datosMecanico3.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             datosMecanico3.ForeColor = Color.FromArgb(51, 51, 51);
             datosMecanico3.Location = new Point(803, 83);
             datosMecanico3.Name = "datosMecanico3";
-            datosMecanico3.Size = new Size(70, 18);
+            datosMecanico3.Size = new Size(80, 17);
             datosMecanico3.TabIndex = 57;
             datosMecanico3.Text = "Telefono:";
             // 
@@ -136,11 +137,11 @@
             // 
             datosMecanico2.AutoSize = true;
             datosMecanico2.BackColor = Color.Transparent;
-            datosMecanico2.Font = new Font("Microsoft Sans Serif", 11.2499981F);
+            datosMecanico2.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             datosMecanico2.ForeColor = Color.FromArgb(51, 51, 51);
             datosMecanico2.Location = new Point(803, 48);
             datosMecanico2.Name = "datosMecanico2";
-            datosMecanico2.Size = new Size(75, 18);
+            datosMecanico2.Size = new Size(86, 17);
             datosMecanico2.TabIndex = 56;
             datosMecanico2.Text = "Direccion:";
             // 
@@ -148,11 +149,11 @@
             // 
             datosMecanico.AutoSize = true;
             datosMecanico.BackColor = Color.Transparent;
-            datosMecanico.Font = new Font("Microsoft Sans Serif", 11.2499981F);
+            datosMecanico.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             datosMecanico.ForeColor = Color.FromArgb(51, 51, 51);
             datosMecanico.Location = new Point(803, 13);
             datosMecanico.Name = "datosMecanico";
-            datosMecanico.Size = new Size(77, 18);
+            datosMecanico.Size = new Size(85, 17);
             datosMecanico.TabIndex = 55;
             datosMecanico.Text = "Mecanico:";
             // 

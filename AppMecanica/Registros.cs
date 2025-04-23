@@ -27,9 +27,6 @@ namespace AppMecanica
         private ClienteVehiculoCLN clienteVehiculoCLN = new ClienteVehiculoCLN();
         private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
 
-
-
-
         private Form formHome;
 
         public Registros(Form Home)
@@ -80,12 +77,10 @@ namespace AppMecanica
             totalPaginas = registroCLN.ObtenerTotalPaginas(pageSize);
             ObtenerCantidadPaginas();
 
-
             Task.Run(() =>
             {
                 var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
 
-                // Actualizá el DataGridView en el hilo de la UI
                 dgvRegistros.Invoke(() =>
                 {
                     limpiarDataGridView();
@@ -112,18 +107,12 @@ namespace AppMecanica
                 Invoke(() => GenerarBotonesPaginacion());
             });
         }
-
         private void limpiarDataGridView()
         {
             dgvRegistros.DataSource = null;
             dgvRegistros.Rows.Clear();
             dgvRegistros.Columns.Clear();
         }
-
-
-
-
-
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
@@ -193,7 +182,7 @@ namespace AppMecanica
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
-                e.SuppressKeyPress = true; // 👈 esto evita que el Enter "limpie" o haga algo raro
+                e.SuppressKeyPress = true; 
                 btnBuscar.PerformClick();
             }
         }
