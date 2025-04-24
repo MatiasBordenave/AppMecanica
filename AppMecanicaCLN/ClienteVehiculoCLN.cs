@@ -13,11 +13,11 @@ namespace AppMecanicaCLN
     {
         
         
-            private ClienteVehiculoCAD accesoDatos = new ClienteVehiculoCAD();
+            private ClienteVehiculoCAD clientreVehiculoCAD = new ClienteVehiculoCAD();
 
-        public List<ClienteVehiculo> ObtenerClientesConVehiculos()
+        public List<ClienteVehiculo> ObtenerClientesConVehiculos(int offset, int limit)
         {
-            var lista = accesoDatos.ObtenerClientesConVehiculos();
+            var lista = clientreVehiculoCAD.ObtenerClientesConVehiculos(offset, limit);
             if (lista == null)
             {
                 return new List<ClienteVehiculo>();
@@ -26,11 +26,21 @@ namespace AppMecanicaCLN
             return lista;
         }
 
-        public List<ClienteVehiculo> BuscarVehiculosPorCliente(string nombreCliente)
+        public List<ClienteVehiculo> BuscarVehiculosPorCliente(string nombreCliente, int pagina, int pageSize)
         {
-            return accesoDatos.BuscarVehiculosPorCliente(nombreCliente);
+            return clientreVehiculoCAD.BuscarVehiculosPorCliente(nombreCliente, pagina, pageSize);
         }
 
+
+        public int ObtenerCantidadTotalRegistros()
+        {
+            return clientreVehiculoCAD.ContarTodosLosRegistros();
+        }
+
+        public int ObtenerCantidadRegistrosPorCliente(string nombreCliente)
+        {
+            return clientreVehiculoCAD.ContarRegistrosPorCliente(nombreCliente);
+        }
 
 
     }

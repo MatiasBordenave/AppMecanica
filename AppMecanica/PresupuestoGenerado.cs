@@ -1,127 +1,73 @@
-﻿using System.Drawing.Printing;
-
+﻿using AppMecanica.Models;
+using AppMecanicaCLN;
 
 namespace AppMecanica
 {
     public partial class PresupuestoGenerado : Form
     {
-        private List<Repuesto> repuestos;
-        public List<Repuesto> Repuestos { get; set; } = new List<Repuesto>();
-        
-        public string Titular { get; set; }
-        public string Telefono { get; set; }
-        public string Marca { get; set; }
-        public string Modelo { get; set; }
-        public string Año { get; set; }
-
-
+        PresupuestoCLN presupuestoCLN = new PresupuestoCLN();
         private Form formPresupuesto;
-        public PresupuestoGenerado(Form presupuesto, List<Repuesto> repuestos)
+        private PresupuestoData data;
+        private readonly IPrintService _printService;
+        private readonly IExportService _exportService;
+
+        public PresupuestoGenerado(Form presupuesto, PresupuestoData data,
+            IPrintService printService, IExportService exportService)
         {
             InitializeComponent();
-            lblTitulo.Text = $"Presupuesto - Nro {"01"}";
-            lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
             formPresupuesto = presupuesto;
-            this.repuestos = repuestos;
-
-            this.Load += PresupuestoGenerado_Load;
+            this.data = data;
+            _printService = printService;
+            _exportService = exportService;
         }
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
-            lblDatosCliente.Text = $"Cliente: {Titular}";
-            lblDatosTelefono.Text = $"Teléfono: {Telefono}";
-            lblDatosVehiculo.Text = $"Vehículo: Marca: {Marca}, Modelo: {Modelo}, Año: {Año}";
+            lblDatosCliente.Text = $"Cliente:  {data.Titular}";
+            lblDatosTelefono.Text = $"Teléfono:  {data.Telefono}";
+            lblDatosAuto.Text = $"Vehiculo:  {data.Marca},  {data.Modelo},  {data.Año}";
 
-            // Mostrar repuestos
-            foreach (var rep in repuestos)
+            lblDescPresupuesto.Text = $"*{data.Desc}";
+            lblTituloRepuesto.Text = $"Repuesto: ${data.TotalRepuestos}";
+            lblTituloMDO.Text = $"Mano de obra: ${data.TotalManoObra}";
+            lblMDOyR.Text = $"Total: ${data.TotalGeneral}";
+
+            lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
+
+            int nuevoIdPresupuesto = presupuestoCLN.CrearNuevoPresupuesto();
+            lblTitulo.Text = $"Presupuesto  - Nro 0{nuevoIdPresupuesto}";
+
+            foreach (var rep in data.Repuestos)
             {
                 var lbl = new Label();
                 lbl.AutoSize = true;
-                lbl.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+                lbl.Font = new Font("BreezeSans; 9,749999pt; style=Bold", 10, FontStyle.Bold);
                 lbl.Margin = new Padding(10);
-                lbl.Text = $"- {rep.Nombre} | Cantidad: {rep.Cantidad} | Precio: ${rep.Precio}";
+                lbl.Text = $"{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
                 flowPanelRepuestos.Controls.Add(lbl);
             }
         }
-
-        //FALTA DEFINIR EL AREA DE IMPRESION
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            btnImg.Visible = false;
-            btnImprimir.Visible = false;
-            btnVolverGenerado.Visible = false;
-
-            this.Refresh();
-            Application.DoEvents();
-
-            PrintDocument pd = new PrintDocument();
-            pd.PrintPage += new PrintPageEventHandler(PrintDocument_PrintPage);
-            PrintPreviewDialog printPreview = new PrintPreviewDialog
-            {
-                Document = pd
-            };
-            printPreview.ShowDialog();
-
-            btnImg.Visible = true;
-            btnImprimir.Visible = true;
-            btnVolverGenerado.Visible = true;
+            ToggleButtons(false);
+            _printService.Print(panelContenido);
+            ToggleButtons(true);
         }
-
-        private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            //area sin bordes 
-            Rectangle bounds = this.RectangleToScreen(this.ClientRectangle);
-            Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
-
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
-            }
-            e.Graphics.DrawImage(bmp, 0, 0);
-        }
-
-
         private void btnImg_Click(object sender, EventArgs e)
         {
-            btnImg.Visible = false;
-            btnImprimir.Visible = false;
-            btnVolverGenerado.Visible = false;
-
-
-            this.Refresh();
-            Application.DoEvents();
-
-            //area sin bordes 
-            Rectangle bounds = this.RectangleToScreen(this.ClientRectangle);
-            Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
-
-            using (Graphics g = Graphics.FromImage(bmp))
-            {
-                g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
-            }
-
-            //guardar 
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "PNG Image|*.png";
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                bmp.Save(sfd.FileName);
-                MessageBox.Show("Imagen guardada exitosamente.");
-            }
-
-
-            btnImg.Visible = true;
-            btnImprimir.Visible = true;
-            btnVolverGenerado.Visible = true;
+            ToggleButtons(false);
+            _exportService.SaveAsImage(this);
+            ToggleButtons(true);
         }
-
+        private void ToggleButtons(bool visible)
+        {
+            btnImg.Visible = visible;
+            btnImprimir.Visible = visible;
+            btnVolverGenerado.Visible = visible;
+        }
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
             formPresupuesto.Show();
             this.Close();
         }
-
-        
     }
 }

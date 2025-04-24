@@ -55,40 +55,106 @@ namespace AppMecanicaCAD
         }
 
 
-        public void AgregarRegistro(Registro registro)
+        public static void AgregarRegistro(string nombreYApellido, string telefono, string domicilio, string marca, string modelo, string patente, int año,
+       int kilometrajeInicial, Registro registro)
         {
-            string query = "INSERT INTO registros (id_Vehiculo, Fecha, Descripcion, PrecioTotal, TotalRepuestos, CantidadHoras, PrecioPorHora, PrecioTotalHoras, KilometrajeRegistro) " +
-                            "VALUES ( @IdVehiculo, @Fecha, @Descripcion, @PrecioTotal, @TotalRepuestos, @CantidadHoras, @PrecioPorHora, @PrecioTotalHoras, @KilometrajeRegistro)";
-
-            try
+            using (var connection = Coneccion.CreateConnection())
             {
-                using (SQLiteConnection connection = Coneccion.CreateConnection())
-                {
-                    connection.Open();
-                    using (var transaction = connection.BeginTransaction()) // Inicia una transacción
-                    {
-                        using (SQLiteCommand command = new SQLiteCommand(query, connection))
-                        {
-                            command.Parameters.AddWithValue("@IdVehiculo", registro.Vehiculo);
-                            command.Parameters.AddWithValue("@Fecha", registro.Fecha);
-                            command.Parameters.AddWithValue("@Descripcion", registro.Descripcion);
-                            command.Parameters.AddWithValue("@PrecioTotal", registro.PrecioTotal);
-                            command.Parameters.AddWithValue("@TotalRepuestos", registro.TotalRepuestos);
-                            command.Parameters.AddWithValue("@CantidadHoras", registro.CantidadHoras);
-                            command.Parameters.AddWithValue("@PrecioPorHora", registro.PrecioPorHora);
-                            command.Parameters.AddWithValue("@PrecioTotalHoras", registro.PrecioTotalHoras);
-                            command.Parameters.AddWithValue("@KilometrajeRegistro", registro.KilometrajeRegistro);
+                connection.Open();
 
-                            command.ExecuteNonQuery();
+                int idCliente;
+                string queryCliente = "SELECT id_cliente FROM clientes WHERE nombreYApellido = @Nombre";
+                using (var cmd = new SQLiteCommand(queryCliente, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Nombre", nombreYApellido);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        idCliente = Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        string insertCliente = @"INSERT INTO clientes (nombreYApellido, telefono, domicilio)
+                                         VALUES (@Nombre, @Telefono, @Domicilio)";
+                        using (var insertCmd = new SQLiteCommand(insertCliente, connection))
+                        {
+                            insertCmd.Parameters.AddWithValue("@Nombre", nombreYApellido);
+                            insertCmd.Parameters.AddWithValue("@Telefono", telefono);
+                            insertCmd.Parameters.AddWithValue("@Domicilio", domicilio);
+                            insertCmd.ExecuteNonQuery();
+                            idCliente = (int)connection.LastInsertRowId;
                         }
-                        transaction.Commit();
                     }
                 }
+
+                int idVehiculo;
+                string queryVehiculo = "SELECT id_vehiculo FROM vehiculos WHERE patente = @Patente";
+                using (var cmd = new SQLiteCommand(queryVehiculo, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Patente", patente);
+                    var result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        idVehiculo = Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        string insertVehiculo = @"INSERT INTO vehiculos (id_cliente, marca, modelo, año, patente, kilometrajeInicial)
+                                          VALUES (@IdCliente, @Marca, @Modelo, @Año, @Patente, @Km)";
+                        using (var insertCmd = new SQLiteCommand(insertVehiculo, connection))
+                        {
+                            insertCmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                            insertCmd.Parameters.AddWithValue("@Marca", marca);
+                            insertCmd.Parameters.AddWithValue("@Modelo", modelo);
+                            insertCmd.Parameters.AddWithValue("@Año", año);
+                            insertCmd.Parameters.AddWithValue("@Patente", patente);
+                            insertCmd.Parameters.AddWithValue("@Km", kilometrajeInicial);
+                            insertCmd.ExecuteNonQuery();
+                            idVehiculo = (int)connection.LastInsertRowId;
+                        }
+                    }
+                }
+
+                string insertRegistro = @"INSERT INTO registros 
+            (id_vehiculo, fecha, descripcion, totalRepuestos, cantidadHoras, precioPorHora, precioTotalHoras, precioTotal, kilometrajeRegistro)
+            VALUES 
+            (@Vehiculo, @Fecha, @Descripcion, @Repuestos, @Horas, @PrecioHora, @TotalHoras, @TotalFinal, @KmRegistro)";
+                using (var cmd = new SQLiteCommand(insertRegistro, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Vehiculo", idVehiculo);
+                    cmd.Parameters.AddWithValue("@Fecha", registro.Fecha);
+                    cmd.Parameters.AddWithValue("@Descripcion", registro.Descripcion);
+                    cmd.Parameters.AddWithValue("@Repuestos", registro.TotalRepuestos);
+                    cmd.Parameters.AddWithValue("@Horas", registro.CantidadHoras);
+                    cmd.Parameters.AddWithValue("@PrecioHora", registro.PrecioPorHora);
+                    cmd.Parameters.AddWithValue("@TotalHoras", registro.PrecioTotalHoras);
+                    cmd.Parameters.AddWithValue("@TotalFinal", registro.PrecioTotal);
+                    cmd.Parameters.AddWithValue("@KmRegistro", registro.KilometrajeRegistro);
+                    cmd.ExecuteNonQuery();
+                }
             }
-            catch (Exception ex)
+        }
+
+
+        public int ObtenerTotalClientesConVehiculos()
+        {
+            int total = 0;
+
+            using (var connection = Coneccion.CreateConnection())
             {
-                Console.WriteLine("Error en AgregarRegistro: " + ex.Message);
+                connection.Open();
+
+                string query = @"SELECT COUNT(*) FROM clientes c
+                         INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                         WHERE c.activo = 1 AND v.activo = 1";
+
+                using (var cmd = new SQLiteCommand(query, connection))
+                {
+                    total = Convert.ToInt32(cmd.ExecuteScalar());
+                }
             }
+
+            return total;
         }
     }
 }

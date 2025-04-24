@@ -18,52 +18,57 @@ namespace AppMecanicaCAD
         }
 
 
-        public void AgregarRegistro(int IdVehiculo, DateTime Fecha, string Descripcion, double PrecioTotal, double TotalRepuestos, int CantidadHoras, double PrecioPorHora, double PrecioTotalHoras, int KilometrajeRegistro)
+        public static void AgregarRegistro(string nombreYApellido, string telefono, string domicilio,
+                                    string marca, string modelo, string patente, int año,
+                                    int kilometrajeInicial, Registro registro)
         {
-            // Validar campos obligatorios
-            if (string.IsNullOrWhiteSpace(Descripcion))
+            // Validaciones
+            if (string.IsNullOrWhiteSpace(nombreYApellido) || string.IsNullOrWhiteSpace(telefono) ||
+                string.IsNullOrWhiteSpace(domicilio) || string.IsNullOrWhiteSpace(marca) ||
+                string.IsNullOrWhiteSpace(modelo) || string.IsNullOrWhiteSpace(patente))
+            {
+                throw new ArgumentException("Todos los campos de cliente y vehículo son obligatorios.");
+            }
+
+            if (string.IsNullOrWhiteSpace(registro.Descripcion))
             {
                 throw new ArgumentException("La descripción es obligatoria.");
             }
 
-            // Validar enteros y dobles
-            if (IdVehiculo <= 0)
+            if (año <= 1900 || kilometrajeInicial < 0 || registro.CantidadHoras < 0 ||
+                registro.PrecioPorHora < 0 || registro.TotalRepuestos < 0 || registro.KilometrajeRegistro < 0)
             {
-                throw new ArgumentException("El ID del vehículo debe ser válido.");
+                throw new ArgumentException("Los valores numéricos deben ser válidos.");
             }
 
-            if (PrecioTotal < 0 || TotalRepuestos < 0 || CantidadHoras < 0 || PrecioPorHora < 0 || PrecioTotalHoras < 0 || KilometrajeRegistro < 0)
-            {
-                throw new ArgumentException("Los valores numéricos deben ser mayores o iguales a cero.");
-            }
-
-            // Validar la fecha (opcional: podrías validar que no sea futura o muy antigua)
-            if (Fecha == DateTime.MinValue)
+            if (registro.Fecha == DateTime.MinValue)
             {
                 throw new ArgumentException("La fecha proporcionada no es válida.");
             }
 
+            // Cálculos
+            double precioTotalHoras = registro.CantidadHoras * registro.PrecioPorHora;
+            double precioTotal = precioTotalHoras + registro.TotalRepuestos;
+
+            // Asignar valores calculados al objeto Registro
+            registro.PrecioTotalHoras = precioTotalHoras;
+            registro.PrecioTotal = precioTotal;
+
             try
             {
-                Registro registro = new Registro
-                {
-                    IdVehiculo = IdVehiculo,
-                    Fecha = Fecha,
-                    Descripcion = Descripcion,
-                    PrecioTotal = PrecioTotal,
-                    TotalRepuestos = TotalRepuestos,
-                    CantidadHoras = CantidadHoras,
-                    PrecioPorHora = PrecioPorHora,
-                    PrecioTotalHoras = PrecioTotalHoras,
-                    KilometrajeRegistro = KilometrajeRegistro
-                };
-
-                registroCAD.AgregarRegistro(registro);
+                // Llamar a la capa de acceso a datos (CAD)
+                RegistroCAD.AgregarRegistro(nombreYApellido, telefono, domicilio, marca, modelo, patente, año, kilometrajeInicial, registro);
             }
             catch (Exception ex)
             {
                 throw new Exception("Error al agregar el registro: " + ex.Message);
             }
+        }
+
+        public int ObtenerTotalPaginas(int pageSize)
+        {
+            int totalRegistros = registroCAD.ObtenerTotalClientesConVehiculos();
+            return (int)Math.Ceiling((double)totalRegistros / pageSize);
         }
 
     }

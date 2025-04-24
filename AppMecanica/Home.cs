@@ -1,32 +1,52 @@
+using AppMecanica;
+using AppMecanica.Services;
+using AppMecanicaCAD;
 using AppMecanicaCLN;
-using System.Windows.Forms;
+using AppMecanica.Models;
+using AppMecanicaEntidades;
+using AppMecanica.Services.Interfaces;
 
 namespace AppMecanica
 {
     public partial class Home : Form
     {
         private ClienteCLN clienteCLN = new ClienteCLN();
+
         public Home()
         {
             InitializeComponent();
         }
+
         private void btnRegistro_Click(object sender, EventArgs e)
         {
             Registros registroForm = new Registros(this);
-            this.Hide();
             registroForm.Show();
+            this.Hide();
         }
 
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
-            Presupuesto presupuestoForm = new Presupuesto(this);
-            this.Hide();
+            IRepuestoMapper mapper = new RepuestoMapper();
+            ITotalCalculator calculator = new TotalCalculator();
+            IFormCleaner cleaner = new FormCleaner();
+            IInputValidator validator = new InputValidator();
+            IRegistroFactory regFactory = new RegistroFactory();
+            IRegistroService regService = new RegistroService();
+            IMessageService msgService = new MessageService();
+
+            var presupuestoForm = new Presupuesto(
+                this,
+                mapper,
+                calculator,
+                cleaner,
+                validator,
+                regFactory,
+                regService,
+                msgService
+            );
+
             presupuestoForm.Show();
-        }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-
+            this.Hide();
         }
     }
 }

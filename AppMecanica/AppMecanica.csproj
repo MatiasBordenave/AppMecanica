@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationIcon>Icono.ico</ApplicationIcon>
+    <ApplicationIcon>ICONO-SOLO.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,10 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Icono.ico" />
+    <Content Include="ICONO-SOLO.ico" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="PDFsharp" Version="6.1.1" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.119" />
   </ItemGroup>
 
@@ -45,9 +46,6 @@
   <ItemGroup>
     <None Update="Data\.env">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Data\database.sqlite">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

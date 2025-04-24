@@ -210,6 +210,8 @@ C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-master\AppMecanica\obj
 C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-master\AppMecanica\obj\Debug\net8.0-windows\ref\AppMecanica.dll
 C:\Users\byfre\source\repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Data\.env
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.PresupuestoGenerado.resources
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.DetalleRegistro.resources
+C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.DetalleRegistro.resources
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.exe
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.deps.json
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\AppMecanica.runtimeconfig.json
@@ -236,6 +238,7 @@ C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\A
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\AppMecanicaEntidades.pdb
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\AppMecanicaCAD.pdb
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.csproj.AssemblyReference.cache
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.DetalleRegistro.resources
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.Home.resources
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.Presupuesto.resources
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.PresupuestoGenerado.resources
@@ -253,3 +256,31 @@ C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\r
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.pdb
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.genruntimeconfig.cache
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\ref\AppMecanica.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.Charting.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.Quality.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.Snippets.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.System.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.WPFonts.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\de\PdfSharp.Charting.resources.dll
+C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\de\PdfSharp.resources.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.Charting.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.Quality.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.Snippets.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.System.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.WPFonts.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\PdfSharp.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\de\PdfSharp.Charting.resources.dll
+C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\bin\Debug\net8.0-windows\de\PdfSharp.resources.dll
