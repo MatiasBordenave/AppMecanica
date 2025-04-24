@@ -44,6 +44,7 @@ namespace AppMecanica
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
+            OcultarAsteriscos();
             AttachDecimalOnly(
                 txtTelefono, txtAño, txtPrecioUni,
                 txtCantidadHoras, txtPrecioHora, txtKm);
@@ -52,6 +53,28 @@ namespace AppMecanica
                 txtModelo, txtMarca, txtPatente, txtAño, txtKm);
         }
 
+        private void OcultarAsteriscos()
+        {
+            lblAsTitu.Visible = false;
+            lblAsTele.Visible = false;
+            lblAsModelo.Visible = false;
+            lblAsMarca.Visible = false;
+            lblAsAño.Visible = false;
+
+            // Agregá todos los label que uses como asteriscos obligatorios
+        }
+
+
+        private void MostrarAsteriscos()
+        {
+            lblAsTitu.Visible = true;
+            lblAsTele.Visible = true;
+            lblAsModelo.Visible = true;
+            lblAsMarca.Visible = true;
+            lblAsAño.Visible = true;
+
+            // Agregá todos los label que uses como asteriscos obligatorios
+        }
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
             _homeForm.Show();
@@ -106,6 +129,7 @@ namespace AppMecanica
             var obligatorios = new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño };
             if (!_validator.AreRequiredFieldsFilled(obligatorios))
             {
+                MostrarAsteriscos();
                 _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
                 return;
             }
@@ -154,6 +178,7 @@ namespace AppMecanica
             if (!_validator.AreRequiredFieldsFilled(
                 new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño }))
             {
+                MostrarAsteriscos();
                 _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
                 return;
             }

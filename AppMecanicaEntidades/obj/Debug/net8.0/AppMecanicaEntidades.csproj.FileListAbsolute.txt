@@ -56,3 +56,15 @@ C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanicaEntidades\obj\Debug\net8.0\
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanicaEntidades\obj\Debug\net8.0\refint\AppMecanicaEntidades.dll
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.pdb
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanicaEntidades\obj\Debug\net8.0\ref\AppMecanicaEntidades.dll
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\bin\Debug\net8.0\AppMecanicaEntidades.deps.json
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\bin\Debug\net8.0\AppMecanicaEntidades.dll
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\bin\Debug\net8.0\AppMecanicaEntidades.pdb
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.AssemblyInfoInputs.cache
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.AssemblyInfo.cs
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.csproj.CoreCompileInputs.cache
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.sourcelink.json
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.dll
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\refint\AppMecanicaEntidades.dll
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\AppMecanicaEntidades.pdb
+C:\Users\facum\OneDrive\Escritorio\App\AppMecanica\AppMecanicaEntidades\obj\Debug\net8.0\ref\AppMecanicaEntidades.dll
