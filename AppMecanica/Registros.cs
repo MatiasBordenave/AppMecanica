@@ -19,7 +19,7 @@ namespace AppMecanica
 
         private int paginaActual = 1;
         private int totalPaginas = 1;
-        private int pageSize = 20;
+        private int pageSize = 2;
 
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
@@ -229,30 +229,91 @@ namespace AppMecanica
         {
             flpPaginas.Controls.Clear();
 
-            for (int i = 1; i <= totalPaginas; i++)
+            int maxBotonesVisibles = 7; // Número máximo de botones que se mostrarán (sin contar los "...")
+
+            int inicio = Math.Max(1, paginaActual - 2);
+            int fin = Math.Min(totalPaginas, paginaActual + 2);
+
+            if (paginaActual <= 3)
+            {
+                inicio = 1;
+                fin = Math.Min(totalPaginas, maxBotonesVisibles);
+            }
+            else if (paginaActual >= totalPaginas - 2)
+            {
+                inicio = Math.Max(1, totalPaginas - maxBotonesVisibles + 1);
+                fin = totalPaginas;
+            }
+
+            void AgregarBoton(int numero)
             {
                 Button btn = new Button();
-                btn.Text = i.ToString();
+                btn.Text = numero.ToString();
                 btn.Width = 40;
                 btn.Height = 30;
-                btn.Tag = i;
+                btn.Tag = numero;
 
-                if (i == paginaActual)
+                if (numero == paginaActual)
                     btn.BackColor = Color.LightBlue;
 
                 btn.Click += (s, e) =>
                 {
                     paginaActual = (int)((Button)s).Tag;
                     CargarDataGridView(paginaActual);
-
                 };
 
                 flpPaginas.Controls.Add(btn);
             }
 
+            // Botón Primera Página
+            if (inicio > 1)
+            {
+                AgregarBoton(1);
+
+                if (inicio > 2)
+                {
+                    AgregarPuntosSuspensivos();
+                }
+            }
+
+            // Botones intermedios
+            for (int i = inicio; i <= fin; i++)
+            {
+                AgregarBoton(i);
+            }
+
+            // Botón Última Página
+            if (fin < totalPaginas)
+            {
+                if (fin < totalPaginas - 1)
+                {
+                    AgregarPuntosSuspensivos();
+                }
+
+                AgregarBoton(totalPaginas);
+            }
+
             btnAnteriorDGV.Enabled = paginaActual > 1;
             btnSiguienteDGV.Enabled = paginaActual < totalPaginas;
         }
+
+
+        // boton ... cambiar el diseño qe esta horrible!!!!!
+        private void AgregarPuntosSuspensivos()
+        {
+            Button puntos = new Button();
+            puntos.Text = "•••";
+            puntos.Width = 40;
+            puntos.Height = 30;
+            puntos.Enabled = false;
+            puntos.BackColor = Color.Gainsboro;
+            puntos.ForeColor = Color.Black;
+            puntos.FlatStyle = FlatStyle.Flat;
+            puntos.Margin = new Padding(2);
+
+            flpPaginas.Controls.Add(puntos);
+        }
+
 
         private void btnSiguienteDGV_Click(object sender, EventArgs e)
         {
