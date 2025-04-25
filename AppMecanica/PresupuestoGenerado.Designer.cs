@@ -38,6 +38,7 @@
             nombreMecanico = new Label();
             datosMecanico = new Label();
             panelContenido = new Panel();
+            label1 = new Label();
             tableLayoutDatos = new TableLayoutPanel();
             lblDatosCliente = new Label();
             lblDatosTelefono = new Label();
@@ -78,10 +79,10 @@
             btnVolverGenerado.FlatStyle = FlatStyle.Flat;
             btnVolverGenerado.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnVolverGenerado.ForeColor = Color.FromArgb(51, 51, 51);
-            btnVolverGenerado.Location = new Point(1056, 800);
+            btnVolverGenerado.Location = new Point(1033, 790);
             btnVolverGenerado.Margin = new Padding(3, 2, 3, 2);
             btnVolverGenerado.Name = "btnVolverGenerado";
-            btnVolverGenerado.Size = new Size(116, 50);
+            btnVolverGenerado.Size = new Size(139, 60);
             btnVolverGenerado.TabIndex = 71;
             btnVolverGenerado.Text = "Volver";
             btnVolverGenerado.UseVisualStyleBackColor = false;
@@ -93,10 +94,10 @@
             btnImg.FlatStyle = FlatStyle.Flat;
             btnImg.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnImg.ForeColor = Color.FromArgb(51, 51, 51);
-            btnImg.Location = new Point(919, 800);
+            btnImg.Location = new Point(877, 790);
             btnImg.Margin = new Padding(3, 2, 3, 2);
             btnImg.Name = "btnImg";
-            btnImg.Size = new Size(116, 50);
+            btnImg.Size = new Size(139, 60);
             btnImg.TabIndex = 70;
             btnImg.Text = "Guardar Imagen";
             btnImg.UseVisualStyleBackColor = false;
@@ -108,10 +109,10 @@
             btnImprimir.FlatStyle = FlatStyle.Flat;
             btnImprimir.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnImprimir.ForeColor = Color.FromArgb(51, 51, 51);
-            btnImprimir.Location = new Point(782, 800);
+            btnImprimir.Location = new Point(722, 790);
             btnImprimir.Margin = new Padding(3, 2, 3, 2);
             btnImprimir.Name = "btnImprimir";
-            btnImprimir.Size = new Size(116, 50);
+            btnImprimir.Size = new Size(139, 60);
             btnImprimir.TabIndex = 69;
             btnImprimir.Text = "Imprimir Presupuesto";
             btnImprimir.UseVisualStyleBackColor = false;
@@ -122,11 +123,11 @@
             lblMDOyR.AutoSize = true;
             lblMDOyR.BackColor = Color.Transparent;
             lblMDOyR.FlatStyle = FlatStyle.System;
-            lblMDOyR.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblMDOyR.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblMDOyR.ForeColor = Color.FromArgb(51, 51, 51);
-            lblMDOyR.Location = new Point(72, 729);
+            lblMDOyR.Location = new Point(43, 728);
             lblMDOyR.Name = "lblMDOyR";
-            lblMDOyR.Size = new Size(52, 17);
+            lblMDOyR.Size = new Size(55, 18);
             lblMDOyR.TabIndex = 110;
             lblMDOyR.Text = "Total:";
             // 
@@ -146,17 +147,18 @@
             // 
             datosMecanico.AutoSize = true;
             datosMecanico.BackColor = Color.Transparent;
-            datosMecanico.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            datosMecanico.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             datosMecanico.ForeColor = Color.FromArgb(51, 51, 51);
             datosMecanico.Location = new Point(856, 27);
             datosMecanico.Name = "datosMecanico";
-            datosMecanico.Size = new Size(85, 17);
+            datosMecanico.Size = new Size(90, 18);
             datosMecanico.TabIndex = 95;
             datosMecanico.Text = "Mecanico:";
             // 
             // panelContenido
             // 
             panelContenido.BackColor = Color.Transparent;
+            panelContenido.Controls.Add(label1);
             panelContenido.Controls.Add(tableLayoutDatos);
             panelContenido.Controls.Add(nombreMecanico);
             panelContenido.Controls.Add(datosMecanico);
@@ -184,6 +186,15 @@
             panelContenido.Size = new Size(1184, 781);
             panelContenido.TabIndex = 111;
             // 
+            // label1
+            // 
+            label1.BackColor = Color.Silver;
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(849, 26);
+            label1.Name = "label1";
+            label1.Size = new Size(1, 100);
+            label1.TabIndex = 132;
+            // 
             // tableLayoutDatos
             // 
             tableLayoutDatos.BackColor = Color.Transparent;
@@ -196,7 +207,7 @@
             tableLayoutDatos.Controls.Add(lblDatosCliente, 0, 0);
             tableLayoutDatos.Controls.Add(lblDatosTelefono, 1, 0);
             tableLayoutDatos.Controls.Add(lblDatosAuto, 2, 0);
-            tableLayoutDatos.Location = new Point(69, 204);
+            tableLayoutDatos.Location = new Point(69, 219);
             tableLayoutDatos.Name = "tableLayoutDatos";
             tableLayoutDatos.RowCount = 1;
             tableLayoutDatos.RowStyles.Add(new RowStyle());
@@ -208,11 +219,11 @@
             lblDatosCliente.Anchor = AnchorStyles.Left;
             lblDatosCliente.AutoSize = true;
             lblDatosCliente.BackColor = Color.Transparent;
-            lblDatosCliente.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold);
+            lblDatosCliente.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblDatosCliente.ForeColor = Color.FromArgb(51, 51, 51);
             lblDatosCliente.Location = new Point(3, 18);
             lblDatosCliente.Name = "lblDatosCliente";
-            lblDatosCliente.Size = new Size(102, 18);
+            lblDatosCliente.Size = new Size(119, 18);
             lblDatosCliente.TabIndex = 43;
             lblDatosCliente.Text = "Datos Titular:";
             lblDatosCliente.TextAlign = ContentAlignment.MiddleCenter;
@@ -222,11 +233,11 @@
             lblDatosTelefono.Anchor = AnchorStyles.Left;
             lblDatosTelefono.AutoSize = true;
             lblDatosTelefono.BackColor = Color.Transparent;
-            lblDatosTelefono.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold);
+            lblDatosTelefono.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblDatosTelefono.ForeColor = Color.FromArgb(51, 51, 51);
             lblDatosTelefono.Location = new Point(353, 18);
             lblDatosTelefono.Name = "lblDatosTelefono";
-            lblDatosTelefono.Size = new Size(117, 18);
+            lblDatosTelefono.Size = new Size(139, 18);
             lblDatosTelefono.TabIndex = 67;
             lblDatosTelefono.Text = "Datos Telefono:";
             lblDatosTelefono.TextAlign = ContentAlignment.MiddleCenter;
@@ -236,11 +247,11 @@
             lblDatosAuto.Anchor = AnchorStyles.Left;
             lblDatosAuto.AutoSize = true;
             lblDatosAuto.BackColor = Color.Transparent;
-            lblDatosAuto.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold);
+            lblDatosAuto.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblDatosAuto.ForeColor = Color.FromArgb(51, 51, 51);
             lblDatosAuto.Location = new Point(703, 18);
             lblDatosAuto.Name = "lblDatosAuto";
-            lblDatosAuto.Size = new Size(116, 18);
+            lblDatosAuto.Size = new Size(138, 18);
             lblDatosAuto.TabIndex = 68;
             lblDatosAuto.Text = "Datos Vehiculo:";
             lblDatosAuto.TextAlign = ContentAlignment.MiddleCenter;
@@ -250,11 +261,11 @@
             lblTituloMDO.AutoSize = true;
             lblTituloMDO.BackColor = Color.Transparent;
             lblTituloMDO.FlatStyle = FlatStyle.System;
-            lblTituloMDO.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblTituloMDO.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblTituloMDO.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTituloMDO.Location = new Point(69, 688);
+            lblTituloMDO.Location = new Point(40, 687);
             lblTituloMDO.Name = "lblTituloMDO";
-            lblTituloMDO.Size = new Size(118, 17);
+            lblTituloMDO.Size = new Size(129, 18);
             lblTituloMDO.TabIndex = 128;
             lblTituloMDO.Text = "Mano de Obra:";
             // 
@@ -263,11 +274,11 @@
             lblTituloRepuesto.AutoSize = true;
             lblTituloRepuesto.BackColor = Color.Transparent;
             lblTituloRepuesto.FlatStyle = FlatStyle.System;
-            lblTituloRepuesto.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblTituloRepuesto.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblTituloRepuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTituloRepuesto.Location = new Point(69, 645);
+            lblTituloRepuesto.Location = new Point(40, 644);
             lblTituloRepuesto.Name = "lblTituloRepuesto";
-            lblTituloRepuesto.Size = new Size(84, 17);
+            lblTituloRepuesto.Size = new Size(92, 18);
             lblTituloRepuesto.TabIndex = 127;
             lblTituloRepuesto.Text = "Repuesto:";
             // 
@@ -275,19 +286,19 @@
             // 
             lblTituloValor.AutoSize = true;
             lblTituloValor.BackColor = Color.Transparent;
-            lblTituloValor.Font = new Font("HomepageBaukasten Bold", 12.2499981F);
+            lblTituloValor.Font = new Font("HomepageBaukasten Bold", 14.2499981F, FontStyle.Italic);
             lblTituloValor.ForeColor = Color.FromArgb(51, 51, 51);
             lblTituloValor.Location = new Point(69, 590);
             lblTituloValor.Name = "lblTituloValor";
-            lblTituloValor.Size = new Size(180, 19);
+            lblTituloValor.Size = new Size(206, 21);
             lblTituloValor.TabIndex = 126;
             lblTituloValor.Text = "Trabajos A Realizar:";
             // 
             // lblLinea2
             // 
-            lblLinea2.BackColor = SystemColors.ControlDarkDark;
+            lblLinea2.BackColor = Color.Silver;
             lblLinea2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLinea2.Location = new Point(69, 329);
+            lblLinea2.Location = new Point(66, 321);
             lblLinea2.Name = "lblLinea2";
             lblLinea2.Size = new Size(1050, 1);
             lblLinea2.TabIndex = 122;
@@ -297,9 +308,9 @@
             flowPanelDesc.AutoScroll = true;
             flowPanelDesc.BackColor = Color.Transparent;
             flowPanelDesc.Controls.Add(lblDescPresupuesto);
-            flowPanelDesc.Location = new Point(12, 540);
+            flowPanelDesc.Location = new Point(40, 540);
             flowPanelDesc.Name = "flowPanelDesc";
-            flowPanelDesc.Size = new Size(1160, 47);
+            flowPanelDesc.Size = new Size(1100, 47);
             flowPanelDesc.TabIndex = 130;
             // 
             // lblDescPresupuesto
@@ -307,17 +318,17 @@
             lblDescPresupuesto.Anchor = AnchorStyles.None;
             lblDescPresupuesto.AutoSize = true;
             lblDescPresupuesto.BackColor = Color.Transparent;
-            lblDescPresupuesto.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDescPresupuesto.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblDescPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
             lblDescPresupuesto.Location = new Point(3, 0);
             lblDescPresupuesto.Name = "lblDescPresupuesto";
-            lblDescPresupuesto.Size = new Size(95, 18);
+            lblDescPresupuesto.Size = new Size(111, 18);
             lblDescPresupuesto.TabIndex = 68;
             lblDescPresupuesto.Text = "Descripcion:";
             // 
             // lblLinea3
             // 
-            lblLinea3.BackColor = SystemColors.ControlDarkDark;
+            lblLinea3.BackColor = Color.Silver;
             lblLinea3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLinea3.Location = new Point(69, 615);
             lblLinea3.Name = "lblLinea3";
@@ -328,11 +339,11 @@
             // 
             lblDatosTrabajo.AutoSize = true;
             lblDatosTrabajo.BackColor = Color.Transparent;
-            lblDatosTrabajo.Font = new Font("HomepageBaukasten Bold", 12.2499981F);
+            lblDatosTrabajo.Font = new Font("HomepageBaukasten Bold", 14.2499981F, FontStyle.Italic);
             lblDatosTrabajo.ForeColor = Color.FromArgb(51, 51, 51);
-            lblDatosTrabajo.Location = new Point(67, 300);
+            lblDatosTrabajo.Location = new Point(64, 292);
             lblDatosTrabajo.Name = "lblDatosTrabajo";
-            lblDatosTrabajo.Size = new Size(180, 19);
+            lblDatosTrabajo.Size = new Size(206, 21);
             lblDatosTrabajo.TabIndex = 124;
             lblDatosTrabajo.Text = "Trabajos A Realizar:";
             // 
@@ -340,17 +351,17 @@
             // 
             lblTituloDatos.AutoSize = true;
             lblTituloDatos.BackColor = Color.Transparent;
-            lblTituloDatos.Font = new Font("HomepageBaukasten Bold", 12.2499981F);
+            lblTituloDatos.Font = new Font("HomepageBaukasten Bold", 14.2499981F, FontStyle.Italic);
             lblTituloDatos.ForeColor = Color.FromArgb(51, 51, 51);
             lblTituloDatos.Location = new Point(67, 170);
             lblTituloDatos.Name = "lblTituloDatos";
-            lblTituloDatos.Size = new Size(257, 19);
+            lblTituloDatos.Size = new Size(295, 21);
             lblTituloDatos.TabIndex = 123;
             lblTituloDatos.Text = "Datos del Cliente y Vehiculo:";
             // 
             // lblLinea
             // 
-            lblLinea.BackColor = SystemColors.ControlDarkDark;
+            lblLinea.BackColor = Color.Silver;
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLinea.Location = new Point(69, 200);
             lblLinea.Name = "lblLinea";
@@ -409,11 +420,11 @@
             // 
             datosMecanico3.AutoSize = true;
             datosMecanico3.BackColor = Color.Transparent;
-            datosMecanico3.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            datosMecanico3.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             datosMecanico3.ForeColor = Color.FromArgb(51, 51, 51);
             datosMecanico3.Location = new Point(856, 97);
             datosMecanico3.Name = "datosMecanico3";
-            datosMecanico3.Size = new Size(80, 17);
+            datosMecanico3.Size = new Size(86, 18);
             datosMecanico3.TabIndex = 117;
             datosMecanico3.Text = "Telefono:";
             // 
@@ -421,11 +432,11 @@
             // 
             datosMecanico2.AutoSize = true;
             datosMecanico2.BackColor = Color.Transparent;
-            datosMecanico2.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            datosMecanico2.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             datosMecanico2.ForeColor = Color.FromArgb(51, 51, 51);
             datosMecanico2.Location = new Point(856, 61);
             datosMecanico2.Name = "datosMecanico2";
-            datosMecanico2.Size = new Size(86, 17);
+            datosMecanico2.Size = new Size(92, 18);
             datosMecanico2.TabIndex = 116;
             datosMecanico2.Text = "Direccion:";
             // 
@@ -433,7 +444,7 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(710, 27);
+            pictureBox2.Location = new Point(715, 27);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(122, 87);
@@ -446,9 +457,9 @@
             flowPanelRepuestos.AutoScroll = true;
             flowPanelRepuestos.BackColor = Color.Transparent;
             flowPanelRepuestos.Font = new Font("Microsoft Sans Serif", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            flowPanelRepuestos.Location = new Point(12, 333);
+            flowPanelRepuestos.Location = new Point(40, 333);
             flowPanelRepuestos.Name = "flowPanelRepuestos";
-            flowPanelRepuestos.Size = new Size(1160, 201);
+            flowPanelRepuestos.Size = new Size(1100, 200);
             flowPanelRepuestos.TabIndex = 129;
             // 
             // PresupuestoGenerado
@@ -510,5 +521,6 @@
         private FlowLayoutPanel flowPanelRepuestos;
         private FlowLayoutPanel flowPanelDesc;
         private Label lblDescPresupuesto;
+        private Label label1;
     }
 }

@@ -56,7 +56,6 @@
             txtNombreRepo = new TextBox();
             nupCantidad = new NumericUpDown();
             lblCantidad = new Label();
-            txtPrecioUni = new TextBox();
             lblPrecioUni = new Label();
             btnAgregarPresu = new Button();
             btnEliminarPresu = new Button();
@@ -68,10 +67,13 @@
             lblDomicilio = new Label();
             lblTelefono = new Label();
             groupBox2 = new GroupBox();
+            txtPrecioUni = new TextBox();
             btnLimpiar = new Button();
             btnGenerar = new Button();
             labelDesc = new Label();
             textBoxDesc = new TextBox();
+            lblLinea = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).BeginInit();
             groupBox1.SuspendLayout();
@@ -85,12 +87,12 @@
             btnVolverPresupuesto.FlatStyle = FlatStyle.Flat;
             btnVolverPresupuesto.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnVolverPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            btnVolverPresupuesto.Location = new Point(909, 595);
+            btnVolverPresupuesto.Location = new Point(933, 590);
             btnVolverPresupuesto.Margin = new Padding(3, 2, 3, 2);
             btnVolverPresupuesto.Name = "btnVolverPresupuesto";
-            btnVolverPresupuesto.Size = new Size(116, 38);
+            btnVolverPresupuesto.Size = new Size(139, 60);
             btnVolverPresupuesto.TabIndex = 2;
-            btnVolverPresupuesto.Text = "Volver";
+            btnVolverPresupuesto.Text = "Volver al menú principal";
             btnVolverPresupuesto.UseVisualStyleBackColor = false;
             btnVolverPresupuesto.Click += btnVolverPresupuesto_Click;
             // 
@@ -101,12 +103,12 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnGuardar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGuardar.Location = new Point(909, 31);
+            btnGuardar.Location = new Point(933, 32);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(116, 50);
+            btnGuardar.Size = new Size(139, 60);
             btnGuardar.TabIndex = 3;
-            btnGuardar.Text = "Guardar En Registros";
+            btnGuardar.Text = "Guardar datos del cliente";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
@@ -115,7 +117,7 @@
             txtTitular.BackColor = Color.FromArgb(224, 224, 224);
             txtTitular.BorderStyle = BorderStyle.FixedSingle;
             txtTitular.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtTitular.Location = new Point(217, 29);
+            txtTitular.Location = new Point(221, 42);
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
             txtTitular.Size = new Size(153, 23);
@@ -124,30 +126,30 @@
             // lblPatente
             // 
             lblPatente.AutoSize = true;
-            lblPatente.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblPatente.Location = new Point(411, 60);
+            lblPatente.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblPatente.Location = new Point(422, 75);
             lblPatente.Name = "lblPatente";
-            lblPatente.Size = new Size(70, 17);
+            lblPatente.Size = new Size(77, 18);
             lblPatente.TabIndex = 5;
             lblPatente.Text = "Patente:";
             // 
             // lblTitular
             // 
             lblTitular.AutoSize = true;
-            lblTitular.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblTitular.Location = new Point(144, 30);
+            lblTitular.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblTitular.Location = new Point(149, 42);
             lblTitular.Name = "lblTitular";
-            lblTitular.Size = new Size(62, 17);
+            lblTitular.Size = new Size(66, 18);
             lblTitular.TabIndex = 7;
             lblTitular.Text = "Titular:";
             // 
             // lblMarca
             // 
             lblMarca.AutoSize = true;
-            lblMarca.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblMarca.Location = new Point(422, 27);
+            lblMarca.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblMarca.Location = new Point(433, 42);
             lblMarca.Name = "lblMarca";
-            lblMarca.Size = new Size(58, 17);
+            lblMarca.Size = new Size(61, 18);
             lblMarca.TabIndex = 8;
             lblMarca.Text = "Marca:";
             // 
@@ -156,9 +158,10 @@
             txtPatente.BackColor = Color.FromArgb(224, 224, 224);
             txtPatente.BorderStyle = BorderStyle.FixedSingle;
             txtPatente.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtPatente.Location = new Point(485, 60);
+            txtPatente.Location = new Point(505, 76);
             txtPatente.Margin = new Padding(3, 2, 3, 2);
             txtPatente.Name = "txtPatente";
+            txtPatente.PlaceholderText = "Ejemplo: ABC 123";
             txtPatente.Size = new Size(153, 23);
             txtPatente.TabIndex = 10;
             // 
@@ -167,7 +170,7 @@
             txtMarca.BackColor = Color.FromArgb(224, 224, 224);
             txtMarca.BorderStyle = BorderStyle.FixedSingle;
             txtMarca.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtMarca.Location = new Point(485, 29);
+            txtMarca.Location = new Point(505, 45);
             txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(153, 23);
@@ -176,20 +179,20 @@
             // lblModelo
             // 
             lblModelo.AutoSize = true;
-            lblModelo.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblModelo.Location = new Point(74, 136);
+            lblModelo.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblModelo.Location = new Point(63, 147);
             lblModelo.Name = "lblModelo";
-            lblModelo.Size = new Size(138, 17);
+            lblModelo.Size = new Size(152, 18);
             lblModelo.TabIndex = 12;
             lblModelo.Text = "Modelo del Auto:";
             // 
             // lblAño
             // 
             lblAño.AutoSize = true;
-            lblAño.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblAño.Location = new Point(435, 133);
+            lblAño.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblAño.Location = new Point(446, 148);
             lblAño.Name = "lblAño";
-            lblAño.Size = new Size(43, 17);
+            lblAño.Size = new Size(47, 18);
             lblAño.TabIndex = 13;
             lblAño.Text = "Año:";
             // 
@@ -198,46 +201,44 @@
             txtModelo.BackColor = Color.FromArgb(224, 224, 224);
             txtModelo.BorderStyle = BorderStyle.FixedSingle;
             txtModelo.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtModelo.Location = new Point(216, 134);
+            txtModelo.Location = new Point(220, 147);
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(153, 23);
             txtModelo.TabIndex = 14;
-   
             // 
             // txtAño
             // 
             txtAño.BackColor = Color.FromArgb(224, 224, 224);
             txtAño.BorderStyle = BorderStyle.FixedSingle;
             txtAño.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtAño.Location = new Point(485, 131);
+            txtAño.Location = new Point(505, 147);
             txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
             txtAño.Size = new Size(153, 23);
             txtAño.TabIndex = 15;
-
             // 
             // lblCantidadHoras
             // 
             lblCantidadHoras.AutoSize = true;
             lblCantidadHoras.BackColor = Color.Transparent;
-            lblCantidadHoras.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblCantidadHoras.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblCantidadHoras.ForeColor = Color.FromArgb(51, 51, 51);
-            lblCantidadHoras.Location = new Point(104, 502);
+            lblCantidadHoras.Location = new Point(76, 524);
             lblCantidadHoras.Name = "lblCantidadHoras";
-            lblCantidadHoras.Size = new Size(235, 17);
+            lblCantidadHoras.Size = new Size(148, 18);
             lblCantidadHoras.TabIndex = 18;
-            lblCantidadHoras.Text = "Cantidad de Horas Estimadas:";
+            lblCantidadHoras.Text = "Horas Estimadas:";
             // 
             // lblPrecioHora
             // 
             lblPrecioHora.AutoSize = true;
             lblPrecioHora.BackColor = Color.Transparent;
-            lblPrecioHora.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            lblPrecioHora.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             lblPrecioHora.ForeColor = Color.FromArgb(51, 51, 51);
-            lblPrecioHora.Location = new Point(421, 502);
+            lblPrecioHora.Location = new Point(332, 524);
             lblPrecioHora.Name = "lblPrecioHora";
-            lblPrecioHora.Size = new Size(131, 17);
+            lblPrecioHora.Size = new Size(144, 18);
             lblPrecioHora.TabIndex = 19;
             lblPrecioHora.Text = "Precio Por Hora:";
             // 
@@ -246,24 +247,23 @@
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
             txtCantidadHoras.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtCantidadHoras.Location = new Point(345, 502);
+            txtCantidadHoras.Location = new Point(225, 524);
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
-            txtCantidadHoras.Size = new Size(64, 23);
+            txtCantidadHoras.Size = new Size(87, 23);
             txtCantidadHoras.TabIndex = 20;
-
             // 
             // txtPrecioHora
             // 
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
             txtPrecioHora.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtPrecioHora.Location = new Point(558, 502);
+            txtPrecioHora.Location = new Point(482, 524);
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
-            txtPrecioHora.Size = new Size(69, 23);
+            txtPrecioHora.PlaceholderText = "$";
+            txtPrecioHora.Size = new Size(87, 23);
             txtPrecioHora.TabIndex = 21;
-
             // 
             // dataGridView1
             // 
@@ -274,8 +274,8 @@
             dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(51, 51, 51);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
@@ -286,12 +286,12 @@
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
             dataGridViewCellStyle2.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
-            dataGridView1.Location = new Point(104, 342);
+            dataGridView1.Location = new Point(76, 342);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -303,7 +303,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(662, 139);
+            dataGridView1.Size = new Size(690, 145);
             dataGridView1.TabIndex = 26;
             // 
             // NombreRespuesto
@@ -330,19 +330,19 @@
             // 
             lblNombreRepo.AutoSize = true;
             lblNombreRepo.BackColor = Color.Transparent;
-            lblNombreRepo.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblNombreRepo.Location = new Point(8, 35);
+            lblNombreRepo.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblNombreRepo.Location = new Point(21, 34);
             lblNombreRepo.Name = "lblNombreRepo";
-            lblNombreRepo.Size = new Size(177, 17);
+            lblNombreRepo.Size = new Size(80, 18);
             lblNombreRepo.TabIndex = 27;
-            lblNombreRepo.Text = "Nombre del Repuesto:";
+            lblNombreRepo.Text = "Nombre:";
             // 
             // txtNombreRepo
             // 
             txtNombreRepo.BackColor = Color.FromArgb(224, 224, 224);
             txtNombreRepo.BorderStyle = BorderStyle.FixedSingle;
             txtNombreRepo.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtNombreRepo.Location = new Point(8, 54);
+            txtNombreRepo.Location = new Point(21, 53);
             txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
             txtNombreRepo.Size = new Size(153, 23);
@@ -353,10 +353,10 @@
             nupCantidad.BackColor = Color.FromArgb(224, 224, 224);
             nupCantidad.BorderStyle = BorderStyle.FixedSingle;
             nupCantidad.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            nupCantidad.Location = new Point(208, 54);
+            nupCantidad.Location = new Point(202, 53);
             nupCantidad.Margin = new Padding(3, 2, 3, 2);
             nupCantidad.Name = "nupCantidad";
-            nupCantidad.Size = new Size(55, 23);
+            nupCantidad.Size = new Size(87, 23);
             nupCantidad.TabIndex = 29;
             nupCantidad.TextAlign = HorizontalAlignment.Center;
             // 
@@ -364,34 +364,21 @@
             // 
             lblCantidad.AutoSize = true;
             lblCantidad.BackColor = Color.Transparent;
-            lblCantidad.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblCantidad.Location = new Point(205, 34);
+            lblCantidad.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblCantidad.Location = new Point(202, 33);
             lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(81, 17);
+            lblCantidad.Size = new Size(87, 18);
             lblCantidad.TabIndex = 30;
             lblCantidad.Text = "Cantidad:";
-            // 
-            // txtPrecioUni
-            // 
-            txtPrecioUni.BackColor = Color.FromArgb(224, 224, 224);
-            txtPrecioUni.BorderStyle = BorderStyle.FixedSingle;
-            txtPrecioUni.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtPrecioUni.Location = new Point(317, 57);
-            txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
-            txtPrecioUni.Multiline = true;
-            txtPrecioUni.Name = "txtPrecioUni";
-            txtPrecioUni.Size = new Size(67, 24);
-            txtPrecioUni.TabIndex = 31;
-
             // 
             // lblPrecioUni
             // 
             lblPrecioUni.AutoSize = true;
             lblPrecioUni.BackColor = Color.Transparent;
-            lblPrecioUni.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblPrecioUni.Location = new Point(317, 35);
+            lblPrecioUni.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblPrecioUni.Location = new Point(300, 33);
             lblPrecioUni.Name = "lblPrecioUni";
-            lblPrecioUni.Size = new Size(61, 17);
+            lblPrecioUni.Size = new Size(66, 18);
             lblPrecioUni.TabIndex = 32;
             lblPrecioUni.Text = "Precio:";
             // 
@@ -402,12 +389,12 @@
             btnAgregarPresu.FlatStyle = FlatStyle.Popup;
             btnAgregarPresu.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnAgregarPresu.ForeColor = Color.White;
-            btnAgregarPresu.Location = new Point(465, 50);
+            btnAgregarPresu.Location = new Point(459, 52);
             btnAgregarPresu.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPresu.Name = "btnAgregarPresu";
-            btnAgregarPresu.Size = new Size(79, 31);
+            btnAgregarPresu.Size = new Size(105, 39);
             btnAgregarPresu.TabIndex = 33;
-            btnAgregarPresu.Text = "Agregar";
+            btnAgregarPresu.Text = " Agregar ✔️";
             btnAgregarPresu.UseVisualStyleBackColor = false;
             btnAgregarPresu.Click += btnAgregarPresu_Click;
             // 
@@ -418,18 +405,18 @@
             btnEliminarPresu.FlatStyle = FlatStyle.Popup;
             btnEliminarPresu.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnEliminarPresu.ForeColor = Color.White;
-            btnEliminarPresu.Location = new Point(559, 50);
+            btnEliminarPresu.Location = new Point(578, 52);
             btnEliminarPresu.Margin = new Padding(3, 2, 3, 2);
             btnEliminarPresu.Name = "btnEliminarPresu";
-            btnEliminarPresu.Size = new Size(79, 31);
+            btnEliminarPresu.Size = new Size(99, 39);
             btnEliminarPresu.TabIndex = 34;
-            btnEliminarPresu.Text = "Eliminar";
+            btnEliminarPresu.Text = "Eliminar ❌";
             btnEliminarPresu.UseVisualStyleBackColor = false;
             btnEliminarPresu.Click += btnEliminarPresu_Click;
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.Transparent;
+            groupBox1.BackColor = Color.WhiteSmoke;
             groupBox1.Controls.Add(txtKm);
             groupBox1.Controls.Add(lblKm);
             groupBox1.Controls.Add(txtDomicilio);
@@ -448,34 +435,33 @@
             groupBox1.Controls.Add(txtModelo);
             groupBox1.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Italic, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox1.Location = new Point(104, 31);
+            groupBox1.Location = new Point(76, 11);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(662, 178);
+            groupBox1.Size = new Size(690, 198);
             groupBox1.TabIndex = 35;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Datos de Registro";
+            groupBox1.Text = "DATOS DE REGISTRO";
             // 
             // txtKm
             // 
             txtKm.BackColor = Color.FromArgb(224, 224, 224);
             txtKm.BorderStyle = BorderStyle.FixedSingle;
             txtKm.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtKm.Location = new Point(485, 92);
+            txtKm.Location = new Point(505, 108);
             txtKm.Margin = new Padding(3, 2, 3, 2);
             txtKm.Name = "txtKm";
             txtKm.Size = new Size(153, 23);
             txtKm.TabIndex = 21;
-
             // 
             // lblKm
             // 
             lblKm.AutoSize = true;
-            lblKm.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblKm.Location = new Point(389, 94);
+            lblKm.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblKm.Location = new Point(400, 109);
             lblKm.Name = "lblKm";
-            lblKm.Size = new Size(96, 17);
+            lblKm.Size = new Size(104, 18);
             lblKm.TabIndex = 20;
             lblKm.Text = "Kilometros:";
             // 
@@ -484,7 +470,7 @@
             txtDomicilio.BackColor = Color.FromArgb(224, 224, 224);
             txtDomicilio.BorderStyle = BorderStyle.FixedSingle;
             txtDomicilio.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtDomicilio.Location = new Point(216, 95);
+            txtDomicilio.Location = new Point(220, 108);
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(153, 23);
@@ -495,54 +481,65 @@
             txtTelefono.BackColor = Color.FromArgb(224, 224, 224);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
             txtTelefono.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtTelefono.Location = new Point(217, 62);
+            txtTelefono.Location = new Point(221, 75);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(153, 23);
             txtTelefono.TabIndex = 18;
-
             // 
             // lblDomicilio
             // 
             lblDomicilio.AutoSize = true;
-            lblDomicilio.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblDomicilio.Location = new Point(119, 95);
+            lblDomicilio.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblDomicilio.Location = new Point(124, 107);
             lblDomicilio.Name = "lblDomicilio";
-            lblDomicilio.Size = new Size(87, 17);
+            lblDomicilio.Size = new Size(92, 18);
             lblDomicilio.TabIndex = 17;
             lblDomicilio.Text = "Domicilio:";
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
-            lblTelefono.Location = new Point(130, 63);
+            lblTelefono.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
+            lblTelefono.Location = new Point(135, 75);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(80, 17);
+            lblTelefono.Size = new Size(86, 18);
             lblTelefono.TabIndex = 16;
             lblTelefono.Text = "Telefono:";
             // 
             // groupBox2
             // 
             groupBox2.BackColor = Color.Transparent;
+            groupBox2.Controls.Add(txtPrecioUni);
             groupBox2.Controls.Add(lblNombreRepo);
             groupBox2.Controls.Add(btnEliminarPresu);
             groupBox2.Controls.Add(lblCantidad);
             groupBox2.Controls.Add(nupCantidad);
             groupBox2.Controls.Add(btnAgregarPresu);
-            groupBox2.Controls.Add(txtPrecioUni);
             groupBox2.Controls.Add(txtNombreRepo);
             groupBox2.Controls.Add(lblPrecioUni);
             groupBox2.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Italic, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox2.Location = new Point(104, 230);
+            groupBox2.Location = new Point(76, 233);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(662, 90);
+            groupBox2.Size = new Size(690, 105);
             groupBox2.TabIndex = 37;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Repuestos";
+            groupBox2.Text = "AGREGAR REPUESTOS";
+            // 
+            // txtPrecioUni
+            // 
+            txtPrecioUni.BackColor = Color.FromArgb(224, 224, 224);
+            txtPrecioUni.BorderStyle = BorderStyle.FixedSingle;
+            txtPrecioUni.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            txtPrecioUni.Location = new Point(300, 53);
+            txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
+            txtPrecioUni.Name = "txtPrecioUni";
+            txtPrecioUni.PlaceholderText = "$";
+            txtPrecioUni.Size = new Size(87, 23);
+            txtPrecioUni.TabIndex = 42;
             // 
             // btnLimpiar
             // 
@@ -551,10 +548,10 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnLimpiar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnLimpiar.Location = new Point(909, 529);
+            btnLimpiar.Location = new Point(933, 513);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(116, 50);
+            btnLimpiar.Size = new Size(139, 60);
             btnLimpiar.TabIndex = 38;
             btnLimpiar.Text = "Limpiar Presupuesto";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -567,12 +564,12 @@
             btnGenerar.FlatStyle = FlatStyle.Flat;
             btnGenerar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnGenerar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGenerar.Location = new Point(909, 87);
+            btnGenerar.Location = new Point(933, 116);
             btnGenerar.Margin = new Padding(3, 2, 3, 2);
             btnGenerar.Name = "btnGenerar";
-            btnGenerar.Size = new Size(116, 50);
+            btnGenerar.Size = new Size(139, 60);
             btnGenerar.TabIndex = 39;
-            btnGenerar.Text = "Generar Presupuesto";
+            btnGenerar.Text = "Crear presupuesto";
             btnGenerar.UseVisualStyleBackColor = false;
             btnGenerar.Click += btnGenerar_Click;
             // 
@@ -580,24 +577,45 @@
             // 
             labelDesc.AutoSize = true;
             labelDesc.BackColor = Color.Transparent;
-            labelDesc.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            labelDesc.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             labelDesc.ForeColor = Color.FromArgb(51, 51, 51);
-            labelDesc.Location = new Point(104, 545);
+            labelDesc.Location = new Point(76, 566);
             labelDesc.Name = "labelDesc";
-            labelDesc.Size = new Size(195, 17);
+            labelDesc.Size = new Size(111, 18);
             labelDesc.TabIndex = 40;
-            labelDesc.Text = "Descripcion del Trabajo:";
+            labelDesc.Text = "Descripcion:";
             // 
             // textBoxDesc
             // 
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
             textBoxDesc.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            textBoxDesc.Location = new Point(310, 545);
+            textBoxDesc.Location = new Point(193, 567);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
-            textBoxDesc.Size = new Size(370, 89);
+            textBoxDesc.PlaceholderText = "\"Descripcion del trabajo a realizar\"";
+            textBoxDesc.Size = new Size(370, 83);
             textBoxDesc.TabIndex = 41;
+            // 
+            // lblLinea
+            // 
+            lblLinea.BackColor = Color.FromArgb(224, 224, 224);
+            lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblLinea.ForeColor = Color.Silver;
+            lblLinea.Location = new Point(33, 221);
+            lblLinea.Name = "lblLinea";
+            lblLinea.Size = new Size(800, 1);
+            lblLinea.TabIndex = 122;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.FromArgb(224, 224, 224);
+            label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Silver;
+            label1.Location = new Point(33, 502);
+            label1.Name = "label1";
+            label1.Size = new Size(800, 1);
+            label1.TabIndex = 123;
             // 
             // Presupuesto
             // 
@@ -608,6 +626,8 @@
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
+            Controls.Add(label1);
+            Controls.Add(lblLinea);
             Controls.Add(textBoxDesc);
             Controls.Add(labelDesc);
             Controls.Add(btnGenerar);
@@ -664,7 +684,6 @@
         private TextBox txtNombreRepo;
         private NumericUpDown nupCantidad;
         private Label lblCantidad;
-        private TextBox txtPrecioUni;
         private Label lblPrecioUni;
         private Button btnAgregarPresu;
         private Button btnEliminarPresu;
@@ -683,5 +702,8 @@
         private TextBox textBoxDesc;
         private TextBox txtKm;
         private Label lblKm;
+        private TextBox txtPrecioUni;
+        private Label lblLinea;
+        private Label label1;
     }
 }
