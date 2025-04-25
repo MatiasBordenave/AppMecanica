@@ -125,9 +125,6 @@ namespace AppMecanica
         {
             limpiarDataGridView();
             dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
-
-
-
         }
 
         private void btnRegistros_Click(object sender, EventArgs e)

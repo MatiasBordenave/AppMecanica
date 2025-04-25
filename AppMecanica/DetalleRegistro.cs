@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+using AppMecanica.Servicios;
 
 
 namespace AppMecanica
@@ -13,6 +14,7 @@ namespace AppMecanica
     {
         private Form formRegistro;
         private VehiculoDetalleDTO detalle;
+        private IPdfGenerator pdfGenerator = new PdfSharpGenerator();
         public DetalleRegistro(Form registro, VehiculoDetalleDTO detalle)
         {
             InitializeComponent();
@@ -67,59 +69,9 @@ namespace AppMecanica
             }
         }
 
-        private string SanitizeFileName(string input)
-        {
-            if (string.IsNullOrWhiteSpace(input))
-                return "ArchivoSinNombre";
-
-            foreach (char c in Path.GetInvalidFileNameChars())
-            {
-                input = input.Replace(c, '_');
-            }
-            return input;
-        }
-
-
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
-            var originalSize = panelRegistros.Size;
-            panelRegistros.Size = new Size(panelRegistros.Width, panelRegistros.DisplayRectangle.Height);
-
-            using (var bmp = new Bitmap(panelRegistros.Width, panelRegistros.Height))
-            {
-                panelRegistros.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
-                using (var pdf = new PdfDocument())
-                {
-                    var page = pdf.AddPage();
-                    page.Width = XUnit.FromPoint(bmp.Width * 72.0 / bmp.HorizontalResolution);
-                    page.Height = XUnit.FromPoint(bmp.Height * 72.0 / bmp.VerticalResolution);
-
-                    using (var gfx = XGraphics.FromPdfPage(page))
-                    {
-                        using (var ms = new MemoryStream())
-                        {
-                            bmp.Save(ms, ImageFormat.Png);
-                            ms.Position = 0;
-                            XImage img = XImage.FromStream(ms);
-                            gfx.DrawImage(img, 0, 0, page.Width, page.Height);
-                        }
-                    }
-                    using (var sfd = new SaveFileDialog())
-                    {
-                        sfd.Filter = "PDF files (*.pdf)|*.pdf";
-                        sfd.FileName = $"Registros de {SanitizeFileName(this.detalle.Titular)}";
-                        if (sfd.ShowDialog() == DialogResult.OK)
-                        {
-                            pdf.Save(sfd.FileName);
-                            MessageBox.Show($"PDF generado en:\n{sfd.FileName}",
-                                            "Éxito",
-                                            MessageBoxButtons.OK,
-                                            MessageBoxIcon.Information);
-                        }
-                    }
-                }
-            }
-            panelRegistros.Size = originalSize;
+            pdfGenerator.GenerarDesdePanel(panelRegistros, $"Registros de {detalle.Titular}");
         }
 
     }

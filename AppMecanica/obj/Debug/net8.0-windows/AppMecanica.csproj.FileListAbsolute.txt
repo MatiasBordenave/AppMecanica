@@ -208,7 +208,6 @@ C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-master\AppMecanica\obj
 C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-master\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.pdb
 C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-master\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.genruntimeconfig.cache
 C:\Users\facum\OneDrive\Escritorio\IMPORTANTE\AppMecanica-master\AppMecanica\obj\Debug\net8.0-windows\ref\AppMecanica.dll
-C:\Users\byfre\source\repos\AppMecanica\AppMecanica\bin\Debug\net8.0-windows\Data\.env
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.PresupuestoGenerado.resources
 C:\Users\byfre\Source\Repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.DetalleRegistro.resources
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.DetalleRegistro.resources

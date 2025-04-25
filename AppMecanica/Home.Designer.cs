@@ -49,7 +49,7 @@
             btnPresupuesto.Name = "btnPresupuesto";
             btnPresupuesto.Size = new Size(139, 60);
             btnPresupuesto.TabIndex = 7;
-            btnPresupuesto.Text = "Crear Un Presupuesto";
+            btnPresupuesto.Text = "CREAR PRESUPUESTO";
             btnPresupuesto.UseVisualStyleBackColor = false;
             btnPresupuesto.Click += btnPresupuesto_Click;
             // 
@@ -65,9 +65,9 @@
             btnRegistro.Location = new Point(925, 558);
             btnRegistro.Margin = new Padding(4);
             btnRegistro.Name = "btnRegistro";
-            btnRegistro.Size = new Size(134, 60);
+            btnRegistro.Size = new Size(139, 60);
             btnRegistro.TabIndex = 8;
-            btnRegistro.Text = "Regitro";
+            btnRegistro.Text = "REGISTRO";
             btnRegistro.UseVisualStyleBackColor = false;
             btnRegistro.Click += btnRegistro_Click;
             // 
