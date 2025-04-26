@@ -84,7 +84,7 @@
             btnVolverGenerado.Name = "btnVolverGenerado";
             btnVolverGenerado.Size = new Size(139, 60);
             btnVolverGenerado.TabIndex = 71;
-            btnVolverGenerado.Text = "Volver";
+            btnVolverGenerado.Text = "Volver al Formulario";
             btnVolverGenerado.UseVisualStyleBackColor = false;
             btnVolverGenerado.Click += btnVolverGenerado_Click;
             // 
@@ -99,7 +99,7 @@
             btnImg.Name = "btnImg";
             btnImg.Size = new Size(139, 60);
             btnImg.TabIndex = 70;
-            btnImg.Text = "Guardar Imagen";
+            btnImg.Text = "Guardar en Imagenes";
             btnImg.UseVisualStyleBackColor = false;
             btnImg.Click += btnImg_Click;
             // 
