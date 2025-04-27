@@ -95,19 +95,35 @@ namespace AppMecanica
 
         private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
-            if (!_validator.TryParseDecimal(txtPrecioUni, out var precio))
+            var camposRequeridos = new List<TextBox> { txtNombreRepo };
+
+            if (!_validator.AreRequiredFieldsFilled(camposRequeridos))
             {
-                _msg.ShowError("Ingrese un precio de repuesto válido.", "Error");
+                _msg.ShowError("Complete todos los campos", "Error");
                 return;
             }
+
+            if (nupCantidad.Value <= 0)
+            {
+                _msg.ShowError("La cantidad debe ser mayor a 0", "Error");
+                return;
+            }
+
+            if (!_validator.TryParseDecimal(txtPrecioUni, out var precio))
+            {
+                _msg.ShowError("Ingrese un precio de repuesto válido", "Error");
+                return;
+            }
+
             var cantidad = (int)nupCantidad.Value;
-            dataGridView1.Rows.Add(txtNombreRepo.Text.Trim(), cantidad, precio);
+            dataGridView1.Rows.Add(txtNombreRepo.Text.Trim(), cantidad);
 
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
             nupCantidad.Value = nupCantidad.Minimum;
             txtNombreRepo.Focus();
         }
+
 
         private void btnEliminarPresu_Click(object sender, EventArgs e)
         {

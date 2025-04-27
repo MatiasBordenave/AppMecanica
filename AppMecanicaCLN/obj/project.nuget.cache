@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JcpumeDya6I=",
+  "dgSpecHash": "JfxQMolYmq0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCLN\\AppMecanicaCLN.csproj",
+  "projectFilePath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCLN\\AppMecanicaCLN.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\byfre\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\byfre\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -28,12 +28,5 @@
     "C:\\Users\\byfre\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\byfre\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCLN\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

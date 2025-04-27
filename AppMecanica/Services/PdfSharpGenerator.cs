@@ -14,6 +14,10 @@ namespace AppMecanica.Servicios
             var originalSize = panel.Size;
             panel.Size = new Size(panel.Width, panel.DisplayRectangle.Height);
 
+            // Forzamos que el panel se actualice
+            panel.PerformLayout();
+            panel.Refresh();
+
             using (var bmp = new Bitmap(panel.Width, panel.Height))
             {
                 panel.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
@@ -41,7 +45,7 @@ namespace AppMecanica.Servicios
                         if (sfd.ShowDialog() == DialogResult.OK)
                         {
                             pdf.Save(sfd.FileName);
-                            MessageBox.Show($"PDF generado en:\n{sfd.FileName}",
+                            MessageBox.Show($"PDF generado Exitosamente",
                                             "Éxito",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Information);
@@ -51,6 +55,7 @@ namespace AppMecanica.Servicios
             }
             panel.Size = originalSize;
         }
+
         private string SanitizeFileName(string input)
         {
             if (string.IsNullOrWhiteSpace(input))

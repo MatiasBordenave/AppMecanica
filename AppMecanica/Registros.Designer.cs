@@ -31,7 +31,6 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             dgvRegistros = new DataGridView();
-            txtBuscar = new TextBox();
             btnVolverRegistro = new Button();
             btnDetalles = new Button();
             btnBuscar = new Button();
@@ -42,6 +41,7 @@
             flpPaginas = new FlowLayoutPanel();
             btnAnteriorDGV = new Button();
             btnSiguienteDGV = new Button();
+            txtBuscar = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Window;
             dataGridViewCellStyle4.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = Color.Gray;
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
@@ -74,18 +74,6 @@
             dgvRegistros.TabIndex = 0;
             dgvRegistros.CellContentClick += dgvRegistros_CellContentClick;
             // 
-            // txtBuscar
-            // 
-            txtBuscar.BackColor = Color.FromArgb(224, 224, 224);
-            txtBuscar.BorderStyle = BorderStyle.FixedSingle;
-            txtBuscar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBuscar.Location = new Point(24, 46);
-            txtBuscar.Margin = new Padding(3, 2, 3, 2);
-            txtBuscar.Multiline = true;
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(197, 29);
-            txtBuscar.TabIndex = 2;
-            // 
             // btnVolverRegistro
             // 
             btnVolverRegistro.BackColor = Color.FromArgb(251, 176, 48);
@@ -97,7 +85,7 @@
             btnVolverRegistro.Name = "btnVolverRegistro";
             btnVolverRegistro.Size = new Size(139, 60);
             btnVolverRegistro.TabIndex = 7;
-            btnVolverRegistro.Text = "Volver";
+            btnVolverRegistro.Text = "Volver al menú principal";
             btnVolverRegistro.UseVisualStyleBackColor = false;
             btnVolverRegistro.Click += btnVolverRegistro_Click;
             // 
@@ -122,10 +110,10 @@
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnBuscar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnBuscar.Location = new Point(238, 46);
+            btnBuscar.Location = new Point(227, 40);
             btnBuscar.Margin = new Padding(3, 2, 3, 2);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(109, 29);
+            btnBuscar.Size = new Size(99, 29);
             btnBuscar.TabIndex = 9;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
@@ -136,7 +124,7 @@
             btnClientes.BackColor = Color.FromArgb(51, 51, 51);
             btnClientes.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnClientes.ForeColor = Color.White;
-            btnClientes.Location = new Point(963, 287);
+            btnClientes.Location = new Point(947, 144);
             btnClientes.Margin = new Padding(3, 2, 3, 2);
             btnClientes.Name = "btnClientes";
             btnClientes.Size = new Size(109, 40);
@@ -150,7 +138,7 @@
             btnVehiculos.BackColor = Color.FromArgb(51, 51, 51);
             btnVehiculos.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnVehiculos.ForeColor = Color.White;
-            btnVehiculos.Location = new Point(963, 331);
+            btnVehiculos.Location = new Point(947, 188);
             btnVehiculos.Margin = new Padding(3, 2, 3, 2);
             btnVehiculos.Name = "btnVehiculos";
             btnVehiculos.Size = new Size(109, 40);
@@ -164,7 +152,7 @@
             btnRegistros.BackColor = Color.FromArgb(51, 51, 51);
             btnRegistros.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnRegistros.ForeColor = Color.White;
-            btnRegistros.Location = new Point(963, 375);
+            btnRegistros.Location = new Point(947, 232);
             btnRegistros.Margin = new Padding(3, 2, 3, 2);
             btnRegistros.Name = "btnRegistros";
             btnRegistros.Size = new Size(109, 40);
@@ -178,7 +166,7 @@
             btnResetDgv.BackColor = Color.FromArgb(51, 51, 51);
             btnResetDgv.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnResetDgv.ForeColor = Color.White;
-            btnResetDgv.Location = new Point(963, 90);
+            btnResetDgv.Location = new Point(947, 100);
             btnResetDgv.Margin = new Padding(3, 2, 3, 2);
             btnResetDgv.Name = "btnResetDgv";
             btnResetDgv.Size = new Size(109, 40);
@@ -205,7 +193,7 @@
             btnAnteriorDGV.Location = new Point(24, 606);
             btnAnteriorDGV.Margin = new Padding(3, 2, 3, 2);
             btnAnteriorDGV.Name = "btnAnteriorDGV";
-            btnAnteriorDGV.Size = new Size(109, 29);
+            btnAnteriorDGV.Size = new Size(99, 29);
             btnAnteriorDGV.TabIndex = 19;
             btnAnteriorDGV.Text = "Anterior";
             btnAnteriorDGV.UseVisualStyleBackColor = false;
@@ -221,11 +209,23 @@
             btnSiguienteDGV.Location = new Point(773, 606);
             btnSiguienteDGV.Margin = new Padding(3, 2, 3, 2);
             btnSiguienteDGV.Name = "btnSiguienteDGV";
-            btnSiguienteDGV.Size = new Size(109, 29);
+            btnSiguienteDGV.Size = new Size(99, 29);
             btnSiguienteDGV.TabIndex = 18;
             btnSiguienteDGV.Text = "Siguiente";
             btnSiguienteDGV.UseVisualStyleBackColor = false;
             btnSiguienteDGV.Click += btnSiguienteDGV_Click;
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.BackColor = Color.FromArgb(224, 224, 224);
+            txtBuscar.BorderStyle = BorderStyle.FixedSingle;
+            txtBuscar.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            txtBuscar.Location = new Point(24, 46);
+            txtBuscar.Margin = new Padding(3, 2, 3, 2);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Buscar por cliente...";
+            txtBuscar.Size = new Size(197, 23);
+            txtBuscar.TabIndex = 21;
             // 
             // Registros
             // 
@@ -236,6 +236,7 @@
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
+            Controls.Add(txtBuscar);
             Controls.Add(flpPaginas);
             Controls.Add(btnAnteriorDGV);
             Controls.Add(btnSiguienteDGV);
@@ -246,7 +247,6 @@
             Controls.Add(btnBuscar);
             Controls.Add(btnDetalles);
             Controls.Add(btnVolverRegistro);
-            Controls.Add(txtBuscar);
             Controls.Add(dgvRegistros);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -265,7 +265,6 @@
         #endregion
 
         private DataGridView dgvRegistros;
-        private TextBox txtBuscar;
         private Button btnVolverRegistro;
         private Button btnDetalles;
         private Button btnBuscar;
@@ -276,5 +275,6 @@
         private FlowLayoutPanel flpPaginas;
         private Button btnAnteriorDGV;
         private Button btnSiguienteDGV;
+        private TextBox txtBuscar;
     }
 }

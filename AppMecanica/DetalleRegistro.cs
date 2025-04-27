@@ -40,7 +40,7 @@ namespace AppMecanica
 
         private void CargarTabsRegistros()
         {
-            int yOffset = 10; // Espacio desde arriba
+            int yOffset = 10;
 
             foreach (var registro in detalle.Registros)
             {
@@ -68,6 +68,8 @@ namespace AppMecanica
                 yOffset += tarjeta.Height + 10;
             }
         }
+
+
 
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
