@@ -17,7 +17,7 @@
       "projectName": "AppMecanicaEntidades",
       "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
       "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\obj\\",
+      "outputPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\byfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,5 +69,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

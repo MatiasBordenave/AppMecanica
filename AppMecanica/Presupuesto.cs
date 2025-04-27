@@ -44,7 +44,10 @@ namespace AppMecanica
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
+
+          
             OcultarAsteriscos();
+            
             AttachDecimalOnly(
                 txtTelefono, txtAño, txtPrecioUni,
                 txtCantidadHoras, txtPrecioHora, txtKm);
@@ -229,6 +232,15 @@ namespace AppMecanica
 
             var generado = new PresupuestoGenerado(this, data, printService, exportService);
             generado.Show();
+            OcultarAsteriscos();
+            var controles = new Control[]
+          {
+                txtCantidadHoras, txtPrecioHora, txtNombreRepo, txtPrecioUni,
+                txtTitular, txtTelefono, txtDomicilio, txtModelo,
+                txtMarca, txtPatente, txtAño, txtKm, textBoxDesc,
+                dataGridView1, nupCantidad
+          };
+            _cleaner.ClearControls(controles);
             this.Hide();
         }
 
