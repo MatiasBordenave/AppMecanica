@@ -20,6 +20,8 @@ namespace AppMecanica
         private readonly IRepuestoMapper _mapper;
         private readonly ITotalCalculator _calculator;
         private readonly Form _homeForm;
+        private readonly Label[] _asteriscoLblRegistro;
+        private readonly Label[] _asteriscosLblPresupuesto;
 
         public Presupuesto(
             Form homeForm,
@@ -40,14 +42,23 @@ namespace AppMecanica
             _registroFactory = registroFactory;
             _registroService = registroService;
             _msg = messageService;
+
+            _asteriscoLblRegistro = new[]
+            {
+                lblAsTitu, lblAsTele, lblAsModelo, lblAsMarca,
+                lblAsAño, lblAsDomicilio, lblAsKm, lblAsPatente, 
+                lblAsHoras, lblAsPxH, lblAsDesc
+            };
+
+            _asteriscosLblPresupuesto = new[]
+            {
+                lblAsTitu, lblAsTele, lblAsModelo, lblAsMarca, lblAsAño
+            };
         }
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
-
-          
             OcultarAsteriscos();
-            
             AttachDecimalOnly(
                 txtTelefono, txtAño, txtPrecioUni,
                 txtCantidadHoras, txtPrecioHora, txtKm);
@@ -56,28 +67,6 @@ namespace AppMecanica
                 txtModelo, txtMarca, txtPatente, txtAño, txtKm);
         }
 
-        private void OcultarAsteriscos()
-        {
-            lblAsTitu.Visible = false;
-            lblAsTele.Visible = false;
-            lblAsModelo.Visible = false;
-            lblAsMarca.Visible = false;
-            lblAsAño.Visible = false;
-
-            // Agregá todos los label que uses como asteriscos obligatorios
-        }
-
-
-        private void MostrarAsteriscos()
-        {
-            lblAsTitu.Visible = true;
-            lblAsTele.Visible = true;
-            lblAsModelo.Visible = true;
-            lblAsMarca.Visible = true;
-            lblAsAño.Visible = true;
-
-            // Agregá todos los label que uses como asteriscos obligatorios
-        }
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
             _homeForm.Show();
@@ -119,14 +108,14 @@ namespace AppMecanica
             }
 
             var cantidad = (int)nupCantidad.Value;
-            dataGridView1.Rows.Add(txtNombreRepo.Text.Trim(), cantidad);
+            dataGridView1.Rows.Add(txtNombreRepo.Text.Trim(), cantidad, precio);
+
 
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
             nupCantidad.Value = nupCantidad.Minimum;
             txtNombreRepo.Focus();
         }
-
 
         private void btnEliminarPresu_Click(object sender, EventArgs e)
         {
@@ -135,11 +124,11 @@ namespace AppMecanica
                 _msg.ShowWarning("Seleccioná una fila para eliminar.", "Atención");
                 return;
             }
+
             if (_msg.ShowConfirmation(
                 "¿Seguro que querés eliminar el repuesto seleccionado?", "Eliminar"))
             {
-                dataGridView1.Rows.RemoveAt(
-                    dataGridView1.SelectedRows[0].Index);
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             }
         }
 
@@ -197,7 +186,7 @@ namespace AppMecanica
             if (!_validator.AreRequiredFieldsFilled(
                 new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño }))
             {
-                MostrarAsteriscos();
+                MostrarAsteriscos(_asteriscosLblPresupuesto);
                 _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
                 return;
             }
@@ -233,15 +222,45 @@ namespace AppMecanica
             var generado = new PresupuestoGenerado(this, data, printService, exportService);
             generado.Show();
             OcultarAsteriscos();
-            var controles = new Control[]
-          {
+            _cleaner.ClearControls(new Control[]
+            {
                 txtCantidadHoras, txtPrecioHora, txtNombreRepo, txtPrecioUni,
                 txtTitular, txtTelefono, txtDomicilio, txtModelo,
                 txtMarca, txtPatente, txtAño, txtKm, textBoxDesc,
                 dataGridView1, nupCantidad
-          };
-            _cleaner.ClearControls(controles);
+            });
             this.Hide();
+        }
+
+        private void OcultarAsteriscos()
+        {
+            foreach (var label in _asteriscoLblRegistro)
+            {
+                label.Visible = false;
+            }
+        }
+
+        private void MostrarAsteriscos(IEnumerable<Label> labelsToShow = null)
+        {
+            foreach (var label in _asteriscoLblRegistro)
+            {
+                label.Visible = false;
+            }
+
+            if (labelsToShow != null)
+            {
+                foreach (var label in labelsToShow)
+                {
+                    label.Visible = true;
+                }
+            }
+            else
+            {
+                foreach (var label in _asteriscoLblRegistro)
+                {
+                    label.Visible = true;
+                }
+            }
         }
 
         private void AttachDecimalOnly(params TextBox[] textBoxes)

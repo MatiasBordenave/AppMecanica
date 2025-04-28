@@ -48,6 +48,8 @@
             // 
             // dgvRegistros
             // 
+            dgvRegistros.AllowUserToAddRows = false;
+            dgvRegistros.AllowUserToDeleteRows = false;
             dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRegistros.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -70,6 +72,7 @@
             dgvRegistros.Location = new Point(24, 90);
             dgvRegistros.Margin = new Padding(3, 2, 3, 2);
             dgvRegistros.Name = "dgvRegistros";
+            dgvRegistros.ReadOnly = true;
             dgvRegistros.RowHeadersWidth = 51;
             dgvRegistros.Size = new Size(858, 477);
             dgvRegistros.TabIndex = 0;

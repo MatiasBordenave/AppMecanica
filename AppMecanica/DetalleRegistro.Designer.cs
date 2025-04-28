@@ -57,7 +57,7 @@
             btnVolverDetalle.Name = "btnVolverDetalle";
             btnVolverDetalle.Size = new Size(139, 60);
             btnVolverDetalle.TabIndex = 3;
-            btnVolverDetalle.Text = "Volver a Registro";
+            btnVolverDetalle.Text = "Volver a Registros";
             btnVolverDetalle.UseVisualStyleBackColor = false;
             btnVolverDetalle.Click += btnVolverDetalle_Click;
             // 
@@ -182,7 +182,7 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(673, 23);
+            pictureBox2.Location = new Point(678, 24);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(122, 87);
