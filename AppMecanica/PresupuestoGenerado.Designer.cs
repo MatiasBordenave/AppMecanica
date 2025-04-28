@@ -372,11 +372,11 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("HomepageBaukasten Bold", 23.9999962F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.FromArgb(51, 51, 51);
             lblTitulo.Location = new Point(63, 32);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(348, 45);
+            lblTitulo.Size = new Size(366, 36);
             lblTitulo.TabIndex = 114;
             lblTitulo.Text = "Presupuesto  - Nro 01";
             // 
@@ -475,6 +475,7 @@
             Controls.Add(btnImprimir);
             Controls.Add(btnImg);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "PresupuestoGenerado";
             StartPosition = FormStartPosition.CenterScreen;

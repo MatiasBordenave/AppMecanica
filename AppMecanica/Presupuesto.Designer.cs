@@ -574,7 +574,7 @@
             // 
             // groupBox2
             // 
-            groupBox2.BackColor = Color.Transparent;
+            groupBox2.BackColor = Color.WhiteSmoke;
             groupBox2.Controls.Add(txtPrecioUni);
             groupBox2.Controls.Add(lblNombreRepo);
             groupBox2.Controls.Add(btnEliminarPresu);
@@ -658,7 +658,6 @@
             textBoxDesc.Location = new Point(193, 567);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
-            textBoxDesc.PlaceholderText = "\"Descripcion del trabajo a realizar\"";
             textBoxDesc.Size = new Size(370, 83);
             textBoxDesc.TabIndex = 41;
             // 

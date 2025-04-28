@@ -22,7 +22,7 @@ namespace AppMecanica
             formRegistro = registro;
             this.detalle = detalle;
 
-            lblVehiculoCliente.Text = $"Registros de {detalle.Titular} -- {detalle.Marca} {detalle.Modelo} -- {detalle.Patente}";
+            lblVehiculoCliente.Text = $"Registros de {detalle.Titular} | {detalle.Marca} {detalle.Modelo} | {detalle.Patente}";
 
 
         }
@@ -67,7 +67,14 @@ namespace AppMecanica
 
                 yOffset += tarjeta.Height + 10;
             }
+
+            Panel espacioFinal = new Panel();
+            espacioFinal.Size = new Size(panelRegistros.Width - 30, 10);
+            espacioFinal.Location = new Point(10, yOffset);
+
+            panelRegistros.Controls.Add(espacioFinal);
         }
+
 
 
 

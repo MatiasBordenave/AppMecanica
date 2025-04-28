@@ -81,8 +81,8 @@
             // 
             lblVehiculoCliente.AutoSize = true;
             lblVehiculoCliente.BackColor = Color.Transparent;
-            lblVehiculoCliente.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            lblVehiculoCliente.Location = new Point(42, 121);
+            lblVehiculoCliente.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblVehiculoCliente.Location = new Point(52, 114);
             lblVehiculoCliente.Name = "lblVehiculoCliente";
             lblVehiculoCliente.Size = new Size(119, 18);
             lblVehiculoCliente.TabIndex = 61;
@@ -92,9 +92,9 @@
             // 
             panelRegistros.AutoScroll = true;
             panelRegistros.BackColor = SystemColors.ButtonHighlight;
-            panelRegistros.Location = new Point(12, 164);
+            panelRegistros.Location = new Point(12, 152);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(1060, 410);
+            panelRegistros.Size = new Size(1060, 421);
             panelRegistros.TabIndex = 62;
             // 
             // label1
@@ -194,7 +194,7 @@
             // 
             lblLinea.BackColor = Color.Silver;
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLinea.Location = new Point(22, 148);
+            lblLinea.Location = new Point(22, 137);
             lblLinea.Name = "lblLinea";
             lblLinea.Size = new Size(1050, 1);
             lblLinea.TabIndex = 141;

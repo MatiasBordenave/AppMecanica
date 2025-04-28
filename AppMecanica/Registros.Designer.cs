@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registros));
             dgvRegistros = new DataGridView();
             btnVolverRegistro = new Button();
             btnDetalles = new Button();
@@ -49,23 +50,23 @@
             // 
             dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRegistros.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(51, 51, 51);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvRegistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(51, 51, 51);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvRegistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRegistros.Location = new Point(24, 90);
             dgvRegistros.Margin = new Padding(3, 2, 3, 2);
             dgvRegistros.Name = "dgvRegistros";
@@ -100,22 +101,23 @@
             btnDetalles.Name = "btnDetalles";
             btnDetalles.Size = new Size(139, 60);
             btnDetalles.TabIndex = 8;
-            btnDetalles.Text = "Ver Detalles";
+            btnDetalles.Text = "Ver Detalles del Cliente";
             btnDetalles.UseVisualStyleBackColor = false;
             btnDetalles.Click += btnDetalles_Click;
             // 
             // btnBuscar
             // 
-            btnBuscar.BackColor = Color.FromArgb(251, 176, 48);
-            btnBuscar.FlatStyle = FlatStyle.Flat;
-            btnBuscar.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnBuscar.BackColor = Color.White;
+            btnBuscar.FlatAppearance.BorderSize = 0;
+            btnBuscar.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnBuscar.Font = new Font("Microsoft JhengHei", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnBuscar.Location = new Point(227, 40);
-            btnBuscar.Margin = new Padding(3, 2, 3, 2);
+            btnBuscar.Location = new Point(229, 43);
+            btnBuscar.Margin = new Padding(0);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(99, 29);
+            btnBuscar.Size = new Size(35, 35);
             btnBuscar.TabIndex = 9;
-            btnBuscar.Text = "Buscar";
+            btnBuscar.Text = "🔎";
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
@@ -178,15 +180,17 @@
             // flpPaginas
             // 
             flpPaginas.BackColor = Color.Transparent;
-            flpPaginas.Location = new Point(172, 602);
+            flpPaginas.Location = new Point(129, 602);
             flpPaginas.Name = "flpPaginas";
-            flpPaginas.Size = new Size(573, 33);
+            flpPaginas.Size = new Size(638, 33);
             flpPaginas.TabIndex = 20;
             // 
             // btnAnteriorDGV
             // 
             btnAnteriorDGV.BackColor = Color.FromArgb(51, 51, 51);
+            btnAnteriorDGV.FlatAppearance.BorderColor = Color.White;
             btnAnteriorDGV.FlatAppearance.BorderSize = 0;
+            btnAnteriorDGV.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnAnteriorDGV.FlatStyle = FlatStyle.Flat;
             btnAnteriorDGV.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnAnteriorDGV.ForeColor = Color.White;
@@ -203,6 +207,7 @@
             // 
             btnSiguienteDGV.BackColor = Color.FromArgb(51, 51, 51);
             btnSiguienteDGV.FlatAppearance.BorderSize = 0;
+            btnSiguienteDGV.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnSiguienteDGV.FlatStyle = FlatStyle.Flat;
             btnSiguienteDGV.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
             btnSiguienteDGV.ForeColor = Color.White;
@@ -220,7 +225,7 @@
             txtBuscar.BackColor = Color.FromArgb(224, 224, 224);
             txtBuscar.BorderStyle = BorderStyle.FixedSingle;
             txtBuscar.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtBuscar.Location = new Point(24, 46);
+            txtBuscar.Location = new Point(24, 49);
             txtBuscar.Margin = new Padding(3, 2, 3, 2);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Buscar por cliente...";
@@ -250,6 +255,7 @@
             Controls.Add(dgvRegistros);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimumSize = new Size(800, 598);
