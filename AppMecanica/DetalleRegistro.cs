@@ -80,7 +80,11 @@ namespace AppMecanica
 
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
-            pdfGenerator.GenerarDesdePanel(panelRegistros, $"Registros de {detalle.Titular}");
+            btnGenerarPDF.Hide();
+            btnVolverDetalle.Hide();
+            pdfGenerator.GenerarDesdePanel(panelContenedor, $"Registros de {detalle.Titular}");
+            btnGenerarPDF.Show();
+            btnVolverDetalle.Show();
         }
 
     }

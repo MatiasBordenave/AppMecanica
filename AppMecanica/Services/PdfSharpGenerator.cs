@@ -14,7 +14,6 @@ namespace AppMecanica.Servicios
             var originalSize = panel.Size;
             panel.Size = new Size(panel.Width, panel.DisplayRectangle.Height);
 
-            // Forzamos que el panel se actualice
             panel.PerformLayout();
             panel.Refresh();
 

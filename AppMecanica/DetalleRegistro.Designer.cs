@@ -42,7 +42,9 @@
             datosMecanico2 = new Label();
             pictureBox2 = new PictureBox();
             lblLinea = new Label();
+            panelContenedor = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panelContenedor.SuspendLayout();
             SuspendLayout();
             // 
             // btnVolverDetalle
@@ -82,7 +84,7 @@
             lblVehiculoCliente.AutoSize = true;
             lblVehiculoCliente.BackColor = Color.Transparent;
             lblVehiculoCliente.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblVehiculoCliente.Location = new Point(52, 114);
+            lblVehiculoCliente.Location = new Point(31, 102);
             lblVehiculoCliente.Name = "lblVehiculoCliente";
             lblVehiculoCliente.Size = new Size(119, 18);
             lblVehiculoCliente.TabIndex = 61;
@@ -92,7 +94,7 @@
             // 
             panelRegistros.AutoScroll = true;
             panelRegistros.BackColor = SystemColors.ButtonHighlight;
-            panelRegistros.Location = new Point(12, 152);
+            panelRegistros.Location = new Point(12, 147);
             panelRegistros.Name = "panelRegistros";
             panelRegistros.Size = new Size(1060, 421);
             panelRegistros.TabIndex = 62;
@@ -101,7 +103,7 @@
             // 
             label1.BackColor = Color.Silver;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(807, 22);
+            label1.Location = new Point(802, 20);
             label1.Name = "label1";
             label1.Size = new Size(1, 100);
             label1.TabIndex = 140;
@@ -112,7 +114,7 @@
             nombreMecanico.BackColor = Color.Transparent;
             nombreMecanico.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold);
             nombreMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            nombreMecanico.Location = new Point(904, 23);
+            nombreMecanico.Location = new Point(899, 21);
             nombreMecanico.Name = "nombreMecanico";
             nombreMecanico.Size = new Size(132, 18);
             nombreMecanico.TabIndex = 134;
@@ -124,7 +126,7 @@
             datosMecanico.BackColor = Color.Transparent;
             datosMecanico.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             datosMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            datosMecanico.Location = new Point(814, 23);
+            datosMecanico.Location = new Point(809, 21);
             datosMecanico.Name = "datosMecanico";
             datosMecanico.Size = new Size(90, 18);
             datosMecanico.TabIndex = 133;
@@ -136,7 +138,7 @@
             TelefonoMecanico.BackColor = Color.Transparent;
             TelefonoMecanico.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold);
             TelefonoMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            TelefonoMecanico.Location = new Point(906, 93);
+            TelefonoMecanico.Location = new Point(901, 91);
             TelefonoMecanico.Name = "TelefonoMecanico";
             TelefonoMecanico.Size = new Size(128, 18);
             TelefonoMecanico.TabIndex = 139;
@@ -148,7 +150,7 @@
             direccionMecanico.BackColor = Color.Transparent;
             direccionMecanico.Font = new Font("BreezeSans", 11.25F, FontStyle.Bold);
             direccionMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            direccionMecanico.Location = new Point(906, 57);
+            direccionMecanico.Location = new Point(901, 55);
             direccionMecanico.Name = "direccionMecanico";
             direccionMecanico.Size = new Size(166, 18);
             direccionMecanico.TabIndex = 138;
@@ -160,7 +162,7 @@
             datosMecanico3.BackColor = Color.Transparent;
             datosMecanico3.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             datosMecanico3.ForeColor = Color.FromArgb(51, 51, 51);
-            datosMecanico3.Location = new Point(814, 93);
+            datosMecanico3.Location = new Point(809, 91);
             datosMecanico3.Name = "datosMecanico3";
             datosMecanico3.Size = new Size(86, 18);
             datosMecanico3.TabIndex = 137;
@@ -172,7 +174,7 @@
             datosMecanico2.BackColor = Color.Transparent;
             datosMecanico2.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
             datosMecanico2.ForeColor = Color.FromArgb(51, 51, 51);
-            datosMecanico2.Location = new Point(814, 57);
+            datosMecanico2.Location = new Point(809, 55);
             datosMecanico2.Name = "datosMecanico2";
             datosMecanico2.Size = new Size(92, 18);
             datosMecanico2.TabIndex = 136;
@@ -182,7 +184,7 @@
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(678, 24);
+            pictureBox2.Location = new Point(673, 22);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(122, 87);
@@ -194,10 +196,30 @@
             // 
             lblLinea.BackColor = Color.Silver;
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLinea.Location = new Point(22, 137);
+            lblLinea.Location = new Point(17, 132);
             lblLinea.Name = "lblLinea";
             lblLinea.Size = new Size(1050, 1);
             lblLinea.TabIndex = 141;
+            // 
+            // panelContenedor
+            // 
+            panelContenedor.BackColor = Color.Transparent;
+            panelContenedor.Controls.Add(panelRegistros);
+            panelContenedor.Controls.Add(lblLinea);
+            panelContenedor.Controls.Add(lblVehiculoCliente);
+            panelContenedor.Controls.Add(pictureBox2);
+            panelContenedor.Controls.Add(label1);
+            panelContenedor.Controls.Add(datosMecanico2);
+            panelContenedor.Controls.Add(nombreMecanico);
+            panelContenedor.Controls.Add(datosMecanico3);
+            panelContenedor.Controls.Add(datosMecanico);
+            panelContenedor.Controls.Add(direccionMecanico);
+            panelContenedor.Controls.Add(TelefonoMecanico);
+            panelContenedor.Dock = DockStyle.Fill;
+            panelContenedor.Location = new Point(0, 0);
+            panelContenedor.Name = "panelContenedor";
+            panelContenedor.Size = new Size(1084, 661);
+            panelContenedor.TabIndex = 142;
             // 
             // DetalleRegistro
             // 
@@ -206,19 +228,9 @@
             AutoScroll = true;
             BackgroundImage = Properties.Resources.bg1;
             ClientSize = new Size(1084, 661);
-            Controls.Add(lblLinea);
-            Controls.Add(label1);
-            Controls.Add(nombreMecanico);
-            Controls.Add(datosMecanico);
-            Controls.Add(TelefonoMecanico);
-            Controls.Add(direccionMecanico);
-            Controls.Add(datosMecanico3);
-            Controls.Add(datosMecanico2);
-            Controls.Add(pictureBox2);
-            Controls.Add(panelRegistros);
-            Controls.Add(lblVehiculoCliente);
             Controls.Add(btnGenerarPDF);
             Controls.Add(btnVolverDetalle);
+            Controls.Add(panelContenedor);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimumSize = new Size(800, 600);
@@ -227,8 +239,9 @@
             Text = "Ocaranza Mecanica Software";
             Load += DetalleRegistro_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panelContenedor.ResumeLayout(false);
+            panelContenedor.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -246,5 +259,6 @@
         private Label datosMecanico2;
         private PictureBox pictureBox2;
         private Label lblLinea;
+        private Panel panelContenedor;
     }
 }

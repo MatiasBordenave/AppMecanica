@@ -66,6 +66,33 @@ namespace AppMecanica
             BloquearCopiarPegar(
                 txtTitular, txtTelefono, txtDomicilio,
                 txtModelo, txtMarca, txtPatente, txtAño, txtKm);
+
+            MaximoRango();
+        }
+
+        private void MaximoRango()
+        {
+            var configuraciones = new (TextBox textBox, int maxLength)[]
+            {
+        (textBoxDesc, 200),
+        (txtTitular, 35),
+        (txtTelefono, 10),
+        (txtDomicilio, 30),
+        (txtMarca, 20),
+        (txtModelo, 20),
+        (txtPatente, 9),
+        (txtAño, 4),
+        (txtKm, 7),
+        (txtNombreRepo, 30),
+        (txtPrecioUni, 7),
+        (txtCantidadHoras, 3),
+        (txtPrecioHora, 6)
+            };
+
+            foreach (var (textBox, maxLength) in configuraciones)
+            {
+                textBox.MaxLength = maxLength;
+            }
         }
 
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
@@ -135,7 +162,6 @@ namespace AppMecanica
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            // 1) Validación de campos obligatorios...
             var obligatorios = new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño, txtPatente };
             if (!_validator.AreRequiredFieldsFilled(obligatorios))
             {
@@ -143,8 +169,6 @@ namespace AppMecanica
                 _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
                 return;
             }
-
-            // 2) Parse numérico...
             if (!_validator.TryParseDecimal(txtCantidadHoras, out var horas) ||
                 !_validator.TryParseDecimal(txtPrecioHora, out var precioHora) ||
                 !int.TryParse(txtKm.Text.Trim(), out var kilometraje) ||
@@ -154,7 +178,6 @@ namespace AppMecanica
                 return;
             }
 
-            // 3) Validar patente...
             var patente = txtPatente.Text.Trim().ToUpper();
             if (!Regex.IsMatch(patente, "^[A-Z]{3}\\d{3}$"))
             {
@@ -162,7 +185,6 @@ namespace AppMecanica
                 return;
             }
 
-            // 4) Mapeo de repuestos y cálculos en front
             var repuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(repuestos);
             var totalLaborHoras = _calculator.CalculateLaborCost(horas, precioHora);
@@ -170,19 +192,19 @@ namespace AppMecanica
 
             try
             {
-                // 5) Crear el Registro con todos los datos
+
                 var registro = _registroFactory.CreateRegistro(
                     textBoxDesc.Text.Trim(),
                     totalRepuestos,
                     horas,
                     precioHora,
-                    totalLaborHoras,   // precioTotalHoras
-                    totalGeneral,      // precioTotal
+                    totalLaborHoras,   
+                    totalGeneral,      
                     kilometraje,
-                    repuestos          // <-- lista completa de repuestos
+                    repuestos          
                 );
 
-                // 6) Mensaje si cliente existe...
+
                 if (_registroService.ClienteExiste(patente))
                 {
                     _msg.ShowInfo(
@@ -191,7 +213,7 @@ namespace AppMecanica
                     );
                 }
 
-                // 7) Guardar en la capa de negocio / servicio
+
                 _registroService.SaveRegistro(
                     txtTitular.Text.Trim(),
                     txtTelefono.Text.Trim(),
@@ -204,7 +226,7 @@ namespace AppMecanica
                     registro,
                     repuestos);
 
-                // 8) Éxito y navegación
+ 
                 _msg.ShowInfo("Registro procesado correctamente.", "Éxito");
                 new Registros(_homeForm).Show();
                 this.Hide();

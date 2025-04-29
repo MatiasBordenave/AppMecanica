@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Presupuesto));
             btnVolverPresupuesto = new Button();
             btnGuardar = new Button();
@@ -128,7 +128,7 @@
             txtTitular.BackColor = Color.FromArgb(224, 224, 224);
             txtTitular.BorderStyle = BorderStyle.FixedSingle;
             txtTitular.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtTitular.Location = new Point(221, 42);
+            txtTitular.Location = new Point(213, 43);
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
             txtTitular.Size = new Size(153, 23);
@@ -148,7 +148,7 @@
             // 
             lblTitular.AutoSize = true;
             lblTitular.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
-            lblTitular.Location = new Point(149, 42);
+            lblTitular.Location = new Point(141, 43);
             lblTitular.Name = "lblTitular";
             lblTitular.Size = new Size(66, 18);
             lblTitular.TabIndex = 7;
@@ -191,7 +191,7 @@
             // 
             lblModelo.AutoSize = true;
             lblModelo.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
-            lblModelo.Location = new Point(63, 147);
+            lblModelo.Location = new Point(55, 148);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(152, 18);
             lblModelo.TabIndex = 12;
@@ -212,7 +212,7 @@
             txtModelo.BackColor = Color.FromArgb(224, 224, 224);
             txtModelo.BorderStyle = BorderStyle.FixedSingle;
             txtModelo.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtModelo.Location = new Point(220, 147);
+            txtModelo.Location = new Point(212, 148);
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(153, 23);
@@ -284,37 +284,37 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(51, 51, 51);
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(51, 51, 51);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRespuesto, CantidadRepuesto, PrecioRepuesto });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = Color.Gray;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.Gray;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
             dataGridView1.Location = new Point(76, 342);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(690, 145);
             dataGridView1.TabIndex = 26;
@@ -495,7 +495,7 @@
             lblAsDomicilio.AutoSize = true;
             lblAsDomicilio.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsDomicilio.ForeColor = Color.Red;
-            lblAsDomicilio.Location = new Point(379, 107);
+            lblAsDomicilio.Location = new Point(371, 108);
             lblAsDomicilio.Name = "lblAsDomicilio";
             lblAsDomicilio.Size = new Size(18, 24);
             lblAsDomicilio.TabIndex = 46;
@@ -527,7 +527,7 @@
             txtDomicilio.BackColor = Color.FromArgb(224, 224, 224);
             txtDomicilio.BorderStyle = BorderStyle.FixedSingle;
             txtDomicilio.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtDomicilio.Location = new Point(220, 108);
+            txtDomicilio.Location = new Point(212, 109);
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(153, 23);
@@ -538,9 +538,10 @@
             txtTelefono.BackColor = Color.FromArgb(224, 224, 224);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
             txtTelefono.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
-            txtTelefono.Location = new Point(221, 75);
+            txtTelefono.Location = new Point(213, 76);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
+            txtTelefono.PlaceholderText = "Ejemplo: 3816566750";
             txtTelefono.Size = new Size(153, 23);
             txtTelefono.TabIndex = 18;
             // 
@@ -548,7 +549,7 @@
             // 
             lblDomicilio.AutoSize = true;
             lblDomicilio.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
-            lblDomicilio.Location = new Point(124, 107);
+            lblDomicilio.Location = new Point(116, 108);
             lblDomicilio.Name = "lblDomicilio";
             lblDomicilio.Size = new Size(92, 18);
             lblDomicilio.TabIndex = 17;
@@ -558,7 +559,7 @@
             // 
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("HomepageBaukasten Bold", 11.9999981F);
-            lblTelefono.Location = new Point(135, 75);
+            lblTelefono.Location = new Point(127, 76);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(86, 18);
             lblTelefono.TabIndex = 16;
@@ -591,7 +592,7 @@
             lblAsModelo.AutoSize = true;
             lblAsModelo.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsModelo.ForeColor = Color.Red;
-            lblAsModelo.Location = new Point(379, 146);
+            lblAsModelo.Location = new Point(371, 147);
             lblAsModelo.Name = "lblAsModelo";
             lblAsModelo.Size = new Size(18, 24);
             lblAsModelo.TabIndex = 43;
@@ -602,7 +603,7 @@
             lblAsTele.AutoSize = true;
             lblAsTele.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsTele.ForeColor = Color.Red;
-            lblAsTele.Location = new Point(380, 76);
+            lblAsTele.Location = new Point(372, 77);
             lblAsTele.Name = "lblAsTele";
             lblAsTele.Size = new Size(18, 24);
             lblAsTele.TabIndex = 42;
@@ -613,7 +614,7 @@
             lblAsTitu.AutoSize = true;
             lblAsTitu.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsTitu.ForeColor = Color.Red;
-            lblAsTitu.Location = new Point(380, 45);
+            lblAsTitu.Location = new Point(372, 46);
             lblAsTitu.Name = "lblAsTitu";
             lblAsTitu.Size = new Size(18, 24);
             lblAsTitu.TabIndex = 42;
