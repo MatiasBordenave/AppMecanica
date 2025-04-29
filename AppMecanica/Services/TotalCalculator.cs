@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AppMecanicaCAD;
 using AppMecanica.Services.Interfaces;
+using AppMecanicaEntidades;
 
 namespace AppMecanica.Services
 {

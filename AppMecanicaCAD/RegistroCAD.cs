@@ -10,9 +10,25 @@ using System.Threading.Tasks;
 namespace AppMecanicaCAD
 {
     public class RegistroCAD
+
     {
+        public static bool ExisteCliente(string patente) {
+            if (patente != null)
+            {
+                int cantidad = 0; // este valor debería salir de la base de datos
+                                  // ejecutar consulta y asignar valor a cantidad...
+                return cantidad > 0;
+            }
+
+            return false;
+        }
+        public static void AgregarRegistroHistorico(string patente, Registro r) { /* INSERT en tabla de registros */ }
+        public static void CrearClienteConRegistro(/* todos los campos */) { /* INSERT en cliente + INSERT en registro */ }
+
         public List<Registro> ObtenerRegistro()
         {
+
+
 
             List<Registro> registros = new List<Registro>();
             string query = "SELECT * FROM registros;";
@@ -56,7 +72,7 @@ namespace AppMecanicaCAD
 
 
         public static void AgregarRegistro(string nombreYApellido, string telefono, string domicilio, string marca, string modelo, string patente, int año,
-       int kilometrajeInicial, Registro registro)
+       int kilometrajeInicial, Registro registro, Repuesto repuesto)
         {
             using (var connection = Coneccion.CreateConnection())
             {

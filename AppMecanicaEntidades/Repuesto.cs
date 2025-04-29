@@ -1,4 +1,4 @@
-﻿namespace AppMecanica
+﻿namespace AppMecanicaEntidades
 {
     public class Repuesto
     {
@@ -13,6 +13,16 @@
             Nombre = nombre;
             Cantidad = cantidad;
             Precio = precio;
+        }
+
+        public static implicit operator List<object>(Repuesto v)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static implicit operator Repuesto(List<Repuesto> v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

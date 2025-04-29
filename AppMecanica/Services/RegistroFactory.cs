@@ -1,21 +1,29 @@
-﻿using AppMecanicaEntidades;
+﻿using AppMecanica;
+using AppMecanicaEntidades;
 
 public class RegistroFactory : IRegistroFactory
 {
-    public Registro CreateRegistro(string descripcion, decimal totalRepuestos,
-                                   int horas, decimal precioHora, int kilometraje)
+    public Registro CreateRegistro(
+     string descripcion,
+     decimal totalRepuestos,
+     decimal cantidadHoras,
+     decimal precioPorHora,
+     decimal totalLabor,
+     decimal totalGeneral,
+     int kilometraje,
+     List<Repuesto> repuestos)
     {
-        var precioTotalHoras = horas * precioHora;
         return new Registro
         {
-            Fecha = DateTime.Now,
             Descripcion = descripcion,
             TotalRepuestos = (double)totalRepuestos,
-            CantidadHoras = horas,
-            PrecioPorHora = (double)precioHora,
-            PrecioTotalHoras = (double)precioTotalHoras,
-            PrecioTotal = (double)(totalRepuestos + (decimal)precioTotalHoras),
-            KilometrajeRegistro = kilometraje
+            CantidadHoras = (int)cantidadHoras,
+            PrecioPorHora = (double)precioPorHora,
+            PrecioTotalHoras = (double)totalLabor,
+            PrecioTotal = (double)totalGeneral,
+            KilometrajeRegistro = kilometraje,
+            Fecha = DateTime.Now,
+            Repuestos = repuestos
         };
     }
 }

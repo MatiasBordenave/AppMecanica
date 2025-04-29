@@ -7,6 +7,7 @@ using AppMecanicaCLN;
 using AppMecanica.Models;
 using AppMecanicaEntidades;
 using AppMecanica.Services.Interfaces;
+using System.Text.RegularExpressions;
 
 namespace AppMecanica
 {
@@ -134,7 +135,8 @@ namespace AppMecanica
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            var obligatorios = new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño };
+            // 1) Validación de campos obligatorios...
+            var obligatorios = new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño, txtPatente };
             if (!_validator.AreRequiredFieldsFilled(obligatorios))
             {
                 MostrarAsteriscos();
@@ -142,44 +144,78 @@ namespace AppMecanica
                 return;
             }
 
+            // 2) Parse numérico...
             if (!_validator.TryParseDecimal(txtCantidadHoras, out var horas) ||
                 !_validator.TryParseDecimal(txtPrecioHora, out var precioHora) ||
-                !int.TryParse(txtKm.Text.Trim(), out var kilometraje))
+                !int.TryParse(txtKm.Text.Trim(), out var kilometraje) ||
+                !int.TryParse(txtAño.Text.Trim(), out var año))
             {
                 _msg.ShowError("Datos numéricos inválidos.", "Error");
                 return;
             }
 
-            var listaRepuestos = _mapper.Map(dataGridView1);
-            var totalRepuestos = (decimal)_calculator.CalculateTotalRepuestos(listaRepuestos);
+            // 3) Validar patente...
+            var patente = txtPatente.Text.Trim().ToUpper();
+            if (!Regex.IsMatch(patente, "^[A-Z]{3}\\d{3}$"))
+            {
+                _msg.ShowError("Formato de patente inválido. Debe ser ABC123.", "Error de patente");
+                return;
+            }
+
+            // 4) Mapeo de repuestos y cálculos en front
+            var repuestos = _mapper.Map(dataGridView1);
+            var totalRepuestos = _calculator.CalculateTotalRepuestos(repuestos);
+            var totalLaborHoras = _calculator.CalculateLaborCost(horas, precioHora);
+            var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);
 
             try
             {
+                // 5) Crear el Registro con todos los datos
                 var registro = _registroFactory.CreateRegistro(
                     textBoxDesc.Text.Trim(),
                     totalRepuestos,
-                    (int)horas,
+                    horas,
                     precioHora,
-                    kilometraje);
+                    totalLaborHoras,   // precioTotalHoras
+                    totalGeneral,      // precioTotal
+                    kilometraje,
+                    repuestos          // <-- lista completa de repuestos
+                );
 
+                // 6) Mensaje si cliente existe...
+                if (_registroService.ClienteExiste(patente))
+                {
+                    _msg.ShowInfo(
+                        "Cliente existente: el nuevo registro se agregará a su historial.",
+                        "Cliente existente"
+                    );
+                }
+
+                // 7) Guardar en la capa de negocio / servicio
                 _registroService.SaveRegistro(
                     txtTitular.Text.Trim(),
                     txtTelefono.Text.Trim(),
                     txtDomicilio.Text.Trim(),
                     txtMarca.Text.Trim(),
                     txtModelo.Text.Trim(),
-                    txtPatente.Text.Trim(),
-                    int.Parse(txtAño.Text.Trim()),
+                    patente,
+                    año,
                     kilometraje,
-                    registro);
+                    registro,
+                    repuestos);
 
-                _msg.ShowInfo("Registro guardado correctamente.", "Éxito");
+                // 8) Éxito y navegación
+                _msg.ShowInfo("Registro procesado correctamente.", "Éxito");
+                new Registros(_homeForm).Show();
+                this.Hide();
             }
             catch (Exception ex)
             {
                 _msg.ShowError("Error al guardar: " + ex.Message, "Error");
             }
         }
+
+
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
@@ -262,7 +298,6 @@ namespace AppMecanica
                 }
             }
         }
-
         private void AttachDecimalOnly(params TextBox[] textBoxes)
         {
             foreach (var txt in textBoxes)
@@ -284,7 +319,6 @@ namespace AppMecanica
                 };
             }
         }
-
         private void BloquearCopiarPegar(params TextBox[] textBoxes)
         {
             foreach (var textBox in textBoxes)

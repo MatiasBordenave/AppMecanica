@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AppMecanicaEntidades;
 
 namespace AppMecanicaEntidades
 {
@@ -21,5 +22,9 @@ namespace AppMecanicaEntidades
 
         // Relación con Vehículo
         public Vehiculo Vehiculo { get; set; }
+
+        //tabla de repuestos?
+        public Repuesto Repuestos { get; set; }
+
     }
 }

@@ -11,6 +11,16 @@ namespace AppMecanicaCAD
     {
         private RegistroCAD registroCAD = new RegistroCAD();
 
+        public static bool ExisteCliente(string patente)
+        {
+            return RegistroCAD.ExisteCliente(patente);
+        }
+
+        public static void AgregarRegistroHistorico(string patente, Registro registro)
+        {
+            // Asumimos que RegistroCAD tiene este método:
+            RegistroCAD.AgregarRegistroHistorico(patente, registro);
+        }
 
         public List<Registro> ObtenerRegistros()
         {
@@ -18,9 +28,17 @@ namespace AppMecanicaCAD
         }
 
 
-        public static void AgregarRegistro(string nombreYApellido, string telefono, string domicilio,
-                                    string marca, string modelo, string patente, int año,
-                                    int kilometrajeInicial, Registro registro)
+        public static void CrearClienteConRegistro(
+        string nombreYApellido,
+        string telefono,
+        string domicilio,
+        string marca,
+        string modelo,
+        string patente,
+        int año,
+        int kilometrajeInicial,
+        Registro registro,
+        Repuesto repuestos)
         {
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombreYApellido) || string.IsNullOrWhiteSpace(telefono) ||
@@ -46,18 +64,22 @@ namespace AppMecanicaCAD
                 throw new ArgumentException("La fecha proporcionada no es válida.");
             }
 
-            // Cálculos
-            double precioTotalHoras = registro.CantidadHoras * registro.PrecioPorHora;
-            double precioTotal = precioTotalHoras + registro.TotalRepuestos;
-
-            // Asignar valores calculados al objeto Registro
-            registro.PrecioTotalHoras = precioTotalHoras;
-            registro.PrecioTotal = precioTotal;
+            registro.Repuestos = repuestos;
 
             try
             {
-                // Llamar a la capa de acceso a datos (CAD)
-                RegistroCAD.AgregarRegistro(nombreYApellido, telefono, domicilio, marca, modelo, patente, año, kilometrajeInicial, registro);
+                RegistroCAD.AgregarRegistro(
+                    nombreYApellido,
+                    telefono,
+                    domicilio,
+                    marca,
+                    modelo,
+                    patente,
+                    año,
+                    kilometrajeInicial,
+                    registro,
+                    repuestos
+                );
             }
             catch (Exception ex)
             {

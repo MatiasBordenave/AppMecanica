@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using AppMecanica.Services.Interfaces;
 using AppMecanicaCAD;
+using AppMecanicaEntidades;
 
 namespace AppMecanica.Services
 {
@@ -14,7 +15,6 @@ namespace AppMecanica.Services
 
             foreach (DataGridViewRow fila in grid.Rows)
             {
-                // Validamos que haya datos en las 3 columnas
                 if (fila.Cells[0].Value != null &&
                     fila.Cells[1].Value != null &&
                     fila.Cells[2].Value != null)

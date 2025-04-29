@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using AppMecanicaCAD;
+using AppMecanicaEntidades;
+using AppMecanica;
 
 namespace AppMecanica.Models
 {

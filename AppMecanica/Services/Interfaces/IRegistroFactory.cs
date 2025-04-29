@@ -1,11 +1,16 @@
-﻿using AppMecanicaEntidades;
+﻿using AppMecanica;
+using AppMecanicaEntidades;
 
 public interface IRegistroFactory
 {
     Registro CreateRegistro(
         string descripcion,
         decimal totalRepuestos,
-        int horas,
-        decimal precioHora,
-        int kilometraje);
+        decimal cantidadHoras,
+        decimal precioPorHora,
+        decimal totalLabor,          // precioTotalHoras
+        decimal totalGeneral,        // precioTotal
+        int kilometraje,
+        List<Repuesto>repuestos     // <— la lista completa
+    );
 }
