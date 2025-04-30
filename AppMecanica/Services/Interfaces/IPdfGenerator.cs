@@ -5,6 +5,6 @@ namespace AppMecanica.Servicios
 {
     public interface IPdfGenerator
     {
-        void GenerarDesdePanel(Panel panel, string tituloArchivo);
+        void GenerarDesdePanel(Panel panelContenido, string tituloArchivo, Panel? panelHeader = null);
     }
 }

@@ -18,15 +18,11 @@ namespace AppMecanica
         public DetalleRegistro(Form registro, VehiculoDetalleDTO detalle)
         {
             InitializeComponent();
-
             formRegistro = registro;
             this.detalle = detalle;
 
             lblVehiculoCliente.Text = $"Registros de {detalle.Titular} | {detalle.Marca} {detalle.Modelo} | {detalle.Patente}";
-
-
         }
-
         private void btnVolverDetalle_Click(object sender, EventArgs e)
         {
             formRegistro.Show();
@@ -45,13 +41,12 @@ namespace AppMecanica
 
             foreach (var registro in detalle.Registros)
             {
-                // Panel principal (tarjeta)
                 var tarjeta = new Panel
                 {
                     Size = new Size(panelRegistros.Width - 30, 10),
                     Location = new Point(10, yOffset),
                     BorderStyle = BorderStyle.FixedSingle,
-                    BackColor = Color.White
+                    //BackColor = Color.White
                 };
 
                 int currentY = 10;
@@ -87,8 +82,6 @@ namespace AppMecanica
                 };
                 tarjeta.Controls.Add(lblKilometro);
                 currentY = lblKilometro.Bottom + 10;
-
-                // NUEVOS LABELS:
 
                 var lblCantidadHoras = new Label
                 {
@@ -140,26 +133,23 @@ namespace AppMecanica
                 tarjeta.Controls.Add(lblPrecioTotal);
                 currentY = lblPrecioTotal.Bottom + 10;
 
-                // Ajustar altura final de la tarjeta
                 tarjeta.Height = currentY + 10;
 
                 panelRegistros.Controls.Add(tarjeta);
 
                 yOffset += tarjeta.Height;
 
-                // Línea separadora
                 var linea = new Panel
                 {
                     Size = new Size(panelRegistros.Width - 30, 1),
                     Location = new Point(10, yOffset),
-                    BackColor = Color.Gray
+                    //BackColor = Color.Gray
                 };
                 panelRegistros.Controls.Add(linea);
 
                 yOffset += 10;
             }
 
-            // Espacio final
             var espacioFinal = new Panel
             {
                 Size = new Size(panelRegistros.Width - 30, 40),
@@ -173,11 +163,7 @@ namespace AppMecanica
 
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
-            btnGenerarPDF.Hide();
-            btnVolverDetalle.Hide();
-            pdfGenerator.GenerarDesdePanel(panelContenedor, $"Registros de {detalle.Titular}");
-            btnGenerarPDF.Show();
-            btnVolverDetalle.Show();
+            pdfGenerator.GenerarDesdePanel(panelRegistros, $"Registros de {detalle.Titular}", panelHeader);
         }
 
     }
