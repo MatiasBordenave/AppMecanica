@@ -40,38 +40,131 @@ namespace AppMecanica
 
         private void CargarTabsRegistros()
         {
+            panelRegistros.Controls.Clear();
             int yOffset = 10;
 
             foreach (var registro in detalle.Registros)
             {
-                Panel tarjeta = new Panel();
-                tarjeta.Size = new Size(panelRegistros.Width - 30, 150);
-                tarjeta.Location = new Point(10, yOffset);
-                tarjeta.BorderStyle = BorderStyle.FixedSingle;
+                // Panel principal (tarjeta)
+                var tarjeta = new Panel
+                {
+                    Size = new Size(panelRegistros.Width - 30, 10),
+                    Location = new Point(10, yOffset),
+                    BorderStyle = BorderStyle.FixedSingle,
+                    BackColor = Color.White
+                };
 
-                Label lblFecha = new Label();
-                lblFecha.Text = $"Fecha: {registro.Fecha.ToShortDateString()}";
-                lblFecha.Location = new Point(10, 10);
-                lblFecha.AutoSize = true;
+                int currentY = 10;
 
-                Label lblDescripcion = new Label();
-                lblDescripcion.Text = $"Descripción:\n{registro.Descripcion}";
-                lblDescripcion.Location = new Point(10, 40);
-                lblDescripcion.Size = new Size(tarjeta.Width - 20, 80);
-                lblDescripcion.AutoEllipsis = true;
-
+                var lblFecha = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(10, currentY),
+                    Text = $"Fecha: {registro.Fecha.ToShortDateString()}"
+                };
                 tarjeta.Controls.Add(lblFecha);
+                currentY = lblFecha.Bottom + 10;
+
+                var lblDescripcion = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 11),
+                    MaximumSize = new Size(tarjeta.Width - 20, 0),
+                    Location = new Point(10, currentY),
+                    Text = $"Descripción: {registro.Descripcion}"
+                };
                 tarjeta.Controls.Add(lblDescripcion);
+                tarjeta.PerformLayout(); // para que mida bien
+                currentY = lblDescripcion.Bottom + 10;
+
+                var lblKilometro = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12),
+                    Location = new Point(10, currentY),
+                    Text = $"Kilometraje: {registro.KilometrajeRegistro}"
+                };
+                tarjeta.Controls.Add(lblKilometro);
+                currentY = lblKilometro.Bottom + 10;
+
+                // NUEVOS LABELS:
+
+                var lblCantidadHoras = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12),
+                    Location = new Point(10, currentY),
+                    Text = $"Cantidad de Horas: {registro.CantidadHoras}"
+                };
+                tarjeta.Controls.Add(lblCantidadHoras);
+                currentY = lblCantidadHoras.Bottom + 10;
+
+                var lblPrecioPorHora = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12),
+                    Location = new Point(10, currentY),
+                    Text = $"Precio por Hora: ${registro.PrecioPorHora}"
+                };
+                tarjeta.Controls.Add(lblPrecioPorHora);
+                currentY = lblPrecioPorHora.Bottom + 10;
+
+                var lblPrecioTotalHoras = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12),
+                    Location = new Point(10, currentY),
+                    Text = $"Precio Total de Horas: ${registro.PrecioTotalHoras}"
+                };
+                tarjeta.Controls.Add(lblPrecioTotalHoras);
+                currentY = lblPrecioTotalHoras.Bottom + 10;
+
+                var lblTotalRepuestos = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12),
+                    Location = new Point(10, currentY),
+                    Text = $"Total Repuestos: ${registro.TotalRepuestos}"
+                };
+                tarjeta.Controls.Add(lblTotalRepuestos);
+                currentY = lblTotalRepuestos.Bottom + 10;
+
+                var lblPrecioTotal = new Label
+                {
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                    Location = new Point(10, currentY),
+                    Text = $"Precio Total: ${registro.PrecioTotal}"
+                };
+                tarjeta.Controls.Add(lblPrecioTotal);
+                currentY = lblPrecioTotal.Bottom + 10;
+
+                // Ajustar altura final de la tarjeta
+                tarjeta.Height = currentY + 10;
 
                 panelRegistros.Controls.Add(tarjeta);
 
-                yOffset += tarjeta.Height + 10;
+                yOffset += tarjeta.Height;
+
+                // Línea separadora
+                var linea = new Panel
+                {
+                    Size = new Size(panelRegistros.Width - 30, 1),
+                    Location = new Point(10, yOffset),
+                    BackColor = Color.Gray
+                };
+                panelRegistros.Controls.Add(linea);
+
+                yOffset += 10;
             }
 
-            Panel espacioFinal = new Panel();
-            espacioFinal.Size = new Size(panelRegistros.Width - 30, 10);
-            espacioFinal.Location = new Point(10, yOffset);
-
+            // Espacio final
+            var espacioFinal = new Panel
+            {
+                Size = new Size(panelRegistros.Width - 30, 40),
+                Location = new Point(10, yOffset)
+            };
             panelRegistros.Controls.Add(espacioFinal);
         }
 

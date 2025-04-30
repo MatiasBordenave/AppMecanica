@@ -20,7 +20,7 @@ public class RegistroService : IRegistroService
         int año,
         int kilometraje,
         Registro registro,
-        Repuesto repuestos
+        List<Repuesto> repuestos
         )
     {
         if (ClienteExiste(patente))

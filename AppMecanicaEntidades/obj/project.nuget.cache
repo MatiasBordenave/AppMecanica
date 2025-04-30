@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "in5cM1cSl3M=",
+  "dgSpecHash": "jWuQVJG7JTQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+  "projectFilePath": "C:\\Users\\Matias\\Desktop\\Nueva carpeta (4)\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

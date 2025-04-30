@@ -19,11 +19,12 @@ namespace AppMecanica
 
         private int paginaActual = 1;
         private int totalPaginas = 1;
-        private int pageSize = 2;
+        private int pageSize = 20;
 
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
+        private RepuestoCLN repuestoCLN = new RepuestoCLN();
         private ClienteVehiculoCLN clienteVehiculoCLN = new ClienteVehiculoCLN();
         private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
 
@@ -91,18 +92,6 @@ namespace AppMecanica
                     if (dgvRegistros.Columns.Contains("IdVehiculo"))
                         dgvRegistros.Columns["IdVehiculo"].Visible = false;
 
-                    if (dgvRegistros.Columns.Contains("btnVerMas"))
-                        dgvRegistros.Columns.Remove("btnVerMas");
-
-                    if (!dgvRegistros.Columns.Contains("btnVerMas"))
-                    {
-                        DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
-                        btnCol.HeaderText = "Acciones";
-                        btnCol.Text = "Ver más";
-                        btnCol.UseColumnTextForButtonValue = true;
-                        btnCol.Name = "btnVerMas";
-                        dgvRegistros.Columns.Add(btnCol);
-                    }
                 });
                 Invoke(() => GenerarBotonesPaginacion());
             });
@@ -155,15 +144,11 @@ namespace AppMecanica
                 limpiarDataGridView();
                 dgvRegistros.DataSource = resultado;
 
-                if (!dgvRegistros.Columns.Contains("btnVerMas"))
-                {
-                    DataGridViewButtonColumn btnCol = new DataGridViewButtonColumn();
-                    btnCol.HeaderText = "Acciones";
-                    btnCol.Text = "Ver más";
-                    btnCol.UseColumnTextForButtonValue = true;
-                    btnCol.Name = "btnVerMas";
-                    dgvRegistros.Columns.Add(btnCol);
-                }
+
+                if (dgvRegistros.Columns.Contains("IdCliente"))
+                    dgvRegistros.Columns["IdCliente"].Visible = false;
+                if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                    dgvRegistros.Columns["IdVehiculo"].Visible = false;
 
                 txtBuscar.Focus();
                 txtBuscar.SelectionStart = txtBuscar.Text.Length;
@@ -179,7 +164,7 @@ namespace AppMecanica
             if (e.KeyCode == Keys.Enter)
             {
                 e.Handled = true;
-                e.SuppressKeyPress = true; 
+                e.SuppressKeyPress = true;
                 btnBuscar.PerformClick();
             }
         }
@@ -328,6 +313,11 @@ namespace AppMecanica
                 paginaActual--;
                 CargarDataGridView(paginaActual);
             }
+        }
+
+        private void btnRepuestos_Click(object sender, EventArgs e)
+        {
+            dgvRegistros.DataSource = repuestoCLN.ObtenerRepuestos();
         }
     }
 }

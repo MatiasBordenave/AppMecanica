@@ -2,11 +2,13 @@
 {
     public class Repuesto
     {
+        public int IdRepuesto { get; set; }
+        public int IdRegistro { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
 
-        public Repuesto() { } // Necesario para inicialización por propiedades
+        public Repuesto() { }
 
         public Repuesto(string nombre, int cantidad, decimal precio)
         {
@@ -14,15 +16,6 @@
             Cantidad = cantidad;
             Precio = precio;
         }
-
-        public static implicit operator List<object>(Repuesto v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static implicit operator Repuesto(List<Repuesto> v)
-        {
-            throw new NotImplementedException();
-        }
     }
+
 }

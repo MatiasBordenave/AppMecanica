@@ -14,10 +14,10 @@ namespace AppMecanicaCAD
             //string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "data.sqlite");
 
 
-            string dbPath = "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanica\\Data\\database.sqlite";
+            //string dbPath = "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanica\\Data\\database.sqlite";
 
 
-            //string dbPath = "C:\\Users\\Matias\\Desktop\\Nueva carpeta (2)\\AppMecanica\\Data\\database.sqlite";
+            string dbPath = "C:\\Users\\Matias\\Desktop\\Nueva carpeta (4)\\AppMecanica\\Data\\database.sqlite";
 
 
             //// Crear la carpeta si no existe
@@ -76,6 +76,14 @@ namespace AppMecanicaCAD
         //                                -- Crear la tabla de presupuesto
         //                                CREATE TABLE presupuesto(id_presupuesto INTEGER PRIMARY KEY AUTOINCREMENT); ";
 
+        //                                -- Crear la tabla de repuestos
+        //                                  CREATE TABLE repuesto(id_repuesto INTEGER PRIMARY KEY AUTOINCREMENT,
+        //                                  id_registro INTEGER NOT NULL,
+        //                                  nombre TEXT NOT NULL,
+        //                                  cantidad INTEGER NOT NULL,
+        //                                  precioUnitario REAL NOT NULL,
+        //                                  FOREIGN KEY(id_registro) REFERENCES registros(id_registro) ON DELETE CASCADE); ";
+
         //    try
         //    {
         //        using (SQLiteConnection connection = new SQLiteConnection($"Data Source={dbPath};Version=3;"))
@@ -92,7 +100,7 @@ namespace AppMecanicaCAD
         //        Console.WriteLine("Error al crear la tabla Users: " + ex.Message);
         //    }
         //}
-        
+
         public static SQLiteConnection CreateConnection()
         {
             try

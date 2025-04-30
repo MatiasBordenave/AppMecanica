@@ -3,6 +3,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,65 +72,88 @@ namespace AppMecanicaCAD
         }
 
 
-        public static void AgregarRegistro(string nombreYApellido, string telefono, string domicilio, string marca, string modelo, string patente, int año,
-       int kilometrajeInicial, Registro registro, Repuesto repuesto)
+        public static int AgregarRegistro(string nombreYApellido, string telefono, string domicilio, string marca, string modelo, string patente, int año,
+    int kilometrajeInicial, Registro registro, List<Repuesto> repuestos)
         {
             using (var connection = Coneccion.CreateConnection())
             {
                 connection.Open();
 
                 int idCliente;
-                string queryCliente = "SELECT id_cliente FROM clientes WHERE nombreYApellido = @Nombre";
+                string nombreNormalizado = QuitarTildes(nombreYApellido).ToLower();
+
+                string queryCliente = "SELECT id_cliente, nombreYApellido FROM clientes";
                 using (var cmd = new SQLiteCommand(queryCliente, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Nombre", nombreYApellido);
-                    var result = cmd.ExecuteScalar();
-                    if (result != null)
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        idCliente = Convert.ToInt32(result);
-                    }
-                    else
-                    {
-                        string insertCliente = @"INSERT INTO clientes (nombreYApellido, telefono, domicilio)
-                                         VALUES (@Nombre, @Telefono, @Domicilio)";
-                        using (var insertCmd = new SQLiteCommand(insertCliente, connection))
+                        idCliente = -1;
+                        while (reader.Read())
                         {
-                            insertCmd.Parameters.AddWithValue("@Nombre", nombreYApellido);
-                            insertCmd.Parameters.AddWithValue("@Telefono", telefono);
-                            insertCmd.Parameters.AddWithValue("@Domicilio", domicilio);
-                            insertCmd.ExecuteNonQuery();
-                            idCliente = (int)connection.LastInsertRowId;
+                            string nombreExistente = reader.GetString(1);
+                            string nombreExistenteNormalizado = QuitarTildes(nombreExistente).ToLower();
+                            if (nombreExistenteNormalizado == nombreNormalizado)
+                            {
+                                idCliente = reader.GetInt32(0);
+                                break;
+                            }
                         }
                     }
                 }
 
+                if (idCliente == -1)
+                {
+                    string insertCliente = @"INSERT INTO clientes (nombreYApellido, telefono, domicilio)
+                         VALUES (@Nombre, @Telefono, @Domicilio)";
+                    using (var insertCmd = new SQLiteCommand(insertCliente, connection))
+                    {
+                        insertCmd.Parameters.AddWithValue("@Nombre", nombreYApellido);
+                        insertCmd.Parameters.AddWithValue("@Telefono", telefono);
+                        insertCmd.Parameters.AddWithValue("@Domicilio", domicilio);
+                        insertCmd.ExecuteNonQuery();
+                        idCliente = (int)connection.LastInsertRowId;
+                    }
+                }
+
+                string patenteNormalizada = QuitarTildes(patente).ToUpper();
                 int idVehiculo;
-                string queryVehiculo = "SELECT id_vehiculo FROM vehiculos WHERE patente = @Patente";
+                string queryVehiculo = "SELECT id_vehiculo, patente FROM vehiculos";
                 using (var cmd = new SQLiteCommand(queryVehiculo, connection))
                 {
-                    cmd.Parameters.AddWithValue("@Patente", patente);
-                    var result = cmd.ExecuteScalar();
-                    if (result != null)
+                    using (var reader = cmd.ExecuteReader())
                     {
-                        idVehiculo = Convert.ToInt32(result);
-                    }
-                    else
-                    {
-                        string insertVehiculo = @"INSERT INTO vehiculos (id_cliente, marca, modelo, año, patente, kilometrajeInicial)
-                                          VALUES (@IdCliente, @Marca, @Modelo, @Año, @Patente, @Km)";
-                        using (var insertCmd = new SQLiteCommand(insertVehiculo, connection))
+                        idVehiculo = -1;
+                        while (reader.Read())
                         {
-                            insertCmd.Parameters.AddWithValue("@IdCliente", idCliente);
-                            insertCmd.Parameters.AddWithValue("@Marca", marca);
-                            insertCmd.Parameters.AddWithValue("@Modelo", modelo);
-                            insertCmd.Parameters.AddWithValue("@Año", año);
-                            insertCmd.Parameters.AddWithValue("@Patente", patente);
-                            insertCmd.Parameters.AddWithValue("@Km", kilometrajeInicial);
-                            insertCmd.ExecuteNonQuery();
-                            idVehiculo = (int)connection.LastInsertRowId;
+                            string patenteExistente = reader.GetString(1);
+                            string patenteExistenteNormalizada = QuitarTildes(patenteExistente).ToUpper();
+                            if (patenteExistenteNormalizada == patenteNormalizada)
+                            {
+                                idVehiculo = reader.GetInt32(0);
+                                break;
+                            }
                         }
                     }
                 }
+
+                if (idVehiculo == -1)
+                {
+                    string insertVehiculo = @"INSERT INTO vehiculos (id_cliente, marca, modelo, año, patente, kilometrajeInicial)
+                  VALUES (@IdCliente, @Marca, @Modelo, @Año, @Patente, @Km)";
+                    using (var insertCmd = new SQLiteCommand(insertVehiculo, connection))
+                    {
+                        insertCmd.Parameters.AddWithValue("@IdCliente", idCliente);
+                        insertCmd.Parameters.AddWithValue("@Marca", marca);
+                        insertCmd.Parameters.AddWithValue("@Modelo", modelo);
+                        insertCmd.Parameters.AddWithValue("@Año", año);
+                        insertCmd.Parameters.AddWithValue("@Patente", patente);
+                        insertCmd.Parameters.AddWithValue("@Km", kilometrajeInicial);
+                        insertCmd.ExecuteNonQuery();
+                        idVehiculo = (int)connection.LastInsertRowId;
+                    }
+                }
+
+                int idRegistro;
 
                 string insertRegistro = @"INSERT INTO registros 
             (id_vehiculo, fecha, descripcion, totalRepuestos, cantidadHoras, precioPorHora, precioTotalHoras, precioTotal, kilometrajeRegistro)
@@ -147,9 +171,31 @@ namespace AppMecanicaCAD
                     cmd.Parameters.AddWithValue("@TotalFinal", registro.PrecioTotal);
                     cmd.Parameters.AddWithValue("@KmRegistro", registro.KilometrajeRegistro);
                     cmd.ExecuteNonQuery();
+                    idRegistro = (int)connection.LastInsertRowId;
                 }
+
+                // NUEVO: Insertamos los repuestos asociados a este registro
+                if (repuestos != null && repuestos.Count > 0)
+                {
+                    foreach (var rep in repuestos)
+                    {
+                        string insertRepuesto = @"INSERT INTO repuesto(id_registro, nombre, cantidad, precioUnitario)
+                                          VALUES (@IdRegistro, @Nombre, @Cantidad, @Precio)";
+                        using (var cmd = new SQLiteCommand(insertRepuesto, connection))
+                        {
+                            cmd.Parameters.AddWithValue("@IdRegistro", idRegistro);
+                            cmd.Parameters.AddWithValue("@Nombre", rep.Nombre);
+                            cmd.Parameters.AddWithValue("@Cantidad", rep.Cantidad);
+                            cmd.Parameters.AddWithValue("@Precio", rep.Precio);
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                return idRegistro;
             }
         }
+
 
 
         public int ObtenerTotalClientesConVehiculos()
@@ -171,6 +217,23 @@ namespace AppMecanicaCAD
             }
 
             return total;
+        }
+
+        public static string QuitarTildes(string texto)
+        {
+            var textoNormalizado = texto.Normalize(NormalizationForm.FormD);
+            var sb = new StringBuilder();
+
+            foreach (var c in textoNormalizado)
+            {
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    sb.Append(c);
+                }
+            }
+
+            return sb.ToString().Normalize(NormalizationForm.FormC);
         }
     }
 }

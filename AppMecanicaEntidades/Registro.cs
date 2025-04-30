@@ -24,7 +24,9 @@ namespace AppMecanicaEntidades
         public Vehiculo Vehiculo { get; set; }
 
         //tabla de repuestos?
-        public Repuesto Repuestos { get; set; }
+        //public Repuesto Repuestos { get; set; }
+
+        public List<Repuesto> Repuestos { get; set; }
 
     }
 }

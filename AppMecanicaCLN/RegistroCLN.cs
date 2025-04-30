@@ -38,7 +38,7 @@ namespace AppMecanicaCAD
         int año,
         int kilometrajeInicial,
         Registro registro,
-        Repuesto repuestos)
+        List<Repuesto> repuestos)
         {
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombreYApellido) || string.IsNullOrWhiteSpace(telefono) ||

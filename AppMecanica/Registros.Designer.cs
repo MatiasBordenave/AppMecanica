@@ -43,6 +43,7 @@
             btnAnteriorDGV = new Button();
             btnSiguienteDGV = new Button();
             txtBuscar = new TextBox();
+            btnRepuestos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             dgvRegistros.BackgroundColor = Color.FromArgb(224, 224, 224);
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("HomepageBaukasten Bold", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(51, 51, 51);
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
@@ -63,7 +64,7 @@
             dgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
@@ -82,7 +83,7 @@
             // 
             btnVolverRegistro.BackColor = Color.FromArgb(251, 176, 48);
             btnVolverRegistro.FlatStyle = FlatStyle.Flat;
-            btnVolverRegistro.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnVolverRegistro.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnVolverRegistro.ForeColor = Color.FromArgb(51, 51, 51);
             btnVolverRegistro.Location = new Point(933, 590);
             btnVolverRegistro.Margin = new Padding(3, 2, 3, 2);
@@ -97,7 +98,7 @@
             // 
             btnDetalles.BackColor = Color.FromArgb(251, 176, 48);
             btnDetalles.FlatStyle = FlatStyle.Flat;
-            btnDetalles.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnDetalles.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnDetalles.ForeColor = Color.FromArgb(51, 51, 51);
             btnDetalles.Location = new Point(933, 507);
             btnDetalles.Margin = new Padding(3, 2, 3, 2);
@@ -195,7 +196,7 @@
             btnAnteriorDGV.FlatAppearance.BorderSize = 0;
             btnAnteriorDGV.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnAnteriorDGV.FlatStyle = FlatStyle.Flat;
-            btnAnteriorDGV.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnAnteriorDGV.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnAnteriorDGV.ForeColor = Color.White;
             btnAnteriorDGV.Location = new Point(24, 606);
             btnAnteriorDGV.Margin = new Padding(3, 2, 3, 2);
@@ -212,7 +213,7 @@
             btnSiguienteDGV.FlatAppearance.BorderSize = 0;
             btnSiguienteDGV.FlatAppearance.MouseOverBackColor = Color.Gray;
             btnSiguienteDGV.FlatStyle = FlatStyle.Flat;
-            btnSiguienteDGV.Font = new Font("HomepageBaukasten Bold", 11.2499981F);
+            btnSiguienteDGV.Font = new Font("Microsoft Sans Serif", 11.2499981F);
             btnSiguienteDGV.ForeColor = Color.White;
             btnSiguienteDGV.Location = new Point(773, 606);
             btnSiguienteDGV.Margin = new Padding(3, 2, 3, 2);
@@ -227,13 +228,27 @@
             // 
             txtBuscar.BackColor = Color.FromArgb(224, 224, 224);
             txtBuscar.BorderStyle = BorderStyle.FixedSingle;
-            txtBuscar.Font = new Font("BreezeSans", 9.749999F, FontStyle.Bold);
+            txtBuscar.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
             txtBuscar.Location = new Point(24, 49);
             txtBuscar.Margin = new Padding(3, 2, 3, 2);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Buscar por cliente...";
-            txtBuscar.Size = new Size(197, 23);
+            txtBuscar.Size = new Size(197, 22);
             txtBuscar.TabIndex = 21;
+            // 
+            // btnRepuestos
+            // 
+            btnRepuestos.BackColor = Color.FromArgb(51, 51, 51);
+            btnRepuestos.Font = new Font("Microsoft Sans Serif", 11.2499981F);
+            btnRepuestos.ForeColor = Color.White;
+            btnRepuestos.Location = new Point(947, 276);
+            btnRepuestos.Margin = new Padding(3, 2, 3, 2);
+            btnRepuestos.Name = "btnRepuestos";
+            btnRepuestos.Size = new Size(109, 40);
+            btnRepuestos.TabIndex = 22;
+            btnRepuestos.Text = "Repuestos";
+            btnRepuestos.UseVisualStyleBackColor = false;
+            btnRepuestos.Click += btnRepuestos_Click;
             // 
             // Registros
             // 
@@ -244,6 +259,7 @@
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
+            Controls.Add(btnRepuestos);
             Controls.Add(txtBuscar);
             Controls.Add(flpPaginas);
             Controls.Add(btnAnteriorDGV);
@@ -285,5 +301,6 @@
         private Button btnAnteriorDGV;
         private Button btnSiguienteDGV;
         private TextBox txtBuscar;
+        private Button btnRepuestos;
     }
 }
