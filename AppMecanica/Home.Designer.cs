@@ -38,13 +38,10 @@
             // btnPresupuesto
             // 
             btnPresupuesto.BackColor = Color.FromArgb(251, 176, 48);
-            btnPresupuesto.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            btnPresupuesto.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            btnPresupuesto.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            btnPresupuesto.FlatStyle = FlatStyle.Popup;
+            btnPresupuesto.FlatStyle = FlatStyle.Flat;
             btnPresupuesto.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            btnPresupuesto.Location = new Point(649, 558);
+            btnPresupuesto.Location = new Point(649, 571);
             btnPresupuesto.Margin = new Padding(4);
             btnPresupuesto.Name = "btnPresupuesto";
             btnPresupuesto.Size = new Size(139, 60);
@@ -56,18 +53,15 @@
             // btnRegistro
             // 
             btnRegistro.BackColor = Color.FromArgb(251, 176, 48);
-            btnRegistro.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            btnRegistro.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            btnRegistro.FlatAppearance.MouseOverBackColor = Color.FromArgb(64, 64, 64);
-            btnRegistro.FlatStyle = FlatStyle.Popup;
+            btnRegistro.FlatStyle = FlatStyle.Flat;
             btnRegistro.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRegistro.ForeColor = Color.FromArgb(51, 51, 51);
-            btnRegistro.Location = new Point(925, 558);
+            btnRegistro.Location = new Point(920, 571);
             btnRegistro.Margin = new Padding(4);
             btnRegistro.Name = "btnRegistro";
             btnRegistro.Size = new Size(139, 60);
             btnRegistro.TabIndex = 8;
-            btnRegistro.Text = "REGISTRO";
+            btnRegistro.Text = "REGISTROS";
             btnRegistro.UseVisualStyleBackColor = false;
             btnRegistro.Click += btnRegistro_Click;
             // 

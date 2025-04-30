@@ -26,7 +26,17 @@ namespace AppMecanica
             lblDatosTelefono.Text = $"Teléfono:  {data.Telefono}";
             lblDatosAuto.Text = $"Vehiculo:  {data.Marca},  {data.Modelo},  {data.Año}";
 
-            lblDescPresupuesto.Text = $"*{data.Desc}";
+            if (!string.IsNullOrWhiteSpace(data.Desc))
+            {
+                lblDescPresupuesto.Visible = true;
+                lblDescPresupuesto.Text = $"*{data.Desc}";
+            }
+            else
+            {
+                lblDescPresupuesto.Visible = false;
+            }
+
+
             lblTituloRepuesto.Text = $"Repuesto: ${data.TotalRepuestos}";
             lblTituloMDO.Text = $"Mano de obra: ${data.TotalManoObra}";
             lblMDOyR.Text = $"Total: ${data.TotalGeneral}";
@@ -66,7 +76,6 @@ namespace AppMecanica
         }
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
-
             formPresupuesto.Show();
             this.Close();
         }
