@@ -319,6 +319,11 @@ namespace AppMecanica
         {
             dgvRegistros.DataSource = repuestoCLN.ObtenerRepuestos();
         }
+
+        private void Registros_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
 

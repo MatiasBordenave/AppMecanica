@@ -66,9 +66,14 @@ namespace AppMecanica
         }
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
-            
+
             formPresupuesto.Show();
             this.Close();
+        }
+
+        private void PresupuestoGenerado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

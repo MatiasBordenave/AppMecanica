@@ -47,7 +47,7 @@ namespace AppMecanica
             _asteriscoLblRegistro = new[]
             {
                 lblAsTitu, lblAsTele, lblAsModelo, lblAsMarca,
-                lblAsAño, lblAsDomicilio, lblAsKm, lblAsPatente, 
+                lblAsAño, lblAsDomicilio, lblAsKm, lblAsPatente,
                 lblAsHoras, lblAsPxH, lblAsDesc
             };
 
@@ -198,10 +198,10 @@ namespace AppMecanica
                     totalRepuestos,
                     horas,
                     precioHora,
-                    totalLaborHoras,   
-                    totalGeneral,      
+                    totalLaborHoras,
+                    totalGeneral,
                     kilometraje,
-                    repuestos          
+                    repuestos
                 );
 
 
@@ -226,7 +226,7 @@ namespace AppMecanica
                     registro,
                     repuestos);
 
- 
+
                 _msg.ShowInfo("Registro procesado correctamente.", "Éxito");
                 new Registros(_homeForm).Show();
                 this.Hide();
@@ -357,6 +357,11 @@ namespace AppMecanica
                     }
                 };
             }
+        }
+
+        private void Presupuesto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
