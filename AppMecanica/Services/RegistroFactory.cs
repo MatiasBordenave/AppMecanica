@@ -4,14 +4,14 @@ using AppMecanicaEntidades;
 public class RegistroFactory : IRegistroFactory
 {
     public Registro CreateRegistro(
-     string descripcion,
-     decimal totalRepuestos,
-     decimal cantidadHoras,
-     decimal precioPorHora,
-     decimal totalLabor,
-     decimal totalGeneral,
-     int kilometraje,
-     List<Repuesto> repuestos)
+    string descripcion,
+    decimal totalRepuestos,
+    decimal cantidadHoras,
+    decimal precioPorHora,
+    decimal totalLabor,
+    decimal totalGeneral,
+    int kilometraje,
+    string descripcionRepuestos)
     {
         return new Registro
         {
@@ -23,7 +23,7 @@ public class RegistroFactory : IRegistroFactory
             PrecioTotal = (double)totalGeneral,
             KilometrajeRegistro = kilometraje,
             Fecha = DateTime.Now,
-            Repuestos = repuestos
+            DescripcionRepuestos = descripcionRepuestos
         };
     }
 }

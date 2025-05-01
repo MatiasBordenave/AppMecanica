@@ -50,7 +50,7 @@
             txtCantidadHoras = new TextBox();
             txtPrecioHora = new TextBox();
             dataGridView1 = new DataGridView();
-            NombreRespuesto = new DataGridViewTextBoxColumn();
+            NombreRepuesto = new DataGridViewTextBoxColumn();
             CantidadRepuesto = new DataGridViewTextBoxColumn();
             PrecioRepuesto = new DataGridViewTextBoxColumn();
             lblNombreRepo = new Label();
@@ -103,7 +103,7 @@
             btnVolverPresupuesto.Margin = new Padding(3, 2, 3, 2);
             btnVolverPresupuesto.Name = "btnVolverPresupuesto";
             btnVolverPresupuesto.Size = new Size(139, 60);
-            btnVolverPresupuesto.TabIndex = 2;
+            btnVolverPresupuesto.TabIndex = 17;
             btnVolverPresupuesto.Text = "Volver al menú principal";
             btnVolverPresupuesto.UseVisualStyleBackColor = false;
             btnVolverPresupuesto.Click += btnVolverPresupuesto_Click;
@@ -119,7 +119,7 @@
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(139, 60);
-            btnGuardar.TabIndex = 3;
+            btnGuardar.TabIndex = 14;
             btnGuardar.Text = "Guardar datos del cliente";
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -133,7 +133,7 @@
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
             txtTitular.Size = new Size(153, 25);
-            txtTitular.TabIndex = 4;
+            txtTitular.TabIndex = 0;
             // 
             // lblPatente
             // 
@@ -178,7 +178,7 @@
             txtPatente.Name = "txtPatente";
             txtPatente.PlaceholderText = "Ejemplo: ABC 123";
             txtPatente.Size = new Size(153, 25);
-            txtPatente.TabIndex = 10;
+            txtPatente.TabIndex = 3;
             // 
             // txtMarca
             // 
@@ -189,7 +189,7 @@
             txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(153, 25);
-            txtMarca.TabIndex = 11;
+            txtMarca.TabIndex = 1;
             // 
             // lblModelo
             // 
@@ -222,7 +222,7 @@
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(153, 25);
-            txtModelo.TabIndex = 14;
+            txtModelo.TabIndex = 6;
             // 
             // txtAño
             // 
@@ -233,7 +233,7 @@
             txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
             txtAño.Size = new Size(153, 25);
-            txtAño.TabIndex = 15;
+            txtAño.TabIndex = 7;
             // 
             // lblCantidadHoras
             // 
@@ -268,7 +268,7 @@
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
             txtCantidadHoras.Size = new Size(87, 25);
-            txtCantidadHoras.TabIndex = 20;
+            txtCantidadHoras.TabIndex = 11;
             // 
             // txtPrecioHora
             // 
@@ -280,7 +280,7 @@
             txtPrecioHora.Name = "txtPrecioHora";
             txtPrecioHora.PlaceholderText = "$";
             txtPrecioHora.Size = new Size(87, 25);
-            txtPrecioHora.TabIndex = 21;
+            txtPrecioHora.TabIndex = 12;
             // 
             // dataGridView1
             // 
@@ -301,11 +301,11 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRespuesto, CantidadRepuesto, PrecioRepuesto });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRepuesto, CantidadRepuesto, PrecioRepuesto });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Window;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle3.ForeColor = Color.Gray;
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
@@ -327,14 +327,14 @@
             dataGridView1.Size = new Size(690, 145);
             dataGridView1.TabIndex = 26;
             // 
-            // NombreRespuesto
+            // NombreRepuesto
             // 
-            NombreRespuesto.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            NombreRespuesto.HeaderText = "Nombre Repuesto";
-            NombreRespuesto.MinimumWidth = 6;
-            NombreRespuesto.Name = "NombreRespuesto";
-            NombreRespuesto.ReadOnly = true;
-            NombreRespuesto.Width = 350;
+            NombreRepuesto.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            NombreRepuesto.HeaderText = "Nombre Repuesto";
+            NombreRepuesto.MinimumWidth = 6;
+            NombreRepuesto.Name = "NombreRepuesto";
+            NombreRepuesto.ReadOnly = true;
+            NombreRepuesto.Width = 350;
             // 
             // CantidadRepuesto
             // 
@@ -371,7 +371,7 @@
             txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
             txtNombreRepo.Size = new Size(153, 25);
-            txtNombreRepo.TabIndex = 28;
+            txtNombreRepo.TabIndex = 8;
             // 
             // nupCantidad
             // 
@@ -383,7 +383,7 @@
             nupCantidad.Margin = new Padding(3, 2, 3, 2);
             nupCantidad.Name = "nupCantidad";
             nupCantidad.Size = new Size(87, 25);
-            nupCantidad.TabIndex = 29;
+            nupCantidad.TabIndex = 9;
             nupCantidad.TextAlign = HorizontalAlignment.Center;
             // 
             // lblCantidad
@@ -422,7 +422,7 @@
             btnAgregarPresu.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPresu.Name = "btnAgregarPresu";
             btnAgregarPresu.Size = new Size(105, 39);
-            btnAgregarPresu.TabIndex = 33;
+            btnAgregarPresu.TabIndex = 10;
             btnAgregarPresu.Text = " Agregar ✔️";
             btnAgregarPresu.UseVisualStyleBackColor = false;
             btnAgregarPresu.Click += btnAgregarPresu_Click;
@@ -524,7 +524,7 @@
             txtKm.Margin = new Padding(3, 2, 3, 2);
             txtKm.Name = "txtKm";
             txtKm.Size = new Size(153, 25);
-            txtKm.TabIndex = 21;
+            txtKm.TabIndex = 5;
             // 
             // lblKm
             // 
@@ -546,7 +546,7 @@
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(153, 25);
-            txtDomicilio.TabIndex = 19;
+            txtDomicilio.TabIndex = 4;
             // 
             // txtTelefono
             // 
@@ -558,7 +558,7 @@
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ejemplo: 3816566750";
             txtTelefono.Size = new Size(153, 25);
-            txtTelefono.TabIndex = 18;
+            txtTelefono.TabIndex = 2;
             // 
             // lblDomicilio
             // 
@@ -669,7 +669,7 @@
             txtPrecioUni.Name = "txtPrecioUni";
             txtPrecioUni.PlaceholderText = "$";
             txtPrecioUni.Size = new Size(87, 25);
-            txtPrecioUni.TabIndex = 42;
+            txtPrecioUni.TabIndex = 10;
             // 
             // btnLimpiar
             // 
@@ -682,7 +682,7 @@
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(139, 60);
-            btnLimpiar.TabIndex = 38;
+            btnLimpiar.TabIndex = 16;
             btnLimpiar.Text = "Limpiar Presupuesto";
             btnLimpiar.UseVisualStyleBackColor = false;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -698,7 +698,7 @@
             btnGenerar.Margin = new Padding(3, 2, 3, 2);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(139, 60);
-            btnGenerar.TabIndex = 39;
+            btnGenerar.TabIndex = 15;
             btnGenerar.Text = "Crear presupuesto";
             btnGenerar.UseVisualStyleBackColor = false;
             btnGenerar.Click += btnGenerar_Click;
@@ -724,7 +724,7 @@
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
             textBoxDesc.Size = new Size(370, 83);
-            textBoxDesc.TabIndex = 41;
+            textBoxDesc.TabIndex = 13;
             // 
             // lblLinea
             // 
@@ -864,9 +864,6 @@
         private GroupBox groupBox2;
         private Button btnLimpiar;
         private Button btnGenerar;
-        private DataGridViewTextBoxColumn NombreRespuesto;
-        private DataGridViewTextBoxColumn CantidadRepuesto;
-        private DataGridViewTextBoxColumn PrecioRepuesto;
         private Label labelDesc;
         private TextBox textBoxDesc;
         private TextBox txtKm;
@@ -885,5 +882,8 @@
         private Label lblAsHoras;
         private Label lblAsPxH;
         private Label lblAsDesc;
+        private DataGridViewTextBoxColumn NombreRepuesto;
+        private DataGridViewTextBoxColumn CantidadRepuesto;
+        private DataGridViewTextBoxColumn PrecioRepuesto;
     }
 }

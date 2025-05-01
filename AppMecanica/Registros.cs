@@ -24,7 +24,6 @@ namespace AppMecanica
         private ClienteCLN clienteCLN = new ClienteCLN();
         private RegistroCLN registroCLN = new RegistroCLN();
         private VehiculoCLN vehiculoCLN = new VehiculoCLN();
-        private RepuestoCLN repuestoCLN = new RepuestoCLN();
         private ClienteVehiculoCLN clienteVehiculoCLN = new ClienteVehiculoCLN();
         private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
         private bool cierreDesdeBoton = false;
@@ -71,7 +70,40 @@ namespace AppMecanica
         private async void Registros_Load(object sender, EventArgs e)
         {
             await Task.Run(() => CargarDataGridView(1));
+            this.KeyPreview = true; 
+            this.KeyDown += FormRegistros_KeyDown;
         }
+
+        private void FormRegistros_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+            if (e.KeyCode == Keys.F1)
+            {
+                txtBuscar.Focus();
+                e.Handled = true; // Opcional: evita que se propague la tecla
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                if (dgvRegistros.CurrentRow != null && dgvRegistros.CurrentRow.Index >= 0)
+                {
+                    btnDetalles_Click(sender, EventArgs.Empty); // Llama a tu función
+                    e.Handled = true;
+                }
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                btnResetDgv_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnVolverRegistro_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+
+            
+        }
+
 
         private void CargarDataGridView(int paginaActual)
         {
@@ -315,11 +347,6 @@ namespace AppMecanica
                 paginaActual--;
                 CargarDataGridView(paginaActual);
             }
-        }
-
-        private void btnRepuestos_Click(object sender, EventArgs e)
-        {
-            dgvRegistros.DataSource = repuestoCLN.ObtenerRepuestos();
         }
 
         private void Registros_FormClosing(object sender, FormClosingEventArgs e)

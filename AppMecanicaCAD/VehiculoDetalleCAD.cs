@@ -69,7 +69,8 @@ namespace AppMecanicaCAD
                                 CantidadHoras = Convert.ToInt32(reader["cantidadHoras"]),
                                 PrecioPorHora = Convert.ToDouble(reader["precioPorHora"]),
                                 PrecioTotalHoras = Convert.ToDouble(reader["precioTotalHoras"]),
-                                KilometrajeRegistro = Convert.ToInt32(reader["kilometrajeRegistro"])
+                                KilometrajeRegistro = Convert.ToInt32(reader["kilometrajeRegistro"]),
+                                DescripcionRepuestos = reader["descripcionRepuestos"].ToString()
                             });
                         }
                     }

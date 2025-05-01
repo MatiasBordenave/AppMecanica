@@ -21,6 +21,8 @@ namespace AppMecanica
             _printService = printService;
             _exportService = exportService;
         }
+
+        
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
             lblDatosCliente.Text = $"Cliente:  {data.Titular}";
@@ -56,6 +58,32 @@ namespace AppMecanica
                 lbl.Text = $"{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
                 flowPanelRepuestos.Controls.Add(lbl);
             }
+
+            this.KeyPreview = true;
+            this.KeyDown += FormPresupuestoGenerado_KeyDown;
+        }
+
+        private void FormPresupuestoGenerado_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.F1)
+            {
+                btnImprimir_Click(sender, e);
+                e.Handled = true; // Opcional: evita que se propague la tecla
+            }
+            
+            if (e.KeyCode == Keys.F2)
+            {
+                btnImg_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnVolverGenerado_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+
+
         }
         private void btnImprimir_Click(object sender, EventArgs e)
         {

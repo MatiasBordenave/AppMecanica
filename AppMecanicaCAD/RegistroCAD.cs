@@ -55,7 +55,8 @@ namespace AppMecanicaCAD
                                     CantidadHoras = Convert.ToInt32(reader["cantidadHoras"]),
                                     PrecioPorHora = Convert.ToDouble(reader["precioPorHora"]),
                                     PrecioTotalHoras = Convert.ToDouble(reader["precioTotalHoras"]),
-                                    KilometrajeRegistro = Convert.ToInt32(reader["kilometrajeRegistro"])
+                                    KilometrajeRegistro = Convert.ToInt32(reader["kilometrajeRegistro"]),
+                                    DescripcionRepuestos = reader["descripcionRepuestos"].ToString()
                                 });
 
                             }
@@ -72,8 +73,8 @@ namespace AppMecanicaCAD
         }
 
 
-        public static int AgregarRegistro(string nombreYApellido, string telefono, string domicilio, string marca, string modelo, string patente, int año,
-    int kilometrajeInicial, Registro registro, List<Repuesto> repuestos)
+        public static void AgregarRegistro(string nombreYApellido, string telefono, string domicilio, string marca, string modelo, string patente, int año,
+    int kilometrajeInicial, Registro registro)
         {
             using (var connection = Coneccion.CreateConnection())
             {
@@ -156,9 +157,9 @@ namespace AppMecanicaCAD
                 int idRegistro;
 
                 string insertRegistro = @"INSERT INTO registros 
-            (id_vehiculo, fecha, descripcion, totalRepuestos, cantidadHoras, precioPorHora, precioTotalHoras, precioTotal, kilometrajeRegistro)
+            (id_vehiculo, fecha, descripcion, totalRepuestos, cantidadHoras, precioPorHora, precioTotalHoras, precioTotal, kilometrajeRegistro, descripcionRepuestos)
             VALUES 
-            (@Vehiculo, @Fecha, @Descripcion, @Repuestos, @Horas, @PrecioHora, @TotalHoras, @TotalFinal, @KmRegistro)";
+            (@Vehiculo, @Fecha, @Descripcion, @Repuestos, @Horas, @PrecioHora, @TotalHoras, @TotalFinal, @KmRegistro, @descripcionRepuestos)";
                 using (var cmd = new SQLiteCommand(insertRegistro, connection))
                 {
                     cmd.Parameters.AddWithValue("@Vehiculo", idVehiculo);
@@ -170,29 +171,11 @@ namespace AppMecanicaCAD
                     cmd.Parameters.AddWithValue("@TotalHoras", registro.PrecioTotalHoras);
                     cmd.Parameters.AddWithValue("@TotalFinal", registro.PrecioTotal);
                     cmd.Parameters.AddWithValue("@KmRegistro", registro.KilometrajeRegistro);
+                    cmd.Parameters.AddWithValue("@descripcionRepuestos", registro.DescripcionRepuestos);
                     cmd.ExecuteNonQuery();
                     idRegistro = (int)connection.LastInsertRowId;
                 }
 
-                // NUEVO: Insertamos los repuestos asociados a este registro
-                if (repuestos != null && repuestos.Count > 0)
-                {
-                    foreach (var rep in repuestos)
-                    {
-                        string insertRepuesto = @"INSERT INTO repuesto(id_registro, nombre, cantidad, precioUnitario)
-                                          VALUES (@IdRegistro, @Nombre, @Cantidad, @Precio)";
-                        using (var cmd = new SQLiteCommand(insertRepuesto, connection))
-                        {
-                            cmd.Parameters.AddWithValue("@IdRegistro", idRegistro);
-                            cmd.Parameters.AddWithValue("@Nombre", rep.Nombre);
-                            cmd.Parameters.AddWithValue("@Cantidad", rep.Cantidad);
-                            cmd.Parameters.AddWithValue("@Precio", rep.Precio);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }
-                }
-
-                return idRegistro;
             }
         }
 

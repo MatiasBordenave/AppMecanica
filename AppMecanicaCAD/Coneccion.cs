@@ -14,10 +14,10 @@ namespace AppMecanicaCAD
             //string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "data.sqlite");
 
 
-            string dbPath = "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanica\\Data\\database.sqlite";
+            //string dbPath = "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanica\\Data\\database.sqlite";
 
 
-            //string dbPath = "C:\\Users\\Matias\\Desktop\\Nueva carpeta (4)\\AppMecanica\\Data\\database.sqlite";
+            string dbPath = "C:\\Users\\Matias\\Desktop\\Nueva carpeta (4)\\AppMecanica\\Data\\database.sqlite";
 
 
             //// Crear la carpeta si no existe
@@ -58,7 +58,7 @@ namespace AppMecanicaCAD
         //                                    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE
         //                                );
 
-        //                                -- Crear la tabla de registros de mantenimiento
+        //                               -- Crear la tabla de registros de mantenimiento
         //                                CREATE TABLE registros (
         //                                    id_registro INTEGER PRIMARY KEY AUTOINCREMENT,
         //                                    id_vehiculo INTEGER NOT NULL,
@@ -70,19 +70,13 @@ namespace AppMecanicaCAD
         //                                    precioPorHora REAL NOT NULL, 
         //                                    precioTotalHoras REAL NOT NULL,
         //                                    kilometrajeRegistro INTEGER NOT NULL,
+        //                                    descripcionRepuestos TEXT NOT NULL,                                     
         //                                    FOREIGN KEY (id_vehiculo) REFERENCES vehiculos(id_vehiculo) ON DELETE CASCADE
         //                                );
 
         //                                -- Crear la tabla de presupuesto
         //                                CREATE TABLE presupuesto(id_presupuesto INTEGER PRIMARY KEY AUTOINCREMENT); ";
 
-        //                                -- Crear la tabla de repuestos
-        //                                  CREATE TABLE repuesto(id_repuesto INTEGER PRIMARY KEY AUTOINCREMENT,
-        //                                  id_registro INTEGER NOT NULL,
-        //                                  nombre TEXT NOT NULL,
-        //                                  cantidad INTEGER NOT NULL,
-        //                                  precioUnitario REAL NOT NULL,
-        //                                  FOREIGN KEY(id_registro) REFERENCES registros(id_registro) ON DELETE CASCADE); ";
 
         //    try
         //    {

@@ -61,6 +61,7 @@ namespace AppMecanica
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
+
             OcultarAsteriscos();
             AttachDecimalOnly(
                 txtTelefono, txtAño, txtPrecioUni,
@@ -70,6 +71,44 @@ namespace AppMecanica
                 txtModelo, txtMarca, txtPatente, txtAño, txtKm);
 
             MaximoRango();
+
+            txtTitular.Focus();
+            this.KeyPreview = true; // Para que el formulario detecte las teclas
+            this.KeyDown += new KeyEventHandler(Form1_KeyDown);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                txtTitular.Focus();
+                e.Handled = true; // Opcional: evita que se propague la tecla
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                txtNombreRepo.Focus();
+                e.Handled = true; // Opcional: evita que se propague la tecla
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                btnLimpiar_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F3)
+            {
+                btnGenerar_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F4)
+            {
+                btnGuardar_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnVolverPresupuesto_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
         }
 
         private void MaximoRango()
@@ -183,17 +222,41 @@ namespace AppMecanica
             }
 
             var patente = txtPatente.Text.Trim().ToUpper();
-            if (!Regex.IsMatch(patente, @"^[A-Z]{3}\s?\d{3}$|^[A-Z]{2}\s?\d{3}\s?[A-Z]{2}$"))
+            if (!Regex.IsMatch(patente, "^[A-Z]{3}\\d{3}$"))
             {
-                _msg.ShowError("Formato de patente inválido. Debe ser ABC123 o AB123CD.", "Error de patente");
+                _msg.ShowError("Formato de patente inválido. Debe ser ABC123.", "Error de patente");
                 return;
             }
-
 
             var repuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(repuestos);
             var totalLaborHoras = _calculator.CalculateLaborCost(horas, precioHora);
             var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);
+
+            // Generar la descripción de repuestos desde el DataGridView
+            string descripcionRepuestos = "";
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var nombre = row.Cells["NombreRepuesto"].Value?.ToString();
+                var cantidad = row.Cells["CantidadRepuesto"].Value?.ToString();
+                var precio = row.Cells["PrecioRepuesto"].Value?.ToString();
+
+                if (!string.IsNullOrWhiteSpace(nombre) &&
+                    !string.IsNullOrWhiteSpace(cantidad) &&
+                    !string.IsNullOrWhiteSpace(precio))
+                {
+                    descripcionRepuestos += $"{nombre} x{cantidad} - ${precio}, ";
+                }
+            }
+
+            // Eliminar la última coma y espacio si existen
+            if (descripcionRepuestos.EndsWith(", "))
+            {
+                descripcionRepuestos = descripcionRepuestos.Substring(0, descripcionRepuestos.Length - 2);
+            }
+
 
             try
             {
@@ -206,7 +269,7 @@ namespace AppMecanica
                     totalLaborHoras,
                     totalGeneral,
                     kilometraje,
-                    repuestos
+                    descripcionRepuestos
                 );
 
 
@@ -228,8 +291,7 @@ namespace AppMecanica
                     patente,
                     año,
                     kilometraje,
-                    registro,
-                    repuestos);
+                    registro);
 
 
                 _msg.ShowInfo("Registro procesado correctamente.", "Éxito");

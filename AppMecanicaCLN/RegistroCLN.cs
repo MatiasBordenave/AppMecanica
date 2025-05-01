@@ -37,8 +37,7 @@ namespace AppMecanicaCAD
         string patente,
         int año,
         int kilometrajeInicial,
-        Registro registro,
-        List<Repuesto> repuestos)
+        Registro registro)
         {
             // Validaciones
             if (string.IsNullOrWhiteSpace(nombreYApellido) || string.IsNullOrWhiteSpace(telefono) ||
@@ -64,7 +63,6 @@ namespace AppMecanicaCAD
                 throw new ArgumentException("La fecha proporcionada no es válida.");
             }
 
-            registro.Repuestos = repuestos;
 
             try
             {
@@ -77,8 +75,7 @@ namespace AppMecanicaCAD
                     patente,
                     año,
                     kilometrajeInicial,
-                    registro,
-                    repuestos
+                    registro
                 );
             }
             catch (Exception ex)

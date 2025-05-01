@@ -48,5 +48,29 @@ namespace AppMecanica
             presupuestoForm.Show();
             this.Hide();
         }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            this.KeyPreview = true;
+            this.KeyDown += FormHome_KeyDown;
+        }
+
+        private void FormHome_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.F1)
+            {
+                btnPresupuesto_Click(sender, e);
+                e.Handled = true; // Opcional: evita que se propague la tecla
+            }
+
+            if (e.KeyCode == Keys.F2)
+            {
+                btnRegistro_Click(sender, e); // Tu lógica de volver
+                e.Handled = true;
+            }
+
+
+        }
     }
 }

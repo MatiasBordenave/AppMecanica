@@ -13,8 +13,7 @@ public interface IRegistroService
         string patente,
         int año,
         int kilometraje,
-        Registro registro,
-        List<Repuesto> repuestos
+        Registro registro
     );
 
 }

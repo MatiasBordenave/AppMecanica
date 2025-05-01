@@ -11,6 +11,6 @@ public interface IRegistroFactory
         decimal totalLabor,          // precioTotalHoras
         decimal totalGeneral,        // precioTotal
         int kilometraje,
-        List<Repuesto>repuestos     // <— la lista completa
+        string descripcionRepuestos
     );
 }

@@ -19,8 +19,7 @@ public class RegistroService : IRegistroService
         string patente,
         int año,
         int kilometraje,
-        Registro registro,
-        List<Repuesto> repuestos
+        Registro registro
         )
     {
         if (ClienteExiste(patente))
@@ -34,7 +33,7 @@ public class RegistroService : IRegistroService
             RegistroCLN.CrearClienteConRegistro(
                 titular, telefono, domicilio,
                 marca, modelo, patente,
-                año, kilometraje, registro, repuestos);
+                año, kilometraje, registro);
         }
     }
 }

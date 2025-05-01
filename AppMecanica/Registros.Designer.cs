@@ -43,7 +43,6 @@
             btnAnteriorDGV = new Button();
             btnSiguienteDGV = new Button();
             txtBuscar = new TextBox();
-            btnRepuestos = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
@@ -236,20 +235,6 @@
             txtBuscar.Size = new Size(197, 27);
             txtBuscar.TabIndex = 21;
             // 
-            // btnRepuestos
-            // 
-            btnRepuestos.BackColor = Color.FromArgb(51, 51, 51);
-            btnRepuestos.Font = new Font("Microsoft Sans Serif", 11.2499981F);
-            btnRepuestos.ForeColor = Color.White;
-            btnRepuestos.Location = new Point(947, 276);
-            btnRepuestos.Margin = new Padding(3, 2, 3, 2);
-            btnRepuestos.Name = "btnRepuestos";
-            btnRepuestos.Size = new Size(109, 40);
-            btnRepuestos.TabIndex = 22;
-            btnRepuestos.Text = "Repuestos";
-            btnRepuestos.UseVisualStyleBackColor = false;
-            btnRepuestos.Click += btnRepuestos_Click;
-            // 
             // Registros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -259,7 +244,6 @@
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1084, 661);
-            Controls.Add(btnRepuestos);
             Controls.Add(txtBuscar);
             Controls.Add(flpPaginas);
             Controls.Add(btnAnteriorDGV);
@@ -302,6 +286,5 @@
         private Button btnAnteriorDGV;
         private Button btnSiguienteDGV;
         private TextBox txtBuscar;
-        private Button btnRepuestos;
     }
 }

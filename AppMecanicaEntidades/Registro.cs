@@ -13,6 +13,7 @@ namespace AppMecanicaEntidades
         public int IdVehiculo { get; set; }
         public DateTime Fecha { get; set; } = DateTime.Now;
         public string Descripcion { get; set; }
+
         public double PrecioTotal { get; set; }
         public double TotalRepuestos { get; set; }
         public int CantidadHoras { get; set; }
@@ -20,13 +21,9 @@ namespace AppMecanicaEntidades
         public double PrecioTotalHoras { get; set; }
         public int KilometrajeRegistro { get; set; }
 
+        public string DescripcionRepuestos { get; set; }
+
         // Relación con Vehículo
         public Vehiculo Vehiculo { get; set; }
-
-        //tabla de repuestos?
-        //public Repuesto Repuestos { get; set; }
-
-        public List<Repuesto> Repuestos { get; set; }
-
     }
 }
