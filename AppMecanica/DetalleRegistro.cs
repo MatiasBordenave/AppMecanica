@@ -74,6 +74,7 @@ namespace AppMecanica
 
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
+            panelRegistros.BackColor = Color.Transparent;
             pdfGenerator.GenerarDesdePanel(panelRegistros, $"Registros de {detalle.Titular}");
         }
 

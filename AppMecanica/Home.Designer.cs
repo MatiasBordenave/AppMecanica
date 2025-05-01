@@ -39,7 +39,7 @@
             // 
             btnPresupuesto.BackColor = Color.FromArgb(251, 176, 48);
             btnPresupuesto.FlatStyle = FlatStyle.Flat;
-            btnPresupuesto.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnPresupuesto.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
             btnPresupuesto.Location = new Point(649, 571);
             btnPresupuesto.Margin = new Padding(4);
@@ -54,7 +54,7 @@
             // 
             btnRegistro.BackColor = Color.FromArgb(251, 176, 48);
             btnRegistro.FlatStyle = FlatStyle.Flat;
-            btnRegistro.Font = new Font("HomepageBaukasten Bold", 11.2499981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnRegistro.ForeColor = Color.FromArgb(51, 51, 51);
             btnRegistro.Location = new Point(920, 571);
             btnRegistro.Margin = new Padding(4);
@@ -91,7 +91,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MinimumSize = new Size(800, 600);
+            MinimumSize = new Size(1100, 700);
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica Software";

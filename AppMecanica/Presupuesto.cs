@@ -183,11 +183,12 @@ namespace AppMecanica
             }
 
             var patente = txtPatente.Text.Trim().ToUpper();
-            if (!Regex.IsMatch(patente, "^[A-Z]{3}\\d{3}$"))
+            if (!Regex.IsMatch(patente, @"^[A-Z]{3}\s?\d{3}$|^[A-Z]{2}\s?\d{3}\s?[A-Z]{2}$"))
             {
-                _msg.ShowError("Formato de patente inválido. Debe ser ABC123.", "Error de patente");
+                _msg.ShowError("Formato de patente inválido. Debe ser ABC123 o AB123CD.", "Error de patente");
                 return;
             }
+
 
             var repuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(repuestos);

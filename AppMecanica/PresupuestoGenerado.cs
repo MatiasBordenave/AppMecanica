@@ -51,7 +51,7 @@ namespace AppMecanica
             {
                 var lbl = new Label();
                 lbl.AutoSize = true;
-                lbl.Font = new Font("BreezeSans; 9,749999pt; style=Bold", 10, FontStyle.Bold);
+                lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
                 lbl.Margin = new Padding(10);
                 lbl.Text = $"{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
                 flowPanelRepuestos.Controls.Add(lbl);
