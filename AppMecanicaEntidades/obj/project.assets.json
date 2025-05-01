@@ -8,19 +8,24 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\byfre\\.nuget\\packages\\": {}
+    "C:\\Users\\facum\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+      "projectUniqueName": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
       "projectName": "AppMecanicaEntidades",
-      "projectPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
-      "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\obj\\",
+      "projectPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
+      "packagesPath": "C:\\Users\\facum\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\facum\\OneDrive\\Escritorio\\AppMecanica\\AppMecanicaEntidades\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\byfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\facum\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -45,7 +50,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0": {
@@ -66,7 +72,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

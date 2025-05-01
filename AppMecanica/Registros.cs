@@ -27,6 +27,7 @@ namespace AppMecanica
         private RepuestoCLN repuestoCLN = new RepuestoCLN();
         private ClienteVehiculoCLN clienteVehiculoCLN = new ClienteVehiculoCLN();
         private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
+        private bool cierreDesdeBoton = false;
 
         private Form formHome;
 
@@ -40,6 +41,7 @@ namespace AppMecanica
 
         private void btnVolverRegistro_Click(object sender, EventArgs e)
         {
+            cierreDesdeBoton = true;
             formHome.Show();
             this.Close();
         }
@@ -322,7 +324,11 @@ namespace AppMecanica
 
         private void Registros_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(0);
+            // Solo cierra la aplicación si NO es un cierre desde el botón
+            if (!cierreDesdeBoton)
+            {
+                Application.Exit();
+            }
         }
     }
 }

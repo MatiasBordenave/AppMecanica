@@ -15,6 +15,7 @@ namespace AppMecanica
         private Form formRegistro;
         private VehiculoDetalleDTO detalle;
         private IPdfGenerator pdfGenerator = new PdfSharpGenerator();
+        private bool cierreDesdeBoton = false;
         public DetalleRegistro(Form registro, VehiculoDetalleDTO detalle)
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace AppMecanica
 
         private void btnVolverDetalle_Click(object sender, EventArgs e)
         {
+            cierreDesdeBoton = true;
             formRegistro.Show();
             this.Close();
         }
@@ -75,5 +77,12 @@ namespace AppMecanica
             pdfGenerator.GenerarDesdePanel(panelRegistros, $"Registros de {detalle.Titular}");
         }
 
+        private void DetalleRegistro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!cierreDesdeBoton)
+            {
+                Application.Exit();
+            }
+        }
     }
 }

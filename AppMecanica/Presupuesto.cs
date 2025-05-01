@@ -23,6 +23,8 @@ namespace AppMecanica
         private readonly Form _homeForm;
         private readonly Label[] _asteriscoLblRegistro;
         private readonly Label[] _asteriscosLblPresupuesto;
+        // En cada formulario, agrega una variable a nivel de clase
+        private bool cierreDesdeBoton = false;
 
         public Presupuesto(
             Form homeForm,
@@ -97,6 +99,8 @@ namespace AppMecanica
 
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
+            // Marcar que estamos cerrando desde el botón
+            cierreDesdeBoton = true;
             _homeForm.Show();
             this.Close();
         }
@@ -361,7 +365,11 @@ namespace AppMecanica
 
         private void Presupuesto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(0);
+            // Solo cierra la aplicación si NO es un cierre desde el botón
+            if (!cierreDesdeBoton)
+            {
+                Application.Exit();
+            }
         }
     }
 }

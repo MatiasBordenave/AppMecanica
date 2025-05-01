@@ -10,6 +10,7 @@ namespace AppMecanica
         private PresupuestoData data;
         private readonly IPrintService _printService;
         private readonly IExportService _exportService;
+        private bool cierreDesdeBoton = false;
 
         public PresupuestoGenerado(Form presupuesto, PresupuestoData data,
             IPrintService printService, IExportService exportService)
@@ -76,13 +77,17 @@ namespace AppMecanica
         }
         private void btnVolverGenerado_Click(object sender, EventArgs e)
         {
+            cierreDesdeBoton = true;
             formPresupuesto.Show();
             this.Close();
         }
 
         private void PresupuestoGenerado_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Environment.Exit(0);
+            if (!cierreDesdeBoton)
+            {
+                Application.Exit();
+            }
         }
     }
 }
