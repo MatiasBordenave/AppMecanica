@@ -62,6 +62,11 @@ namespace AppMecanica
         private void Presupuesto_Load(object sender, EventArgs e)
         {
 
+            this.BeginInvoke(new Action(() =>
+            {
+                txtTitular.Focus();
+            }));
+
             OcultarAsteriscos();
             AttachDecimalOnly(
                 txtTelefono, txtAño, txtPrecioUni,
@@ -72,7 +77,7 @@ namespace AppMecanica
 
             MaximoRango();
 
-            txtTitular.Focus();
+            
             this.KeyPreview = true; // Para que el formulario detecte las teclas
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
@@ -86,7 +91,7 @@ namespace AppMecanica
             }
             if (e.KeyCode == Keys.F2)
             {
-                txtNombreRepo.Focus();
+                txtCantidadHoras.Focus();
                 e.Handled = true; // Opcional: evita que se propague la tecla
             }
             if (e.KeyCode == Keys.F5)
@@ -432,6 +437,26 @@ namespace AppMecanica
             if (!cierreDesdeBoton)
             {
                 Application.Exit();
+            }
+        }
+
+        private void nupCantidad_Enter(object sender, EventArgs e)
+        {
+            NumericUpDown nud = sender as NumericUpDown;
+            if (nud.Controls.Count > 0 && nud.Controls[1] is TextBox)
+            {
+                TextBox tb = (TextBox)nud.Controls[1];
+                tb.SelectAll();
+            }
+        }
+
+        private void nupCantidad_Click(object sender, EventArgs e)
+        {
+            NumericUpDown nud = sender as NumericUpDown;
+            if (nud.Controls.Count > 0 && nud.Controls[1] is TextBox)
+            {
+                TextBox tb = (TextBox)nud.Controls[1];
+                tb.SelectAll();
             }
         }
     }

@@ -385,6 +385,8 @@
             nupCantidad.Size = new Size(87, 25);
             nupCantidad.TabIndex = 9;
             nupCantidad.TextAlign = HorizontalAlignment.Center;
+            nupCantidad.Click += nupCantidad_Click;
+            nupCantidad.Enter += nupCantidad_Enter;
             // 
             // lblCantidad
             // 
