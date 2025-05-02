@@ -137,25 +137,6 @@ namespace AppMecanica
             dgvRegistros.Columns.Clear();
         }
 
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            limpiarDataGridView();
-            dgvRegistros.DataSource = clienteCLN.ObtenerClientes();
-            dgvRegistros.Columns["nombreYApellido"].HeaderText = "Titular";
-        }
-
-        private void btnVehiculos_Click(object sender, EventArgs e)
-        {
-            limpiarDataGridView();
-            dgvRegistros.DataSource = vehiculoCLN.ObtenerVehiculos();
-        }
-
-        private void btnRegistros_Click(object sender, EventArgs e)
-        {
-            limpiarDataGridView();
-            dgvRegistros.DataSource = registroCLN.ObtenerRegistros();
-        }
-
         private void btnResetDgv_Click(object sender, EventArgs e)
         {
             CargarDataGridView(1);

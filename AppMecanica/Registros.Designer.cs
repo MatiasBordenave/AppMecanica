@@ -35,9 +35,6 @@
             btnVolverRegistro = new Button();
             btnDetalles = new Button();
             btnBuscar = new Button();
-            btnClientes = new Button();
-            btnVehiculos = new Button();
-            btnRegistros = new Button();
             btnResetDgv = new Button();
             flpPaginas = new FlowLayoutPanel();
             btnAnteriorDGV = new Button();
@@ -84,7 +81,7 @@
             btnVolverRegistro.FlatStyle = FlatStyle.Flat;
             btnVolverRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnVolverRegistro.ForeColor = Color.FromArgb(51, 51, 51);
-            btnVolverRegistro.Location = new Point(933, 590);
+            btnVolverRegistro.Location = new Point(917, 575);
             btnVolverRegistro.Margin = new Padding(3, 2, 3, 2);
             btnVolverRegistro.Name = "btnVolverRegistro";
             btnVolverRegistro.Size = new Size(139, 60);
@@ -99,7 +96,7 @@
             btnDetalles.FlatStyle = FlatStyle.Flat;
             btnDetalles.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnDetalles.ForeColor = Color.FromArgb(51, 51, 51);
-            btnDetalles.Location = new Point(933, 507);
+            btnDetalles.Location = new Point(917, 507);
             btnDetalles.Margin = new Padding(3, 2, 3, 2);
             btnDetalles.Name = "btnDetalles";
             btnDetalles.Size = new Size(139, 60);
@@ -124,59 +121,18 @@
             btnBuscar.UseVisualStyleBackColor = false;
             btnBuscar.Click += btnBuscar_Click;
             // 
-            // btnClientes
-            // 
-            btnClientes.BackColor = Color.FromArgb(51, 51, 51);
-            btnClientes.Font = new Font("Microsoft Sans Serif", 11.2499981F);
-            btnClientes.ForeColor = Color.White;
-            btnClientes.Location = new Point(947, 144);
-            btnClientes.Margin = new Padding(3, 2, 3, 2);
-            btnClientes.Name = "btnClientes";
-            btnClientes.Size = new Size(109, 40);
-            btnClientes.TabIndex = 10;
-            btnClientes.Text = "Clientes";
-            btnClientes.UseVisualStyleBackColor = false;
-            btnClientes.Click += btnClientes_Click;
-            // 
-            // btnVehiculos
-            // 
-            btnVehiculos.BackColor = Color.FromArgb(51, 51, 51);
-            btnVehiculos.Font = new Font("Microsoft Sans Serif", 11.2499981F);
-            btnVehiculos.ForeColor = Color.White;
-            btnVehiculos.Location = new Point(947, 188);
-            btnVehiculos.Margin = new Padding(3, 2, 3, 2);
-            btnVehiculos.Name = "btnVehiculos";
-            btnVehiculos.Size = new Size(109, 40);
-            btnVehiculos.TabIndex = 11;
-            btnVehiculos.Text = "Vehiculos";
-            btnVehiculos.UseVisualStyleBackColor = false;
-            btnVehiculos.Click += btnVehiculos_Click;
-            // 
-            // btnRegistros
-            // 
-            btnRegistros.BackColor = Color.FromArgb(51, 51, 51);
-            btnRegistros.Font = new Font("Microsoft Sans Serif", 11.2499981F);
-            btnRegistros.ForeColor = Color.White;
-            btnRegistros.Location = new Point(947, 232);
-            btnRegistros.Margin = new Padding(3, 2, 3, 2);
-            btnRegistros.Name = "btnRegistros";
-            btnRegistros.Size = new Size(109, 40);
-            btnRegistros.TabIndex = 12;
-            btnRegistros.Text = "Registros";
-            btnRegistros.UseVisualStyleBackColor = false;
-            btnRegistros.Click += btnRegistros_Click;
-            // 
             // btnResetDgv
             // 
-            btnResetDgv.BackColor = Color.FromArgb(51, 51, 51);
-            btnResetDgv.Font = new Font("Microsoft Sans Serif", 11.2499981F);
-            btnResetDgv.ForeColor = Color.White;
-            btnResetDgv.Location = new Point(947, 100);
+            btnResetDgv.BackColor = Color.FromArgb(251, 176, 48);
+            btnResetDgv.FlatStyle = FlatStyle.Flat;
+            btnResetDgv.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnResetDgv.ForeColor = Color.FromArgb(51, 51, 51);
+            btnResetDgv.Location = new Point(917, 90);
             btnResetDgv.Margin = new Padding(3, 2, 3, 2);
             btnResetDgv.Name = "btnResetDgv";
-            btnResetDgv.Size = new Size(109, 40);
+            btnResetDgv.Size = new Size(139, 60);
             btnResetDgv.TabIndex = 14;
-            btnResetDgv.Text = "Reset DGV";
+            btnResetDgv.Text = "Reiniciar Busqueda";
             btnResetDgv.UseVisualStyleBackColor = false;
             btnResetDgv.Click += btnResetDgv_Click;
             // 
@@ -191,9 +147,10 @@
             // btnAnteriorDGV
             // 
             btnAnteriorDGV.BackColor = Color.FromArgb(51, 51, 51);
-            btnAnteriorDGV.FlatAppearance.BorderColor = Color.White;
-            btnAnteriorDGV.FlatAppearance.BorderSize = 0;
-            btnAnteriorDGV.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnAnteriorDGV.FlatAppearance.BorderColor = Color.Silver;
+            btnAnteriorDGV.FlatAppearance.CheckedBackColor = Color.Silver;
+            btnAnteriorDGV.FlatAppearance.MouseDownBackColor = Color.Silver;
+            btnAnteriorDGV.FlatAppearance.MouseOverBackColor = Color.Silver;
             btnAnteriorDGV.FlatStyle = FlatStyle.Flat;
             btnAnteriorDGV.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             btnAnteriorDGV.ForeColor = Color.White;
@@ -209,8 +166,10 @@
             // btnSiguienteDGV
             // 
             btnSiguienteDGV.BackColor = Color.FromArgb(51, 51, 51);
-            btnSiguienteDGV.FlatAppearance.BorderSize = 0;
-            btnSiguienteDGV.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnSiguienteDGV.FlatAppearance.BorderColor = Color.Silver;
+            btnSiguienteDGV.FlatAppearance.CheckedBackColor = Color.Silver;
+            btnSiguienteDGV.FlatAppearance.MouseDownBackColor = Color.Silver;
+            btnSiguienteDGV.FlatAppearance.MouseOverBackColor = Color.Silver;
             btnSiguienteDGV.FlatStyle = FlatStyle.Flat;
             btnSiguienteDGV.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             btnSiguienteDGV.ForeColor = Color.White;
@@ -249,9 +208,6 @@
             Controls.Add(btnAnteriorDGV);
             Controls.Add(btnSiguienteDGV);
             Controls.Add(btnResetDgv);
-            Controls.Add(btnRegistros);
-            Controls.Add(btnVehiculos);
-            Controls.Add(btnClientes);
             Controls.Add(btnBuscar);
             Controls.Add(btnDetalles);
             Controls.Add(btnVolverRegistro);
@@ -278,9 +234,6 @@
         private Button btnVolverRegistro;
         private Button btnDetalles;
         private Button btnBuscar;
-        private Button btnClientes;
-        private Button btnVehiculos;
-        private Button btnRegistros;
         private Button btnResetDgv;
         private FlowLayoutPanel flpPaginas;
         private Button btnAnteriorDGV;

@@ -13,20 +13,14 @@ namespace AppMecanicaCAD
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "data.sqlite");
 
-
-
-
-            // Crear la carpeta si no existe
             if (!Directory.Exists(Path.GetDirectoryName(dbPath)))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(dbPath));
             }
-
-            // Crear la base de datos si no existe
             if (!File.Exists(dbPath))
             {
                 SQLiteConnection.CreateFile(dbPath);
-                CrearTablas(dbPath); // Crear las tablas si es una nueva base de datos
+                CrearTablas(dbPath); 
             }
 
             connectionString = $"Data Source={dbPath};Version=3;";
