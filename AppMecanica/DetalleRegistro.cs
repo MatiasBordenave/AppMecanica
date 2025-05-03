@@ -56,8 +56,6 @@ namespace AppMecanica
                 e.Handled = true;
             }
         }
-            
-
         private void CargarTabsRegistros()
         {
             int yOffset = panelHeader.Height;
@@ -65,7 +63,7 @@ namespace AppMecanica
             foreach (var registro in detalle.Registros)
             {
                 Panel tarjeta = new Panel();
-                tarjeta.Size = new Size(panelRegistros.Width - 30, 200); // Aumentamos altura para más info
+                tarjeta.Size = new Size(panelRegistros.Width - 30, 200); 
                 tarjeta.Location = new Point(10, yOffset);
                 tarjeta.BorderStyle = BorderStyle.FixedSingle;
 
@@ -85,26 +83,29 @@ namespace AppMecanica
                 tarjeta.Controls.Add(lblDescripcionTrabajo);
                 labelY += 20;
 
-                Label lblRepuestos = new Label();
-                lblRepuestos.Text = $"Repuestos: {registro.DescripcionRepuestos}";
-                lblRepuestos.Location = new Point(10, labelY);
-                lblRepuestos.Size = new Size(tarjeta.Width - 20, 40);
-                lblRepuestos.AutoEllipsis = true;
-                tarjeta.Controls.Add(lblRepuestos);
-                labelY += 45;
+                if (!string.IsNullOrWhiteSpace(registro.DescripcionRepuestos))
+                {
+                    Label lblRepuestos = new Label();
+                    lblRepuestos.Text = $"Repuestos: {registro.DescripcionRepuestos}";
+                    lblRepuestos.Location = new Point(10, labelY);
+                    lblRepuestos.Size = new Size(tarjeta.Width - 20, 40);
+                    lblRepuestos.AutoEllipsis = true;
+                    tarjeta.Controls.Add(lblRepuestos);
+                    labelY += 45;
+
+                    Label lblTotales = new Label();
+                    lblTotales.Text = $"Total Repuestos: ${registro.TotalRepuestos}";
+                    lblTotales.Location = new Point(10, labelY);
+                    lblTotales.AutoSize = true;
+                    tarjeta.Controls.Add(lblTotales);
+                    labelY += 20;
+                }
 
                 Label lblHoras = new Label();
                 lblHoras.Text = $"Horas: {registro.CantidadHoras} hs, ${registro.PrecioPorHora}/h";
                 lblHoras.Location = new Point(10, labelY);
                 lblHoras.AutoSize = true;
                 tarjeta.Controls.Add(lblHoras);
-                labelY += 20;
-
-                Label lblTotales = new Label();
-                lblTotales.Text = $"Total Repuestos: ${registro.TotalRepuestos}";
-                lblTotales.Location = new Point(10, labelY);
-                lblTotales.AutoSize = true;
-                tarjeta.Controls.Add(lblTotales);
                 labelY += 20;
 
                 Label lblKm = new Label();
@@ -117,6 +118,7 @@ namespace AppMecanica
                 yOffset += tarjeta.Height + 10;
             }
         }
+
 
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {

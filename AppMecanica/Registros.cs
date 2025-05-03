@@ -225,12 +225,9 @@ namespace AppMecanica
         private void GenerarBotonesPaginacion()
         {
             flpPaginas.Controls.Clear();
-
-            int maxBotonesVisibles = 7; // Número máximo de botones que se mostrarán (sin contar los "...")
-
+            int maxBotonesVisibles = 7; 
             int inicio = Math.Max(1, paginaActual - 2);
             int fin = Math.Min(totalPaginas, paginaActual + 2);
-
             if (paginaActual <= 3)
             {
                 inicio = 1;
@@ -241,7 +238,6 @@ namespace AppMecanica
                 inicio = Math.Max(1, totalPaginas - maxBotonesVisibles + 1);
                 fin = totalPaginas;
             }
-
             void AgregarBoton(int numero)
             {
                 Button btn = new Button();
@@ -249,20 +245,15 @@ namespace AppMecanica
                 btn.Width = 40;
                 btn.Height = 30;
                 btn.Tag = numero;
-
                 if (numero == paginaActual)
                     btn.BackColor = Color.LightBlue;
-
                 btn.Click += (s, e) =>
                 {
                     paginaActual = (int)((Button)s).Tag;
                     CargarDataGridView(paginaActual);
                 };
-
                 flpPaginas.Controls.Add(btn);
             }
-
-            // Botón Primera Página
             if (inicio > 1)
             {
                 AgregarBoton(1);
@@ -272,14 +263,10 @@ namespace AppMecanica
                     AgregarPuntosSuspensivos();
                 }
             }
-
-            // Botones intermedios
             for (int i = inicio; i <= fin; i++)
             {
                 AgregarBoton(i);
             }
-
-            // Botón Última Página
             if (fin < totalPaginas)
             {
                 if (fin < totalPaginas - 1)
@@ -289,13 +276,9 @@ namespace AppMecanica
 
                 AgregarBoton(totalPaginas);
             }
-
             btnAnteriorDGV.Enabled = paginaActual > 1;
             btnSiguienteDGV.Enabled = paginaActual < totalPaginas;
         }
-
-
-        // boton ... cambiar el diseño qe esta horrible!!!!!
         private void AgregarPuntosSuspensivos()
         {
             Button puntos = new Button();
@@ -310,8 +293,6 @@ namespace AppMecanica
 
             flpPaginas.Controls.Add(puntos);
         }
-
-
         private void btnSiguienteDGV_Click(object sender, EventArgs e)
         {
             if (paginaActual < totalPaginas)
@@ -320,7 +301,6 @@ namespace AppMecanica
                 CargarDataGridView(paginaActual);
             }
         }
-
         private void btnAnteriorDGV_Click(object sender, EventArgs e)
         {
             if (paginaActual > 1)
@@ -332,7 +312,6 @@ namespace AppMecanica
 
         private void Registros_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Solo cierra la aplicación si NO es un cierre desde el botón
             if (!cierreDesdeBoton)
             {
                 Application.Exit();

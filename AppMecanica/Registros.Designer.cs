@@ -146,8 +146,8 @@
             // 
             // btnAnteriorDGV
             // 
-            btnAnteriorDGV.BackColor = Color.FromArgb(51, 51, 51);
-            btnAnteriorDGV.FlatAppearance.BorderColor = Color.Silver;
+            btnAnteriorDGV.BackColor = Color.FromArgb(251, 176, 48);
+            btnAnteriorDGV.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnAnteriorDGV.FlatAppearance.CheckedBackColor = Color.Silver;
             btnAnteriorDGV.FlatAppearance.MouseDownBackColor = Color.Silver;
             btnAnteriorDGV.FlatAppearance.MouseOverBackColor = Color.Silver;
@@ -165,8 +165,8 @@
             // 
             // btnSiguienteDGV
             // 
-            btnSiguienteDGV.BackColor = Color.FromArgb(51, 51, 51);
-            btnSiguienteDGV.FlatAppearance.BorderColor = Color.Silver;
+            btnSiguienteDGV.BackColor = Color.FromArgb(251, 176, 48);
+            btnSiguienteDGV.FlatAppearance.BorderColor = Color.FromArgb(51, 51, 51);
             btnSiguienteDGV.FlatAppearance.CheckedBackColor = Color.Silver;
             btnSiguienteDGV.FlatAppearance.MouseDownBackColor = Color.Silver;
             btnSiguienteDGV.FlatAppearance.MouseOverBackColor = Color.Silver;
