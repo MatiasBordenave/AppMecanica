@@ -41,7 +41,7 @@
             btnPresupuesto.FlatStyle = FlatStyle.Flat;
             btnPresupuesto.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            btnPresupuesto.Location = new Point(649, 571);
+            btnPresupuesto.Location = new Point(737, 672);
             btnPresupuesto.Margin = new Padding(4);
             btnPresupuesto.Name = "btnPresupuesto";
             btnPresupuesto.Size = new Size(139, 60);
@@ -56,7 +56,7 @@
             btnRegistro.FlatStyle = FlatStyle.Flat;
             btnRegistro.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnRegistro.ForeColor = Color.FromArgb(51, 51, 51);
-            btnRegistro.Location = new Point(920, 571);
+            btnRegistro.Location = new Point(1008, 672);
             btnRegistro.Margin = new Padding(4);
             btnRegistro.Name = "btnRegistro";
             btnRegistro.Size = new Size(139, 60);
@@ -69,7 +69,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(649, 24);
+            pictureBox1.Location = new Point(737, 50);
             pictureBox1.Margin = new Padding(4);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(410, 395);
@@ -83,8 +83,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(51, 51, 51);
-            BackgroundImage = Properties.Resources.bg_home;
-            ClientSize = new Size(1084, 661);
+            BackgroundImage = Properties.Resources.bg_home_2;
+            ClientSize = new Size(1184, 791);
             Controls.Add(btnPresupuesto);
             Controls.Add(btnRegistro);
             Controls.Add(pictureBox1);

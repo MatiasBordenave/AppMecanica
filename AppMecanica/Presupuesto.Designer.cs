@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Presupuesto));
             btnVolverPresupuesto = new Button();
             btnGuardar = new Button();
@@ -86,6 +86,8 @@
             lblAsHoras = new Label();
             lblAsPxH = new Label();
             lblAsDesc = new Label();
+            btnSnPrspto = new Button();
+            btnManualPrspto = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).BeginInit();
             groupBox1.SuspendLayout();
@@ -99,7 +101,7 @@
             btnVolverPresupuesto.FlatStyle = FlatStyle.Flat;
             btnVolverPresupuesto.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnVolverPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            btnVolverPresupuesto.Location = new Point(924, 583);
+            btnVolverPresupuesto.Location = new Point(1033, 712);
             btnVolverPresupuesto.Margin = new Padding(3, 2, 3, 2);
             btnVolverPresupuesto.Name = "btnVolverPresupuesto";
             btnVolverPresupuesto.Size = new Size(139, 60);
@@ -115,7 +117,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGuardar.Location = new Point(924, 17);
+            btnGuardar.Location = new Point(1033, 11);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(139, 60);
@@ -241,7 +243,7 @@
             lblCantidadHoras.BackColor = Color.Transparent;
             lblCantidadHoras.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblCantidadHoras.ForeColor = Color.FromArgb(51, 51, 51);
-            lblCantidadHoras.Location = new Point(76, 524);
+            lblCantidadHoras.Location = new Point(175, 635);
             lblCantidadHoras.Name = "lblCantidadHoras";
             lblCantidadHoras.Size = new Size(129, 20);
             lblCantidadHoras.TabIndex = 18;
@@ -253,7 +255,7 @@
             lblPrecioHora.BackColor = Color.Transparent;
             lblPrecioHora.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblPrecioHora.ForeColor = Color.FromArgb(51, 51, 51);
-            lblPrecioHora.Location = new Point(351, 524);
+            lblPrecioHora.Location = new Point(493, 635);
             lblPrecioHora.Name = "lblPrecioHora";
             lblPrecioHora.Size = new Size(122, 20);
             lblPrecioHora.TabIndex = 19;
@@ -264,7 +266,7 @@
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
             txtCantidadHoras.Font = new Font("Segoe UI", 9.75F);
-            txtCantidadHoras.Location = new Point(225, 524);
+            txtCantidadHoras.Location = new Point(310, 635);
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
             txtCantidadHoras.Size = new Size(87, 25);
@@ -275,7 +277,7 @@
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
             txtPrecioHora.Font = new Font("Segoe UI", 9.75F);
-            txtPrecioHora.Location = new Point(485, 524);
+            txtPrecioHora.Location = new Point(621, 635);
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
             txtPrecioHora.PlaceholderText = "$";
@@ -288,43 +290,43 @@
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(51, 51, 51);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(51, 51, 51);
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = Color.White;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { NombreRepuesto, CantidadRepuesto, PrecioRepuesto });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Window;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Gray;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle7.ForeColor = Color.Gray;
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
-            dataGridView1.Location = new Point(76, 342);
+            dataGridView1.Location = new Point(179, 434);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Control;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(690, 145);
+            dataGridView1.Size = new Size(733, 145);
             dataGridView1.TabIndex = 26;
             // 
             // NombreRepuesto
@@ -475,11 +477,11 @@
             groupBox1.Controls.Add(lblAsTitu);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             groupBox1.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox1.Location = new Point(76, 11);
+            groupBox1.Location = new Point(175, 45);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(690, 198);
+            groupBox1.Size = new Size(733, 213);
             groupBox1.TabIndex = 35;
             groupBox1.TabStop = false;
             groupBox1.Text = "DATOS DE REGISTRO";
@@ -652,11 +654,11 @@
             groupBox2.Controls.Add(lblPrecioUni);
             groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             groupBox2.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox2.Location = new Point(76, 236);
+            groupBox2.Location = new Point(177, 306);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
-            groupBox2.Size = new Size(690, 105);
+            groupBox2.Size = new Size(733, 125);
             groupBox2.TabIndex = 37;
             groupBox2.TabStop = false;
             groupBox2.Text = "AGREGAR REPUESTOS";
@@ -680,7 +682,7 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnLimpiar.Location = new Point(924, 506);
+            btnLimpiar.Location = new Point(1033, 635);
             btnLimpiar.Margin = new Padding(3, 2, 3, 2);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(139, 60);
@@ -696,7 +698,7 @@
             btnGenerar.FlatStyle = FlatStyle.Flat;
             btnGenerar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGenerar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGenerar.Location = new Point(924, 101);
+            btnGenerar.Location = new Point(1033, 95);
             btnGenerar.Margin = new Padding(3, 2, 3, 2);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(139, 60);
@@ -711,7 +713,7 @@
             labelDesc.BackColor = Color.Transparent;
             labelDesc.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             labelDesc.ForeColor = Color.FromArgb(51, 51, 51);
-            labelDesc.Location = new Point(76, 566);
+            labelDesc.Location = new Point(177, 689);
             labelDesc.Name = "labelDesc";
             labelDesc.Size = new Size(94, 20);
             labelDesc.TabIndex = 40;
@@ -722,7 +724,7 @@
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
             textBoxDesc.Font = new Font("Segoe UI", 9.75F);
-            textBoxDesc.Location = new Point(178, 567);
+            textBoxDesc.Location = new Point(277, 689);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
             textBoxDesc.Size = new Size(370, 83);
@@ -733,7 +735,7 @@
             lblLinea.BackColor = Color.FromArgb(224, 224, 224);
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLinea.ForeColor = Color.Silver;
-            lblLinea.Location = new Point(33, 221);
+            lblLinea.Location = new Point(145, 281);
             lblLinea.Name = "lblLinea";
             lblLinea.Size = new Size(800, 1);
             lblLinea.TabIndex = 122;
@@ -743,7 +745,7 @@
             label1.BackColor = Color.FromArgb(224, 224, 224);
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Silver;
-            label1.Location = new Point(33, 502);
+            label1.Location = new Point(145, 607);
             label1.Name = "label1";
             label1.Size = new Size(800, 1);
             label1.TabIndex = 123;
@@ -754,7 +756,7 @@
             lblAsHoras.BackColor = Color.Transparent;
             lblAsHoras.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsHoras.ForeColor = Color.Red;
-            lblAsHoras.Location = new Point(318, 523);
+            lblAsHoras.Location = new Point(403, 633);
             lblAsHoras.Name = "lblAsHoras";
             lblAsHoras.Size = new Size(18, 24);
             lblAsHoras.TabIndex = 124;
@@ -766,7 +768,7 @@
             lblAsPxH.BackColor = Color.Transparent;
             lblAsPxH.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsPxH.ForeColor = Color.Red;
-            lblAsPxH.Location = new Point(581, 524);
+            lblAsPxH.Location = new Point(714, 633);
             lblAsPxH.Name = "lblAsPxH";
             lblAsPxH.Size = new Size(18, 24);
             lblAsPxH.TabIndex = 125;
@@ -778,11 +780,43 @@
             lblAsDesc.BackColor = Color.Transparent;
             lblAsDesc.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsDesc.ForeColor = Color.Red;
-            lblAsDesc.Location = new Point(554, 564);
+            lblAsDesc.Location = new Point(653, 689);
             lblAsDesc.Name = "lblAsDesc";
             lblAsDesc.Size = new Size(18, 24);
             lblAsDesc.TabIndex = 126;
             lblAsDesc.Text = "*";
+            // 
+            // btnSnPrspto
+            // 
+            btnSnPrspto.BackColor = Color.FromArgb(51, 51, 51);
+            btnSnPrspto.FlatAppearance.BorderColor = Color.White;
+            btnSnPrspto.FlatAppearance.BorderSize = 0;
+            btnSnPrspto.FlatStyle = FlatStyle.Popup;
+            btnSnPrspto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSnPrspto.ForeColor = Color.White;
+            btnSnPrspto.Location = new Point(-1, -2);
+            btnSnPrspto.Margin = new Padding(1, 2, 1, 2);
+            btnSnPrspto.Name = "btnSnPrspto";
+            btnSnPrspto.Size = new Size(90, 25);
+            btnSnPrspto.TabIndex = 127;
+            btnSnPrspto.Text = "Sobre Nostros";
+            btnSnPrspto.UseVisualStyleBackColor = false;
+            // 
+            // btnManualPrspto
+            // 
+            btnManualPrspto.BackColor = Color.FromArgb(51, 51, 51);
+            btnManualPrspto.FlatAppearance.BorderColor = Color.White;
+            btnManualPrspto.FlatAppearance.BorderSize = 0;
+            btnManualPrspto.FlatStyle = FlatStyle.Popup;
+            btnManualPrspto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnManualPrspto.ForeColor = Color.White;
+            btnManualPrspto.Location = new Point(86, -2);
+            btnManualPrspto.Margin = new Padding(1, 2, 1, 2);
+            btnManualPrspto.Name = "btnManualPrspto";
+            btnManualPrspto.Size = new Size(117, 25);
+            btnManualPrspto.TabIndex = 128;
+            btnManualPrspto.Text = "Manual de Usuario";
+            btnManualPrspto.UseVisualStyleBackColor = false;
             // 
             // Presupuesto
             // 
@@ -792,7 +826,9 @@
             BackColor = Color.FromArgb(0, 64, 64);
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1084, 661);
+            ClientSize = new Size(1184, 791);
+            Controls.Add(btnManualPrspto);
+            Controls.Add(btnSnPrspto);
             Controls.Add(lblAsDesc);
             Controls.Add(lblAsPxH);
             Controls.Add(lblAsHoras);
@@ -887,5 +923,7 @@
         private DataGridViewTextBoxColumn NombreRepuesto;
         private DataGridViewTextBoxColumn CantidadRepuesto;
         private DataGridViewTextBoxColumn PrecioRepuesto;
+        private Button btnSnPrspto;
+        private Button btnManualPrspto;
     }
 }
