@@ -18,18 +18,18 @@ namespace AppMecanica
         public FormAlerta(string tipo)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario
             tipoContenido = tipo;
         }
 
         private void FormAcercaDe_Load(object sender, EventArgs e)
         {
-
             if (tipoContenido == "sobre")
             {
                 panel1.Visible = true;
                 panel2.Visible = false;
                 panel1.Dock = DockStyle.Fill;
-                this.Size = new Size(513, 425);
+                this.Size = new Size(513, 482);
             }
             else if (tipoContenido == "comandos")
             {
@@ -39,12 +39,18 @@ namespace AppMecanica
                 this.Size = new Size(513, 482);
             }
 
-            this.KeyPreview = true; // Para que el formulario detecte las teclas
+            // Detectar teclas
+            this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
 
-
-
+            // Centrar el form una vez definido el tamaño final
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(
+                (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
+                (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2
+            );
         }
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {

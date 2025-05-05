@@ -472,3 +472,4 @@ C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\bin\Debug\net8.0-windows\P
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\bin\Debug\net8.0-windows\de\PdfSharp.Charting.resources.dll
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\bin\Debug\net8.0-windows\de\PdfSharp.resources.dll
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.FormAlerta.resources
+C:\Users\byfre\source\repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.FormAlerta.resources

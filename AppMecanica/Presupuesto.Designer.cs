@@ -117,7 +117,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGuardar.Location = new Point(1033, 11);
+            btnGuardar.Location = new Point(1033, 45);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(139, 60);
@@ -131,7 +131,7 @@
             txtTitular.BackColor = Color.FromArgb(224, 224, 224);
             txtTitular.BorderStyle = BorderStyle.FixedSingle;
             txtTitular.Font = new Font("Segoe UI", 9.75F);
-            txtTitular.Location = new Point(213, 43);
+            txtTitular.Location = new Point(236, 30);
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
             txtTitular.Size = new Size(153, 25);
@@ -142,7 +142,7 @@
             lblPatente.AutoSize = true;
             lblPatente.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblPatente.ForeColor = Color.FromArgb(51, 51, 51);
-            lblPatente.Location = new Point(417, 79);
+            lblPatente.Location = new Point(451, 81);
             lblPatente.Name = "lblPatente";
             lblPatente.Size = new Size(67, 20);
             lblPatente.TabIndex = 5;
@@ -153,7 +153,7 @@
             lblTitular.AutoSize = true;
             lblTitular.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblTitular.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTitular.Location = new Point(149, 43);
+            lblTitular.Location = new Point(170, 35);
             lblTitular.Name = "lblTitular";
             lblTitular.Size = new Size(60, 20);
             lblTitular.TabIndex = 7;
@@ -164,7 +164,7 @@
             lblMarca.AutoSize = true;
             lblMarca.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblMarca.ForeColor = Color.FromArgb(51, 51, 51);
-            lblMarca.Location = new Point(433, 42);
+            lblMarca.Location = new Point(462, 35);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(56, 20);
             lblMarca.TabIndex = 8;
@@ -175,7 +175,7 @@
             txtPatente.BackColor = Color.FromArgb(224, 224, 224);
             txtPatente.BorderStyle = BorderStyle.FixedSingle;
             txtPatente.Font = new Font("Segoe UI", 9.75F);
-            txtPatente.Location = new Point(505, 76);
+            txtPatente.Location = new Point(524, 76);
             txtPatente.Margin = new Padding(3, 2, 3, 2);
             txtPatente.Name = "txtPatente";
             txtPatente.PlaceholderText = "Ejemplo: ABC 123";
@@ -187,7 +187,7 @@
             txtMarca.BackColor = Color.FromArgb(224, 224, 224);
             txtMarca.BorderStyle = BorderStyle.FixedSingle;
             txtMarca.Font = new Font("Segoe UI", 9.75F);
-            txtMarca.Location = new Point(505, 45);
+            txtMarca.Location = new Point(524, 30);
             txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(153, 25);
@@ -198,7 +198,7 @@
             lblModelo.AutoSize = true;
             lblModelo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblModelo.ForeColor = Color.FromArgb(51, 51, 51);
-            lblModelo.Location = new Point(77, 148);
+            lblModelo.Location = new Point(100, 160);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(130, 20);
             lblModelo.TabIndex = 12;
@@ -209,7 +209,7 @@
             lblAño.AutoSize = true;
             lblAño.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblAño.ForeColor = Color.FromArgb(51, 51, 51);
-            lblAño.Location = new Point(446, 148);
+            lblAño.Location = new Point(476, 160);
             lblAño.Name = "lblAño";
             lblAño.Size = new Size(42, 20);
             lblAño.TabIndex = 13;
@@ -220,7 +220,7 @@
             txtModelo.BackColor = Color.FromArgb(224, 224, 224);
             txtModelo.BorderStyle = BorderStyle.FixedSingle;
             txtModelo.Font = new Font("Segoe UI", 9.75F);
-            txtModelo.Location = new Point(212, 148);
+            txtModelo.Location = new Point(236, 155);
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(153, 25);
@@ -231,7 +231,7 @@
             txtAño.BackColor = Color.FromArgb(224, 224, 224);
             txtAño.BorderStyle = BorderStyle.FixedSingle;
             txtAño.Font = new Font("Segoe UI", 9.75F);
-            txtAño.Location = new Point(505, 147);
+            txtAño.Location = new Point(524, 155);
             txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
             txtAño.Size = new Size(153, 25);
@@ -240,10 +240,10 @@
             // lblCantidadHoras
             // 
             lblCantidadHoras.AutoSize = true;
-            lblCantidadHoras.BackColor = Color.Transparent;
+            lblCantidadHoras.BackColor = Color.WhiteSmoke;
             lblCantidadHoras.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblCantidadHoras.ForeColor = Color.FromArgb(51, 51, 51);
-            lblCantidadHoras.Location = new Point(175, 635);
+            lblCantidadHoras.Location = new Point(220, 635);
             lblCantidadHoras.Name = "lblCantidadHoras";
             lblCantidadHoras.Size = new Size(129, 20);
             lblCantidadHoras.TabIndex = 18;
@@ -252,7 +252,7 @@
             // lblPrecioHora
             // 
             lblPrecioHora.AutoSize = true;
-            lblPrecioHora.BackColor = Color.Transparent;
+            lblPrecioHora.BackColor = Color.WhiteSmoke;
             lblPrecioHora.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblPrecioHora.ForeColor = Color.FromArgb(51, 51, 51);
             lblPrecioHora.Location = new Point(493, 635);
@@ -266,7 +266,7 @@
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
             txtCantidadHoras.Font = new Font("Segoe UI", 9.75F);
-            txtCantidadHoras.Location = new Point(310, 635);
+            txtCantidadHoras.Location = new Point(355, 630);
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
             txtCantidadHoras.Size = new Size(87, 25);
@@ -277,7 +277,7 @@
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
             txtPrecioHora.Font = new Font("Segoe UI", 9.75F);
-            txtPrecioHora.Location = new Point(621, 635);
+            txtPrecioHora.Location = new Point(621, 630);
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
             txtPrecioHora.PlaceholderText = "$";
@@ -313,7 +313,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
-            dataGridView1.Location = new Point(179, 434);
+            dataGridView1.Location = new Point(217, 434);
             dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -358,7 +358,7 @@
             lblNombreRepo.BackColor = Color.Transparent;
             lblNombreRepo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblNombreRepo.ForeColor = Color.FromArgb(51, 51, 51);
-            lblNombreRepo.Location = new Point(21, 31);
+            lblNombreRepo.Location = new Point(56, 41);
             lblNombreRepo.Name = "lblNombreRepo";
             lblNombreRepo.Size = new Size(71, 20);
             lblNombreRepo.TabIndex = 27;
@@ -369,7 +369,7 @@
             txtNombreRepo.BackColor = Color.FromArgb(224, 224, 224);
             txtNombreRepo.BorderStyle = BorderStyle.FixedSingle;
             txtNombreRepo.Font = new Font("Segoe UI", 9.75F);
-            txtNombreRepo.Location = new Point(21, 53);
+            txtNombreRepo.Location = new Point(56, 63);
             txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
             txtNombreRepo.Size = new Size(153, 25);
@@ -381,7 +381,7 @@
             nupCantidad.BorderStyle = BorderStyle.FixedSingle;
             nupCantidad.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             nupCantidad.ForeColor = Color.FromArgb(51, 51, 51);
-            nupCantidad.Location = new Point(202, 53);
+            nupCantidad.Location = new Point(237, 63);
             nupCantidad.Margin = new Padding(3, 2, 3, 2);
             nupCantidad.Name = "nupCantidad";
             nupCantidad.Size = new Size(87, 25);
@@ -396,7 +396,7 @@
             lblCantidad.BackColor = Color.Transparent;
             lblCantidad.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblCantidad.ForeColor = Color.FromArgb(51, 51, 51);
-            lblCantidad.Location = new Point(202, 31);
+            lblCantidad.Location = new Point(237, 41);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(75, 20);
             lblCantidad.TabIndex = 30;
@@ -408,7 +408,7 @@
             lblPrecioUni.BackColor = Color.Transparent;
             lblPrecioUni.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblPrecioUni.ForeColor = Color.FromArgb(51, 51, 51);
-            lblPrecioUni.Location = new Point(300, 31);
+            lblPrecioUni.Location = new Point(335, 41);
             lblPrecioUni.Name = "lblPrecioUni";
             lblPrecioUni.Size = new Size(56, 20);
             lblPrecioUni.TabIndex = 32;
@@ -422,7 +422,7 @@
             btnAgregarPresu.FlatStyle = FlatStyle.Popup;
             btnAgregarPresu.Font = new Font("Segoe UI", 11.25F);
             btnAgregarPresu.ForeColor = Color.White;
-            btnAgregarPresu.Location = new Point(459, 52);
+            btnAgregarPresu.Location = new Point(493, 71);
             btnAgregarPresu.Margin = new Padding(3, 2, 3, 2);
             btnAgregarPresu.Name = "btnAgregarPresu";
             btnAgregarPresu.Size = new Size(105, 39);
@@ -439,7 +439,7 @@
             btnEliminarPresu.FlatStyle = FlatStyle.Popup;
             btnEliminarPresu.Font = new Font("Segoe UI", 11.25F);
             btnEliminarPresu.ForeColor = Color.White;
-            btnEliminarPresu.Location = new Point(578, 52);
+            btnEliminarPresu.Location = new Point(612, 71);
             btnEliminarPresu.Margin = new Padding(3, 2, 3, 2);
             btnEliminarPresu.Name = "btnEliminarPresu";
             btnEliminarPresu.Size = new Size(105, 39);
@@ -477,7 +477,7 @@
             groupBox1.Controls.Add(lblAsTitu);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             groupBox1.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox1.Location = new Point(175, 45);
+            groupBox1.Location = new Point(213, 45);
             groupBox1.Margin = new Padding(3, 2, 3, 2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 2, 3, 2);
@@ -491,7 +491,7 @@
             lblAsKm.AutoSize = true;
             lblAsKm.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsKm.ForeColor = Color.Red;
-            lblAsKm.Location = new Point(664, 106);
+            lblAsKm.Location = new Point(683, 116);
             lblAsKm.Name = "lblAsKm";
             lblAsKm.Size = new Size(18, 24);
             lblAsKm.TabIndex = 48;
@@ -502,7 +502,7 @@
             lblAsPatente.AutoSize = true;
             lblAsPatente.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsPatente.ForeColor = Color.Red;
-            lblAsPatente.Location = new Point(664, 74);
+            lblAsPatente.Location = new Point(683, 76);
             lblAsPatente.Name = "lblAsPatente";
             lblAsPatente.Size = new Size(18, 24);
             lblAsPatente.TabIndex = 47;
@@ -513,7 +513,7 @@
             lblAsDomicilio.AutoSize = true;
             lblAsDomicilio.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsDomicilio.ForeColor = Color.Red;
-            lblAsDomicilio.Location = new Point(371, 108);
+            lblAsDomicilio.Location = new Point(395, 113);
             lblAsDomicilio.Name = "lblAsDomicilio";
             lblAsDomicilio.Size = new Size(18, 24);
             lblAsDomicilio.TabIndex = 46;
@@ -524,7 +524,7 @@
             txtKm.BackColor = Color.FromArgb(224, 224, 224);
             txtKm.BorderStyle = BorderStyle.FixedSingle;
             txtKm.Font = new Font("Segoe UI", 9.75F);
-            txtKm.Location = new Point(505, 108);
+            txtKm.Location = new Point(524, 116);
             txtKm.Margin = new Padding(3, 2, 3, 2);
             txtKm.Name = "txtKm";
             txtKm.Size = new Size(153, 25);
@@ -535,7 +535,7 @@
             lblKm.AutoSize = true;
             lblKm.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblKm.ForeColor = Color.FromArgb(51, 51, 51);
-            lblKm.Location = new Point(400, 109);
+            lblKm.Location = new Point(428, 121);
             lblKm.Name = "lblKm";
             lblKm.Size = new Size(90, 20);
             lblKm.TabIndex = 20;
@@ -546,7 +546,7 @@
             txtDomicilio.BackColor = Color.FromArgb(224, 224, 224);
             txtDomicilio.BorderStyle = BorderStyle.FixedSingle;
             txtDomicilio.Font = new Font("Segoe UI", 9.75F);
-            txtDomicilio.Location = new Point(212, 109);
+            txtDomicilio.Location = new Point(236, 115);
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
             txtDomicilio.Size = new Size(153, 25);
@@ -557,7 +557,7 @@
             txtTelefono.BackColor = Color.FromArgb(224, 224, 224);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
             txtTelefono.Font = new Font("Segoe UI", 9.75F);
-            txtTelefono.Location = new Point(213, 76);
+            txtTelefono.Location = new Point(236, 73);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ejemplo: 3816566750";
@@ -569,7 +569,7 @@
             lblDomicilio.AutoSize = true;
             lblDomicilio.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblDomicilio.ForeColor = Color.FromArgb(51, 51, 51);
-            lblDomicilio.Location = new Point(129, 109);
+            lblDomicilio.Location = new Point(151, 120);
             lblDomicilio.Name = "lblDomicilio";
             lblDomicilio.Size = new Size(79, 20);
             lblDomicilio.TabIndex = 17;
@@ -580,7 +580,7 @@
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblTelefono.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTelefono.Location = new Point(129, 78);
+            lblTelefono.Location = new Point(156, 80);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(74, 20);
             lblTelefono.TabIndex = 16;
@@ -591,7 +591,7 @@
             lblAsAño.AutoSize = true;
             lblAsAño.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsAño.ForeColor = Color.Red;
-            lblAsAño.Location = new Point(664, 148);
+            lblAsAño.Location = new Point(683, 155);
             lblAsAño.Name = "lblAsAño";
             lblAsAño.Size = new Size(18, 24);
             lblAsAño.TabIndex = 45;
@@ -602,7 +602,7 @@
             lblAsMarca.AutoSize = true;
             lblAsMarca.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsMarca.ForeColor = Color.Red;
-            lblAsMarca.Location = new Point(664, 45);
+            lblAsMarca.Location = new Point(683, 30);
             lblAsMarca.Name = "lblAsMarca";
             lblAsMarca.Size = new Size(18, 24);
             lblAsMarca.TabIndex = 44;
@@ -613,7 +613,7 @@
             lblAsModelo.AutoSize = true;
             lblAsModelo.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsModelo.ForeColor = Color.Red;
-            lblAsModelo.Location = new Point(371, 147);
+            lblAsModelo.Location = new Point(395, 153);
             lblAsModelo.Name = "lblAsModelo";
             lblAsModelo.Size = new Size(18, 24);
             lblAsModelo.TabIndex = 43;
@@ -624,7 +624,7 @@
             lblAsTele.AutoSize = true;
             lblAsTele.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsTele.ForeColor = Color.Red;
-            lblAsTele.Location = new Point(372, 77);
+            lblAsTele.Location = new Point(395, 78);
             lblAsTele.Name = "lblAsTele";
             lblAsTele.Size = new Size(18, 24);
             lblAsTele.TabIndex = 42;
@@ -635,7 +635,7 @@
             lblAsTitu.AutoSize = true;
             lblAsTitu.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsTitu.ForeColor = Color.Red;
-            lblAsTitu.Location = new Point(372, 46);
+            lblAsTitu.Location = new Point(395, 35);
             lblAsTitu.Name = "lblAsTitu";
             lblAsTitu.Size = new Size(18, 24);
             lblAsTitu.TabIndex = 42;
@@ -654,7 +654,7 @@
             groupBox2.Controls.Add(lblPrecioUni);
             groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             groupBox2.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox2.Location = new Point(177, 306);
+            groupBox2.Location = new Point(215, 306);
             groupBox2.Margin = new Padding(3, 2, 3, 2);
             groupBox2.Name = "groupBox2";
             groupBox2.Padding = new Padding(3, 2, 3, 2);
@@ -668,7 +668,7 @@
             txtPrecioUni.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioUni.BorderStyle = BorderStyle.FixedSingle;
             txtPrecioUni.Font = new Font("Segoe UI", 9.75F);
-            txtPrecioUni.Location = new Point(300, 53);
+            txtPrecioUni.Location = new Point(335, 63);
             txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
             txtPrecioUni.Name = "txtPrecioUni";
             txtPrecioUni.PlaceholderText = "$";
@@ -698,7 +698,7 @@
             btnGenerar.FlatStyle = FlatStyle.Flat;
             btnGenerar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGenerar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGenerar.Location = new Point(1033, 95);
+            btnGenerar.Location = new Point(1033, 121);
             btnGenerar.Margin = new Padding(3, 2, 3, 2);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(139, 60);
@@ -710,10 +710,10 @@
             // labelDesc
             // 
             labelDesc.AutoSize = true;
-            labelDesc.BackColor = Color.Transparent;
+            labelDesc.BackColor = Color.WhiteSmoke;
             labelDesc.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             labelDesc.ForeColor = Color.FromArgb(51, 51, 51);
-            labelDesc.Location = new Point(177, 689);
+            labelDesc.Location = new Point(220, 689);
             labelDesc.Name = "labelDesc";
             labelDesc.Size = new Size(94, 20);
             labelDesc.TabIndex = 40;
@@ -724,7 +724,7 @@
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
             textBoxDesc.Font = new Font("Segoe UI", 9.75F);
-            textBoxDesc.Location = new Point(277, 689);
+            textBoxDesc.Location = new Point(320, 689);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
             textBoxDesc.Size = new Size(370, 83);
@@ -735,7 +735,7 @@
             lblLinea.BackColor = Color.FromArgb(224, 224, 224);
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLinea.ForeColor = Color.Silver;
-            lblLinea.Location = new Point(145, 281);
+            lblLinea.Location = new Point(183, 281);
             lblLinea.Name = "lblLinea";
             lblLinea.Size = new Size(800, 1);
             lblLinea.TabIndex = 122;
@@ -745,7 +745,7 @@
             label1.BackColor = Color.FromArgb(224, 224, 224);
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Silver;
-            label1.Location = new Point(145, 607);
+            label1.Location = new Point(183, 607);
             label1.Name = "label1";
             label1.Size = new Size(800, 1);
             label1.TabIndex = 123;
@@ -756,7 +756,7 @@
             lblAsHoras.BackColor = Color.Transparent;
             lblAsHoras.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsHoras.ForeColor = Color.Red;
-            lblAsHoras.Location = new Point(403, 633);
+            lblAsHoras.Location = new Point(448, 628);
             lblAsHoras.Name = "lblAsHoras";
             lblAsHoras.Size = new Size(18, 24);
             lblAsHoras.TabIndex = 124;
@@ -768,7 +768,7 @@
             lblAsPxH.BackColor = Color.Transparent;
             lblAsPxH.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsPxH.ForeColor = Color.Red;
-            lblAsPxH.Location = new Point(714, 633);
+            lblAsPxH.Location = new Point(713, 630);
             lblAsPxH.Name = "lblAsPxH";
             lblAsPxH.Size = new Size(18, 24);
             lblAsPxH.TabIndex = 125;
@@ -780,7 +780,7 @@
             lblAsDesc.BackColor = Color.Transparent;
             lblAsDesc.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsDesc.ForeColor = Color.Red;
-            lblAsDesc.Location = new Point(653, 689);
+            lblAsDesc.Location = new Point(696, 689);
             lblAsDesc.Name = "lblAsDesc";
             lblAsDesc.Size = new Size(18, 24);
             lblAsDesc.TabIndex = 126;
@@ -794,7 +794,7 @@
             btnSnPrspto.FlatStyle = FlatStyle.Popup;
             btnSnPrspto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSnPrspto.ForeColor = Color.White;
-            btnSnPrspto.Location = new Point(-1, -2);
+            btnSnPrspto.Location = new Point(-1, -1);
             btnSnPrspto.Margin = new Padding(1, 2, 1, 2);
             btnSnPrspto.Name = "btnSnPrspto";
             btnSnPrspto.Size = new Size(90, 25);
@@ -811,7 +811,7 @@
             btnManualPrspto.FlatStyle = FlatStyle.Popup;
             btnManualPrspto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnManualPrspto.ForeColor = Color.White;
-            btnManualPrspto.Location = new Point(86, -2);
+            btnManualPrspto.Location = new Point(86, -1);
             btnManualPrspto.Margin = new Padding(1, 2, 1, 2);
             btnManualPrspto.Name = "btnManualPrspto";
             btnManualPrspto.Size = new Size(117, 25);
@@ -855,7 +855,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            MinimumSize = new Size(1100, 700);
+            MinimumSize = new Size(1200, 830);
             Name = "Presupuesto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica Software";

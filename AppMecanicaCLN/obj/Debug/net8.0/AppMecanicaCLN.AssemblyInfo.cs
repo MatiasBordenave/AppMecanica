@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppMecanicaCLN")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+30f2e69655adbd1f07ee97403b02cff96eca92ae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+94caaee0b524e79587e4bb138c01fe964e7f4e9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppMecanicaCLN")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppMecanicaCLN")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

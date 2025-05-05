@@ -204,7 +204,7 @@
             btnManualRgstro.FlatStyle = FlatStyle.Popup;
             btnManualRgstro.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnManualRgstro.ForeColor = Color.White;
-            btnManualRgstro.Location = new Point(88, 0);
+            btnManualRgstro.Location = new Point(86, 0);
             btnManualRgstro.Margin = new Padding(1, 2, 1, 2);
             btnManualRgstro.Name = "btnManualRgstro";
             btnManualRgstro.Size = new Size(117, 25);
@@ -221,7 +221,7 @@
             btnSnRgstro.FlatStyle = FlatStyle.Popup;
             btnSnRgstro.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSnRgstro.ForeColor = Color.White;
-            btnSnRgstro.Location = new Point(1, 0);
+            btnSnRgstro.Location = new Point(-1, 0);
             btnSnRgstro.Margin = new Padding(1, 2, 1, 2);
             btnSnRgstro.Name = "btnSnRgstro";
             btnSnRgstro.Size = new Size(90, 25);
