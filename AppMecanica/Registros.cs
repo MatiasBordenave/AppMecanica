@@ -70,13 +70,13 @@ namespace AppMecanica
         private async void Registros_Load(object sender, EventArgs e)
         {
             await Task.Run(() => CargarDataGridView(1));
-            this.KeyPreview = true; 
+            this.KeyPreview = true;
             this.KeyDown += FormRegistros_KeyDown;
         }
 
         private void FormRegistros_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             if (e.KeyCode == Keys.F1)
             {
                 txtBuscar.Focus();
@@ -101,7 +101,7 @@ namespace AppMecanica
                 e.Handled = true;
             }
 
-            
+
         }
 
 
@@ -225,7 +225,7 @@ namespace AppMecanica
         private void GenerarBotonesPaginacion()
         {
             flpPaginas.Controls.Clear();
-            int maxBotonesVisibles = 7; 
+            int maxBotonesVisibles = 7;
             int inicio = Math.Max(1, paginaActual - 2);
             int fin = Math.Min(totalPaginas, paginaActual + 2);
             if (paginaActual <= 3)
@@ -316,6 +316,18 @@ namespace AppMecanica
             {
                 Application.Exit();
             }
+        }
+
+        private void btnSnRgstro_Click(object sender, EventArgs e)
+        {
+            FormAlerta alerta = new FormAlerta("sobre");
+            alerta.ShowDialog();
+        }
+
+        private void btnManualRgstro_Click(object sender, EventArgs e)
+        {
+            FormAlerta alerta = new FormAlerta("comandos");
+            alerta.ShowDialog();
         }
     }
 }

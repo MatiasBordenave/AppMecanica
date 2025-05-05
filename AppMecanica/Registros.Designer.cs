@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registros));
             dgvRegistros = new DataGridView();
             btnVolverRegistro = new Button();
@@ -51,23 +51,23 @@
             dgvRegistros.AllowUserToDeleteRows = false;
             dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvRegistros.BackgroundColor = Color.FromArgb(224, 224, 224);
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(51, 51, 51);
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvRegistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 11.9999981F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(51, 51, 51);
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvRegistros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvRegistros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvRegistros.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 9.749999F, FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvRegistros.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRegistros.Location = new Point(24, 90);
             dgvRegistros.Margin = new Padding(3, 2, 3, 2);
             dgvRegistros.Name = "dgvRegistros";
@@ -211,6 +211,7 @@
             btnManualRgstro.TabIndex = 130;
             btnManualRgstro.Text = "Manual de Usuario";
             btnManualRgstro.UseVisualStyleBackColor = false;
+            btnManualRgstro.Click += btnManualRgstro_Click;
             // 
             // btnSnRgstro
             // 
@@ -227,6 +228,7 @@
             btnSnRgstro.TabIndex = 129;
             btnSnRgstro.Text = "Sobre Nostros";
             btnSnRgstro.UseVisualStyleBackColor = false;
+            btnSnRgstro.Click += btnSnRgstro_Click;
             // 
             // Registros
             // 

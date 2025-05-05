@@ -77,7 +77,7 @@ namespace AppMecanica
 
             MaximoRango();
 
-            
+
             this.KeyPreview = true; // Para que el formulario detecte las teclas
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
@@ -458,6 +458,18 @@ namespace AppMecanica
                 TextBox tb = (TextBox)nud.Controls[1];
                 tb.SelectAll();
             }
+        }
+
+        private void btnSnPrspto_Click(object sender, EventArgs e)
+        {
+            FormAlerta alerta = new FormAlerta("sobre");
+            alerta.ShowDialog();
+        }
+
+        private void btnManualPrspto_Click(object sender, EventArgs e)
+        {
+            FormAlerta alerta = new FormAlerta("comandos");
+            alerta.ShowDialog();
         }
     }
 }
