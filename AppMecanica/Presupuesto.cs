@@ -77,8 +77,9 @@ namespace AppMecanica
 
             MaximoRango();
 
+            BloquearCopiarPegar(nupCantidad);
 
-            this.KeyPreview = true; // Para que el formulario detecte las teclas
+            this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
 
@@ -87,31 +88,31 @@ namespace AppMecanica
             if (e.KeyCode == Keys.F1)
             {
                 txtTitular.Focus();
-                e.Handled = true; // Opcional: evita que se propague la tecla
+                e.Handled = true; 
             }
             if (e.KeyCode == Keys.F2)
             {
                 txtCantidadHoras.Focus();
-                e.Handled = true; // Opcional: evita que se propague la tecla
+                e.Handled = true; 
             }
             if (e.KeyCode == Keys.F5)
             {
-                btnLimpiar_Click(sender, e); // Tu lógica de volver
+                btnLimpiar_Click(sender, e); 
                 e.Handled = true;
             }
             if (e.KeyCode == Keys.F3)
             {
-                btnGenerar_Click(sender, e); // Tu lógica de volver
+                btnGenerar_Click(sender, e); 
                 e.Handled = true;
             }
             if (e.KeyCode == Keys.F4)
             {
-                btnGuardar_Click(sender, e); // Tu lógica de volver
+                btnGuardar_Click(sender, e); 
                 e.Handled = true;
             }
             else if (e.KeyCode == Keys.Escape)
             {
-                btnVolverPresupuesto_Click(sender, e); // Tu lógica de volver
+                btnVolverPresupuesto_Click(sender, e);
                 e.Handled = true;
             }
         }
@@ -143,7 +144,6 @@ namespace AppMecanica
 
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
-            // Marcar que estamos cerrando desde el botón
             cierreDesdeBoton = true;
             _homeForm.Show();
             this.Close();
@@ -238,7 +238,7 @@ namespace AppMecanica
             var totalLaborHoras = _calculator.CalculateLaborCost(horas, precioHora);
             var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);
 
-            // Generar la descripción de repuestos desde el DataGridView
+            
             string descripcionRepuestos = "";
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -256,7 +256,6 @@ namespace AppMecanica
                 }
             }
 
-            // Eliminar la última coma y espacio si existen
             if (descripcionRepuestos.EndsWith(", "))
             {
                 descripcionRepuestos = descripcionRepuestos.Substring(0, descripcionRepuestos.Length - 2);
@@ -433,7 +432,6 @@ namespace AppMecanica
 
         private void Presupuesto_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Solo cierra la aplicación si NO es un cierre desde el botón
             if (!cierreDesdeBoton)
             {
                 Application.Exit();
@@ -470,6 +468,14 @@ namespace AppMecanica
         {
             FormAlerta alerta = new FormAlerta("comandos");
             alerta.ShowDialog();
+        }
+
+        private void BloquearCopiarPegar(NumericUpDown numericUpDown)
+        {
+            if (numericUpDown.Controls[1] is TextBox textBox)
+            {
+                textBox.ShortcutsEnabled = false;
+            }
         }
     }
 }

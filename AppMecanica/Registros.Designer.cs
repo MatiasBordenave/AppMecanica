@@ -193,6 +193,7 @@
             txtBuscar.Margin = new Padding(3, 2, 3, 2);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.PlaceholderText = "Buscar por cliente...";
+            txtBuscar.ShortcutsEnabled = false;
             txtBuscar.Size = new Size(197, 27);
             txtBuscar.TabIndex = 21;
             // 

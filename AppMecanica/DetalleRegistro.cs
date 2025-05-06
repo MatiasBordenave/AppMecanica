@@ -60,62 +60,84 @@ namespace AppMecanica
         {
             int yOffset = panelHeader.Height;
 
+
             foreach (var registro in detalle.Registros)
             {
                 Panel tarjeta = new Panel();
-                tarjeta.Size = new Size(panelRegistros.Width - 30, 200); 
+
+                tarjeta.Size = new Size(panelRegistros.Width - 40, 10); // Más margen para no forzar scroll horizontal
+
+
                 tarjeta.Location = new Point(10, yOffset);
-                tarjeta.BorderStyle = BorderStyle.FixedSingle;
 
                 int labelY = 10;
 
+                // Fecha
                 Label lblFecha = new Label();
                 lblFecha.Text = $"Fecha: {registro.Fecha.ToShortDateString()}";
                 lblFecha.Location = new Point(10, labelY);
                 lblFecha.AutoSize = true;
                 tarjeta.Controls.Add(lblFecha);
-                labelY += 20;
+                labelY += lblFecha.Height + 10;
 
+                // Descripción del trabajo
                 Label lblDescripcionTrabajo = new Label();
                 lblDescripcionTrabajo.Text = $"Trabajo: {registro.Descripcion}";
                 lblDescripcionTrabajo.Location = new Point(10, labelY);
+                lblDescripcionTrabajo.MaximumSize = new Size(tarjeta.Width - 20, 0);
                 lblDescripcionTrabajo.AutoSize = true;
+                lblDescripcionTrabajo.TextAlign = ContentAlignment.TopLeft;
                 tarjeta.Controls.Add(lblDescripcionTrabajo);
-                labelY += 20;
+                labelY += lblDescripcionTrabajo.Height + 10;
 
+                // Repuestos (solo si hay texto)
                 if (!string.IsNullOrWhiteSpace(registro.DescripcionRepuestos))
                 {
                     Label lblRepuestos = new Label();
                     lblRepuestos.Text = $"Repuestos: {registro.DescripcionRepuestos}";
                     lblRepuestos.Location = new Point(10, labelY);
-                    lblRepuestos.Size = new Size(tarjeta.Width - 20, 40);
-                    lblRepuestos.AutoEllipsis = true;
+                    lblRepuestos.MaximumSize = new Size(tarjeta.Width - 10, 0);
+                    lblRepuestos.AutoSize = true;
+                    lblRepuestos.TextAlign = ContentAlignment.TopLeft;
                     tarjeta.Controls.Add(lblRepuestos);
-                    labelY += 45;
+                    labelY += lblRepuestos.Height + 10;
 
                     Label lblTotales = new Label();
                     lblTotales.Text = $"Total Repuestos: ${registro.TotalRepuestos}";
                     lblTotales.Location = new Point(10, labelY);
                     lblTotales.AutoSize = true;
                     tarjeta.Controls.Add(lblTotales);
-                    labelY += 20;
+                    labelY += lblTotales.Height + 10;
                 }
 
+                // Horas
                 Label lblHoras = new Label();
                 lblHoras.Text = $"Horas: {registro.CantidadHoras} hs, ${registro.PrecioPorHora}/h";
                 lblHoras.Location = new Point(10, labelY);
                 lblHoras.AutoSize = true;
                 tarjeta.Controls.Add(lblHoras);
-                labelY += 20;
+                labelY += lblHoras.Height + 10;
 
+                // Kilometraje
                 Label lblKm = new Label();
                 lblKm.Text = $"Kilometraje: {registro.KilometrajeRegistro} km";
                 lblKm.Location = new Point(10, labelY);
                 lblKm.AutoSize = true;
                 tarjeta.Controls.Add(lblKm);
+                labelY += lblKm.Height + 12;
+
+                tarjeta.Height = labelY;
 
                 panelRegistros.Controls.Add(tarjeta);
-                yOffset += tarjeta.Height + 10;
+                yOffset += tarjeta.Height + 20;
+
+                // Línea separadora
+                Panel linea = new Panel();
+                linea.BackColor = Color.DarkGray;
+                linea.Size = new Size(panelRegistros.Width - 40, 1);
+                linea.Location = new Point(10, yOffset);
+                panelRegistros.Controls.Add(linea);
+                yOffset += 20;
             }
         }
 

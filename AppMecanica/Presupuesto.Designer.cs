@@ -269,6 +269,7 @@
             txtCantidadHoras.Location = new Point(355, 630);
             txtCantidadHoras.Margin = new Padding(3, 2, 3, 2);
             txtCantidadHoras.Name = "txtCantidadHoras";
+            txtCantidadHoras.ShortcutsEnabled = false;
             txtCantidadHoras.Size = new Size(87, 25);
             txtCantidadHoras.TabIndex = 11;
             // 
@@ -281,6 +282,7 @@
             txtPrecioHora.Margin = new Padding(3, 2, 3, 2);
             txtPrecioHora.Name = "txtPrecioHora";
             txtPrecioHora.PlaceholderText = "$";
+            txtPrecioHora.ShortcutsEnabled = false;
             txtPrecioHora.Size = new Size(87, 25);
             txtPrecioHora.TabIndex = 12;
             // 
@@ -372,6 +374,7 @@
             txtNombreRepo.Location = new Point(56, 63);
             txtNombreRepo.Margin = new Padding(3, 2, 3, 2);
             txtNombreRepo.Name = "txtNombreRepo";
+            txtNombreRepo.ShortcutsEnabled = false;
             txtNombreRepo.Size = new Size(153, 25);
             txtNombreRepo.TabIndex = 8;
             // 
@@ -672,6 +675,7 @@
             txtPrecioUni.Margin = new Padding(3, 2, 3, 2);
             txtPrecioUni.Name = "txtPrecioUni";
             txtPrecioUni.PlaceholderText = "$";
+            txtPrecioUni.ShortcutsEnabled = false;
             txtPrecioUni.Size = new Size(87, 25);
             txtPrecioUni.TabIndex = 10;
             // 
@@ -727,6 +731,7 @@
             textBoxDesc.Location = new Point(320, 689);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
+            textBoxDesc.ShortcutsEnabled = false;
             textBoxDesc.Size = new Size(370, 83);
             textBoxDesc.TabIndex = 13;
             // 
