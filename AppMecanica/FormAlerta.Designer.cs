@@ -41,12 +41,11 @@
             linkLabel2 = new LinkLabel();
             label2 = new Label();
             lblAcercaDe = new Label();
-            lblGitHub1 = new LinkLabel();
+            label3 = new Label();
             panel2 = new Panel();
             label5 = new Label();
             pictureBox1 = new PictureBox();
             button1 = new Button();
-            label3 = new Label();
             imageList1 = new ImageList(components);
             imageList2 = new ImageList(components);
             panel1.SuspendLayout();
@@ -67,16 +66,15 @@
             panel1.Controls.Add(linkLabel2);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(lblAcercaDe);
-            panel1.Controls.Add(lblGitHub1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(497, 428);
+            panel1.Size = new Size(471, 431);
             panel1.TabIndex = 1;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(417, 12);
+            pictureBox2.Location = new Point(393, 12);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(60, 60);
             pictureBox2.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -88,7 +86,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(255, 128, 0);
-            label4.Location = new Point(63, 32);
+            label4.Location = new Point(32, 22);
             label4.Name = "label4";
             label4.Size = new Size(250, 21);
             label4.TabIndex = 12;
@@ -98,7 +96,7 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
-            linkLabel1.Location = new Point(121, 294);
+            linkLabel1.Location = new Point(90, 273);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(155, 15);
             linkLabel1.TabIndex = 11;
@@ -109,7 +107,7 @@
             // 
             // btnCerrar
             // 
-            btnCerrar.Location = new Point(228, 383);
+            btnCerrar.Location = new Point(196, 402);
             btnCerrar.Name = "btnCerrar";
             btnCerrar.Size = new Size(75, 23);
             btnCerrar.TabIndex = 9;
@@ -120,7 +118,7 @@
             // linkLabel3
             // 
             linkLabel3.AutoSize = true;
-            linkLabel3.Location = new Point(121, 324);
+            linkLabel3.Location = new Point(90, 303);
             linkLabel3.Name = "linkLabel3";
             linkLabel3.Size = new Size(229, 15);
             linkLabel3.TabIndex = 8;
@@ -132,7 +130,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(63, 324);
+            label1.Location = new Point(32, 303);
             label1.Name = "label1";
             label1.Size = new Size(55, 15);
             label1.TabIndex = 7;
@@ -142,7 +140,7 @@
             // linkLabel4
             // 
             linkLabel4.AutoSize = true;
-            linkLabel4.Location = new Point(121, 350);
+            linkLabel4.Location = new Point(90, 329);
             linkLabel4.Name = "linkLabel4";
             linkLabel4.Size = new Size(315, 15);
             linkLabel4.TabIndex = 6;
@@ -154,7 +152,7 @@
             // linkLabel2
             // 
             linkLabel2.AutoSize = true;
-            linkLabel2.Location = new Point(121, 265);
+            linkLabel2.Location = new Point(90, 244);
             linkLabel2.Name = "linkLabel2";
             linkLabel2.Size = new Size(215, 15);
             linkLabel2.TabIndex = 5;
@@ -166,7 +164,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(63, 265);
+            label2.Location = new Point(32, 244);
             label2.Name = "label2";
             label2.Size = new Size(48, 15);
             label2.TabIndex = 4;
@@ -176,19 +174,21 @@
             // lblAcercaDe
             // 
             lblAcercaDe.AutoSize = true;
-            lblAcercaDe.Location = new Point(63, 75);
+            lblAcercaDe.Location = new Point(32, 75);
             lblAcercaDe.Name = "lblAcercaDe";
             lblAcercaDe.Size = new Size(318, 150);
             lblAcercaDe.TabIndex = 2;
             lblAcercaDe.Text = "Versión: 1.0.0\r\n\r\nAutores: Facundo Joaquin Gil y Matias Federico Bordenave \r\n\r\nFecha de desarrollo: 04/05/2025\r\n\r\nEmail de contacto:\r\nfacundojoagl@gmail.com\r\nbordenavetucm@gmail.com\r\n\r\n";
             lblAcercaDe.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // lblGitHub1
+            // label3
             // 
-            lblGitHub1.Location = new Point(0, 0);
-            lblGitHub1.Name = "lblGitHub1";
-            lblGitHub1.Size = new Size(100, 23);
-            lblGitHub1.TabIndex = 10;
+            label3.AutoSize = true;
+            label3.Location = new Point(17, 75);
+            label3.Name = "label3";
+            label3.Size = new Size(476, 300);
+            label3.TabIndex = 3;
+            label3.Text = resources.GetString("label3.Text");
             // 
             // panel2
             // 
@@ -196,9 +196,9 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(503, 0);
+            panel2.Location = new Point(490, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(497, 431);
+            panel2.Size = new Size(510, 431);
             panel2.TabIndex = 2;
             // 
             // label5
@@ -206,7 +206,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(255, 128, 0);
-            label5.Location = new Point(113, 22);
+            label5.Location = new Point(17, 22);
             label5.Name = "label5";
             label5.Size = new Size(169, 21);
             label5.TabIndex = 16;
@@ -216,7 +216,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(408, 12);
+            pictureBox1.Location = new Point(433, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(60, 60);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -225,22 +225,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(226, 405);
+            button1.Location = new Point(217, 402);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 10;
             button1.Text = "Cerrar";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(113, 57);
-            label3.Name = "label3";
-            label3.Size = new Size(289, 315);
-            label3.TabIndex = 3;
-            label3.Text = resources.GetString("label3.Text");
             // 
             // imageList1
             // 
@@ -258,6 +249,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(1003, 443);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -282,7 +274,6 @@
 
         private Panel panel1;
         private Label lblAcercaDe;
-        private LinkLabel lblGitHub1;
         private LinkLabel linkLabel2;
         private Label label2;
         private LinkLabel linkLabel3;

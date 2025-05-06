@@ -21,14 +21,11 @@ namespace AppMecanica
             _printService = printService;
             _exportService = exportService;
         }
-
-        
         private void PresupuestoGenerado_Load(object sender, EventArgs e)
         {
             lblDatosCliente.Text = $"Cliente:  {data.Titular}";
             lblDatosTelefono.Text = $"Teléfono:  {data.Telefono}";
             lblDatosAuto.Text = $"Vehiculo:  {data.Marca},  {data.Modelo},  {data.Año}";
-
             if (!string.IsNullOrWhiteSpace(data.Desc))
             {
                 lblDescPresupuesto.Visible = true;
@@ -38,17 +35,12 @@ namespace AppMecanica
             {
                 lblDescPresupuesto.Visible = false;
             }
-
-
             lblTituloRepuesto.Text = $"Repuesto: ${data.TotalRepuestos}";
             lblTituloMDO.Text = $"Mano de obra: ${data.TotalManoObra}";
             lblMDOyR.Text = $"Total: ${data.TotalGeneral}";
-
             lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
-
             int nuevoIdPresupuesto = presupuestoCLN.CrearNuevoPresupuesto();
             lblTitulo.Text = $"Presupuesto  - Nro 0{nuevoIdPresupuesto}";
-
             foreach (var rep in data.Repuestos)
             {
                 var lbl = new Label();
@@ -58,32 +50,26 @@ namespace AppMecanica
                 lbl.Text = $"{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
                 flowPanelRepuestos.Controls.Add(lbl);
             }
-
             this.KeyPreview = true;
             this.KeyDown += FormPresupuestoGenerado_KeyDown;
         }
-
         private void FormPresupuestoGenerado_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.F1)
             {
                 btnImprimir_Click(sender, e);
-                e.Handled = true; // Opcional: evita que se propague la tecla
-            }
-            
+                e.Handled = true; 
+            }     
             if (e.KeyCode == Keys.F2)
             {
-                btnImg_Click(sender, e); // Tu lógica de volver
+                btnImg_Click(sender, e); 
                 e.Handled = true;
             }
             else if (e.KeyCode == Keys.Escape)
             {
-                btnVolverGenerado_Click(sender, e); // Tu lógica de volver
+                btnVolverGenerado_Click(sender, e); 
                 e.Handled = true;
             }
-
-
         }
         private void btnImprimir_Click(object sender, EventArgs e)
         {
@@ -109,7 +95,6 @@ namespace AppMecanica
             formPresupuesto.Show();
             this.Close();
         }
-
         private void PresupuestoGenerado_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!cierreDesdeBoton)

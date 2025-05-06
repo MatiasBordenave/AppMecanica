@@ -794,15 +794,16 @@
             // btnSnPrspto
             // 
             btnSnPrspto.BackColor = Color.FromArgb(51, 51, 51);
-            btnSnPrspto.FlatAppearance.BorderColor = Color.White;
-            btnSnPrspto.FlatAppearance.BorderSize = 0;
-            btnSnPrspto.FlatStyle = FlatStyle.Popup;
+            btnSnPrspto.FlatAppearance.BorderColor = Color.Gray;
+            btnSnPrspto.FlatAppearance.MouseDownBackColor = Color.Gray;
+            btnSnPrspto.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnSnPrspto.FlatStyle = FlatStyle.Flat;
             btnSnPrspto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSnPrspto.ForeColor = Color.White;
             btnSnPrspto.Location = new Point(-1, -1);
             btnSnPrspto.Margin = new Padding(1, 2, 1, 2);
             btnSnPrspto.Name = "btnSnPrspto";
-            btnSnPrspto.Size = new Size(90, 25);
+            btnSnPrspto.Size = new Size(95, 25);
             btnSnPrspto.TabIndex = 127;
             btnSnPrspto.Text = "Sobre Nostros";
             btnSnPrspto.UseVisualStyleBackColor = false;
@@ -811,17 +812,18 @@
             // btnManualPrspto
             // 
             btnManualPrspto.BackColor = Color.FromArgb(51, 51, 51);
-            btnManualPrspto.FlatAppearance.BorderColor = Color.White;
-            btnManualPrspto.FlatAppearance.BorderSize = 0;
-            btnManualPrspto.FlatStyle = FlatStyle.Popup;
+            btnManualPrspto.FlatAppearance.BorderColor = Color.Gray;
+            btnManualPrspto.FlatAppearance.MouseDownBackColor = Color.Gray;
+            btnManualPrspto.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnManualPrspto.FlatStyle = FlatStyle.Flat;
             btnManualPrspto.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnManualPrspto.ForeColor = Color.White;
-            btnManualPrspto.Location = new Point(86, -1);
+            btnManualPrspto.Location = new Point(93, -1);
             btnManualPrspto.Margin = new Padding(1, 2, 1, 2);
             btnManualPrspto.Name = "btnManualPrspto";
-            btnManualPrspto.Size = new Size(117, 25);
+            btnManualPrspto.Size = new Size(95, 25);
             btnManualPrspto.TabIndex = 128;
-            btnManualPrspto.Text = "Manual de Usuario";
+            btnManualPrspto.Text = "Ayuda";
             btnManualPrspto.UseVisualStyleBackColor = false;
             btnManualPrspto.Click += btnManualPrspto_Click;
             // 

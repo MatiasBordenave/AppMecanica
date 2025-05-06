@@ -19,60 +19,45 @@ namespace AppMecanica
         public DetalleRegistro(Form registro, VehiculoDetalleDTO detalle)
         {
             InitializeComponent();
-
             formRegistro = registro;
             this.detalle = detalle;
-
             lblVehiculoCliente.Text = $"Registros de {detalle.Titular} -- {detalle.Marca} {detalle.Modelo} -- {detalle.Patente}";
-
-
         }
-
         private void btnVolverDetalle_Click(object sender, EventArgs e)
         {
             cierreDesdeBoton = true;
             formRegistro.Show();
             this.Close();
         }
-
         private void DetalleRegistro_Load(object sender, EventArgs e)
         {
             CargarTabsRegistros();
-            this.KeyPreview = true; // Para que el formulario detecte las teclas
+            this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
-
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
            if (e.KeyCode == Keys.Escape)
             {
-                btnVolverDetalle_Click(sender, e); // Tu lógica de volver
+                btnVolverDetalle_Click(sender, e);
                 e.Handled = true;
             }
             if (e.KeyCode == Keys.F2)
             {
-                btnGenerarPDF_Click(sender, e); // Tu lógica de volver
+                btnGenerarPDF_Click(sender, e);
                 e.Handled = true;
             }
         }
         private void CargarTabsRegistros()
         {
             int yOffset = panelHeader.Height;
-
-
             foreach (var registro in detalle.Registros)
             {
                 Panel tarjeta = new Panel();
-
-                tarjeta.Size = new Size(panelRegistros.Width - 40, 10); // Más margen para no forzar scroll horizontal
-
-
+                tarjeta.Size = new Size(panelRegistros.Width - 40, 10);
                 tarjeta.Location = new Point(10, yOffset);
-
                 int labelY = 10;
 
-                // Fecha
                 Label lblFecha = new Label();
                 lblFecha.Text = $"Fecha: {registro.Fecha.ToShortDateString()}";
                 lblFecha.Location = new Point(10, labelY);
@@ -80,7 +65,6 @@ namespace AppMecanica
                 tarjeta.Controls.Add(lblFecha);
                 labelY += lblFecha.Height + 10;
 
-                // Descripción del trabajo
                 Label lblDescripcionTrabajo = new Label();
                 lblDescripcionTrabajo.Text = $"Trabajo: {registro.Descripcion}";
                 lblDescripcionTrabajo.Location = new Point(10, labelY);
@@ -90,7 +74,6 @@ namespace AppMecanica
                 tarjeta.Controls.Add(lblDescripcionTrabajo);
                 labelY += lblDescripcionTrabajo.Height + 10;
 
-                // Repuestos (solo si hay texto)
                 if (!string.IsNullOrWhiteSpace(registro.DescripcionRepuestos))
                 {
                     Label lblRepuestos = new Label();
@@ -110,7 +93,6 @@ namespace AppMecanica
                     labelY += lblTotales.Height + 10;
                 }
 
-                // Horas
                 Label lblHoras = new Label();
                 lblHoras.Text = $"Horas: {registro.CantidadHoras} hs, ${registro.PrecioPorHora}/h";
                 lblHoras.Location = new Point(10, labelY);
@@ -118,20 +100,16 @@ namespace AppMecanica
                 tarjeta.Controls.Add(lblHoras);
                 labelY += lblHoras.Height + 10;
 
-                // Kilometraje
                 Label lblKm = new Label();
                 lblKm.Text = $"Kilometraje: {registro.KilometrajeRegistro} km";
                 lblKm.Location = new Point(10, labelY);
                 lblKm.AutoSize = true;
                 tarjeta.Controls.Add(lblKm);
                 labelY += lblKm.Height + 12;
-
                 tarjeta.Height = labelY;
-
                 panelRegistros.Controls.Add(tarjeta);
                 yOffset += tarjeta.Height + 20;
 
-                // Línea separadora
                 Panel linea = new Panel();
                 linea.BackColor = Color.DarkGray;
                 linea.Size = new Size(panelRegistros.Width - 40, 1);
@@ -140,14 +118,11 @@ namespace AppMecanica
                 yOffset += 20;
             }
         }
-
-
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
             panelRegistros.BackColor = Color.Transparent;
             pdfGenerator.GenerarDesdePanel(panelRegistros, $"Registros de {detalle.Titular}");
         }
-
         private void DetalleRegistro_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!cierreDesdeBoton)

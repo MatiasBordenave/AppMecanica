@@ -23,9 +23,8 @@ namespace AppMecanica
         private readonly Form _homeForm;
         private readonly Label[] _asteriscoLblRegistro;
         private readonly Label[] _asteriscosLblPresupuesto;
-        // En cada formulario, agrega una variable a nivel de clase
-        private bool cierreDesdeBoton = false;
 
+        private bool cierreDesdeBoton = false;
         public Presupuesto(
             Form homeForm,
             IRepuestoMapper mapper,
@@ -52,7 +51,6 @@ namespace AppMecanica
                 lblAsAño, lblAsDomicilio, lblAsKm, lblAsPatente,
                 lblAsHoras, lblAsPxH, lblAsDesc
             };
-
             _asteriscosLblPresupuesto = new[]
             {
                 lblAsTitu, lblAsTele, lblAsModelo, lblAsMarca, lblAsAño
@@ -61,12 +59,10 @@ namespace AppMecanica
 
         private void Presupuesto_Load(object sender, EventArgs e)
         {
-
             this.BeginInvoke(new Action(() =>
             {
                 txtTitular.Focus();
             }));
-
             OcultarAsteriscos();
             AttachDecimalOnly(
                 txtTelefono, txtAño, txtPrecioUni,
@@ -74,11 +70,8 @@ namespace AppMecanica
             BloquearCopiarPegar(
                 txtTitular, txtTelefono, txtDomicilio,
                 txtModelo, txtMarca, txtPatente, txtAño, txtKm);
-
             MaximoRango();
-
             BloquearCopiarPegar(nupCantidad);
-
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
         }
@@ -116,7 +109,6 @@ namespace AppMecanica
                 e.Handled = true;
             }
         }
-
         private void MaximoRango()
         {
             var configuraciones = new (TextBox textBox, int maxLength)[]
@@ -141,14 +133,12 @@ namespace AppMecanica
                 textBox.MaxLength = maxLength;
             }
         }
-
         private void btnVolverPresupuesto_Click(object sender, EventArgs e)
         {
             cierreDesdeBoton = true;
             _homeForm.Show();
             this.Close();
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             var controles = new Control[]
@@ -160,7 +150,6 @@ namespace AppMecanica
             };
             _cleaner.ClearControls(controles);
         }
-
         private void btnAgregarPresu_Click(object sender, EventArgs e)
         {
             var camposRequeridos = new List<TextBox> { txtNombreRepo };
@@ -170,29 +159,23 @@ namespace AppMecanica
                 _msg.ShowError("Complete todos los campos", "Error");
                 return;
             }
-
             if (nupCantidad.Value <= 0)
             {
                 _msg.ShowError("La cantidad debe ser mayor a 0", "Error");
                 return;
             }
-
             if (!_validator.TryParseDecimal(txtPrecioUni, out var precio))
             {
                 _msg.ShowError("Ingrese un precio de repuesto válido", "Error");
                 return;
             }
-
             var cantidad = (int)nupCantidad.Value;
             dataGridView1.Rows.Add(txtNombreRepo.Text.Trim(), cantidad, precio);
-
-
             txtNombreRepo.Clear();
             txtPrecioUni.Clear();
             nupCantidad.Value = nupCantidad.Minimum;
             txtNombreRepo.Focus();
         }
-
         private void btnEliminarPresu_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count == 0)
@@ -200,14 +183,12 @@ namespace AppMecanica
                 _msg.ShowWarning("Seleccioná una fila para eliminar.", "Atención");
                 return;
             }
-
             if (_msg.ShowConfirmation(
                 "¿Seguro que querés eliminar el repuesto seleccionado?", "Eliminar"))
             {
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
             }
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             var obligatorios = new[] { txtTitular, txtTelefono, txtMarca, txtModelo, txtAño, txtPatente };
@@ -225,29 +206,23 @@ namespace AppMecanica
                 _msg.ShowError("Datos numéricos inválidos.", "Error");
                 return;
             }
-
             var patente = txtPatente.Text.Trim().ToUpper();
             if (!Regex.IsMatch(patente, "^[A-Z]{3}\\d{3}$"))
             {
                 _msg.ShowError("Formato de patente inválido. Debe ser ABC123.", "Error de patente");
                 return;
             }
-
             var repuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(repuestos);
             var totalLaborHoras = _calculator.CalculateLaborCost(horas, precioHora);
-            var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);
-
-            
+            var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);  
             string descripcionRepuestos = "";
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
                 if (row.IsNewRow) continue;
-
                 var nombre = row.Cells["NombreRepuesto"].Value?.ToString();
                 var cantidad = row.Cells["CantidadRepuesto"].Value?.ToString();
                 var precio = row.Cells["PrecioRepuesto"].Value?.ToString();
-
                 if (!string.IsNullOrWhiteSpace(nombre) &&
                     !string.IsNullOrWhiteSpace(cantidad) &&
                     !string.IsNullOrWhiteSpace(precio))
@@ -255,16 +230,12 @@ namespace AppMecanica
                     descripcionRepuestos += $"{nombre} x{cantidad} - ${precio}, ";
                 }
             }
-
             if (descripcionRepuestos.EndsWith(", "))
             {
                 descripcionRepuestos = descripcionRepuestos.Substring(0, descripcionRepuestos.Length - 2);
             }
-
-
             try
             {
-
                 var registro = _registroFactory.CreateRegistro(
                     textBoxDesc.Text.Trim(),
                     totalRepuestos,
@@ -275,8 +246,6 @@ namespace AppMecanica
                     kilometraje,
                     descripcionRepuestos
                 );
-
-
                 if (_registroService.ClienteExiste(patente))
                 {
                     _msg.ShowInfo(
@@ -284,8 +253,6 @@ namespace AppMecanica
                         "Cliente existente"
                     );
                 }
-
-
                 _registroService.SaveRegistro(
                     txtTitular.Text.Trim(),
                     txtTelefono.Text.Trim(),
@@ -296,8 +263,6 @@ namespace AppMecanica
                     año,
                     kilometraje,
                     registro);
-
-
                 _msg.ShowInfo("Registro procesado correctamente.", "Éxito");
                 new Registros(_homeForm).Show();
                 this.Hide();
@@ -307,9 +272,6 @@ namespace AppMecanica
                 _msg.ShowError("Error al guardar: " + ex.Message, "Error");
             }
         }
-
-
-
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             if (!_validator.AreRequiredFieldsFilled(
@@ -319,16 +281,12 @@ namespace AppMecanica
                 _msg.ShowWarning("Complete todos los campos obligatorios.", "Campos vacíos");
                 return;
             }
-
             var listaRepuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(listaRepuestos);
-
             decimal.TryParse(txtCantidadHoras.Text.Trim(), out var horas);
             decimal.TryParse(txtPrecioHora.Text.Trim(), out var precioHora);
-
             var totalManoObra = _calculator.CalculateLaborCost(horas, precioHora);
             var totalGeneral = _calculator.CalculateTotalGeneral(listaRepuestos, horas, precioHora);
-
             var data = new PresupuestoData
             {
                 Repuestos = listaRepuestos,
@@ -344,10 +302,8 @@ namespace AppMecanica
                 Año = txtAño.Text.Trim(),
                 Desc = textBoxDesc.Text.Trim()
             };
-
             IPrintService printService = new PrintService();
             IExportService exportService = new ExportService();
-
             var generado = new PresupuestoGenerado(this, data, printService, exportService);
             generado.Show();
             OcultarAsteriscos();
@@ -360,7 +316,6 @@ namespace AppMecanica
             });
             this.Hide();
         }
-
         private void OcultarAsteriscos()
         {
             foreach (var label in _asteriscoLblRegistro)
@@ -368,14 +323,12 @@ namespace AppMecanica
                 label.Visible = false;
             }
         }
-
         private void MostrarAsteriscos(IEnumerable<Label> labelsToShow = null)
         {
             foreach (var label in _asteriscoLblRegistro)
             {
                 label.Visible = false;
             }
-
             if (labelsToShow != null)
             {
                 foreach (var label in labelsToShow)
@@ -429,7 +382,6 @@ namespace AppMecanica
                 };
             }
         }
-
         private void Presupuesto_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!cierreDesdeBoton)
@@ -437,7 +389,6 @@ namespace AppMecanica
                 Application.Exit();
             }
         }
-
         private void nupCantidad_Enter(object sender, EventArgs e)
         {
             NumericUpDown nud = sender as NumericUpDown;
@@ -447,7 +398,6 @@ namespace AppMecanica
                 tb.SelectAll();
             }
         }
-
         private void nupCantidad_Click(object sender, EventArgs e)
         {
             NumericUpDown nud = sender as NumericUpDown;
@@ -457,19 +407,16 @@ namespace AppMecanica
                 tb.SelectAll();
             }
         }
-
         private void btnSnPrspto_Click(object sender, EventArgs e)
         {
             FormAlerta alerta = new FormAlerta("sobre");
             alerta.ShowDialog();
         }
-
         private void btnManualPrspto_Click(object sender, EventArgs e)
         {
             FormAlerta alerta = new FormAlerta("comandos");
             alerta.ShowDialog();
         }
-
         private void BloquearCopiarPegar(NumericUpDown numericUpDown)
         {
             if (numericUpDown.Controls[1] is TextBox textBox)

@@ -14,14 +14,12 @@ namespace AppMecanica
     public partial class FormAlerta : Form
     {
         private string tipoContenido;
-
         public FormAlerta(string tipo)
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen; // Centra el formulario
+            this.StartPosition = FormStartPosition.CenterScreen;
             tipoContenido = tipo;
         }
-
         private void FormAcercaDe_Load(object sender, EventArgs e)
         {
             if (tipoContenido == "sobre")
@@ -29,29 +27,23 @@ namespace AppMecanica
                 panel1.Visible = true;
                 panel2.Visible = false;
                 panel1.Dock = DockStyle.Fill;
-                this.Size = new Size(513, 482);
+                this.Size = new Size(500, 470);
             }
             else if (tipoContenido == "comandos")
             {
                 panel2.Visible = true;
                 panel1.Visible = false;
                 panel2.Dock = DockStyle.Fill;
-                this.Size = new Size(513, 482);
+                this.Size = new Size(530, 470);
             }
-
-            // Detectar teclas
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
-
-            // Centrar el form una vez definido el tamaño final
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(
                 (Screen.PrimaryScreen.WorkingArea.Width - this.Width) / 2,
                 (Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2
             );
         }
-
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
@@ -61,7 +53,6 @@ namespace AppMecanica
             }
         }
 
-
         private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo
@@ -70,7 +61,6 @@ namespace AppMecanica
                 UseShellExecute = true
             });
         }
-
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo
@@ -79,7 +69,6 @@ namespace AppMecanica
                 UseShellExecute = true
             });
         }
-
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(new ProcessStartInfo
@@ -96,12 +85,10 @@ namespace AppMecanica
                 UseShellExecute = true
             });
         }
-
         private void btnCerrar_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();

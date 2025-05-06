@@ -200,32 +200,34 @@
             // btnManualRgstro
             // 
             btnManualRgstro.BackColor = Color.FromArgb(51, 51, 51);
-            btnManualRgstro.FlatAppearance.BorderColor = Color.White;
-            btnManualRgstro.FlatAppearance.BorderSize = 0;
-            btnManualRgstro.FlatStyle = FlatStyle.Popup;
+            btnManualRgstro.FlatAppearance.BorderColor = Color.Gray;
+            btnManualRgstro.FlatAppearance.MouseDownBackColor = Color.Gray;
+            btnManualRgstro.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnManualRgstro.FlatStyle = FlatStyle.Flat;
             btnManualRgstro.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnManualRgstro.ForeColor = Color.White;
-            btnManualRgstro.Location = new Point(86, 0);
+            btnManualRgstro.Location = new Point(92, 0);
             btnManualRgstro.Margin = new Padding(1, 2, 1, 2);
             btnManualRgstro.Name = "btnManualRgstro";
-            btnManualRgstro.Size = new Size(117, 25);
+            btnManualRgstro.Size = new Size(95, 25);
             btnManualRgstro.TabIndex = 130;
-            btnManualRgstro.Text = "Manual de Usuario";
+            btnManualRgstro.Text = "Ayuda";
             btnManualRgstro.UseVisualStyleBackColor = false;
             btnManualRgstro.Click += btnManualRgstro_Click;
             // 
             // btnSnRgstro
             // 
             btnSnRgstro.BackColor = Color.FromArgb(51, 51, 51);
-            btnSnRgstro.FlatAppearance.BorderColor = Color.White;
-            btnSnRgstro.FlatAppearance.BorderSize = 0;
-            btnSnRgstro.FlatStyle = FlatStyle.Popup;
+            btnSnRgstro.FlatAppearance.BorderColor = Color.Gray;
+            btnSnRgstro.FlatAppearance.MouseDownBackColor = Color.Gray;
+            btnSnRgstro.FlatAppearance.MouseOverBackColor = Color.Gray;
+            btnSnRgstro.FlatStyle = FlatStyle.Flat;
             btnSnRgstro.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSnRgstro.ForeColor = Color.White;
             btnSnRgstro.Location = new Point(-1, 0);
             btnSnRgstro.Margin = new Padding(1, 2, 1, 2);
             btnSnRgstro.Name = "btnSnRgstro";
-            btnSnRgstro.Size = new Size(90, 25);
+            btnSnRgstro.Size = new Size(95, 25);
             btnSnRgstro.TabIndex = 129;
             btnSnRgstro.Text = "Sobre Nostros";
             btnSnRgstro.UseVisualStyleBackColor = false;
