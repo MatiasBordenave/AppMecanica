@@ -94,11 +94,18 @@ namespace AppMecanica
                 }
 
                 Label lblHoras = new Label();
-                lblHoras.Text = $"Horas: {registro.CantidadHoras} hs, ${registro.PrecioPorHora}/h";
+                lblHoras.Text = $"Cantidad de Horas: {registro.CantidadHoras}, Precio por hora: ${registro.PrecioPorHora}";
                 lblHoras.Location = new Point(10, labelY);
                 lblHoras.AutoSize = true;
                 tarjeta.Controls.Add(lblHoras);
                 labelY += lblHoras.Height + 10;
+
+                Label lblTotalHoras = new Label();
+                lblTotalHoras.Text = $"Mano de obra total: ${registro.PrecioTotalHoras}";
+                lblTotalHoras.Location = new Point(10, labelY);
+                lblTotalHoras.AutoSize = true;
+                tarjeta.Controls.Add(lblTotalHoras);
+                labelY += lblTotalHoras.Height + 10;
 
                 Label lblKm = new Label();
                 lblKm.Text = $"Kilometraje: {registro.KilometrajeRegistro} km";

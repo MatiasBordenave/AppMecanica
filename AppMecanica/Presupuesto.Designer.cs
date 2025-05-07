@@ -134,6 +134,7 @@
             txtTitular.Location = new Point(236, 30);
             txtTitular.Margin = new Padding(3, 2, 3, 2);
             txtTitular.Name = "txtTitular";
+            txtTitular.ShortcutsEnabled = false;
             txtTitular.Size = new Size(153, 25);
             txtTitular.TabIndex = 0;
             // 
@@ -179,6 +180,7 @@
             txtPatente.Margin = new Padding(3, 2, 3, 2);
             txtPatente.Name = "txtPatente";
             txtPatente.PlaceholderText = "Ejemplo: ABC 123";
+            txtPatente.ShortcutsEnabled = false;
             txtPatente.Size = new Size(153, 25);
             txtPatente.TabIndex = 3;
             // 
@@ -190,6 +192,7 @@
             txtMarca.Location = new Point(524, 30);
             txtMarca.Margin = new Padding(3, 2, 3, 2);
             txtMarca.Name = "txtMarca";
+            txtMarca.ShortcutsEnabled = false;
             txtMarca.Size = new Size(153, 25);
             txtMarca.TabIndex = 1;
             // 
@@ -223,6 +226,7 @@
             txtModelo.Location = new Point(236, 155);
             txtModelo.Margin = new Padding(3, 2, 3, 2);
             txtModelo.Name = "txtModelo";
+            txtModelo.ShortcutsEnabled = false;
             txtModelo.Size = new Size(153, 25);
             txtModelo.TabIndex = 6;
             // 
@@ -234,6 +238,7 @@
             txtAño.Location = new Point(524, 155);
             txtAño.Margin = new Padding(3, 2, 3, 2);
             txtAño.Name = "txtAño";
+            txtAño.ShortcutsEnabled = false;
             txtAño.Size = new Size(153, 25);
             txtAño.TabIndex = 7;
             // 
@@ -530,6 +535,7 @@
             txtKm.Location = new Point(524, 116);
             txtKm.Margin = new Padding(3, 2, 3, 2);
             txtKm.Name = "txtKm";
+            txtKm.ShortcutsEnabled = false;
             txtKm.Size = new Size(153, 25);
             txtKm.TabIndex = 5;
             // 
@@ -552,6 +558,7 @@
             txtDomicilio.Location = new Point(236, 115);
             txtDomicilio.Margin = new Padding(3, 2, 3, 2);
             txtDomicilio.Name = "txtDomicilio";
+            txtDomicilio.ShortcutsEnabled = false;
             txtDomicilio.Size = new Size(153, 25);
             txtDomicilio.TabIndex = 4;
             // 
@@ -564,6 +571,7 @@
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ejemplo: 3816566750";
+            txtTelefono.ShortcutsEnabled = false;
             txtTelefono.Size = new Size(153, 25);
             txtTelefono.TabIndex = 2;
             // 
@@ -731,7 +739,6 @@
             textBoxDesc.Location = new Point(320, 689);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
-            textBoxDesc.ShortcutsEnabled = false;
             textBoxDesc.Size = new Size(370, 83);
             textBoxDesc.TabIndex = 13;
             // 
