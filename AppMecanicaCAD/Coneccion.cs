@@ -13,6 +13,8 @@ namespace AppMecanicaCAD
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "data.sqlite");
 
+            //string dbPath = $"C:\\Users\\Matias\\Desktop\\Nueva carpeta (2)\\AppMecanica\\Data\\database.sqlite";
+
             if (!Directory.Exists(Path.GetDirectoryName(dbPath)))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(dbPath));

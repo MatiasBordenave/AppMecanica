@@ -875,6 +875,7 @@
             Text = "Ocaranza Mecanica Software";
             FormClosing += Presupuesto_FormClosing;
             Load += Presupuesto_Load;
+            KeyDown += Presupuesto_KeyDown;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nupCantidad).EndInit();
             groupBox1.ResumeLayout(false);

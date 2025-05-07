@@ -70,40 +70,9 @@ namespace AppMecanica
                 txtTelefono, txtAño, txtPrecioUni,
                 txtCantidadHoras, txtPrecioHora, txtKm);
             MaximoRango();
-        }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F1)
-            {
-                txtTitular.Focus();
-                e.Handled = true; 
-            }
-            if (e.KeyCode == Keys.F2)
-            {
-                txtCantidadHoras.Focus();
-                e.Handled = true; 
-            }
-            if (e.KeyCode == Keys.F5)
-            {
-                btnLimpiar_Click(sender, e); 
-                e.Handled = true;
-            }
-            if (e.KeyCode == Keys.F3)
-            {
-                btnGenerar_Click(sender, e); 
-                e.Handled = true;
-            }
-            if (e.KeyCode == Keys.F4)
-            {
-                btnGuardar_Click(sender, e); 
-                e.Handled = true;
-            }
-            else if (e.KeyCode == Keys.Escape)
-            {
-                btnVolverPresupuesto_Click(sender, e);
-                e.Handled = true;
-            }
+            this.KeyPreview = true;
+
         }
         private void MaximoRango()
         {
@@ -211,7 +180,7 @@ namespace AppMecanica
             var repuestos = _mapper.Map(dataGridView1);
             var totalRepuestos = _calculator.CalculateTotalRepuestos(repuestos);
             var totalLaborHoras = _calculator.CalculateLaborCost(horas, precioHora);
-            var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);  
+            var totalGeneral = _calculator.CalculateTotalGeneral(repuestos, horas, precioHora);
             string descripcionRepuestos = "";
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -353,7 +322,7 @@ namespace AppMecanica
                 };
             }
         }
-       
+
         private void Presupuesto_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!cierreDesdeBoton)
@@ -388,6 +357,40 @@ namespace AppMecanica
         {
             FormAlerta alerta = new FormAlerta("comandos");
             alerta.ShowDialog();
+        }
+
+        private void Presupuesto_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                txtTitular.Focus();
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F2)
+            {
+                txtCantidadHoras.Focus();
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F5)
+            {
+                btnLimpiar_Click(sender, e);
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F3)
+            {
+                btnGenerar_Click(sender, e);
+                e.Handled = true;
+            }
+            if (e.KeyCode == Keys.F4)
+            {
+                btnGuardar_Click(sender, e);
+                e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                btnVolverPresupuesto_Click(sender, e);
+                e.Handled = true;
+            }
         }
     }
 }

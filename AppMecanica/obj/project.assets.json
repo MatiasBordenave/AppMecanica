@@ -1739,19 +1739,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\byfre\\.nuget\\packages\\": {}
+    "C:\\Users\\Matias\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanica\\AppMecanica.csproj",
+      "projectUniqueName": "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanica\\AppMecanica.csproj",
       "projectName": "AppMecanica",
-      "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanica\\AppMecanica.csproj",
-      "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanica\\obj\\",
+      "projectPath": "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanica\\AppMecanica.csproj",
+      "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanica\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\byfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1759,17 +1764,18 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCLN\\AppMecanicaCLN.csproj": {
-              "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCLN\\AppMecanicaCLN.csproj"
+            "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanicaCLN\\AppMecanicaCLN.csproj": {
+              "projectPath": "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanicaCLN\\AppMecanicaCLN.csproj"
             },
-            "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
-              "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
+            "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj": {
+              "projectPath": "C:\\Users\\Matias\\Desktop\\Nueva carpeta (3)\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj"
             }
           }
         }
@@ -1783,7 +1789,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -1817,7 +1824,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

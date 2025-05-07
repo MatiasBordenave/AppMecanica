@@ -51,72 +51,61 @@ namespace AppMecanica
         private void CargarTabsRegistros()
         {
             int yOffset = panelHeader.Height;
+            int spacing = 10;
+            Font labelFont = new Font("Segoe UI", 15); // Usar la misma fuente que tus labels
+
             foreach (var registro in detalle.Registros)
             {
                 Panel tarjeta = new Panel();
-                tarjeta.Size = new Size(panelRegistros.Width - 40, 10);
+                tarjeta.Width = panelRegistros.Width - 120;
                 tarjeta.Location = new Point(10, yOffset);
+                tarjeta.AutoSize = false;
+
                 int labelY = 10;
+                int availableWidth = tarjeta.Width - 20; // Ancho disponible para los labels
 
-                Label lblFecha = new Label();
-                lblFecha.Text = $"Fecha: {registro.Fecha.ToShortDateString()}";
-                lblFecha.Location = new Point(10, labelY);
-                lblFecha.AutoSize = true;
-                tarjeta.Controls.Add(lblFecha);
-                labelY += lblFecha.Height + 10;
+                // Función auxiliar para crear labels con texto multilínea
+                Label CreateMultilineLabel(string text, ref int currentY)
+                {
+                    var label = new Label();
+                    label.Text = text;
+                    label.Location = new Point(10, currentY);
+                    label.MaximumSize = new Size(availableWidth, 0);
+                    label.AutoSize = true;
+                    label.Font = labelFont;
 
-                Label lblDescripcionTrabajo = new Label();
-                lblDescripcionTrabajo.Text = $"Trabajo: {registro.Descripcion}";
-                lblDescripcionTrabajo.Location = new Point(10, labelY);
-                lblDescripcionTrabajo.MaximumSize = new Size(tarjeta.Width - 20, 0);
-                lblDescripcionTrabajo.AutoSize = true;
-                lblDescripcionTrabajo.TextAlign = ContentAlignment.TopLeft;
-                tarjeta.Controls.Add(lblDescripcionTrabajo);
-                labelY += lblDescripcionTrabajo.Height + 10;
+                    // Calcular altura necesaria
+                    using (Graphics g = CreateGraphics())
+                    {
+                        SizeF size = g.MeasureString(text, labelFont, availableWidth);
+                        label.Height = (int)Math.Ceiling(size.Height);
+                    }
+
+                    tarjeta.Controls.Add(label);
+                    currentY += label.Height + spacing;
+                    return label;
+                }
+
+                // Agregar todos los elementos
+                CreateMultilineLabel($"Fecha: {registro.Fecha.ToShortDateString()}", ref labelY);
+                CreateMultilineLabel($"Trabajo: {registro.Descripcion}", ref labelY);
 
                 if (!string.IsNullOrWhiteSpace(registro.DescripcionRepuestos))
                 {
-                    Label lblRepuestos = new Label();
-                    lblRepuestos.Text = $"Repuestos: {registro.DescripcionRepuestos}";
-                    lblRepuestos.Location = new Point(10, labelY);
-                    lblRepuestos.MaximumSize = new Size(tarjeta.Width - 10, 0);
-                    lblRepuestos.AutoSize = true;
-                    lblRepuestos.TextAlign = ContentAlignment.TopLeft;
-                    tarjeta.Controls.Add(lblRepuestos);
-                    labelY += lblRepuestos.Height + 10;
-
-                    Label lblTotales = new Label();
-                    lblTotales.Text = $"Total Repuestos: ${registro.TotalRepuestos}";
-                    lblTotales.Location = new Point(10, labelY);
-                    lblTotales.AutoSize = true;
-                    tarjeta.Controls.Add(lblTotales);
-                    labelY += lblTotales.Height + 10;
+                    CreateMultilineLabel($"Repuestos: {registro.DescripcionRepuestos}", ref labelY);
+                    CreateMultilineLabel($"Total Repuestos: ${registro.TotalRepuestos}", ref labelY);
                 }
 
-                Label lblHoras = new Label();
-                lblHoras.Text = $"Cantidad de Horas: {registro.CantidadHoras}, Precio por hora: ${registro.PrecioPorHora}";
-                lblHoras.Location = new Point(10, labelY);
-                lblHoras.AutoSize = true;
-                tarjeta.Controls.Add(lblHoras);
-                labelY += lblHoras.Height + 10;
+                CreateMultilineLabel($"Horas: {registro.CantidadHoras} hs, ${registro.PrecioPorHora}/h", ref labelY);
+                CreateMultilineLabel($"Kilometraje: {registro.KilometrajeRegistro} km", ref labelY);
+                CreateMultilineLabel($"Total: {registro.PrecioTotal}.", ref labelY);
 
-                Label lblTotalHoras = new Label();
-                lblTotalHoras.Text = $"Mano de obra total: ${registro.PrecioTotalHoras}";
-                lblTotalHoras.Location = new Point(10, labelY);
-                lblTotalHoras.AutoSize = true;
-                tarjeta.Controls.Add(lblTotalHoras);
-                labelY += lblTotalHoras.Height + 10;
-
-                Label lblKm = new Label();
-                lblKm.Text = $"Kilometraje: {registro.KilometrajeRegistro} km";
-                lblKm.Location = new Point(10, labelY);
-                lblKm.AutoSize = true;
-                tarjeta.Controls.Add(lblKm);
-                labelY += lblKm.Height + 12;
+                // Ajustar altura del panel
                 tarjeta.Height = labelY;
                 panelRegistros.Controls.Add(tarjeta);
-                yOffset += tarjeta.Height + 20;
 
+                // Línea separadora
+                yOffset += tarjeta.Height + 10;
                 Panel linea = new Panel();
                 linea.BackColor = Color.DarkGray;
                 linea.Size = new Size(panelRegistros.Width - 40, 1);
@@ -125,6 +114,7 @@ namespace AppMecanica
                 yOffset += 20;
             }
         }
+
         private void btnGenerarPDF_Click(object sender, EventArgs e)
         {
             panelRegistros.BackColor = Color.Transparent;
