@@ -45,11 +45,13 @@ namespace AppMecanica
             {
                 var lbl = new Label();
                 lbl.AutoSize = true;
-                lbl.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                lbl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
                 lbl.Margin = new Padding(10);
+                lbl.ForeColor = Color.FromArgb(51, 51, 51); // ← Establece el color de letra
                 lbl.Text = $"{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
                 flowPanelRepuestos.Controls.Add(lbl);
             }
+
             this.KeyPreview = true;
             this.KeyDown += FormPresupuestoGenerado_KeyDown;
         }

@@ -52,7 +52,7 @@ namespace AppMecanica
         {
             int yOffset = panelHeader.Height;
             int spacing = 10;
-            Font labelFont = new Font("Segoe UI", 15); // Usar la misma fuente que tus labels
+            Font labelFont = new Font("Segoe UI", 11);
 
             foreach (var registro in detalle.Registros)
             {
@@ -62,9 +62,8 @@ namespace AppMecanica
                 tarjeta.AutoSize = false;
 
                 int labelY = 10;
-                int availableWidth = tarjeta.Width - 20; // Ancho disponible para los labels
+                int availableWidth = tarjeta.Width - 20; 
 
-                // Función auxiliar para crear labels con texto multilínea
                 Label CreateMultilineLabel(string text, ref int currentY)
                 {
                     var label = new Label();
@@ -74,7 +73,6 @@ namespace AppMecanica
                     label.AutoSize = true;
                     label.Font = labelFont;
 
-                    // Calcular altura necesaria
                     using (Graphics g = CreateGraphics())
                     {
                         SizeF size = g.MeasureString(text, labelFont, availableWidth);
@@ -86,25 +84,27 @@ namespace AppMecanica
                     return label;
                 }
 
-                // Agregar todos los elementos
                 CreateMultilineLabel($"Fecha: {registro.Fecha.ToShortDateString()}", ref labelY);
                 CreateMultilineLabel($"Trabajo: {registro.Descripcion}", ref labelY);
+                CreateMultilineLabel($"Kilometraje: {registro.KilometrajeRegistro} km", ref labelY);
 
                 if (!string.IsNullOrWhiteSpace(registro.DescripcionRepuestos))
                 {
-                    CreateMultilineLabel($"Repuestos: {registro.DescripcionRepuestos}", ref labelY);
-                    CreateMultilineLabel($"Total Repuestos: ${registro.TotalRepuestos}", ref labelY);
+                    string repuestosConSeparador = string.Join(" | ", registro.DescripcionRepuestos
+                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(r => r.Trim()));
+
+                    CreateMultilineLabel($"Repuestos: {repuestosConSeparador}", ref labelY);
+                    CreateMultilineLabel($"Total de Repuestos: ${registro.TotalRepuestos}", ref labelY);
                 }
 
-                CreateMultilineLabel($"Horas: {registro.CantidadHoras} hs, ${registro.PrecioPorHora}/h", ref labelY);
-                CreateMultilineLabel($"Kilometraje: {registro.KilometrajeRegistro} km", ref labelY);
-                CreateMultilineLabel($"Total: {registro.PrecioTotal}.", ref labelY);
+                CreateMultilineLabel($"Horas: {registro.CantidadHoras}, Precio por hora: ${registro.PrecioPorHora}", ref labelY);
+                CreateMultilineLabel($"Mano de obra: ${registro.PrecioTotalHoras}", ref labelY);
+                CreateMultilineLabel($"Total: {registro.PrecioTotal}", ref labelY);
 
-                // Ajustar altura del panel
                 tarjeta.Height = labelY;
                 panelRegistros.Controls.Add(tarjeta);
 
-                // Línea separadora
                 yOffset += tarjeta.Height + 10;
                 Panel linea = new Panel();
                 linea.BackColor = Color.DarkGray;
