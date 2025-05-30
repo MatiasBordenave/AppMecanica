@@ -11,7 +11,7 @@
         "projectName": "AppMecanicaCAD",
         "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\AppMecanicaCAD.csproj",
         "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaCAD\\obj\\",
+        "outputPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaCAD\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\byfre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,7 +81,7 @@
         "projectName": "AppMecanicaEntidades",
         "projectPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\AppMecanicaEntidades.csproj",
         "packagesPath": "C:\\Users\\byfre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\byfre\\source\\repos\\AppMecanica\\AppMecanicaEntidades\\obj\\",
+        "outputPath": "C:\\Users\\byfre\\Source\\Repos\\AppMecanica\\AppMecanicaEntidades\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\byfre\\AppData\\Roaming\\NuGet\\NuGet.Config",

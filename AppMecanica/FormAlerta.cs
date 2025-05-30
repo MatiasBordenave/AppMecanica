@@ -27,14 +27,14 @@ namespace AppMecanica
                 panel1.Visible = true;
                 panel2.Visible = false;
                 panel1.Dock = DockStyle.Fill;
-                this.Size = new Size(500, 470);
+                this.Size = new Size(560, 630);
             }
             else if (tipoContenido == "comandos")
             {
                 panel2.Visible = true;
                 panel1.Visible = false;
                 panel2.Dock = DockStyle.Fill;
-                this.Size = new Size(530, 470);
+                this.Size = new Size(650, 630);
             }
             this.KeyPreview = true;
             this.KeyDown += new KeyEventHandler(Form1_KeyDown);
