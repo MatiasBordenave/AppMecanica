@@ -101,7 +101,7 @@
             btnVolverPresupuesto.FlatStyle = FlatStyle.Flat;
             btnVolverPresupuesto.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnVolverPresupuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            btnVolverPresupuesto.Location = new Point(1093, 865);
+            btnVolverPresupuesto.Location = new Point(1155, 865);
             btnVolverPresupuesto.Name = "btnVolverPresupuesto";
             btnVolverPresupuesto.Size = new Size(159, 80);
             btnVolverPresupuesto.TabIndex = 17;
@@ -116,7 +116,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGuardar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGuardar.Location = new Point(1093, 51);
+            btnGuardar.Location = new Point(1155, 47);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(159, 80);
             btnGuardar.TabIndex = 14;
@@ -162,7 +162,7 @@
             lblMarca.AutoSize = true;
             lblMarca.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblMarca.ForeColor = Color.FromArgb(51, 51, 51);
-            lblMarca.Location = new Point(516, 44);
+            lblMarca.Location = new Point(517, 44);
             lblMarca.Name = "lblMarca";
             lblMarca.Size = new Size(72, 25);
             lblMarca.TabIndex = 8;
@@ -196,7 +196,7 @@
             lblModelo.AutoSize = true;
             lblModelo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblModelo.ForeColor = Color.FromArgb(51, 51, 51);
-            lblModelo.Location = new Point(86, 210);
+            lblModelo.Location = new Point(86, 211);
             lblModelo.Name = "lblModelo";
             lblModelo.Size = new Size(167, 25);
             lblModelo.TabIndex = 12;
@@ -241,7 +241,7 @@
             lblCantidadHoras.BackColor = Color.WhiteSmoke;
             lblCantidadHoras.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblCantidadHoras.ForeColor = Color.FromArgb(51, 51, 51);
-            lblCantidadHoras.Location = new Point(158, 769);
+            lblCantidadHoras.Location = new Point(177, 769);
             lblCantidadHoras.Name = "lblCantidadHoras";
             lblCantidadHoras.Size = new Size(162, 25);
             lblCantidadHoras.TabIndex = 18;
@@ -253,7 +253,7 @@
             lblPrecioHora.BackColor = Color.WhiteSmoke;
             lblPrecioHora.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             lblPrecioHora.ForeColor = Color.FromArgb(51, 51, 51);
-            lblPrecioHora.Location = new Point(524, 769);
+            lblPrecioHora.Location = new Point(542, 769);
             lblPrecioHora.Name = "lblPrecioHora";
             lblPrecioHora.Size = new Size(159, 25);
             lblPrecioHora.TabIndex = 19;
@@ -264,7 +264,7 @@
             txtCantidadHoras.BackColor = Color.FromArgb(224, 224, 224);
             txtCantidadHoras.BorderStyle = BorderStyle.FixedSingle;
             txtCantidadHoras.Font = new Font("Segoe UI", 9.75F);
-            txtCantidadHoras.Location = new Point(332, 763);
+            txtCantidadHoras.Location = new Point(350, 763);
             txtCantidadHoras.Name = "txtCantidadHoras";
             txtCantidadHoras.ShortcutsEnabled = false;
             txtCantidadHoras.Size = new Size(99, 29);
@@ -275,7 +275,7 @@
             txtPrecioHora.BackColor = Color.FromArgb(224, 224, 224);
             txtPrecioHora.BorderStyle = BorderStyle.FixedSingle;
             txtPrecioHora.Font = new Font("Segoe UI", 9.75F);
-            txtPrecioHora.Location = new Point(689, 763);
+            txtPrecioHora.Location = new Point(708, 763);
             txtPrecioHora.Name = "txtPrecioHora";
             txtPrecioHora.PlaceholderText = "$";
             txtPrecioHora.ShortcutsEnabled = false;
@@ -311,7 +311,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridView1.GridColor = Color.FromArgb(51, 51, 51);
-            dataGridView1.Location = new Point(158, 536);
+            dataGridView1.Location = new Point(177, 536);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -471,7 +471,7 @@
             groupBox1.Controls.Add(lblAsTitu);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             groupBox1.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox1.Location = new Point(155, 51);
+            groupBox1.Location = new Point(174, 51);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(838, 284);
             groupBox1.TabIndex = 35;
@@ -646,7 +646,7 @@
             groupBox2.Controls.Add(lblPrecioUni);
             groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             groupBox2.ForeColor = Color.FromArgb(51, 51, 51);
-            groupBox2.Location = new Point(155, 365);
+            groupBox2.Location = new Point(174, 365);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(838, 167);
             groupBox2.TabIndex = 37;
@@ -672,7 +672,7 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnLimpiar.Location = new Point(1093, 763);
+            btnLimpiar.Location = new Point(1155, 763);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(159, 80);
             btnLimpiar.TabIndex = 16;
@@ -687,7 +687,7 @@
             btnGenerar.FlatStyle = FlatStyle.Flat;
             btnGenerar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGenerar.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGenerar.Location = new Point(1093, 152);
+            btnGenerar.Location = new Point(1155, 148);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(159, 80);
             btnGenerar.TabIndex = 15;
@@ -701,7 +701,7 @@
             labelDesc.BackColor = Color.WhiteSmoke;
             labelDesc.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             labelDesc.ForeColor = Color.FromArgb(51, 51, 51);
-            labelDesc.Location = new Point(158, 841);
+            labelDesc.Location = new Point(177, 841);
             labelDesc.Name = "labelDesc";
             labelDesc.Size = new Size(121, 25);
             labelDesc.TabIndex = 40;
@@ -712,7 +712,7 @@
             textBoxDesc.BackColor = Color.FromArgb(224, 224, 224);
             textBoxDesc.BorderStyle = BorderStyle.FixedSingle;
             textBoxDesc.Font = new Font("Segoe UI", 9.75F);
-            textBoxDesc.Location = new Point(285, 841);
+            textBoxDesc.Location = new Point(304, 841);
             textBoxDesc.Margin = new Padding(3, 4, 3, 4);
             textBoxDesc.Multiline = true;
             textBoxDesc.Name = "textBoxDesc";
@@ -724,7 +724,7 @@
             lblLinea.BackColor = Color.FromArgb(224, 224, 224);
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblLinea.ForeColor = Color.Silver;
-            lblLinea.Location = new Point(119, 349);
+            lblLinea.Location = new Point(138, 349);
             lblLinea.Name = "lblLinea";
             lblLinea.Size = new Size(914, 1);
             lblLinea.TabIndex = 122;
@@ -734,7 +734,7 @@
             label1.BackColor = Color.FromArgb(224, 224, 224);
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Silver;
-            label1.Location = new Point(115, 748);
+            label1.Location = new Point(134, 748);
             label1.Name = "label1";
             label1.Size = new Size(914, 1);
             label1.TabIndex = 123;
@@ -745,7 +745,7 @@
             lblAsHoras.BackColor = Color.Transparent;
             lblAsHoras.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsHoras.ForeColor = Color.Red;
-            lblAsHoras.Location = new Point(437, 760);
+            lblAsHoras.Location = new Point(456, 760);
             lblAsHoras.Name = "lblAsHoras";
             lblAsHoras.Size = new Size(24, 29);
             lblAsHoras.TabIndex = 124;
@@ -757,7 +757,7 @@
             lblAsPxH.BackColor = Color.Transparent;
             lblAsPxH.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsPxH.ForeColor = Color.Red;
-            lblAsPxH.Location = new Point(794, 763);
+            lblAsPxH.Location = new Point(813, 763);
             lblAsPxH.Name = "lblAsPxH";
             lblAsPxH.Size = new Size(24, 29);
             lblAsPxH.TabIndex = 125;
@@ -769,7 +769,7 @@
             lblAsDesc.BackColor = Color.Transparent;
             lblAsDesc.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsDesc.ForeColor = Color.Red;
-            lblAsDesc.Location = new Point(719, 841);
+            lblAsDesc.Location = new Point(738, 841);
             lblAsDesc.Name = "lblAsDesc";
             lblAsDesc.Size = new Size(24, 29);
             lblAsDesc.TabIndex = 126;
@@ -845,7 +845,7 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
-            MinimumSize = new Size(1369, 1010);
+            MinimumSize = new Size(1369, 999);
             Name = "Presupuesto";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica Software";

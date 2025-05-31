@@ -55,10 +55,23 @@ namespace AppMecanica
         }
         private async void Registros_Load(object sender, EventArgs e)
         {
+            MostrarMensajeEnDataGrid("Cargando datos...");
             await Task.Run(() => CargarDataGridView(1));
             this.KeyPreview = true;
             this.KeyDown += FormRegistros_KeyDown;
         }
+
+
+        private void MostrarMensajeEnDataGrid(string mensaje)
+        {
+            var tabla = new DataTable();
+            tabla.Columns.Add("Mensaje");
+            tabla.Rows.Add(mensaje);
+
+            dgvRegistros.DataSource = tabla;
+            dgvRegistros.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
         private void FormRegistros_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)
@@ -90,21 +103,31 @@ namespace AppMecanica
             int offset = (paginaActual - 1) * pageSize;
             totalPaginas = registroCLN.ObtenerTotalPaginas(pageSize);
             ObtenerCantidadPaginas();
-            Task.Run(() =>
+
+            var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
+
+            Invoke(() =>
             {
-                var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
-                dgvRegistros.Invoke(() =>
+                limpiarDataGridView();
+
+                if (lista != null && lista.Count > 0)
                 {
-                    limpiarDataGridView();
                     dgvRegistros.DataSource = lista;
+
                     if (dgvRegistros.Columns.Contains("IdCliente"))
                         dgvRegistros.Columns["IdCliente"].Visible = false;
                     if (dgvRegistros.Columns.Contains("IdVehiculo"))
                         dgvRegistros.Columns["IdVehiculo"].Visible = false;
-                });
-                Invoke(() => GenerarBotonesPaginacion());
+                }
+                else
+                {
+                    MostrarMensajeEnDataGrid("No hay datos para mostrar.");
+                }
+
+                GenerarBotonesPaginacion();
             });
         }
+
         private void limpiarDataGridView()
         {
             dgvRegistros.DataSource = null;
