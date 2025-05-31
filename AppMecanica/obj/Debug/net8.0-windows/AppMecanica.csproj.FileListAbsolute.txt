@@ -474,3 +474,4 @@ C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\bin\Debug\net8.0-windows\d
 C:\Users\Matias\Desktop\Nueva carpeta (3)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.FormAlerta.resources
 C:\Users\byfre\source\repos\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.FormAlerta.resources
 C:\Users\Matias\Desktop\Nueva carpeta (2)\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.FormAlerta.resources
+C:\Users\facum\OneDrive\Escritorio\AppMecanica\AppMecanica\obj\Debug\net8.0-windows\AppMecanica.FormAlerta.resources
