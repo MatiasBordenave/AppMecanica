@@ -122,7 +122,7 @@
             lblMDOyR.FlatStyle = FlatStyle.System;
             lblMDOyR.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblMDOyR.ForeColor = Color.FromArgb(51, 51, 51);
-            lblMDOyR.Location = new Point(1040, 793);
+            lblMDOyR.Location = new Point(57, 813);
             lblMDOyR.Name = "lblMDOyR";
             lblMDOyR.Size = new Size(64, 28);
             lblMDOyR.TabIndex = 110;
@@ -206,7 +206,7 @@
             tableLayoutDatos.Controls.Add(lblDatosCliente, 0, 0);
             tableLayoutDatos.Controls.Add(lblDatosTelefono, 1, 0);
             tableLayoutDatos.Controls.Add(lblDatosAuto, 2, 0);
-            tableLayoutDatos.Location = new Point(77, 223);
+            tableLayoutDatos.Location = new Point(77, 209);
             tableLayoutDatos.Margin = new Padding(3, 4, 3, 4);
             tableLayoutDatos.Name = "tableLayoutDatos";
             tableLayoutDatos.RowCount = 1;
@@ -263,7 +263,7 @@
             lblTituloMDO.FlatStyle = FlatStyle.System;
             lblTituloMDO.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTituloMDO.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTituloMDO.Location = new Point(567, 793);
+            lblTituloMDO.Location = new Point(57, 769);
             lblTituloMDO.Name = "lblTituloMDO";
             lblTituloMDO.Size = new Size(152, 28);
             lblTituloMDO.TabIndex = 128;
@@ -276,11 +276,11 @@
             lblTituloRepuesto.FlatStyle = FlatStyle.System;
             lblTituloRepuesto.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             lblTituloRepuesto.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTituloRepuesto.Location = new Point(43, 793);
+            lblTituloRepuesto.Location = new Point(57, 721);
             lblTituloRepuesto.Name = "lblTituloRepuesto";
-            lblTituloRepuesto.Size = new Size(105, 28);
+            lblTituloRepuesto.Size = new Size(114, 28);
             lblTituloRepuesto.TabIndex = 127;
-            lblTituloRepuesto.Text = "Repuesto:";
+            lblTituloRepuesto.Text = "Repuestos:";
             // 
             // lblTituloValor
             // 
@@ -288,17 +288,17 @@
             lblTituloValor.BackColor = Color.Transparent;
             lblTituloValor.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             lblTituloValor.ForeColor = Color.FromArgb(51, 51, 51);
-            lblTituloValor.Location = new Point(71, 740);
+            lblTituloValor.Location = new Point(71, 669);
             lblTituloValor.Name = "lblTituloValor";
-            lblTituloValor.Size = new Size(239, 32);
+            lblTituloValor.Size = new Size(243, 32);
             lblTituloValor.TabIndex = 126;
-            lblTituloValor.Text = "Trabajos A Realizar:";
+            lblTituloValor.Text = "Resumen de Gastos:";
             // 
             // lblLinea2
             // 
             lblLinea2.BackColor = Color.Silver;
             lblLinea2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLinea2.Location = new Point(73, 365);
+            lblLinea2.Location = new Point(73, 323);
             lblLinea2.Name = "lblLinea2";
             lblLinea2.Size = new Size(1200, 1);
             lblLinea2.TabIndex = 122;
@@ -308,10 +308,10 @@
             flowPanelDesc.AutoScroll = true;
             flowPanelDesc.BackColor = Color.Transparent;
             flowPanelDesc.Controls.Add(lblDescPresupuesto);
-            flowPanelDesc.Location = new Point(43, 371);
+            flowPanelDesc.Location = new Point(57, 328);
             flowPanelDesc.Margin = new Padding(3, 4, 3, 4);
             flowPanelDesc.Name = "flowPanelDesc";
-            flowPanelDesc.Size = new Size(1257, 63);
+            flowPanelDesc.Size = new Size(1243, 86);
             flowPanelDesc.TabIndex = 130;
             // 
             // lblDescPresupuesto
@@ -332,7 +332,7 @@
             // 
             lblLinea3.BackColor = Color.Silver;
             lblLinea3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLinea3.Location = new Point(71, 773);
+            lblLinea3.Location = new Point(71, 702);
             lblLinea3.Name = "lblLinea3";
             lblLinea3.Size = new Size(1200, 1);
             lblLinea3.TabIndex = 125;
@@ -343,7 +343,7 @@
             lblDatosTrabajo.BackColor = Color.Transparent;
             lblDatosTrabajo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             lblDatosTrabajo.ForeColor = Color.FromArgb(51, 51, 51);
-            lblDatosTrabajo.Location = new Point(71, 327);
+            lblDatosTrabajo.Location = new Point(71, 285);
             lblDatosTrabajo.Name = "lblDatosTrabajo";
             lblDatosTrabajo.Size = new Size(239, 32);
             lblDatosTrabajo.TabIndex = 124;
@@ -414,9 +414,9 @@
             direccionMecanico.ForeColor = Color.FromArgb(51, 51, 51);
             direccionMecanico.Location = new Point(1128, 77);
             direccionMecanico.Name = "direccionMecanico";
-            direccionMecanico.Size = new Size(207, 25);
+            direccionMecanico.Size = new Size(202, 25);
             direccionMecanico.TabIndex = 118;
-            direccionMecanico.Text = "Av. Independencia 411 ";
+            direccionMecanico.Text = "Av. Independencia 405";
             // 
             // datosMecanico3
             // 
@@ -447,7 +447,7 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(862, 32);
-            pictureBox2.Margin = new Padding(5, 5, 5, 5);
+            pictureBox2.Margin = new Padding(5);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(139, 116);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -459,10 +459,10 @@
             flowPanelRepuestos.AutoScroll = true;
             flowPanelRepuestos.BackColor = Color.Transparent;
             flowPanelRepuestos.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            flowPanelRepuestos.Location = new Point(43, 441);
+            flowPanelRepuestos.Location = new Point(57, 422);
             flowPanelRepuestos.Margin = new Padding(3, 4, 3, 4);
             flowPanelRepuestos.Name = "flowPanelRepuestos";
-            flowPanelRepuestos.Size = new Size(1257, 267);
+            flowPanelRepuestos.Size = new Size(1243, 243);
             flowPanelRepuestos.TabIndex = 129;
             // 
             // PresupuestoGenerado

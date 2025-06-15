@@ -55,10 +55,9 @@
             btnVolverDetalle.FlatStyle = FlatStyle.Flat;
             btnVolverDetalle.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnVolverDetalle.ForeColor = Color.FromArgb(51, 51, 51);
-            btnVolverDetalle.Location = new Point(1022, 650);
-            btnVolverDetalle.Margin = new Padding(3, 2, 3, 2);
+            btnVolverDetalle.Location = new Point(1168, 867);
             btnVolverDetalle.Name = "btnVolverDetalle";
-            btnVolverDetalle.Size = new Size(139, 60);
+            btnVolverDetalle.Size = new Size(159, 80);
             btnVolverDetalle.TabIndex = 3;
             btnVolverDetalle.Text = "Volver a Registros";
             btnVolverDetalle.UseVisualStyleBackColor = false;
@@ -71,10 +70,9 @@
             btnGenerarPDF.FlatStyle = FlatStyle.Flat;
             btnGenerarPDF.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             btnGenerarPDF.ForeColor = Color.FromArgb(51, 51, 51);
-            btnGenerarPDF.Location = new Point(866, 650);
-            btnGenerarPDF.Margin = new Padding(3, 2, 3, 2);
+            btnGenerarPDF.Location = new Point(990, 867);
             btnGenerarPDF.Name = "btnGenerarPDF";
-            btnGenerarPDF.Size = new Size(139, 60);
+            btnGenerarPDF.Size = new Size(159, 80);
             btnGenerarPDF.TabIndex = 4;
             btnGenerarPDF.Text = "Generar PDF";
             btnGenerarPDF.UseVisualStyleBackColor = false;
@@ -85,9 +83,9 @@
             lblVehiculoCliente.AutoSize = true;
             lblVehiculoCliente.BackColor = Color.Transparent;
             lblVehiculoCliente.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblVehiculoCliente.Location = new Point(48, 116);
+            lblVehiculoCliente.Location = new Point(55, 155);
             lblVehiculoCliente.Name = "lblVehiculoCliente";
-            lblVehiculoCliente.Size = new Size(128, 25);
+            lblVehiculoCliente.Size = new Size(162, 32);
             lblVehiculoCliente.TabIndex = 61;
             lblVehiculoCliente.Text = "Ver Vehiculo:";
             // 
@@ -97,9 +95,10 @@
             panelRegistros.BackColor = Color.WhiteSmoke;
             panelRegistros.Controls.Add(panelHeader);
             panelRegistros.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            panelRegistros.Location = new Point(12, 3);
+            panelRegistros.Location = new Point(14, 4);
+            panelRegistros.Margin = new Padding(3, 4, 3, 4);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(1150, 639);
+            panelRegistros.Size = new Size(1314, 852);
             panelRegistros.TabIndex = 62;
             // 
             // panelHeader
@@ -117,27 +116,28 @@
             panelHeader.Controls.Add(TelefonoMecanico);
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
+            panelHeader.Margin = new Padding(3, 4, 3, 4);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1150, 158);
+            panelHeader.Size = new Size(1314, 211);
             panelHeader.TabIndex = 142;
             // 
             // lblLinea
             // 
             lblLinea.BackColor = Color.Silver;
             lblLinea.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblLinea.Location = new Point(33, 144);
+            lblLinea.Location = new Point(38, 192);
             lblLinea.Name = "lblLinea";
-            lblLinea.Size = new Size(1100, 1);
+            lblLinea.Size = new Size(1257, 1);
             lblLinea.TabIndex = 141;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(723, 25);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Location = new Point(826, 33);
+            pictureBox2.Margin = new Padding(5, 5, 5, 5);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(122, 87);
+            pictureBox2.Size = new Size(139, 116);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 135;
             pictureBox2.TabStop = false;
@@ -146,9 +146,9 @@
             // 
             label1.BackColor = Color.Silver;
             label1.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(852, 23);
+            label1.Location = new Point(974, 31);
             label1.Name = "label1";
-            label1.Size = new Size(1, 100);
+            label1.Size = new Size(1, 133);
             label1.TabIndex = 140;
             // 
             // datosMecanico2
@@ -157,9 +157,9 @@
             datosMecanico2.BackColor = Color.Transparent;
             datosMecanico2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             datosMecanico2.ForeColor = Color.FromArgb(51, 51, 51);
-            datosMecanico2.Location = new Point(859, 58);
+            datosMecanico2.Location = new Point(982, 77);
             datosMecanico2.Name = "datosMecanico2";
-            datosMecanico2.Size = new Size(87, 21);
+            datosMecanico2.Size = new Size(107, 28);
             datosMecanico2.TabIndex = 136;
             datosMecanico2.Text = "Direccion:";
             // 
@@ -169,9 +169,9 @@
             nombreMecanico.BackColor = Color.Transparent;
             nombreMecanico.Font = new Font("Segoe UI", 11.25F);
             nombreMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            nombreMecanico.Location = new Point(949, 24);
+            nombreMecanico.Location = new Point(1085, 32);
             nombreMecanico.Name = "nombreMecanico";
-            nombreMecanico.Size = new Size(129, 20);
+            nombreMecanico.Size = new Size(162, 25);
             nombreMecanico.TabIndex = 134;
             nombreMecanico.Text = "Ocaranza Rodolfo";
             // 
@@ -181,9 +181,9 @@
             datosMecanico3.BackColor = Color.Transparent;
             datosMecanico3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             datosMecanico3.ForeColor = Color.FromArgb(51, 51, 51);
-            datosMecanico3.Location = new Point(859, 94);
+            datosMecanico3.Location = new Point(982, 125);
             datosMecanico3.Name = "datosMecanico3";
-            datosMecanico3.Size = new Size(81, 21);
+            datosMecanico3.Size = new Size(99, 28);
             datosMecanico3.TabIndex = 137;
             datosMecanico3.Text = "Telefono:";
             // 
@@ -193,9 +193,9 @@
             datosMecanico.BackColor = Color.Transparent;
             datosMecanico.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             datosMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            datosMecanico.Location = new Point(859, 24);
+            datosMecanico.Location = new Point(982, 32);
             datosMecanico.Name = "datosMecanico";
-            datosMecanico.Size = new Size(88, 21);
+            datosMecanico.Size = new Size(108, 28);
             datosMecanico.TabIndex = 133;
             datosMecanico.Text = "Mecanico:";
             // 
@@ -205,11 +205,11 @@
             direccionMecanico.BackColor = Color.Transparent;
             direccionMecanico.Font = new Font("Segoe UI", 11.25F);
             direccionMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            direccionMecanico.Location = new Point(951, 58);
+            direccionMecanico.Location = new Point(1087, 77);
             direccionMecanico.Name = "direccionMecanico";
-            direccionMecanico.Size = new Size(163, 20);
+            direccionMecanico.Size = new Size(202, 25);
             direccionMecanico.TabIndex = 138;
-            direccionMecanico.Text = "Av. Independencia 411 ";
+            direccionMecanico.Text = "Av. Independencia 405";
             // 
             // TelefonoMecanico
             // 
@@ -217,28 +217,29 @@
             TelefonoMecanico.BackColor = Color.Transparent;
             TelefonoMecanico.Font = new Font("Segoe UI", 11.25F);
             TelefonoMecanico.ForeColor = Color.FromArgb(51, 51, 51);
-            TelefonoMecanico.Location = new Point(951, 94);
+            TelefonoMecanico.Location = new Point(1087, 125);
             TelefonoMecanico.Name = "TelefonoMecanico";
-            TelefonoMecanico.Size = new Size(119, 20);
+            TelefonoMecanico.Size = new Size(150, 25);
             TelefonoMecanico.TabIndex = 139;
             TelefonoMecanico.Text = "+54 3816405637";
             // 
             // DetalleRegistro
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
             BackgroundImage = Properties.Resources.bg2;
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(1184, 722);
+            ClientSize = new Size(1353, 963);
             Controls.Add(panelRegistros);
             Controls.Add(btnGenerarPDF);
             Controls.Add(btnVolverDetalle);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MinimumSize = new Size(1200, 761);
+            MinimumSize = new Size(1369, 999);
             Name = "DetalleRegistro";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ocaranza Mecanica Software";

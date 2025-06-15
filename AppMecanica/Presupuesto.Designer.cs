@@ -175,7 +175,7 @@
             txtPatente.Font = new Font("Segoe UI", 9.75F);
             txtPatente.Location = new Point(599, 101);
             txtPatente.Name = "txtPatente";
-            txtPatente.PlaceholderText = "Ejemplo: ABC 123";
+            txtPatente.PlaceholderText = "Ejemplo: ABC123";
             txtPatente.ShortcutsEnabled = false;
             txtPatente.Size = new Size(175, 29);
             txtPatente.TabIndex = 3;
