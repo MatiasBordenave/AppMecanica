@@ -549,7 +549,7 @@
             txtTelefono.BackColor = Color.FromArgb(224, 224, 224);
             txtTelefono.BorderStyle = BorderStyle.FixedSingle;
             txtTelefono.Font = new Font("Segoe UI", 9.75F);
-            txtTelefono.Location = new Point(263, 97);
+            txtTelefono.Location = new Point(261, 104);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.PlaceholderText = "Ejemplo: 3816566750";
             txtTelefono.ShortcutsEnabled = false;
@@ -616,7 +616,7 @@
             lblAsTele.AutoSize = true;
             lblAsTele.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblAsTele.ForeColor = Color.Red;
-            lblAsTele.Location = new Point(445, 104);
+            lblAsTele.Location = new Point(445, 105);
             lblAsTele.Name = "lblAsTele";
             lblAsTele.Size = new Size(24, 29);
             lblAsTele.TabIndex = 42;

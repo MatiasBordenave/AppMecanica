@@ -38,6 +38,7 @@
             nombreMecanico = new Label();
             datosMecanico = new Label();
             panelContenido = new Panel();
+            PanelRepuestos = new Panel();
             label1 = new Label();
             tableLayoutDatos = new TableLayoutPanel();
             lblDatosCliente = new Label();
@@ -60,7 +61,6 @@
             datosMecanico3 = new Label();
             datosMecanico2 = new Label();
             pictureBox2 = new PictureBox();
-            flowPanelRepuestos = new FlowLayoutPanel();
             panelContenido.SuspendLayout();
             tableLayoutDatos.SuspendLayout();
             flowPanelDesc.SuspendLayout();
@@ -155,6 +155,7 @@
             // panelContenido
             // 
             panelContenido.BackColor = Color.Transparent;
+            panelContenido.Controls.Add(PanelRepuestos);
             panelContenido.Controls.Add(label1);
             panelContenido.Controls.Add(tableLayoutDatos);
             panelContenido.Controls.Add(nombreMecanico);
@@ -176,7 +177,6 @@
             panelContenido.Controls.Add(datosMecanico3);
             panelContenido.Controls.Add(datosMecanico2);
             panelContenido.Controls.Add(pictureBox2);
-            panelContenido.Controls.Add(flowPanelRepuestos);
             panelContenido.Dock = DockStyle.Top;
             panelContenido.Font = new Font("Segoe UI", 11.25F);
             panelContenido.Location = new Point(0, 0);
@@ -184,6 +184,13 @@
             panelContenido.Name = "panelContenido";
             panelContenido.Size = new Size(1353, 854);
             panelContenido.TabIndex = 111;
+            // 
+            // PanelRepuestos
+            // 
+            PanelRepuestos.Location = new Point(57, 421);
+            PanelRepuestos.Name = "PanelRepuestos";
+            PanelRepuestos.Size = new Size(1243, 243);
+            PanelRepuestos.TabIndex = 133;
             // 
             // label1
             // 
@@ -454,17 +461,6 @@
             pictureBox2.TabIndex = 115;
             pictureBox2.TabStop = false;
             // 
-            // flowPanelRepuestos
-            // 
-            flowPanelRepuestos.AutoScroll = true;
-            flowPanelRepuestos.BackColor = Color.Transparent;
-            flowPanelRepuestos.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            flowPanelRepuestos.Location = new Point(57, 422);
-            flowPanelRepuestos.Margin = new Padding(3, 4, 3, 4);
-            flowPanelRepuestos.Name = "flowPanelRepuestos";
-            flowPanelRepuestos.Size = new Size(1243, 243);
-            flowPanelRepuestos.TabIndex = 129;
-            // 
             // PresupuestoGenerado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -525,9 +521,9 @@
         private Label datosMecanico3;
         private Label datosMecanico2;
         private PictureBox pictureBox2;
-        private FlowLayoutPanel flowPanelRepuestos;
         private FlowLayoutPanel flowPanelDesc;
         private Label lblDescPresupuesto;
         private Label label1;
+        private Panel PanelRepuestos;
     }
 }

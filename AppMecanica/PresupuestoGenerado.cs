@@ -1,5 +1,7 @@
 ﻿using AppMecanica.Models;
 using AppMecanicaCLN;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace AppMecanica
 {
@@ -26,6 +28,7 @@ namespace AppMecanica
             lblDatosCliente.Text = $"Cliente:  {data.Titular}";
             lblDatosTelefono.Text = $"Teléfono:  {data.Telefono}";
             lblDatosAuto.Text = $"Vehiculo:  {data.Marca},  {data.Modelo},  {data.Año}";
+
             if (!string.IsNullOrWhiteSpace(data.Desc))
             {
                 lblDescPresupuesto.Visible = true;
@@ -35,26 +38,53 @@ namespace AppMecanica
             {
                 lblDescPresupuesto.Visible = false;
             }
+
             lblTituloRepuesto.Text = $"Repuesto: ${data.TotalRepuestos}";
             lblTituloMDO.Text = $"Mano de obra: ${data.TotalManoObra}";
             lblMDOyR.Text = $"Total: ${data.TotalGeneral}";
-            lblFecha.Text = $"Fecha: {DateTime.Now.ToString("dd/MM/yyyy")}";
+            lblFecha.Text = $"Fecha: {DateTime.Now:dd/MM/yyyy}";
+
             int nuevoIdPresupuesto = presupuestoCLN.CrearNuevoPresupuesto();
-            lblTitulo.Text = $"Presupuesto  - Nro 0{nuevoIdPresupuesto}";
+            lblTitulo.Text = $"Presupuesto  - Nro {nuevoIdPresupuesto}";
+
+            PanelRepuestos.Controls.Clear();
+
+            int x = 10;
+            int y = 10;
+            int columnWidth = 350;
+            int verticalSpacing = 15;
+            int horizontalSpacing = 10;
+            int panelHeight = PanelRepuestos.Height;
+
             foreach (var rep in data.Repuestos)
             {
                 var lbl = new Label();
                 lbl.AutoSize = true;
                 lbl.Font = new Font("Segoe UI", 11, FontStyle.Bold);
-                lbl.Margin = new Padding(10);
-                lbl.ForeColor = Color.FromArgb(51, 51, 51); // ← Establece el color de letra
-                lbl.Text = $"{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
-                flowPanelRepuestos.Controls.Add(lbl);
+                lbl.ForeColor = Color.FromArgb(51, 51, 51);
+                lbl.MaximumSize = new Size(columnWidth - 10, 0); 
+                lbl.Text = $"*{rep.Nombre}, Cantidad x{rep.Cantidad}, Precio: ${rep.Precio}";
+
+                // Calcula altura preferida después de asignar texto y fuente
+                lbl.Size = TextRenderer.MeasureText(lbl.Text, lbl.Font, new Size(columnWidth - 10, int.MaxValue), TextFormatFlags.WordBreak);
+
+                if (y + lbl.Height > panelHeight)
+                {
+                    y = 10;
+                    x += columnWidth + horizontalSpacing;
+                }
+
+                lbl.Location = new Point(x, y);
+                PanelRepuestos.Controls.Add(lbl);
+
+                y += lbl.Height + verticalSpacing;
             }
+
 
             this.KeyPreview = true;
             this.KeyDown += FormPresupuestoGenerado_KeyDown;
         }
+
         private void FormPresupuestoGenerado_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F1)

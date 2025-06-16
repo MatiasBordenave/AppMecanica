@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AppMecanicaCAD
-build_property.ProjectDir = C:\Users\byfre\source\repos\AppMecanica\AppMecanicaCAD\
+build_property.ProjectDir = C:\Users\byfre\Source\Repos\AppMecanica\AppMecanicaCAD\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
