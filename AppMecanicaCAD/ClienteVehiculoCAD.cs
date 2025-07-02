@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,20 +20,24 @@ namespace AppMecanicaCAD
                 connection.Open();
 
                 string query = @"SELECT 
-                            c.id_cliente,
-                            v.id_vehiculo,
-                            v.marca,
-                            v.modelo,
-                            c.nombreYApellido,
-                            v.patente
-                        FROM clientes c
-                        INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
-                        WHERE c.activo = 1 AND v.activo = 1
-                        LIMIT @limit OFFSET @offset";
+                    c.id_cliente,
+                    v.id_vehiculo,
+                    v.marca,
+                    v.modelo,
+                    c.nombreYApellido,
+                    v.patente
+
+                FROM clientes c
+                INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                LEFT JOIN registros r ON v.id_vehiculo = r.id_vehiculo AND r.activo = 1
+                WHERE c.activo = 1 
+                AND v.activo = 1
+                GROUP BY c.id_cliente, v.id_vehiculo, v.marca, v.modelo, c.nombreYApellido, v.patente
+                HAVING COUNT(r.id_registro) > 0
+                LIMIT @limit OFFSET @offset";
 
                 using (var cmd = new SQLiteCommand(query, connection))
                 {
-                    // Asignar parámetros
                     cmd.Parameters.AddWithValue("@limit", limit);
                     cmd.Parameters.AddWithValue("@offset", offset);
 
@@ -47,7 +52,7 @@ namespace AppMecanicaCAD
                                 Marca = reader["marca"].ToString(),
                                 Modelo = reader["modelo"].ToString(),
                                 Titular = reader["nombreYApellido"].ToString(),
-                                Patente = reader["patente"].ToString()
+                                Patente = reader["patente"].ToString(),
                             });
                         }
                     }
@@ -60,22 +65,29 @@ namespace AppMecanicaCAD
 
         public List<ClienteVehiculo> BuscarVehiculosPorCliente(string nombreCliente, int pagina, int pageSize)
         {
-            string query = @"SELECT  c.id_cliente,
-                                     v.id_vehiculo,
-                                     v.marca,
-                                     v.modelo,
-                                     c.nombreYApellido,
-                                     v.patente
-                                 FROM clientes c
-                                 INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
-                                 WHERE 
-                                     (@nombreCliente IS NULL OR
-                                     LOWER(
-                                         REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreYApellido, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')
-                                     ) LIKE LOWER(
-                                         REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(@nombreCliente, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')
-                                     ))
-                                 LIMIT @pageSize OFFSET @offset;";
+            string query = @"SELECT DISTINCT
+                    c.id_cliente,
+                    v.id_vehiculo,
+                    v.marca,
+                    v.modelo,
+                    c.nombreYApellido,
+                    v.patente
+                FROM clientes c
+                INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                INNER JOIN registros r ON v.id_vehiculo = r.id_vehiculo
+                WHERE 
+                    c.activo = 1 
+                    AND v.activo = 1
+                    AND r.activo = 1
+                    AND (
+                        @nombreCliente IS NULL OR
+                        LOWER(
+                            REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreYApellido, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')
+                        ) LIKE '%' || LOWER(
+                            REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(@nombreCliente, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')
+                        ) || '%'
+                    )
+                LIMIT @pageSize OFFSET @offset;";
 
             List<ClienteVehiculo> lista = new List<ClienteVehiculo>();
 
@@ -119,11 +131,18 @@ namespace AppMecanicaCAD
             return lista;
         }
 
+        // Para mantener consistencia con tu función ObtenerClientesConVehiculos
         public int ContarTodosLosRegistros()
         {
             int total = 0;
 
-            string query = "SELECT COUNT(*) FROM vehiculos v INNER JOIN clientes c ON v.id_cliente = c.id_cliente";
+            string query = @"SELECT COUNT(DISTINCT v.id_vehiculo)
+                    FROM clientes c
+                    INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                    INNER JOIN registros r ON v.id_vehiculo = r.id_vehiculo
+                    WHERE c.activo = 1 
+                    AND v.activo = 1
+                    AND r.activo = 1";
 
             try
             {
@@ -138,7 +157,9 @@ namespace AppMecanicaCAD
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error en ContarTodosLosRegistros: " + ex.Message);
+                // Loggear el error adecuadamente
+                Debug.WriteLine($"Error al contar registros: {ex}");
+                throw;
             }
 
             return total;
@@ -150,13 +171,19 @@ namespace AppMecanicaCAD
         {
             int total = 0;
 
-            string query = @"SELECT COUNT(*) 
-                            FROM vehiculos v 
-                            INNER JOIN clientes c ON v.id_cliente = c.id_cliente
-                            WHERE 
-                                LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreYApellido, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')) 
-                                LIKE LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(@nombreCliente, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u'))";
-
+            string query = @"SELECT COUNT(DISTINCT v.id_vehiculo)
+                FROM vehiculos v 
+                INNER JOIN clientes c ON v.id_cliente = c.id_cliente
+                INNER JOIN registros r ON v.id_vehiculo = r.id_vehiculo
+                WHERE 
+                    c.activo = 1 
+                    AND v.activo = 1
+                    AND r.activo = 1
+                    AND (
+                        @nombreCliente IS NULL OR
+                        LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(c.nombreYApellido, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')) 
+                        LIKE '%' || LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(@nombreCliente, 'á', 'a'), 'é', 'e'), 'í', 'i'), 'ó', 'o'), 'ú', 'u')) || '%'
+                    )";
             try
             {
                 using (SQLiteConnection conexion = Coneccion.CreateConnection())

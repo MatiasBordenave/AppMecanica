@@ -62,7 +62,8 @@ namespace AppMecanicaCAD
                                             precioPorHora REAL NOT NULL, 
                                             precioTotalHoras REAL NOT NULL,
                                             kilometrajeRegistro INTEGER NOT NULL,
-                                            descripcionRepuestos TEXT NOT NULL,                                     
+                                            descripcionRepuestos TEXT NOT NULL,      
+                                            activo BOOLEAN DEFAULT 1, -- 1 = Activo, 0 = Dado de baja
                                             FOREIGN KEY (id_vehiculo) REFERENCES vehiculos(id_vehiculo) ON DELETE CASCADE
                                         );
 

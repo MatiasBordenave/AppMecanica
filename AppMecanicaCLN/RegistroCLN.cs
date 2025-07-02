@@ -1,6 +1,7 @@
 ﻿using AppMecanicaEntidades;
 using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -89,6 +90,12 @@ namespace AppMecanicaCAD
             int totalRegistros = registroCAD.ObtenerTotalClientesConVehiculos();
             return (int)Math.Ceiling((double)totalRegistros / pageSize);
         }
+
+        public static bool EliminarRegistro(int idVehiculo)
+        {
+            return RegistroCAD.MarcarRegistroComoEliminado(idVehiculo);
+        }
+
 
     }
 }

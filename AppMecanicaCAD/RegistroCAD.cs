@@ -13,7 +13,8 @@ namespace AppMecanicaCAD
     public class RegistroCAD
 
     {
-        public static bool ExisteCliente(string patente) {
+        public static bool ExisteCliente(string patente)
+        {
             if (patente != null)
             {
                 int cantidad = 0; // este valor debería salir de la base de datos
@@ -189,9 +190,14 @@ namespace AppMecanicaCAD
             {
                 connection.Open();
 
-                string query = @"SELECT COUNT(*) FROM clientes c
-                         INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
-                         WHERE c.activo = 1 AND v.activo = 1";
+                // Consulta que cuenta clientes con vehículos que tienen registros activos
+                string query = @"SELECT COUNT(DISTINCT c.id_cliente)
+                        FROM clientes c
+                        INNER JOIN vehiculos v ON c.id_cliente = v.id_cliente
+                        INNER JOIN registros r ON v.id_vehiculo = r.id_vehiculo
+                        WHERE c.activo = 1 
+                        AND v.activo = 1
+                        AND r.activo = 1";
 
                 using (var cmd = new SQLiteCommand(query, connection))
                 {
@@ -201,6 +207,38 @@ namespace AppMecanicaCAD
 
             return total;
         }
+
+        public static bool MarcarRegistroComoEliminado(int idVehiculo)
+        {
+            using (var connection = Coneccion.CreateConnection())
+            {
+                connection.Open();
+                using (var transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        string query = @"UPDATE registros 
+                                   SET activo = 0 
+                                   WHERE id_vehiculo = @idVehiculo";
+
+                        using (var cmd = new SQLiteCommand(query, connection, transaction))
+                        {
+                            cmd.Parameters.AddWithValue("@idVehiculo", idVehiculo);
+                            int filasAfectadas = cmd.ExecuteNonQuery();
+                            transaction.Commit();
+                            return filasAfectadas > 0;
+                        }
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
+            }
+        }
+
+
 
         public static string QuitarTildes(string texto)
         {

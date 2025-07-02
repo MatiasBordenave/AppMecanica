@@ -26,6 +26,8 @@ namespace AppMecanica
         private VehiculoDetalleCLN vehiculoDetalleCLN = new VehiculoDetalleCLN();
         private bool cierreDesdeBoton = false;
         private Form formHome;
+        private bool mostrandoMensaje = false;
+
         public Registros(Form Home)
         {
             InitializeComponent();
@@ -59,11 +61,12 @@ namespace AppMecanica
             await Task.Run(() => CargarDataGridView(1));
             this.KeyPreview = true;
             this.KeyDown += FormRegistros_KeyDown;
+            
         }
-
 
         private void MostrarMensajeEnDataGrid(string mensaje)
         {
+
             var tabla = new DataTable();
             tabla.Columns.Add("Mensaje");
             tabla.Rows.Add(mensaje);
@@ -77,9 +80,9 @@ namespace AppMecanica
             if (e.KeyCode == Keys.F1)
             {
                 txtBuscar.Focus();
-                e.Handled = true; 
+                e.Handled = true;
             }
-            if (e.KeyCode == Keys.F2)
+            else if (e.KeyCode == Keys.F2)
             {
                 if (dgvRegistros.CurrentRow != null && dgvRegistros.CurrentRow.Index >= 0)
                 {
@@ -87,45 +90,91 @@ namespace AppMecanica
                     e.Handled = true;
                 }
             }
-            if (e.KeyCode == Keys.F5)
+            else if (e.KeyCode == Keys.F5)
             {
-                btnResetDgv_Click(sender, e); 
+                btnResetDgv_Click(sender, e);
                 e.Handled = true;
             }
             else if (e.KeyCode == Keys.Escape)
             {
-                btnVolverRegistro_Click(sender, e); 
+                    btnVolverRegistro_Click(sender, e);
+                    e.Handled = true;
+            }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                btnBorrar_Click(sender, EventArgs.Empty);
                 e.Handled = true;
             }
         }
+
         private void CargarDataGridView(int paginaActual)
         {
-            int offset = (paginaActual - 1) * pageSize;
-            totalPaginas = registroCLN.ObtenerTotalPaginas(pageSize);
-            ObtenerCantidadPaginas();
-
-            var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
-
-            Invoke(() =>
+            try
             {
-                limpiarDataGridView();
+                int offset = (paginaActual - 1) * pageSize;
+                totalPaginas = registroCLN.ObtenerTotalPaginas(pageSize);
+                ObtenerCantidadPaginas();
 
-                if (lista != null && lista.Count > 0)
+                var lista = clienteVehiculoCLN.ObtenerClientesConVehiculos(offset, pageSize);
+
+                Invoke(() =>
                 {
-                    dgvRegistros.DataSource = lista;
+                    dgvRegistros.DataSource = null;
+                    dgvRegistros.Columns.Clear();
 
-                    if (dgvRegistros.Columns.Contains("IdCliente"))
-                        dgvRegistros.Columns["IdCliente"].Visible = false;
-                    if (dgvRegistros.Columns.Contains("IdVehiculo"))
-                        dgvRegistros.Columns["IdVehiculo"].Visible = false;
-                }
-                else
+                    if (lista != null && lista.Count > 0)
+                    {
+                        mostrandoMensaje = false;
+
+                        dgvRegistros.AutoGenerateColumns = true; 
+                        dgvRegistros.DataSource = lista;
+
+                        ConfigurarDataGridViewPostBinding();
+
+                        if (dgvRegistros.Rows.Count > 0)
+                        {
+                            dgvRegistros.Rows[0].Selected = true;
+                        }
+                    }
+                    else
+                    {
+                        mostrandoMensaje = true;
+                        MostrarMensajeEnDataGrid("No hay datos para mostrar.");
+                    }
+
+                    GenerarBotonesPaginacion();
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar datos: {ex.Message}", "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ConfigurarDataGridViewPostBinding()
+        {
+            dgvRegistros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvRegistros.MultiSelect = false;
+            dgvRegistros.ReadOnly = true;
+            dgvRegistros.RowHeadersVisible = false;
+            dgvRegistros.AllowUserToAddRows = false;
+            dgvRegistros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            string[] columnasOcultar = { "IdCliente", "IdVehiculo", "activo" };
+            foreach (string columna in columnasOcultar)
+            {
+                if (dgvRegistros.Columns.Contains(columna))
                 {
-                    MostrarMensajeEnDataGrid("No hay datos para mostrar.");
+                    dgvRegistros.Columns[columna].Visible = false;
                 }
+            }
 
-                GenerarBotonesPaginacion();
-            });
+            mostrandoMensaje = false;
+            if (dgvRegistros.Columns.Contains("NombreYApellido"))
+                dgvRegistros.Columns["NombreYApellido"].HeaderText = "Titular";
+            if (dgvRegistros.Columns.Contains("Patente"))
+                dgvRegistros.Columns["Patente"].HeaderText = "Patente";
         }
 
         private void limpiarDataGridView()
@@ -142,24 +191,50 @@ namespace AppMecanica
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            string nombreCliente = txtBuscar.Text.Trim();
-            if (string.IsNullOrEmpty(nombreCliente))
-            nombreCliente = null;
-            paginaActual = 1;
-            var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente, paginaActual, pageSize);
-            dgvRegistros.Invoke(() =>
+            try
             {
-                limpiarDataGridView();
-                dgvRegistros.DataSource = resultado;
-                if (dgvRegistros.Columns.Contains("IdCliente"))
-                    dgvRegistros.Columns["IdCliente"].Visible = false;
-                if (dgvRegistros.Columns.Contains("IdVehiculo"))
-                    dgvRegistros.Columns["IdVehiculo"].Visible = false;
-                txtBuscar.Focus();
-                txtBuscar.SelectionStart = txtBuscar.Text.Length;
-                totalPaginas = ObtenerCantidadPaginas(nombreCliente);
-                GenerarBotonesPaginacion();
-            });
+                string nombreCliente = txtBuscar.Text.Trim();
+                if (string.IsNullOrEmpty(nombreCliente))
+                    nombreCliente = null;
+
+                paginaActual = 1;
+                var resultado = clienteVehiculoCLN.BuscarVehiculosPorCliente(nombreCliente, paginaActual, pageSize);
+
+                dgvRegistros.Invoke(() =>
+                {
+                    limpiarDataGridView();
+
+                    if (resultado == null || resultado.Count == 0)
+                    {
+                        MostrarMensajeEnDataGrid("No se encontraron vehículos con ese criterio de búsqueda");
+                        btnDetalles.Enabled = false;
+                    }
+                    else
+                    {
+                        dgvRegistros.DataSource = resultado;
+                        mostrandoMensaje = false;
+
+                        if (dgvRegistros.Columns.Contains("IdCliente"))
+                            dgvRegistros.Columns["IdCliente"].Visible = false;
+                        if (dgvRegistros.Columns.Contains("IdVehiculo"))
+                            dgvRegistros.Columns["IdVehiculo"].Visible = false;
+
+                        btnDetalles.Enabled = true; 
+                    }
+
+                    txtBuscar.Focus();
+                    txtBuscar.SelectionStart = txtBuscar.Text.Length;
+                    totalPaginas = ObtenerCantidadPaginas(nombreCliente);
+                    GenerarBotonesPaginacion();
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al realizar la búsqueda: {ex.Message}",
+                              "Error",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
+            }
         }
         private async void txtBuscar_KeyDown(object sender, KeyEventArgs e)
         {
@@ -170,22 +245,53 @@ namespace AppMecanica
                 btnBuscar.PerformClick();
             }
         }
-
-
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-
-            if (dgvRegistros.CurrentRow != null)
+            try
             {
+                if (dgvRegistros.SelectedRows.Count == 0 ||
+                    dgvRegistros.CurrentRow == null ||
+                    dgvRegistros.CurrentRow.IsNewRow)
+                {
+                    MessageBox.Show("Por favor, seleccioná un vehículo válido primero.",
+                                  "Advertencia",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (dgvRegistros.CurrentRow.Cells["IdVehiculo"].Value == null)
+                {
+                    MessageBox.Show("No se puede obtener la información del vehículo seleccionado.",
+                                  "Error",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Error);
+                    return;
+                }
+
                 int idVehiculo = Convert.ToInt32(dgvRegistros.CurrentRow.Cells["IdVehiculo"].Value);
+
                 VehiculoDetalleDTO detalle = vehiculoDetalleCLN.ObtenerDetalleVehiculo(idVehiculo);
+
+                if (detalle == null)
+                {
+                    MessageBox.Show("No se encontraron detalles para el vehículo seleccionado.",
+                                  "Información",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Information);
+                    return;
+                }
+
                 DetalleRegistro detalleRegistro = new DetalleRegistro(this, detalle);
                 detalleRegistro.Show();
                 this.Hide();
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Por favor, seleccioná un vehículo primero.");
+                MessageBox.Show($"Error al mostrar detalles: {ex.Message}",
+                              "Error",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Error);
             }
         }
         private int ObtenerCantidadPaginas(string nombreCliente = null)
@@ -301,6 +407,84 @@ namespace AppMecanica
             FormAlerta alerta = new FormAlerta("comandos");
             alerta.ShowDialog();
         }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (mostrandoMensaje)
+            {
+                MessageBox.Show("No hay registros válidos para borrar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dgvRegistros.SelectedRows.Count == 0 || dgvRegistros.SelectedRows[0].Index < 0)
+            {
+                MessageBox.Show("Por favor, seleccioná un registro para borrar.",
+                              "Advertencia",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataGridViewRow fila = dgvRegistros.SelectedRows[0];
+
+            if (fila.IsNewRow || fila.Cells["IdVehiculo"].Value == null || fila.Cells["IdVehiculo"].Value == DBNull.Value)
+            {
+                MessageBox.Show("Por favor, seleccioná un registro válido para borrar.",
+                              "Advertencia",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Warning);
+                return;
+            }
+
+            int idVehiculo;
+            if (!int.TryParse(fila.Cells["IdVehiculo"].Value.ToString(), out idVehiculo))
+            {
+                MessageBox.Show("El ID del vehículo no es válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string patente = fila.Cells["Patente"].Value?.ToString() ?? "sin patente";
+
+            var confirm = MessageBox.Show(
+                "¿Estás seguro de borrar este registro?",
+                "Confirmar borrado",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button1
+            );
+
+            if (confirm == DialogResult.Yes)
+            {
+                try
+                {
+                    bool eliminado = RegistroCAD.MarcarRegistroComoEliminado(idVehiculo);
+
+                    if (eliminado)
+                    {
+                        MessageBox.Show("Registros eliminados correctamente.",
+                                      "Éxito",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+
+                        CargarDataGridView(paginaActual);
+                        dgvRegistros.ClearSelection();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron registros para eliminar.",
+                                      "Información",
+                                      MessageBoxButtons.OK,
+                                      MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al eliminar registros: {ex.Message}",
+                                  "Error",
+                                  MessageBoxButtons.OK,
+                                  MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
-

@@ -42,6 +42,7 @@
             txtBuscar = new TextBox();
             btnManualRgstro = new Button();
             btnSnRgstro = new Button();
+            btnBorrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvRegistros).BeginInit();
             SuspendLayout();
             // 
@@ -233,6 +234,21 @@
             btnSnRgstro.UseVisualStyleBackColor = false;
             btnSnRgstro.Click += btnSnRgstro_Click;
             // 
+            // btnBorrar
+            // 
+            btnBorrar.BackColor = Color.FromArgb(200, 0, 0);
+            btnBorrar.FlatStyle = FlatStyle.Flat;
+            btnBorrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnBorrar.ForeColor = Color.FromArgb(51, 51, 51);
+            btnBorrar.Location = new Point(1023, 175);
+            btnBorrar.Margin = new Padding(3, 2, 3, 2);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new Size(139, 60);
+            btnBorrar.TabIndex = 132;
+            btnBorrar.Text = "Borrar";
+            btnBorrar.UseVisualStyleBackColor = false;
+            btnBorrar.Click += btnBorrar_Click;
+            // 
             // Registros
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -242,6 +258,7 @@
             BackgroundImage = Properties.Resources.bg1;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1184, 722);
+            Controls.Add(btnBorrar);
             Controls.Add(btnManualRgstro);
             Controls.Add(btnSnRgstro);
             Controls.Add(txtBuscar);
@@ -282,5 +299,6 @@
         private TextBox txtBuscar;
         private Button btnManualRgstro;
         private Button btnSnRgstro;
+        private Button btnBorrar;
     }
 }
